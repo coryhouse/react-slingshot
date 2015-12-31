@@ -37,26 +37,6 @@ It takes a few different tools to make Node run smoothly on Windows. **You only 
 ###Why does this exist?
 This starter kit implements best practices like testing, minification, bundling, and so on. It codifies a long list of decisions that you no longer have to make to get rolling. It also saves you from the long, painful process of wiring it all together into an automated dev environment.
 
-###Can you explain the folder structure?
-**Note that the files that start with a dot below will be hidden by default in Windows.** [Here's how to see them](http://windows.microsoft.com/en-us/windows/show-hidden-files#show-hidden-files=windows-7). Or type `ls -la` in Git Bash.
-
-**/actions** - Redux actions. List of distinct actions that can occur in the app.  
-**/businessLogic** - Plain old JavaScript objects. Strive to place as much of your code here as you can (easier to test, framework agnostic). These are like POCOs, but JS.  
-**/components** - React components  
-**/constants** - Application constants  
-**/containers** - Redux app container  
-**/reducers** - Redux reducers  
-**/store** - Redux store configuration  
-**/styles** - Stylesheets  
-**/tools** - Node scripts that run build related tools.
-.babelrc - Babel configuration  
-.editorconfig - Editor configuration. Enforces standards like tabs/spaces across editors  
-.eslintrc - ESLint configuration  
-package.json - npm configuration. Lists npm packages  
-README.md - This file.  
-server.js - Development webserver configuration using BrowserSync and Webpack  
-webpack.config.js - Webpack config  
-
 ###What do the scripts in package.json do?
 Unfortunately, I can't comment the scripts in package.json inline because the JSON spec doesn't support comments, so I'm providing info on what each script in package.json does here.  
 
