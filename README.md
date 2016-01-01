@@ -1,6 +1,6 @@
 # React Slingshot!
 
-React is a lightweight library, so to build real apps, you need more. React Slingshot is a comprehensive framework for building fast, testable applications with React. It offers a rich development experience including:
+React Slingshot is a comprehensive framework for building fast, testable applications with React. It offers a rich development experience including:
 
 | **Tech** | **Description** |**Learn More**|
 |----------|-------|---|
@@ -19,26 +19,27 @@ The starter kit includes a working example app that puts all of the above to use
 
 ## Get Started
 1. **Initial Machine Setup**. First time running the starter kit? Then complete the [Initial Machine Setup](https://github.com/coryhouse/react-slingshot#initial-machine-setup).
-2. **Clone the project**: `git clone https://github.com/coryhouse/react-slingshot.git`.  
-3. **Install Node packages**: `npm install`
-4. **Run the example app**: `npm start`  
+2. **Clone the project**. `git clone https://github.com/coryhouse/react-slingshot.git`.  
+3. **Install Node packages**. `npm install`
+4. **Run the example app**. `npm start`  
 This will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, you'll want to keep the command line open at all times so that your code is rebuilt and tests run automatically every time you hit save. Note: The -s flag is optional. It enables silent mode which supresses unnecessary messages during the build.
 5. **Review the example app.** This starter kit includes a working example app that calculates fuel savings. Note how all source code is placed under /src. Tests are placed alongside the file under test. The final built app is placed under /dist. These are the files you run in production.
 6. **Delete the example app files.** Once you're comfortable with how the example app works, you can [delete those files and begin creating your own app](https://github.com/coryhouse/vin-javascript-starter-kit#i-just-want-an-empty-starter-kit). You can always refer to this repo for the example app code that you deleted.
 
 ##Initial Machine Setup
-It takes a few different tools to make Node run smoothly on Windows. **You only have to do this once**.  
 1. **Install [Node](https://nodejs.org)**.  
 2. **Install [Git](https://git-scm.com/downloads)**.  
+
+On Windows? It requires additional tools to assure things run smoothly on Windows:
 3. **Install [Python 2.7](https://www.python.org/downloads/)**. Browser-sync (and various other Node modules) rely on node-gyp, which requires Python on Windows.  
-4. **Install C++ Compiler**. Open Visual Studio and go to File -> New -> Project -> Visual C++ -> Install Visual C++ Tools for Windows Desktop. This C++ compiler is used to compile browser-sync (and various other Node modules).  
+4. **Install C++ Compiler**. [Visual Studio Express](https://www.visualstudio.com/en-US/products/visual-studio-express-vs) comes bundled with a free C++ compiler. Or, if you already have Visual Studio installed: Open Visual Studio and go to File -> New -> Project -> Visual C++ -> Install Visual C++ Tools for Windows Desktop. The C++ compiler is used to compile browser-sync (and perhaps other Node modules).
 
 ##FAQ
 ###Why does this exist?
 This starter kit implements best practices like testing, minification, bundling, and so on. It codifies a long list of decisions that you no longer have to make to get rolling. It also saves you from the long, painful process of wiring it all together into an automated dev environment.
 
 ###What do the scripts in package.json do?
-Unfortunately, I can't comment the scripts in package.json inline because the JSON spec doesn't support comments, so I'm providing info on what each script in package.json does here.  
+Unfortunately, scripts in package.json can't be commented inline because the JSON spec doesn't support comments, so I'm providing info on what each script in package.json does here.  
 
 | **Script** | **Description** |
 |----------|-------|
