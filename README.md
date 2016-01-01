@@ -57,9 +57,6 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 | build | Bundles all JavaScript using webpack and writes it to /dist. |
 | build:verbose | Same as above, but verbose so you can see all the details happening including warnings. |
 | test" | Runs tests (files ending in .spec.js) using Mocha and outputs results to the command line. Watches all files so tests are re-run upon save. |
-| coverage-es5 | Displays code coverage data based on the resulting ES5 code that was compiled by Babel. Writes report to /coverage. This makes it slightly less accurate than the script below, but it seems to provide better error feedback, so leaving here to help with debugging. Suggest normally running coverage-es6 script. |
-| coverage-es6 | Displays code coverage data on your original source code. Writes report to /coverage. |
-| open-coverage | Runs the code coverage and then opens it in your default browser. |
 
 ### I just want an empty starter kit.
 This starter kit includes an example app so you can see how everything hangs together on a real app. To create an empty project, you can delete the following:  
