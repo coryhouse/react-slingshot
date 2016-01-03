@@ -17,6 +17,7 @@
   },
   "rules": {
     "quotes": 0,
+    "no-debugger": 1,
     "semi": [1, "always"],
     "no-trailing-spaces": 0,
     "eol-last": 0,
@@ -33,7 +34,7 @@
     "react/jsx-indent-props": [1, "tab"],
     "react/jsx-key": 1,
     "react/jsx-max-props-per-line": 0,
-    "react/jsx-no-bind": 1,
+    "react/jsx-no-bind": 0,
     "react/jsx-no-duplicate-props": 1,
     "react/jsx-no-literals": 0,
     "react/jsx-no-undef": 1,
