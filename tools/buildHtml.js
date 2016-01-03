@@ -14,11 +14,13 @@ fs.readFile('src/index.html', 'utf8', function (err,data) {
     return console.log(err.bold.red);
   }
 
+  var trackJsCode = '';
+
   if (useTrackJs) {
     if (trackJsToken) {
       trackJsCode = "<!-- BEGIN TRACKJS Note: This should be the first <script> on the page per https://my.trackjs.com/install --><script>window._trackJs = { token: '" + trackJsToken + "' };</script><script src=https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js></script><!-- END TRACKJS -->";
     } else {
-      console.log('To track JavaScript errors, sign up for a free trial at TrackJS.com and enter your token in /tools/build.html on line 8.'.yellow);
+      console.log('To track JavaScript errors, sign up for a free trial at TrackJS.com and enter your token in /tools/build.html on line 10.'.yellow);
     }
   }
 

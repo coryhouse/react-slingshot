@@ -24,7 +24,7 @@ const initialState = {
 //create a copy of the state passed and set new values on the copy.
 //Note that I'm using Object.assign to create a copy of current state
 //and update values on the copy.
-export default function fuelSavings(state = initialState, action) {
+export default function fuelSavingsAppState(state = initialState, action) {
 	switch (action.type) {
 		case SAVE_FUEL_SAVINGS:
 			//in a real app we'd trigger an AJAX call here. For this example, just simulating a save by changing date modified.

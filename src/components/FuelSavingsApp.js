@@ -22,11 +22,11 @@ class FuelSavingsCalculatorForm extends React.Component {
   }
 
   save() {
-    this.props.actions.saveFuelSavings(this.props.fuelSavings);
+    this.props.actions.saveFuelSavings(this.props.fuelSavingsAppState);
   }
 
   render() {
-    let settings = this.props.fuelSavings;
+    let settings = this.props.fuelSavingsAppState;
 
     return (
       <div>
@@ -78,7 +78,7 @@ class FuelSavingsCalculatorForm extends React.Component {
 
 FuelSavingsCalculatorForm.propTypes = {
   actions: PropTypes.object.isRequired,
-  fuelSavings: PropTypes.object.isRequired
+  fuelSavingsAppState: PropTypes.object.isRequired
 };
 
 export default FuelSavingsCalculatorForm;
