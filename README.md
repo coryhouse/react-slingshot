@@ -31,7 +31,7 @@ This will run the automated build process, start up a webserver, and open the ap
 1. **Install [Node](https://nodejs.org)**.  
 2. **Install [Git](https://git-scm.com/downloads)**.  
 
-On Windows? It requires additional tools to assure things run smoothly on Windows:  
+On Windows? It requires additional tools:  
 3. **Install [Python 2.7](https://www.python.org/downloads/)**. Browser-sync (and various other Node modules) rely on node-gyp, which requires Python on Windows.  
 4. **Install C++ Compiler**. [Visual Studio Express](https://www.visualstudio.com/en-US/products/visual-studio-express-vs) comes bundled with a free C++ compiler. Or, if you already have Visual Studio installed: Open Visual Studio and go to File -> New -> Project -> Visual C++ -> Install Visual C++ Tools for Windows Desktop. The C++ compiler is used to compile browser-sync (and perhaps other Node modules).
 
