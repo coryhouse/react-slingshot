@@ -31,7 +31,7 @@ This will run the automated build process, start up a webserver, and open the ap
 1. **Install [Node](https://nodejs.org)**.  
 2. **Install [Git](https://git-scm.com/downloads)**.  
  
-**On Linux?** Run this to [increase the limit on the number of files you can watch](http://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc). [Here's why](https://github.com/coryhouse/react-slingshot/issues/6): 
+**On Linux?** Run this to [increase the limit](http://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc) on the number of files Linux will watch]. [Here's why](https://github.com/coryhouse/react-slingshot/issues/6).    
 `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p` 
 
 **On Windows?** It requires additional tools:  
