@@ -83,6 +83,8 @@ Streamlined automated testing is a core feature of this starter kit. All tests a
 + Easy to create new test files when creating new source files.
 + Short import paths are easy to type and less brittle.
 + As files are moved, it's easy to move tests alongside.
++ 
+That said, you can of course place your tests under /test instead, which is the Mocha default. If you do, you can simplify the test script to no longer specify the path. Then Mocha will simply look in /test to find your spec files.
 
 ### How do I view code coverage?
 Code coverage is calculated and reported via Istanbul. To view your current code coverage, run `npm run open-coverage`. This will open a tab in your default browser which displays code coverage statistics. You can optionally update the npm script config to run your code coverage on the command line each time you hit save.
