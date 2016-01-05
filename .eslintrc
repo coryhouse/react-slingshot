@@ -59,7 +59,5 @@
     "react/wrap-multilines": 1
   },
   "globals": {
-    "jQuery": true,
-    "$": true
   }
 }
