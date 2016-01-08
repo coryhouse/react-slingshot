@@ -4,7 +4,7 @@
   "description": "Starter kit for creating apps with React and Redux",
   "scripts": {
     "prestart": "npm run remove-dist",
-    "start": "parallelshell \"npm run test\" \"npm run open\"",
+    "start": "parallelshell \"npm run test:watch\" \"npm run open\"",
     "open": "node tools/server.js",
     "lint": "eslint src",
     "lint:watch": "watch 'npm run lint' src",
@@ -14,9 +14,10 @@
     "build:html": "node tools/buildHtml.js",
     "build:sass": "node-sass --quiet --output dist/styles src/styles/styles.scss --source-map true --output-style compressed",
     "prebuild": "npm run clean-dist && npm run build:html && npm run build:sass",
-    "build": "npm run build:verbose -- -s",
+    "build": "npm run test && npm run build:verbose -- -s",
     "build:verbose": "node tools/build.js",
-    "test": "cross-env NODE_ENV=test mocha --watch --reporter progress --compilers js:babel/register --recursive \"./src/**/*.spec.js\""
+    "test": "cross-env NODE_ENV=test mocha --reporter progress --compilers js:babel/register --recursive \"./src/**/*.spec.js\"",
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Cory House",
   "license": "MIT",
