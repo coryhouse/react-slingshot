@@ -54,7 +54,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 | lint | Runs ESLint. |
 | lint:watch | Runs ESLint and watches all files so that they are automatically linted upon save. |
 | clean-dist | Removes everything from the dist folder. |
-| remove-dist | Deletes the dist folder |
+| remove-dist | Deletes the dist folder. |
 | create-dist | Creates the dist folder and the necessary subfolders. |
 | build:html | Adds trackJS tracking script and copies to /dist. |
 | build:sass | Compiles SASS, minifies, generates sourcemap, and stores in /dist. |
