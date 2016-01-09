@@ -41,7 +41,7 @@ Run this to [increase the limit](http://stackoverflow.com/questions/16748737/gru
 
 ##FAQ
 ###Why does this exist?
-This starter kit implements best practices like testing, minification, bundling, and so on. It codifies a long list of decisions that you no longer have to make to get rolling. It also saves you from the long, painful process of wiring it all together into an automated dev environment and build process. It's also useful simply as inspiration on ideas you might want to integrate into your current build process.
+This starter kit implements best practices like testing, minification, bundling, and so on. It codifies a long list of decisions that you no longer have to make to get rolling. It saves you from the long, painful process of wiring it all together into an automated dev environment and build process. It's also useful simply as inspiration on ideas you might want to integrate into your current build process.
 
 ###What do the scripts in package.json do?
 Unfortunately, scripts in package.json can't be commented inline because the JSON spec doesn't support comments, so I'm providing info on what each script in package.json does here.  
