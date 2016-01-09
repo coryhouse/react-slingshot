@@ -57,5 +57,5 @@ module.exports = function getConfig(env) {
     module: {
       loaders: getLoaders(env)
     }
-  }
+  };
 };
