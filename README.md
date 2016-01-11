@@ -48,7 +48,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 
 | **Script** | **Description** |
 |----------|-------|
-| prestart | Runs automatically before start. Calls remove-dist script which deletes the dist folder. This helps remind you to run the build script before committing since the dist folder will be deleted if you dont. ;) |
+| prestart | Runs automatically before start. Calls remove-dist script which deletes the dist folder. This helps remind you to run the build script before committing since the dist folder will be deleted if you don't. ;) |
 | start | Runs tests, lints, starts dev webserver, and opens the app in your default browser. |
 | open | Opens the app in your default browser. |
 | lint | Runs ESLint. |
