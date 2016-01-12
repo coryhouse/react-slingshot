@@ -29,7 +29,9 @@ This will run the automated build process, start up a webserver, and open the ap
 
 ##Initial Machine Setup
 1. **Install [Node](https://nodejs.org)**.  
-2. **Install [Git](https://git-scm.com/downloads)**.  
+2. **Install [Git](https://git-scm.com/downloads)**. 
+3. On a Mac? You're all set. If you're on Linux or Windows, complete the steps for your OS below.  
+
  
 **On Linux:**  
 Run this to [increase the limit](http://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc) on the number of files Linux will watch. [Here's why](https://github.com/coryhouse/react-slingshot/issues/6).    
