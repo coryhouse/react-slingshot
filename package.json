@@ -4,8 +4,9 @@
   "description": "Starter kit for creating apps with React and Redux",
   "scripts": {
     "prestart": "npm run remove-dist",
-    "start": "parallelshell \"npm run test:watch\" \"npm run open\"",
-    "open": "node tools/server.js",
+    "start": "parallelshell \"npm run test:watch\" \"npm run open:src\"",
+    "open:src": "node tools/srcServer.js",
+    "open:dist": "node tools/distServer.js",
     "lint": "eslint src",
     "lint:watch": "watch 'npm run lint' src",
     "clean-dist": "npm run remove-dist && npm run create-dist",
@@ -14,8 +15,7 @@
     "build:html": "node tools/buildHtml.js",
     "build:sass": "node-sass --quiet --output dist/styles src/styles/styles.scss --source-map true --output-style compressed",
     "prebuild": "npm run clean-dist && npm run build:html && npm run build:sass",
-    "build": "npm run test && npm run build:verbose -- -s",
-    "build:verbose": "node tools/build.js",
+    "build": "npm run test && node tools/build.js && npm run open:dist",
     "test": "cross-env NODE_ENV=test mocha --reporter progress --compilers js:babel/register --recursive \"./src/**/*.spec.js\"",
     "test:watch": "npm run test -- --watch"
   },
