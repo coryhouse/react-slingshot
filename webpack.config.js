@@ -5,7 +5,15 @@ var webpack = require('webpack');
 var path = require('path');
 
 var getPlugins = function(env) {
-  var plugins = [new webpack.optimize.OccurenceOrderPlugin()];
+  var GLOBALS = {
+    'process.env.NODE_ENV': JSON.stringify(env),
+    __DEV__: env == 'development'
+  };
+
+  var plugins = [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.DefinePlugin(GLOBALS) //Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
+  ];
 
   switch(env) {
     case 'production':
