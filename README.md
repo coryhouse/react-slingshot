@@ -31,7 +31,6 @@ This will run the automated build process, start up a webserver, and open the ap
 1. **Install [Node](https://nodejs.org)**.  
 2. **Install [Git](https://git-scm.com/downloads)**. 
 3. On a Mac? You're all set. If you're on Linux or Windows, complete the steps for your OS below.  
-
  
 **On Linux:**  
 Run this to [increase the limit](http://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc) on the number of files Linux will watch. [Here's why](https://github.com/coryhouse/react-slingshot/issues/6).    
@@ -111,3 +110,6 @@ Before committing, type `npm run build`. This will setup the project for product
 
 ### I'm getting an error when running npm install: Failed to locate "CL.exe"
 On Windows, you need to install extra dependencies for browser-sync to build and install successfully. Follow the getting started steps above to assure you have the necessary dependencies on your machine.
+
+### I can't access the external URL for Browsersync
+To hit the external URL, all devices must be on the same LAN. So this means your dev machine needs to be on Wifi (since you likely can't connect any tablet or phone to Ethernet. If you dev machine is on wired ethernet, it's on a separate LAN from the Wifi so the two devices won't be able to communicate.
