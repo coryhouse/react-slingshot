@@ -17,6 +17,7 @@
   },
   "rules": {
     "quotes": 0,
+    "no-console": 1,
     "no-debugger": 1,
     "semi": [1, "always"],
     "no-trailing-spaces": 0,
