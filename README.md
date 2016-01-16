@@ -112,4 +112,4 @@ Before committing, type `npm run build`. This will setup the project for product
 On Windows, you need to install extra dependencies for browser-sync to build and install successfully. Follow the getting started steps above to assure you have the necessary dependencies on your machine.
 
 ### I can't access the external URL for Browsersync
-To hit the external URL, all devices must be on the same LAN. So this means your dev machine needs to be on Wifi (since you likely can't connect any tablet or phone to Ethernet). If you dev machine is on wired ethernet, it's on a separate LAN from the Wifi so the two devices won't be able to communicate.
+To hit the external URL, all devices must be on the same LAN. So this may mean your dev machine needs to be on the same Wifi as the mobile devices you're testing.
