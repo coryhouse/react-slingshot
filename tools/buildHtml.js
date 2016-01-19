@@ -11,7 +11,7 @@ var trackJsToken = ''; //If you choose to use TrackJS, insert your unique token 
 
 fs.readFile('src/index.html', 'utf8', function (err,data) {
   if (err) {
-    return console.log(err.bold.red);
+    return console.log(err);
   }
 
   var trackJsCode = '';
@@ -28,7 +28,7 @@ fs.readFile('src/index.html', 'utf8', function (err,data) {
   $('head').prepend(trackJsCode); //add TrackJS tracking code to the top of <head>
 
   fs.writeFile('dist/index.html', $.html(), 'utf8', function (err) {
-    if (err) return console.log(err.red);
+    if (err) return console.log(err);
   });
 
   console.log('index.html written to /dist'.green);
