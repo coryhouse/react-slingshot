@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import FuelSavingsApp from '../components/FuelSavingsApp';
 import * as FuelSavingsActions from '../actions/fuelSavingsActions';
-import DevTools from './DevTools';
 
 class App extends React.Component {
   render() {
