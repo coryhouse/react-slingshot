@@ -14,7 +14,6 @@ class App extends React.Component {
     return (
       <div>
         <FuelSavingsApp fuelSavingsAppState={fuelSavingsAppState} actions={actions} />
-        <DevTools />
       </div>
     );
   }
