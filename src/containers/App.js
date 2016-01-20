@@ -11,7 +11,9 @@ class App extends React.Component {
     const { fuelSavingsAppState, actions } = this.props;
 
     return (
+      <div>
         <FuelSavingsApp fuelSavingsAppState={fuelSavingsAppState} actions={actions} />
+      </div>
     );
   }
 }
