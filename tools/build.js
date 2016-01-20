@@ -14,7 +14,7 @@ webpack(webpackConfig).run(function(err, stats) {
   if (!inSilentMode) console.log('Generating minified bundle for production use via Webpack...'.bold.blue);
 
   if (err) { //so a fatal error occurred. Stop here.
-    console.log(error.bold.red);
+    console.log(err.bold.red);
     return 1;
   }
 
