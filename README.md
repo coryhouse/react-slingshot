@@ -64,6 +64,36 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 | build:verbose | Same as above, but verbose so you can see all the details happening including warnings. |
 | test | Runs tests (files ending in .spec.js) using Mocha and outputs results to the command line. Watches all files so tests are re-run upon save. |
 
+###Can you explain the file structure?
+```
+.
+├── .babelrc                  # Configures Babel
+├── .editorconfig             # Conigures editor rules
+├── .eslintrc                 # Configures ESLint
+├── .gitignore                # Tells git which files to ignore
+├── README.md                 # This file.
+├── dist                      # Folder where the build script places the built app. Use this in prod.
+├── package.json              # Package configuration. The list of 3rd party libraries and utilities
+├── src                       # Source code
+│   ├── actions               # Flux/Redux actions. List of distinct actions that can occur in the app.  
+│   ├── businessLogic         # Plain old JS objects (POJOs). Pure logic. No framework specific code here.
+│   ├── components            # React components
+│   ├── constants             # Application constants including constants for Redux
+│   ├── containers            # App container for Redux
+│   ├── favicon.ico           # favicon to keep your browser from throwing a 404 during dev. Not actually used in prod build.
+│   ├── index.html            # Start page 
+│   ├── index.js              # Entry point for your app
+│   ├── reducers              # Redux reducers. Your state is altered here based on actions
+│   ├── store                 # Redux store configuration
+│   └── styles                # CSS Styles, typically written in Sass
+├── tools                     # Node scripts that run build related tools
+│   ├── build.js              # Runs the production build
+│   ├── buildHtml.js          # Builds index.html
+│   ├── distServer.js         # Starts webserver and opens final built app that's in dist in your default browser
+│   ├── srcServer.js          # Starts dev webserver with hot reloading and opens your app in your default browser
+└── webpack.config.js         # Configures webpack
+```
+
 ### I just want an empty starter kit.
 This starter kit includes an example app so you can see how everything hangs together on a real app. To create an empty project, you can delete the following:  
 1. Components in src/components  
