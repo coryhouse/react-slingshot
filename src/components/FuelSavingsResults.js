@@ -11,7 +11,7 @@ const FuelSavingsResults = (props) => {
     const resultLabel = savingsExist ? 'Savings' : 'Loss';
 
     //You can even exclude the return statement below if the entire component is
-    //composed within the parenthesies. Return is necessary here because some
+  //composed within the parentheses. Return is necessary here because some
     //variables are set above.
     return (
         <table>
