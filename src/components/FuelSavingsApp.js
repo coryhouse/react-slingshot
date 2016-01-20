@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import FuelSavingsResults from './FuelSavingsResults';
 import FuelSavingsTextInput from './FuelSavingsTextInput';
 
-const FuelSavingsCalculatorForm = (props) => {
+const FuelSavingsApp = (props) => {
   const save = function () {
     props.actions.saveFuelSavings(props.fuelSavingsAppState);
   };
@@ -64,9 +64,9 @@ const FuelSavingsCalculatorForm = (props) => {
   );
 };
 
-FuelSavingsCalculatorForm.propTypes = {
+FuelSavingsApp.propTypes = {
   actions: PropTypes.object.isRequired,
   fuelSavingsAppState: PropTypes.object.isRequired
 };
 
-export default FuelSavingsCalculatorForm;
+export default FuelSavingsApp;
