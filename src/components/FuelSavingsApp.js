@@ -2,28 +2,19 @@ import React, {PropTypes} from 'react';
 import FuelSavingsResults from './FuelSavingsResults';
 import FuelSavingsTextInput from './FuelSavingsTextInput';
 
-function buildFuelSavingsKeypress(props) {
-  return function fuelSavingsKeypress(name, value) {
-    props.actions.calculateFuelSavings(props, name, value);
-  };
-}
-
-function buildOnTimeframeChange(props) {
-  return function onTimeframeChange(e) {
-    props.actions.calculateFuelSavings(props, 'milesDrivenTimeframe', e.target.value);
-  };
-}
-
-function buildSave(props) {
-  return function save() {
+const FuelSavingsCalculatorForm = (props) => {
+  const save = function () {
     props.actions.saveFuelSavings(props.fuelSavingsAppState);
   };
-}
 
-const FuelSavingsCalculatorForm = (props) => {
-  const fuelSavingsKeypress = buildFuelSavingsKeypress(props);
-  const onTimeframeChange = buildOnTimeframeChange(props);
-  const save = buildSave(props);
+  const onTimeframeChange = function (e) {
+    props.actions.calculateFuelSavings(props, 'milesDrivenTimeframe', e.target.value);
+  };
+
+  const fuelSavingsKeypress = function (name, value) {
+    props.actions.calculateFuelSavings(props, name, value);
+  };
+
   const settings = props.fuelSavingsAppState;
 
   return (
