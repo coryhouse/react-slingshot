@@ -32,7 +32,11 @@ var getPlugins = function(env) {
 var getLoaders = function(env) {
   var loaders = [
     { test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel', 'eslint'] },
-    { test: /(\.css|\.scss)$/, include: path.join(__dirname, 'src'), loaders: ['style', 'css', 'sass'] }
+    {
+      test: /(\.css|\.scss)$/,
+      include: path.join(__dirname, 'src'),
+      loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+    }
   ];
 
   return loaders;
@@ -57,8 +61,8 @@ module.exports = function getConfig(env) {
     entry: getEntry(env),
     target: env == 'test' ? 'node' : 'web', //necessary per https://webpack.github.io/docs/testing.html#compile-and-test
     output: {
-      path: __dirname + '/dist/js',
-      publicPath: '/js/',
+      path: __dirname + '/dist', //Note: Physical files are only output by the production build task `npm run build`.
+      publicPath: '',
       filename: 'bundle.js'
     },
     plugins: getPlugins(env),

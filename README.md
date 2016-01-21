@@ -94,6 +94,19 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 └── webpack.config.js         # Configures webpack
 ```
 
+
+###Where are the files being served from when I run `npm start`?
+Webpack serves your app in memory when you run `npm start`. No physical files are written. However, the web root is /src, so you can reference files under /src in index.html. When the app is built using `npm run build`, the app is served from the /dist directory.
+
+###How is Sass being converted into CSS and landing in the browser?
+Magic! Okay, more specifically: Webpack handles it like this:
+ 1. The sass-loader compiles Sass into CSS
+ 2. Webpack bundles the compiled CSS into bundle.js. Sounds odd, but it works! 
+ 3. Loads styles into the <head> of index.html via JavaScript. This is why you don't see a stylesheet reference in index.html. In fact, if you disable JavaScript in your browser, you'll see the styles don't load either. This process is performed for both dev (`npm start`) and production (`npm run build`). Oh, and since we're generating source maps, you can even see the original Sass source in [compatible browsers](http://thesassway.com/intermediate/using-source-maps-with-sass).
+ 
+###I don't like the magic you just described above. I simply want to use a CSS file.
+No problem. Reference your CSS file in index.html, and add a step to the build process to copy your CSS file over to the same relative location /dist as part of the build step. But be forwarned, you lose style hot reloading with this approach.
+
 ### I just want an empty starter kit.
 This starter kit includes an example app so you can see how everything hangs together on a real app. To create an empty project, you can delete the following:  
 1. Components in src/components  
