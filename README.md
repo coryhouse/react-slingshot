@@ -1,6 +1,6 @@
 # React Slingshot!
 
-React Slingshot is a comprehensive framework for rapid application development using React. It offers a rich development experience including:
+React Slingshot is a comprehensive starter kit for rapid application development using React. It offers a rich development experience including:
 
 | **Tech** | **Description** |**Learn More**|
 |----------|-------|---|
