@@ -25,7 +25,7 @@ The starter kit includes a working example app that puts all of the above to use
 4. **Run the example app**. `npm start -s`  
 This will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, you'll want to keep the command line open at all times so that your code is rebuilt and tests run automatically every time you hit save. Note: The -s flag is optional. It enables silent mode which suppresses unnecessary messages during the build.
 5. **Review the example app.** This starter kit includes a working example app that calculates fuel savings. Note how all source code is placed under /src. Tests are placed alongside the file under test. The final built app is placed under /dist. These are the files you run in production.
-6. **Delete the example app files.** Once you're comfortable with how the example app works, you can [delete those files and begin creating your own app](https://github.com/coryhouse/react-slingshot#i-just-want-an-empty-starter-kit). You can always refer to this repo for the example app code that you deleted.
+6. **Delete the example app files.** Once you're comfortable with how the example app works, you can [delete those files and begin creating your own app](https://github.com/coryhouse/react-slingshot#i-just-want-an-empty-starter-kit).
 
 ##Initial Machine Setup
 1. **Install [Node](https://nodejs.org)**.  
@@ -111,6 +111,12 @@ Nope. Redux is useful for applications with more complex data flows. If your app
 
 In main.js, reference your top level component (instead of Redux's root container at ./containers/root).
 
+### How do I deploy this?
+`npm run build`. This will build the project for production. It does the following:
+* Minifies all JS
+* Sets NODE_ENV to prod so that React is built in production mode
+* Places the resulting built project files into /dist. (This is the folder you'll expose to the world).
+
 ### Why are test files placed alongside the file under test (instead of centralized)? 
 Streamlined automated testing is a core feature of this starter kit. All tests are placed in files that end in .spec.js. Spec files are placed in the same directory as the file under test. Why?
 + The existence of tests is highly visible. If a corresponding .spec file hasn't been created, it's obvious.
@@ -131,12 +137,6 @@ Also note that no actual physical files are written to the filesystem during the
 1. Browsers vary in the way they allow you to view the original source. Chrome automatically shows the original source if a sourcemap is available. Safari, in contrast, will display the minified source and you'll [have to cmd+click on a given line to be taken to the original source](http://stackoverflow.com/questions/19550060/how-do-i-toggle-source-mapping-in-safari-7).  
 2. Do **not** enable serving files from your filesystem in Chrome dev tools. If you do, Chrome (and perhaps other browsers) may not show you the latest version of your code after you make a source code change. Instead **you must close the source view tab you were using and reopen it to see the updated source code**. It appears Chrome clings to the old sourcemap until you close and reopen the source view tab. To clarify, you don't have to close the actual tab that is displaying the app, just the tab in the console that's displaying the source file that you just changed.  
 3. If the latest source isn't displaying the console, force a refresh. Sometimes Chrome seems to hold onto a previous version of the sourcemap which will cause you to see stale code.
-
-### How do I deploy this?
-Before committing, type `npm run build`. This will setup the project for production. It does the following:
-* Minifies all JS
-* Sets NODE_ENV to prod so that React is built in production mode
-* Places the resulting built project files into /dist. (This is the folder you'll expose to the world).
 
 ### I'm getting an error when running npm install: Failed to locate "CL.exe"
 On Windows, you need to install extra dependencies for browser-sync to build and install successfully. Follow the getting started steps above to assure you have the necessary dependencies on your machine.
