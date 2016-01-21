@@ -143,3 +143,6 @@ On Windows, you need to install extra dependencies for browser-sync to build and
 
 ### I can't access the external URL for Browsersync
 To hit the external URL, all devices must be on the same LAN. So this may mean your dev machine needs to be on the same Wifi as the mobile devices you're testing.
+
+###What about the Redux Devtools?
+They're not included at this time to keep the project simple. If you're interested, Barry Staes created a [branch with the devtools incorporated](https://github.com/coryhouse/react-slingshot/pull/27).
