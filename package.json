@@ -1,6 +1,6 @@
 {
   "name": "react-slingshot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Starter kit for creating apps with React and Redux",
   "scripts": {
     "prestart": "npm run remove-dist",
