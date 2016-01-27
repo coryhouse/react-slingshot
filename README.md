@@ -94,7 +94,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 
 
 ###Where are the files being served from when I run `npm start`?
-Webpack serves your app in memory when you run `npm start`. No physical files are written. However, the web root is /src, so you can reference files under /src in index.html. When the app is built using `npm run build`, the app is served from the /dist directory.
+Webpack serves your app in memory when you run `npm start`. No physical files are written. However, the web root is /src, so you can reference files under /src in index.html. When the app is built using `npm run build`, physical files are written to /dist and the app is served from /dist.
 
 ###How is Sass being converted into CSS and landing in the browser?
 Magic! Okay, more specifically: Webpack handles it like this:
