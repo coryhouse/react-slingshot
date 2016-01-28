@@ -40,6 +40,21 @@ var getEntry = function(env) {
   return entry;
 };
 
+var getLoaders = function () {
+  return [
+    {
+      test: /\.js$/,
+      include: path.join(__dirname, 'src'),
+      loaders: ['babel', 'eslint']
+    },
+    {
+      test: /(\.css|\.scss)$/,
+      include: path.join(__dirname, 'src'),
+      loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+    }
+  ]
+};
+
 module.exports = function getConfig(env) {
   return {
     debug: true,
@@ -54,14 +69,7 @@ module.exports = function getConfig(env) {
     },
     plugins: getPlugins(env),
     module: {
-      loaders: [
-        {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel', 'eslint']},
-        {
-          test: /(\.css|\.scss)$/,
-          include: path.join(__dirname, 'src'),
-          loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
-        }
-      ]
+      loaders: getLoaders()
     }
   };
 };
