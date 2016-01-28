@@ -3,6 +3,10 @@
 // when useTrackJs is set to true below and a trackJsToken is provided.
 // This is a good example of using Node and cheerio to do a simple file transformation.
 // In this case, the transformation is useful since we only want to track errors in the built production code.
+
+// Allowing console calls below since this is a build file.
+/*eslint-disable no-console */
+
 var fs = require('fs');
 var colors = require('colors');
 var cheerio = require('cheerio');
