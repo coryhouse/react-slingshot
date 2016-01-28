@@ -28,7 +28,8 @@ const initialState = {
 export default function fuelSavingsAppState(state = initialState, action) {
 	switch (action.type) {
 		case SAVE_FUEL_SAVINGS:
-			//in a real app we'd trigger an AJAX call here. For this example, just simulating a save by changing date modified.
+      // For this example, just simulating a save by changing date modified.
+      // In a real app using Redux, you might use redux-thunk and handle the async call in fuelSavingsActions.js
 			return objectAssign({}, state, { dateModified: dateHelper.getFormattedDateTime(new Date()) });
 
 		case CALCULATE_FUEL_SAVINGS:
