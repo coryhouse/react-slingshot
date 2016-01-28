@@ -29,19 +29,6 @@ var getPlugins = function(env) {
   return plugins;
 };
 
-var getLoaders = function(env) {
-  var loaders = [
-    { test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel', 'eslint'] },
-    {
-      test: /(\.css|\.scss)$/,
-      include: path.join(__dirname, 'src'),
-      loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
-    }
-  ];
-
-  return loaders;
-};
-
 var getEntry = function(env) {
   var entry = [];
 
@@ -67,7 +54,14 @@ module.exports = function getConfig(env) {
     },
     plugins: getPlugins(env),
     module: {
-      loaders: getLoaders(env)
+      loaders: [
+        {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel', 'eslint']},
+        {
+          test: /(\.css|\.scss)$/,
+          include: path.join(__dirname, 'src'),
+          loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+        }
+      ]
     }
   };
 };
