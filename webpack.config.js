@@ -3,6 +3,7 @@
 // file generates a webpack config for the environment passed to the getConfig method.
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var getPlugins = function(env) {
   var GLOBALS = {
@@ -17,6 +18,7 @@ var getPlugins = function(env) {
 
   switch(env) {
     case 'production':
+      plugins.push(new ExtractTextPlugin('styles.css'));
       plugins.push(new webpack.optimize.DedupePlugin());
       plugins.push(new webpack.optimize.UglifyJsPlugin({minimize: true, sourceMap: true}));
       break;
@@ -40,19 +42,25 @@ var getEntry = function(env) {
   return entry;
 };
 
-var getLoaders = function () {
-  return [
-    {
-      test: /\.js$/,
+var getLoaders = function (env) {
+  var loaders = [{test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel', 'eslint']}];
+
+  if (env == 'production') {
+    //generate separate physical stylesheet for production build using ExtractTextPlugin. This provides separate caching and avoids a flash of unstyled content on load.
+    loaders.push({
+      test: /(\.css|\.scss)$/,
       include: path.join(__dirname, 'src'),
-      loaders: ['babel', 'eslint']
-    },
-    {
+      loader: ExtractTextPlugin.extract("css?sourceMap!sass?sourceMap")
+    });
+  } else {
+    loaders.push({
       test: /(\.css|\.scss)$/,
       include: path.join(__dirname, 'src'),
       loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
-    }
-  ]
+    });
+  }
+
+  return loaders;
 };
 
 module.exports = function getConfig(env) {
@@ -69,7 +77,7 @@ module.exports = function getConfig(env) {
     },
     plugins: getPlugins(env),
     module: {
-      loaders: getLoaders()
+      loaders: getLoaders(env)
     }
   };
 };

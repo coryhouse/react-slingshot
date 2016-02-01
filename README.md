@@ -97,11 +97,22 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 Webpack serves your app in memory when you run `npm start`. No physical files are written. However, the web root is /src, so you can reference files under /src in index.html. When the app is built using `npm run build`, physical files are written to /dist and the app is served from /dist.
 
 ###How is Sass being converted into CSS and landing in the browser?
-Magic! Okay, more specifically: Webpack handles it like this:
+Magic! Okay, more specifically, we're handling it differently in dev (`npm start`) vs prod (`npm run build`)
+
+When you run `npm start`:
  1. The sass-loader compiles Sass into CSS
  2. Webpack bundles the compiled CSS into bundle.js. Sounds odd, but it works! 
- 3. Loads styles into the &lt;head&gt; of index.html via JavaScript. This is why you don't see a stylesheet reference in index.html. In fact, if you disable JavaScript in your browser, you'll see the styles don't load either. This process is performed for both dev (`npm start`) and production (`npm run build`). Oh, and since we're generating source maps, you can even see the original Sass source in [compatible browsers](http://thesassway.com/intermediate/using-source-maps-with-sass).
+ 3. bundle.js contains code that loads styles into the &lt;head&gt; of index.html via JavaScript. This is why you don't see a stylesheet reference in index.html. In fact, if you disable JavaScript in your browser, you'll see the styles don't load either.
  
+The approach above supports hot reloading, which is great for development. However, it also create a flash of unstyled content on load because you have to wait for the JavaScript to parse and load styles before they're applied. So for the production build, we use a different approach:
+
+When you run `npm run build`:
+ 1. The sass-loader compiles Sass into CSS
+ 2. The [extract-text-webpack-plugin](https://github.com/webpack/extract-text-webpack-plugin) extracts the compiled Sass into styles.css
+ 3. buildHtml.js adds a reference to the stylesheet to the head of index.html.
+ 
+For both of the above methods, a separate sourcemap is generated for debugging Sass in [compatible browsers](http://thesassway.com/intermediate/using-source-maps-with-sass).
+
 ###I don't like the magic you just described above. I simply want to use a CSS file.
 No problem. Reference your CSS file in index.html, and add a step to the build process to copy your CSS file over to the same relative location /dist as part of the build step. But be forwarned, you lose style hot reloading with this approach.
 
