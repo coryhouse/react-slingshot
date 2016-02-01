@@ -37,8 +37,8 @@ Run this to [increase the limit](http://stackoverflow.com/questions/16748737/gru
 `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p` 
 
 **On Windows:**  
-1. **Install [Python 2.7](https://www.python.org/downloads/)**. Browser-sync (and various other Node modules) rely on node-gyp, which requires Python on Windows.  
-2. **Install C++ Compiler**. [Visual Studio Express](https://www.visualstudio.com/en-US/products/visual-studio-express-vs) comes bundled with a free C++ compiler. Or, if you already have Visual Studio installed: Open Visual Studio and go to File -> New -> Project -> Visual C++ -> Install Visual C++ Tools for Windows Desktop. The C++ compiler is used to compile browser-sync (and perhaps other Node modules).
+ 1. **Install [Python 2.7](https://www.python.org/downloads/)**. Browser-sync (and various other Node modules) rely on node-gyp, which requires Python on Windows.  
+ 2. **Install C++ Compiler**. [Visual Studio Express](https://www.visualstudio.com/en-US/products/visual-studio-express-vs) comes bundled with a free C++ compiler. Or, if you already have Visual Studio installed: Open Visual Studio and go to File -> New -> Project -> Visual C++ -> Install Visual C++ Tools for Windows Desktop. The C++ compiler is used to compile browser-sync (and perhaps other Node modules).
 
 ##FAQ
 ###Why does this exist?
@@ -118,21 +118,21 @@ No problem. Reference your CSS file in index.html, and add a step to the build p
 
 ### I just want an empty starter kit.
 This starter kit includes an example app so you can see how everything hangs together on a real app. To create an empty project, you can delete the following:  
-1. Components in src/components  
-2. Styles in src/styles/styles.scss  
-3. Delete files in src/businessLogic  
+ 1. Components in src/components  
+ 2. Styles in src/styles/styles.scss  
+ 3. Delete files in src/businessLogic  
 
 Don't want to use Redux? See the next question for some steps on removing Redux.
 
 ### Do I have to use Redux?
 Nope. Redux is useful for applications with more complex data flows. If your app is simple, Redux is overkill. Remove Redux like this:
 
-1. Delete the following folders and their contents: actions, constants, reducers, containers, store
-2. Uninstall Redux related packages: `npm uninstall redux react-redux redux-thunk`
-3. Remove Redux related imports from /src/index.js: `import configureStore from './store/configureStore';`, `import App from './containers/App';` and `import { Provider } from 'react-redux';`
-4. Remove this line from /src/index.js: `const store = configureStore();`
-5. Delete components in /components and create a new empty component.
-6. Replace the call to `<Provider><App/></Provider>` in /src/index.js with a call to the new top level component you just created in step 5.
+ 1. Delete the following folders and their contents: actions, constants, reducers, containers, store
+ 2. Uninstall Redux related packages: `npm uninstall redux react-redux redux-thunk`
+ 3. Remove Redux related imports from /src/index.js: `import configureStore from './store/configureStore';`, `import App from './containers/App';` and `import { Provider } from 'react-redux';`
+ 4. Remove this line from /src/index.js: `const store = configureStore();`
+ 5. Delete components in /components and create a new empty component.
+ 6. Replace the call to `<Provider><App/></Provider>` in /src/index.js with a call to the new top level component you just created in step 5.
 
 ### How do I deploy this?
 `npm run build`. This will build the project for production. It does the following:
@@ -157,9 +157,9 @@ Since browsers don't currently support ES6, we're using Babel to compile our ES6
 Also note that no actual physical files are written to the filesystem during the dev build. **For performance, all files exist in memory when served from the webpack server.**. Physical files are only written when you run `npm run build`.
 
 **Tips for debugging via sourcemaps:**  
-1. Browsers vary in the way they allow you to view the original source. Chrome automatically shows the original source if a sourcemap is available. Safari, in contrast, will display the minified source and you'll [have to cmd+click on a given line to be taken to the original source](http://stackoverflow.com/questions/19550060/how-do-i-toggle-source-mapping-in-safari-7).  
-2. Do **not** enable serving files from your filesystem in Chrome dev tools. If you do, Chrome (and perhaps other browsers) may not show you the latest version of your code after you make a source code change. Instead **you must close the source view tab you were using and reopen it to see the updated source code**. It appears Chrome clings to the old sourcemap until you close and reopen the source view tab. To clarify, you don't have to close the actual tab that is displaying the app, just the tab in the console that's displaying the source file that you just changed.  
-3. If the latest source isn't displaying the console, force a refresh. Sometimes Chrome seems to hold onto a previous version of the sourcemap which will cause you to see stale code.
+ 1. Browsers vary in the way they allow you to view the original source. Chrome automatically shows the original source if a sourcemap is available. Safari, in contrast, will display the minified source and you'll [have to cmd+click on a given line to be taken to the original source](http://stackoverflow.com/questions/19550060/how-do-i-toggle-source-mapping-in-safari-7).  
+ 2. Do **not** enable serving files from your filesystem in Chrome dev tools. If you do, Chrome (and perhaps other browsers) may not show you the latest version of your code after you make a source code change. Instead **you must close the source view tab you were using and reopen it to see the updated source code**. It appears Chrome clings to the old sourcemap until you close and reopen the source view tab. To clarify, you don't have to close the actual tab that is displaying the app, just the tab in the console that's displaying the source file that you just changed.  
+ 3. If the latest source isn't displaying the console, force a refresh. Sometimes Chrome seems to hold onto a previous version of the sourcemap which will cause you to see stale code.
 
 ### I'm getting an error when running npm install: Failed to locate "CL.exe"
 On Windows, you need to install extra dependencies for browser-sync to build and install successfully. Follow the getting started steps above to assure you have the necessary dependencies on your machine.
