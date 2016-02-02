@@ -1,6 +1,6 @@
 {
   "name": "react-slingshot",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Starter kit for creating apps with React and Redux",
   "scripts": {
     "prestart": "npm run remove-dist",
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "babel": "5.8.23",
-    "babel-eslint": "4.1.6",
+    "babel-eslint": "4.1.7",
     "babel-loader": "5.1.4",
     "babel-plugin-react-display-name": "2.0.0",
     "babel-plugin-react-transform": "1.1.1",
