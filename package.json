@@ -5,14 +5,14 @@
   "scripts": {
     "prestart": "npm run remove-dist",
     "start": "parallelshell \"npm run lint:tools\" \"npm run test:watch\" \"npm run open:src\"",
-    "open:src": "node tools/srcServer.js",
-    "open:dist": "node tools/distServer.js",
+    "open:src": "babel-node tools/srcServer.js",
+    "open:dist": "babel-node tools/distServer.js",
     "lint:tools": "eslint webpack.config.js tools",
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "node_modules/.bin/rimraf ./dist",
-    "build:html": "node tools/buildHtml.js",
+    "build:html": "babel-node tools/buildHtml.js",
     "prebuild": "npm run clean-dist && npm run build:html",
-    "build": "npm run test && node tools/build.js && npm run open:dist",
+    "build": "npm run test && babel-node tools/build.js && npm run open:dist",
     "test": "cross-env NODE_ENV=test mocha --reporter progress --compilers js:babel/register --recursive \"./src/**/*.spec.js\"",
     "test:watch": "npm run test -- --watch"
   },
