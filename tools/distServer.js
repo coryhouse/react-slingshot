@@ -1,7 +1,7 @@
 // This file configures a web server for testing the production build
 // on your local machine.
 
-var browserSync = require('browser-sync');
+import browserSync from 'browser-sync';
 
 // Run Browsersync
 browserSync({

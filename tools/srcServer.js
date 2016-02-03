@@ -2,14 +2,14 @@
 // which supports hot reloading and synchronized testing.
 
 // Require Browsersync along with webpack and middleware for it
-var browserSync = require('browser-sync');
-var webpack = require('webpack');
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
-var webpackConfigBuilder = require('../webpack.config');
-var webpackConfig = webpackConfigBuilder('development');
+import browserSync from 'browser-sync';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpackConfigBuilder from '../webpack.config';
 
-var bundler = webpack(webpackConfig);
+const webpackConfig = webpackConfigBuilder('development');
+const bundler = webpack(webpackConfig);
 
 // Run Browsersync and use middleware for Hot Module Replacement
 browserSync({
