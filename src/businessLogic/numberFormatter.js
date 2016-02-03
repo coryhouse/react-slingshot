@@ -23,12 +23,12 @@ class NumberFormatter {
             return ''; //if it's not a number after scrubbing formatting, just return empty.
         }
 
-        var roundedValue = MathHelper.roundNumber(value, 2); //round if more than 2 decimal points
+      let roundedValue = MathHelper.roundNumber(value, 2); //round if more than 2 decimal points
         roundedValue = roundedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); //add commas for 1,000's. RegEx from http://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
-        var roundedValueContainsDecimalPlace = (roundedValue.indexOf('.') !== -1);
+      const roundedValueContainsDecimalPlace = (roundedValue.indexOf('.') !== -1);
 
         if (roundedValueContainsDecimalPlace) {
-            var numbersToTheRightOfDecimal = roundedValue.split('.')[1];
+          const numbersToTheRightOfDecimal = roundedValue.split('.')[1];
 
             switch (numbersToTheRightOfDecimal.length) {
                 case 0:
@@ -49,8 +49,8 @@ class NumberFormatter {
 
         return n % 1 === 0;
     }
-    
-    static scrubFormatting(value) {
+
+  static scrubFormatting(value) {
         return value.toString().replace('$', '').replace(',', '').replace('.', '');
     }
 }
