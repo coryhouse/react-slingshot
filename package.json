@@ -26,6 +26,7 @@
     "redux": "3.0.5"
   },
   "devDependencies": {
+    "autoprefixer": "6.3.1",
     "babel": "5.8.23",
     "babel-eslint": "4.1.7",
     "babel-loader": "5.1.4",
@@ -45,6 +46,7 @@
     "mocha": "2.3.4",
     "node-sass": "3.4.2",
     "parallelshell": "2.0.0",
+    "postcss-loader": "0.8.0",
     "react-transform-catch-errors": "1.0.1",
     "react-transform-hmr": "1.0.1",
     "redbox-react": "1.2.0",
