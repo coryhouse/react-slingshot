@@ -2,10 +2,41 @@
 
 ## [Unreleased](https://github.com/coryhouse/react-slingshot/tree/HEAD)
 
-[Full Changelog](https://github.com/coryhouse/react-slingshot/compare/v1.0.2...HEAD)
+[Full Changelog](https://github.com/coryhouse/react-slingshot/compare/v1.1.0...HEAD)
+
+**Closed issues:**
+
+- Bundled scss: flash of unstyled content \(FOUC\) in chrome [\#37](https://github.com/coryhouse/react-slingshot/issues/37)
+
+## [v1.1.0](https://github.com/coryhouse/react-slingshot/tree/v1.1.0) (2016-02-01)
+[Full Changelog](https://github.com/coryhouse/react-slingshot/compare/v1.0.4...v1.1.0)
+
+**Closed issues:**
+
+- Inaccurate Instructions for Removal of Redux [\#32](https://github.com/coryhouse/react-slingshot/issues/32)
+
+## [v1.0.4](https://github.com/coryhouse/react-slingshot/tree/v1.0.4) (2016-01-28)
+[Full Changelog](https://github.com/coryhouse/react-slingshot/compare/v1.0.3...v1.0.4)
+
+**Implemented enhancements:**
+
+- Lint "build" code in addition to "src" code. [\#34](https://github.com/coryhouse/react-slingshot/issues/34)
+
+**Closed issues:**
+
+- Removing need for custom scripts in tools/ dir? [\#33](https://github.com/coryhouse/react-slingshot/issues/33)
+- Required Node.js version? [\#25](https://github.com/coryhouse/react-slingshot/issues/25)
+
+## [v1.0.3](https://github.com/coryhouse/react-slingshot/tree/v1.0.3) (2016-01-21)
+[Full Changelog](https://github.com/coryhouse/react-slingshot/compare/v1.0.2...v1.0.3)
+
+**Implemented enhancements:**
+
+- Adding the Redux dev tools? [\#21](https://github.com/coryhouse/react-slingshot/issues/21)
 
 **Merged pull requests:**
 
+- react-slingshot is a starter kit as per project description [\#31](https://github.com/coryhouse/react-slingshot/pull/31) ([bettiolo](https://github.com/bettiolo))
 - Fixed typos [\#30](https://github.com/coryhouse/react-slingshot/pull/30) ([radarhere](https://github.com/radarhere))
 
 ## [v1.0.2](https://github.com/coryhouse/react-slingshot/tree/v1.0.2) (2016-01-20)
