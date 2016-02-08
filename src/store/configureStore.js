@@ -6,7 +6,12 @@ import { createStore } from 'redux';
 import rootReducer from '../reducers';
 
 export default function configureStore(initialState) {
-  const store = (window.devToolsExtension ? window.devToolsExtension()(createStore) : createStore)(rootReducer, initialState);
+  let store;
+  if (window.devToolsExtension) { //Enable Redux devtools if the extension is installed in developer's browser
+    store = window.devToolsExtension()(createStore)(rootReducer, initialState);
+  } else {
+    store = createStore(rootReducer, initialState);
+  }
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
