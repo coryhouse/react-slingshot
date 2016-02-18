@@ -4,7 +4,7 @@ import FuelSavingsTextInput from './FuelSavingsTextInput';
 
 const FuelSavingsApp = (props) => {
   const save = function () {
-    props.actions.saveFuelSavings(props.fuelSavingsAppState);
+    props.actions.saveFuelSavings(props.appState);
   };
 
   const onTimeframeChange = function (e) {
@@ -15,7 +15,7 @@ const FuelSavingsApp = (props) => {
     props.actions.calculateFuelSavings(props, name, value);
   };
 
-  const settings = props.fuelSavingsAppState;
+  const settings = props.appState;
 
   return (
     <div>
@@ -66,7 +66,7 @@ const FuelSavingsApp = (props) => {
 
 FuelSavingsApp.propTypes = {
   actions: PropTypes.object.isRequired,
-  fuelSavingsAppState: PropTypes.object.isRequired
+  appState: PropTypes.object.isRequired
 };
 
 export default FuelSavingsApp;
