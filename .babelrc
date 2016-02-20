@@ -1,19 +1,19 @@
 {
-  "stage": 2,
+  "presets": ["es2015", "react", "stage-1"],
   "env": {
     "development": {
       "plugins": [
-        "react-transform"
-      ],
-      "extra": {
-        "react-transform": {
+        ["react-transform", {
           "transforms": [{
             "transform": "react-transform-hmr",
             "imports": ["react"],
-            "locals":  ["module"]
+            "locals": ["module"]
+          }, {
+            "transform": "react-transform-catch-errors",
+            "imports": ["react", "redbox-react"]
           }]
-        }
-      }
+        }]
+      ]
     }
   }
 }
