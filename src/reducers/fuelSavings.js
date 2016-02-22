@@ -33,17 +33,19 @@ export default function fuelSavingsAppState(state = initialState, action) {
 			return objectAssign({}, state, { dateModified: dateHelper.getFormattedDateTime(new Date()) });
 
 		case CALCULATE_FUEL_SAVINGS:
-			let newState = objectAssign({}, state);
-			newState[action.fieldName] = action.value;
-			let calc = calculator();
-			newState.necessaryDataIsProvidedToCalculateSavings = calc.necessaryDataIsProvidedToCalculateSavings(newState);
-			newState.dateModified = dateHelper.getFormattedDateTime(new Date());
+    { // limit scope with this code block, to satisfy eslint no-case-declarations rule.
+      let newState = objectAssign({}, state);
+      newState[action.fieldName] = action.value;
+      let calc = calculator();
+      newState.necessaryDataIsProvidedToCalculateSavings = calc.necessaryDataIsProvidedToCalculateSavings(newState);
+      newState.dateModified = dateHelper.getFormattedDateTime(new Date());
 
-			if (newState.necessaryDataIsProvidedToCalculateSavings) {
-				newState.savings = calc.calculateSavings(newState);
-			}
+      if (newState.necessaryDataIsProvidedToCalculateSavings) {
+        newState.savings = calc.calculateSavings(newState);
+      }
 
-			return newState;
+      return newState;
+    }
 
 		default:
 			return state;
