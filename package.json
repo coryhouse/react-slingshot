@@ -19,10 +19,12 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "connect-history-api-fallback": "1.1.0",
     "object-assign": "4.0.1",
     "react": "0.14.7",
     "react-dom": "0.14.7",
     "react-redux": "4.4.0",
+    "react-router": "2.0.0",
     "redux": "3.3.1"
   },
   "devDependencies": {
