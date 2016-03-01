@@ -3,6 +3,7 @@
 
 // Require Browsersync along with webpack and middleware for it
 import browserSync from 'browser-sync';
+import historyApiFallback from 'connect-history-api-fallback';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
@@ -32,7 +33,11 @@ browserSync({
       }),
 
       // bundler should be the same as above
-      webpackHotMiddleware(bundler)
+      webpackHotMiddleware(bundler),
+
+      //allow for the use of a router in the react application
+      //so that any url will resolve to index.html
+      historyApiFallback()
     ]
   },
 
