@@ -1,19 +1,15 @@
-import React, { PropTypes, Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 
-export default class App extends Component {
-  static propTypes = {
-    children: PropTypes.element
-  }
+const NotFoundPage = () => {
+  return (
+    <div>
+      <h4>
+        404 Page Not Found
+      </h4>
+      <Link to="/"> Go back to homepage </Link>
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div>
-        <h4>
-          404 Page Not Found
-        </h4>
-        <Link to="/"> Go back to homepage </Link>
-      </div>
-    );
-  }
-}
+export default NotFoundPage;
