@@ -6,6 +6,7 @@ React Slingshot is a comprehensive starter kit for rapid application development
 |----------|-------|---|
 |  [React](https://facebook.github.io/react/)  |   Fast, composable client-side components.    | [Pluralsight Course](https://www.pluralsight.com/courses/react-flux-building-applications)  |
 |  [Redux](http://redux.js.org) |  Enforces unidirectional data flows and immutable, hot reloadable store. Supports time-travel debugging. Lean alternative to [Facebook's Flux](https://facebook.github.io/flux/docs/overview.html).| [Tutorial](https://egghead.io/series/getting-started-with-redux)    |
+|  [React Router](https://github.com/reactjs/react-router) | A complete routing library for React | [Pluralsight Course](https://www.pluralsight.com/courses/react-flux-building-applications) |
 |  [Babel](http://babeljs.io) |  Compiles ES6 to ES5. Enjoy the new version of JavaScript today.     | [ES6 REPL](https://babeljs.io/repl/), [ES6 vs ES5](http://es6-features.org), [ES6 Katas](http://es6katas.org), [Pluralsight course](https://www.pluralsight.com/courses/javascript-fundamentals-es6)    |
 | [Webpack](http://webpack.github.io) | Bundles npm packages and our JS into a single file. Includes hot reloading via [react-transform-hmr](https://www.npmjs.com/package/react-transform-hmr). | [Quick Webpack How-to](https://github.com/petehunt/webpack-howto) [Pluralsight Course](https://www.pluralsight.com/courses/webpack-fundamentals)|
 | [Browsersync](https://www.browsersync.io/) | Lightweight development HTTP server that supports synchronized testing and debugging on multiple devices. | [Intro vid](https://www.youtube.com/watch?time_continue=1&v=heNWfzc7ufQ)|
@@ -78,7 +79,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 │   ├── businessLogic         # Plain old JS objects (POJOs). Pure logic. No framework specific code here.
 │   ├── components            # React components
 │   ├── constants             # Application constants including constants for Redux
-│   ├── containers            # App container for Redux
+│   ├── containers            # Top-level React components that interact with Redux
 │   ├── favicon.ico           # favicon to keep your browser from throwing a 404 during dev. Not actually used in prod build.
 │   ├── index.html            # Start page 
 │   ├── index.js              # Entry point for your app
@@ -94,10 +95,10 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 ```
 
 
-###Where are the files being served from when I run `npm start`?
+### Where are the files being served from when I run `npm start`?
 Webpack serves your app in memory when you run `npm start`. No physical files are written. However, the web root is /src, so you can reference files under /src in index.html. When the app is built using `npm run build`, physical files are written to /dist and the app is served from /dist.
 
-###How is Sass being converted into CSS and landing in the browser?
+### How is Sass being converted into CSS and landing in the browser?
 Magic! Okay, more specifically, we're handling it differently in dev (`npm start`) vs prod (`npm run build`)
 
 When you run `npm start`:
@@ -116,7 +117,7 @@ When you run `npm run build`:
  
 For both of the above methods, a separate sourcemap is generated for debugging Sass in [compatible browsers](http://thesassway.com/intermediate/using-source-maps-with-sass).
 
-###I don't like the magic you just described above. I simply want to use a CSS file.
+### I don't like the magic you just described above. I simply want to use a CSS file.
 No problem. Reference your CSS file in index.html, and add a step to the build process to copy your CSS file over to the same relative location /dist as part of the build step. But be forwarned, you lose style hot reloading with this approach.
 
 ### I just want an empty starter kit.
@@ -137,6 +138,11 @@ Nope. Redux is useful for applications with more complex data flows. If your app
  4. Remove this line from /src/index.js: `const store = configureStore();`
  5. Delete components in /components and create a new empty component.
  6. Replace the call to `<Provider><App/></Provider>` in /src/index.js with a call to the new top level component you just created in step 5.
+ 
+### How do I remove React Router?
+ 1. Uninstall React Router and routing related packages: `npm uninstall --save react-router connect-history-api-fallback`
+ 2. Delete the following files: `src/routes.js`
+ 3. Remove `import { Link, IndexLink } from 'react-router';` from top of `src/components/App.js`, add a reference to `src/components/FuelSavingsForm.js`, and replace body of (implicit) render with this: `<FuelSavingsPage />`.
 
 ### How do I deploy this?
 `npm run build`. This will build the project for production. It does the following:
@@ -172,5 +178,5 @@ On Windows, you need to install extra dependencies for browser-sync to build and
 ### I can't access the external URL for Browsersync
 To hit the external URL, all devices must be on the same LAN. So this may mean your dev machine needs to be on the same Wifi as the mobile devices you're testing.
 
-###What about the Redux Devtools?
+### What about the Redux Devtools?
 They're not included at this time to keep the project simple. If you're interested, Barry Staes created a [branch with the devtools incorporated](https://github.com/coryhouse/react-slingshot/pull/27).
