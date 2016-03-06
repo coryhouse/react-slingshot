@@ -6,10 +6,10 @@ import NumberFormatter from './numberFormatter';
 //This declares a function with a private method.
 //The public function returns an object literal.
 //Could arguably be called FuelSavingCalculatorFactory.
-let fuelSavingsCalculator = function() {
+const fuelSavingsCalculator = function() {
     //private
-    let calculateMonthlyCost = function(milesDrivenPerMonth, ppg, mpg) {
-        let gallonsUsedPerMonth = milesDrivenPerMonth / mpg;
+    const calculateMonthlyCost = function(milesDrivenPerMonth, ppg, mpg) {
+        const gallonsUsedPerMonth = milesDrivenPerMonth / mpg;
         return gallonsUsedPerMonth * ppg;
     };
 
@@ -36,10 +36,10 @@ let fuelSavingsCalculator = function() {
                 return 0;
             }
 
-            let milesDrivenPerMonth = this.calculateMilesDrivenPerMonth(settings.milesDriven, settings.milesDrivenTimeframe);
-            let tradeFuelCostPerMonth = calculateMonthlyCost(milesDrivenPerMonth, settings.tradePpg, settings.tradeMpg);
-            let newFuelCostPerMonth = calculateMonthlyCost(milesDrivenPerMonth, settings.newPpg, settings.newMpg);
-            let savingsPerMonth = tradeFuelCostPerMonth - newFuelCostPerMonth;
+            const milesDrivenPerMonth = this.calculateMilesDrivenPerMonth(settings.milesDriven, settings.milesDrivenTimeframe);
+            const tradeFuelCostPerMonth = calculateMonthlyCost(milesDrivenPerMonth, settings.tradePpg, settings.tradeMpg);
+            const newFuelCostPerMonth = calculateMonthlyCost(milesDrivenPerMonth, settings.newPpg, settings.newMpg);
+            const savingsPerMonth = tradeFuelCostPerMonth - newFuelCostPerMonth;
 
             return mathHelper.roundNumber(savingsPerMonth, 2);
         },
@@ -54,7 +54,7 @@ let fuelSavingsCalculator = function() {
         },
 
         calculateSavings: function(settings) {
-            let monthlySavings = this.calculateSavingsPerMonth(settings);
+            const monthlySavings = this.calculateSavingsPerMonth(settings);
             return {
                 monthly: NumberFormatter.getCurrencyFormattedNumber(monthlySavings),
                 annual: NumberFormatter.getCurrencyFormattedNumber(monthlySavings * 12),
