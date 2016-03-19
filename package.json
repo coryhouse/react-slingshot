@@ -57,7 +57,6 @@
     "rimraf": "2.5.0",
     "sass-loader": "3.1.2",
     "style-loader": "0.13.0",
-    "watch": "0.17.1",
     "webpack": "1.12.11",
     "webpack-dev-middleware": "1.4.0",
     "webpack-hot-middleware": "2.6.0",
