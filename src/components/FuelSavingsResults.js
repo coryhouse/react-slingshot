@@ -1,6 +1,9 @@
 import React, {PropTypes} from 'react';
 import NumberFormatter from '../businessLogic/numberFormatter';
 
+import CSSModules from 'react-css-modules';
+import styles from './FuelSavingsResults.scss';
+
 //This is a stateless functional component. (Also known as pure or dumb component)
 //More info: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components
 //And https://medium.com/@joshblack/stateless-components-in-react-0-14-f9798f8b992d
@@ -17,7 +20,7 @@ const FuelSavingsResults = ({savings}) => {
       <table>
         <tbody>
         <tr>
-          <td className="fuel-savings-label">{resultLabel}</td>
+          <td styleName="fuel-savings-label">{resultLabel}</td>
           <td>
             <table>
               <tbody>
@@ -27,9 +30,9 @@ const FuelSavingsResults = ({savings}) => {
                 <td>3 Year</td>
               </tr>
               <tr>
-                <td className={savingsClass}>{savings.monthly}</td>
-                <td className={savingsClass}>{savings.annual}</td>
-                <td className={savingsClass}>{savings.threeYear}</td>
+                <td styleName={savingsClass}>{savings.monthly}</td>
+                <td styleName={savingsClass}>{savings.annual}</td>
+                <td styleName={savingsClass}>{savings.threeYear}</td>
               </tr>
               </tbody>
             </table>
@@ -46,4 +49,4 @@ FuelSavingsResults.propTypes = {
     savings: PropTypes.object.isRequired
 };
 
-export default FuelSavingsResults;
+export default CSSModules(FuelSavingsResults, styles);

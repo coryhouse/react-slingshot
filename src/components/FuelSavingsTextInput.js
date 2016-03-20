@@ -1,12 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 
+import CSSModules from 'react-css-modules';
+import styles from './FuelSavingsTextInput.css';
+
 const FuelSavingsTextInput = (props) => {
   const handleChange = (e) => {
     props.onChange(props.name, e.target.value);
   };
 
   return (
-    <input className="small"
+    <input styleName="small"
       type="text"
       placeholder={props.placeholder}
       value={props.value}
@@ -24,4 +27,4 @@ FuelSavingsTextInput.propTypes = {
 	])
 };
 
-export default FuelSavingsTextInput;
+export default CSSModules(FuelSavingsTextInput, styles);
