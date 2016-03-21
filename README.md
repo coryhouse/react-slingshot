@@ -94,7 +94,50 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 └── webpack.config.js         # Configures webpack
 ```
 
-
+### What are the dependencies in package.json used for?
+| **Dependency** | **Use** |
+|----------|-------|
+|connect-history-api-fallback  | Support reloading deep links |
+|object-assign | Polyfill for Object.assign |
+|react|React library |
+|react-dom|React library for DOM rendering |
+|react-redux|Redux library for connecting React components to Redux |
+|react-router|React library for routing |
+|redux|Library for unidirectional data flows |
+|babel-cli|Babel Command line interface |
+|babel-core|Babel Core for transpiling the new JavaScript to old |
+|babel-eslint|Connects Babel and ESLint so ES6 code can be linted |
+|babel-loader|Adds Babel support to Webpack |
+|babel-plugin-react-display-name| Add displayName to React.createClass calls |
+|babel-plugin-react-transform| Add support for transforming React code to Babel |
+|babel-preset-es2015|Babel preset for ES2015|
+|babel-preset-react| Add JSX support to Babel |
+|babel-preset-stage-1| Include stage 1 feature support in Babel |
+|browser-sync| Supports synchronized testing on multiple devices and serves local app on public URL |
+|chai|Assertion library for use with Mocha|
+|cheerio|Supports querying DOM with jQuery like syntax - Useful in testing and build process for HTML manipulation|
+|colors|Adds color support to terminal |
+|cross-env|Cross-environment friendly way to handle environment variables|
+|css-loader|Add CSS support to Webpack|
+|eslint|Lints JavaScript |
+|eslint-loader|Adds ESLint support to Webpack |
+|eslint-plugin-react|Adds additional React-related rules to ESLint|
+|extract-text-webpack-plugin| Extracts CSS into separate file for production build | 
+|file-loader| Adds file loading support to Webpack |
+|mocha| JavaScript testing library |
+|node-sass| Adds SASS support to Webpack |
+|parallelshell| Display results of multiple commands on single command line |
+|react-transform-catch-errors| Catches React errors. Necessary for use with redbox-react |
+|react-transform-hmr| Transform React components to support hot module reloading |
+|redbox-react| Display nicely formatted React errors in browser |
+|rimraf|Delete files |
+|sass-loader| Adds Sass support to Webpack|
+|style-loader| Add Style support to Webpack |
+|webpack| Bundler with plugin system and integrated development server |
+|webpack-dev-middleware| Used to integrate Webpack with Browser-sync |
+|webpack-hot-middleware| Use to integrate Webpack's hot reloading support with Browser-sync |
+|yargs| Easily parse command-line arguments |
+    
 ### Where are the files being served from when I run `npm start`?
 Webpack serves your app in memory when you run `npm start`. No physical files are written. However, the web root is /src, so you can reference files under /src in index.html. When the app is built using `npm run build`, physical files are written to /dist and the app is served from /dist.
 
