@@ -1,10 +1,8 @@
-import chai from 'chai';
+import chai, {should} from 'chai';
 import cheerio from 'cheerio';
 import FuelSavingsResults from './FuelSavingsResults';
 import React from 'react';
 import ReactDOMServer from 'react/lib/ReactDOMServer';
-
-chai.should();
 
 /*This test file displays how to test a React component's HTML
   outside of the browser. It uses Cheerio, which is a handy
