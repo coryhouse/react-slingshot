@@ -1,7 +1,5 @@
-import chai from 'chai';
+import chai, {should} from 'chai';
 import DateHelper from './dateHelper';
-
-chai.should();
 
 describe('Date Helper', () => {
     describe('getFormattedDateTime', () => {
