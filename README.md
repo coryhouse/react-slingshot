@@ -64,7 +64,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 | build | Bundles all JavaScript using webpack and writes it to /dist. |
 | test | Runs tests (files ending in .spec.js) using Mocha and outputs results to the command line. Watches all files so tests are re-run upon save. |
 
-###Can you explain the file structure?
+### Can you explain the folder structure?
 ```
 .
 ├── .babelrc                  # Configures Babel
