@@ -124,6 +124,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |eslint-plugin-react|Adds additional React-related rules to ESLint|
 |extract-text-webpack-plugin| Extracts CSS into separate file for production build | 
 |file-loader| Adds file loading support to Webpack |
+|ignore-styles| Ignore imported style files when running in Node |
 |mocha| JavaScript testing library |
 |node-sass| Adds SASS support to Webpack |
 |parallelshell| Display results of multiple commands on single command line |

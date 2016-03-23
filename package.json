@@ -13,7 +13,7 @@
     "build:html": "babel-node tools/buildHtml.js",
     "prebuild": "npm run clean-dist && npm run build:html",
     "build": "npm run test && babel-node tools/build.js && npm run open:dist",
-    "test": "cross-env NODE_ENV=test mocha --reporter progress --compilers js:babel-core/register --recursive \"./src/**/*.spec.js\"",
+    "test": "cross-env NODE_ENV=test mocha --reporter progress --compilers js:babel-core/register --recursive \"./src/**/*.spec.js\" --require ignore-styles",
     "test:watch": "npm run test -- --watch"
   },
   "author": "Cory House",
@@ -48,6 +48,7 @@
     "eslint-plugin-react": "4.0.0",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
+    "ignore-styles": "1.2.0",
     "mocha": "2.3.4",
     "node-sass": "3.4.2",
     "parallelshell": "2.0.0",
