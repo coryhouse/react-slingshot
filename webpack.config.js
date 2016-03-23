@@ -40,7 +40,7 @@ const getEntry = function (env) {
   const entry = [];
 
   if (env === developmentEnvironment ) { // only want hot reloading when in dev.
-    entry.push('webpack-hot-middleware/client');
+    entry.push('webpack-hot-middleware/client?reload=true');
   }
 
   entry.push('./src/index');
