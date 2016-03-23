@@ -20,7 +20,7 @@ React Slingshot is a comprehensive starter kit for rapid application development
 The starter kit includes a working example app that puts all of the above to use.
 
 ## Get Started
-1. **Initial Machine Setup**. First time running the starter kit? Then complete the [Initial Machine Setup](https://github.com/coryhouse/react-slingshot#initial-machine-setup).
+1. **Initial Machine Setup**. First time running the starter kit? Complete the [Initial Machine Setup](https://github.com/coryhouse/react-slingshot#initial-machine-setup) or use [Nitrous.io](https://github.com/coryhouse/react-slingshot#nitrous-quickstart).
 2. **Clone the project**. `git clone https://github.com/coryhouse/react-slingshot.git`.  
 3. **Install Node packages**. `npm install`
 4. **Run the example app**. `npm start -s`  
@@ -43,6 +43,15 @@ This will run the automated build process, start up a webserver, and open the ap
  
 * **Install [Python 2.7](https://www.python.org/downloads/)**. Some node modules may rely on node-gyp, which requires Python on Windows.
 * **Install C++ Compiler**. Browser-sync requires a C++ compiler on Windows. [Visual Studio Express](https://www.visualstudio.com/en-US/products/visual-studio-express-vs) comes bundled with a free C++ compiler. Or, if you already have Visual Studio installed: Open Visual Studio and go to File -> New -> Project -> Visual C++ -> Install Visual C++ Tools for Windows Desktop. The C++ compiler is used to compile browser-sync (and perhaps other Node modules).
+
+## Nitrous Quickstart
+You can quickly create a free development environment for this project in the cloud on www.nitrous.io:
+
+<a href="https://www.nitrous.io/quickstart">
+  <img src="https://nitrous-image-icons.s3.amazonaws.com/quickstart.png" alt="Nitrous Quickstart" width=142 height=34>
+</a>
+
+In the IDE, start React Slingshot via `Run > Start React Slingshot` and access your site via `Preview > 3000`.
 
 ## Questions?
 Check out the [FAQ](/docs/FAQ.md)

@@ -1,0 +1,10 @@
+{
+  "template": "nodejs",
+  "ports": [3000, 3001],
+  "name": "React Slingshot!",
+  "description": "React + Redux starter kit with Babel, hot reloading, testing, linting and a working example app, all built in.",
+  "scripts": {
+    "post-create": "cd ~/code/react-slingshot && echo 'running npm install...' && npm install --no-progress && echo 'npm install done'",
+    "Start React Slingshot": "cd ~/code/react-slingshot && npm start"
+  }
+}
