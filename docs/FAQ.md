@@ -178,3 +178,6 @@ To hit the external URL, all devices must be on the same LAN. So this may mean y
 
 ### What about the Redux Devtools?
 They're not included at this time to keep the project simple. If you're interested, Barry Staes created a [branch with the devtools incorporated](https://github.com/coryhouse/react-slingshot/pull/27).
+
+### Hot reloading isn't working!
+Hot reloading doesn't always play nicely with stateless functional components at this time. [This is a known limitation that is currently being worked](https://github.com/gaearon/babel-plugin-react-transform/issues/57). To avoid issues with hot reloading for now, use a traditional class-based React component at the top of your component hierarchy. 
