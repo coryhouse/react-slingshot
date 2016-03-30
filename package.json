@@ -15,6 +15,7 @@
     "prebuild": "npm run clean-dist",
     "build": "npm-run-all --parallel test build:html build:js",
     "postbuild": "npm run open:dist",
+    "pretest": "babel-node tools/runTestsPreFlight.js --glob \"./src/**/*.spec.js\"",
     "test": "cross-env NODE_ENV=test mocha --reporter progress --compilers js:babel-core/register --recursive \"./src/**/*.spec.js\" --require ignore-styles",
     "test:watch": "npm run test -- --watch"
   },
@@ -50,6 +51,7 @@
     "eslint-plugin-react": "4.0.0",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
+    "glob": "7.0.3",
     "ignore-styles": "1.2.0",
     "mocha": "2.3.4",
     "node-sass": "3.4.2",
