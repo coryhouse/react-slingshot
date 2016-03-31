@@ -76,6 +76,8 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |eslint|Lints JavaScript |
 |eslint-loader|Adds ESLint support to Webpack |
 |eslint-plugin-react|Adds additional React-related rules to ESLint|
+|eslint-config-airbnb|Adds airbnb standard linting to project|
+|estraverse-fb|_*needs documentation* - added because I was getting error on first build_|
 |extract-text-webpack-plugin| Extracts CSS into separate file for production build | 
 |file-loader| Adds file loading support to Webpack |
 |ignore-styles| Ignore imported style files when running in Node |

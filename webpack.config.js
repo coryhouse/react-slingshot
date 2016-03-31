@@ -5,22 +5,24 @@ import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-const developmentEnvironment = 'development' ;
+const developmentEnvironment = 'development';
 const productionEnvironment = 'production';
 const testEnvironment = 'test';
 
-const getPlugins = function (env) {
+const getPlugins = (env) => {
   const GLOBALS = {
     'process.env.NODE_ENV': JSON.stringify(env),
-    __DEV__: env === developmentEnvironment
+    __DEV__: env === developmentEnvironment,
   };
 
   const plugins = [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.DefinePlugin(GLOBALS) //Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
+    // Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
+    new webpack.DefinePlugin(GLOBALS),
   ];
 
   switch (env) {
+    default:
     case productionEnvironment:
       plugins.push(new ExtractTextPlugin('styles.css'));
       plugins.push(new webpack.optimize.DedupePlugin());
@@ -36,10 +38,10 @@ const getPlugins = function (env) {
   return plugins;
 };
 
-const getEntry = function (env) {
+const getEntry = (env) => {
   const entry = [];
 
-  if (env === developmentEnvironment ) { // only want hot reloading when in dev.
+  if (env === developmentEnvironment) { // only want hot reloading when in dev.
     entry.push('webpack-hot-middleware/client?reload=true');
   }
 
@@ -48,15 +50,31 @@ const getEntry = function (env) {
   return entry;
 };
 
-const getLoaders = function (env) {
-  const loaders = [{ test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel', 'eslint'] },
-                   { test: /\.(jpe?g|png|gif|svg)$/i, loaders: ['file']}];
+const getLoaders = (env) => {
+  const loaders = [
+    {
+      test: /\.js$/,
+      include: path.join(__dirname, 'src'),
+      loaders: ['babel', 'eslint'],
+    },
+    {
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      loaders: ['file'],
+    },
+  ];
 
-  if (env === productionEnvironment ) {
-    // generate separate physical stylesheet for production build using ExtractTextPlugin. This provides separate caching and avoids a flash of unstyled content on load.
-    loaders.push({test: /(\.css|\.scss)$/, loader: ExtractTextPlugin.extract("css?sourceMap!sass?sourceMap")});
+  if (env === productionEnvironment) {
+    // generate separate physical stylesheet for production build using ExtractTextPlugin.
+    // This provides separate caching and avoids a flash of unstyled content on load.
+    loaders.push({
+      test: /(\.css|\.scss)$/,
+      loader: ExtractTextPlugin.extract("css?sourceMap!sass?sourceMap"),
+    });
   } else {
-    loaders.push({test: /(\.css|\.scss)$/, loaders: ['style', 'css?sourceMap', 'sass?sourceMap']});
+    loaders.push({
+      test: /(\.css|\.scss)$/,
+      loaders: ['style', 'css?sourceMap', 'sass?sourceMap'],
+    });
   }
 
   return loaders;
@@ -65,19 +83,24 @@ const getLoaders = function (env) {
 function getConfig(env) {
   return {
     debug: true,
-    devtool: env === productionEnvironment  ? 'source-map' : 'cheap-module-eval-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
-    noInfo: true, // set to false to see a list of every file being bundled.
+    // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps
+    // and https://webpack.github.io/docs/configuration.html#devtool
+    devtool: env === productionEnvironment ? 'source-map' : 'cheap-module-eval-source-map',
+    // set to false to see a list of every file being bundled.
+    noInfo: true,
     entry: getEntry(env),
-    target: env === testEnvironment ? 'node' : 'web', // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
+    // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
+    target: env === testEnvironment ? 'node' : 'web',
     output: {
-      path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
+      // Note: Physical files are only output by the production build task `npm run build`.
+      path: `${__dirname}/dist`,
       publicPath: '/',
-      filename: 'bundle.js'
+      filename: 'bundle.js',
     },
     plugins: getPlugins(env),
     module: {
-      loaders: getLoaders(env)
-    }
+      loaders: getLoaders(env),
+    },
   };
 }
 
