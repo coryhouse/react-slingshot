@@ -5,11 +5,6 @@ import * as actions from '../actions/fuelSavingsActions';
 import FuelSavingsForm from '../components/FuelSavingsForm';
 
 class FuelSavingsPage extends Component {
-  static propTypes = {
-    actions: PropTypes.object.isRequired,
-    appState: PropTypes.object.isRequired
-  };
-
   render() {
     return (
       <FuelSavingsForm
@@ -20,6 +15,11 @@ class FuelSavingsPage extends Component {
     );
   }
 }
+
+FuelSavingsPage.propTypes = {
+  actions: PropTypes.object.isRequired,
+  appState: PropTypes.object.isRequired
+};
 
 function mapStateToProps(state) {
   return {
