@@ -1,6 +1,6 @@
 {
   "name": "react-slingshot",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Starter kit for creating apps with React and Redux",
   "scripts": {
     "start-message": "babel-node tools/startMessage.js",
