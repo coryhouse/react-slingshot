@@ -28,7 +28,7 @@ browserSync({
         stats: { colors: true },
 
         // Set to false to display a list of each file that is being bundled.
-        noInfo: true
+        noInfo: true,
 
         // for other settings see
         // http://webpack.github.io/docs/webpack-dev-middleware.html
@@ -37,13 +37,13 @@ browserSync({
       // bundler should be the same as above
       webpackHotMiddleware(bundler),
 
-      historyApiFallback()
-    ]
+      historyApiFallback(),
+    ],
   },
 
   // no need to watch '*.js' here, webpack will take care of it for us,
   // including full page reloads if HMR won't work
   files: [
-    'src/*.html'
-  ]
+    'src/*.html',
+  ],
 });

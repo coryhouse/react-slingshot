@@ -4,36 +4,29 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions/fuelSavingsActions';
 import FuelSavingsForm from '../components/FuelSavingsForm';
 
-class FuelSavingsPage extends Component {
-  static propTypes = {
-    actions: PropTypes.object.isRequired,
-    appState: PropTypes.object.isRequired
-  };
+const FuelSavingsPage = (props) => (
+  <FuelSavingsForm
+    saveFuelSavings={props.actions.saveFuelSavings}
+    calculateFuelSavings={props.actions.calculateFuelSavings}
+    appState={props.appState}
+  />
+);
 
-  render() {
-    return (
-      <FuelSavingsForm
-        saveFuelSavings={this.props.actions.saveFuelSavings}
-        calculateFuelSavings={this.props.actions.calculateFuelSavings}
-        appState={this.props.appState}
-      />
-    );
-  }
-}
+FuelSavingsForm.propTypes = {
+  actions: PropTypes.object.isRequired,
+  appState: PropTypes.object.isRequired,
+};
 
 function mapStateToProps(state) {
   return {
-    appState: state.fuelSavingsAppState
+    appState: state.fuelSavingsAppState,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(actions, dispatch)
+    actions: bindActionCreators(actions, dispatch),
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FuelSavingsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(FuelSavingsPage);
