@@ -1,5 +1,4 @@
 {
-  "parser": "babel-eslint",
   "extends": "eslint:recommended",
   "plugins": [
     "react"
@@ -14,6 +13,12 @@
   "ecmaFeatures": {
     "jsx": true,
     "modules": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "rules": {
     "quotes": 0,
