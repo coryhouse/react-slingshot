@@ -11,8 +11,15 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfigBuilder from '../webpack.config';
 
+import url from 'url';
+import proxy from 'proxy-middleware';
+
 const webpackConfig = webpackConfigBuilder('development');
 const bundler = webpack(webpackConfig);
+
+// Proxy Poptions
+var proxyOptions = url.parse('http://evcadmin.test.netflix.net/REST');
+    proxyOptions.route = '/REST';
 
 // Run Browsersync and use middleware for Hot Module Replacement
 browserSync({
@@ -36,6 +43,8 @@ browserSync({
 
       // bundler should be the same as above
       webpackHotMiddleware(bundler),
+
+      proxy(proxyOptions),
 
       historyApiFallback()
     ]

@@ -60,7 +60,10 @@
     "webpack": "1.12.11",
     "webpack-dev-middleware": "1.4.0",
     "webpack-hot-middleware": "2.6.0",
-    "yargs": "3.32.0"
+    "yargs": "3.32.0",
+    "url": "0.11.0",
+    "http-proxy-middleware": "0.11.0",
+    "proxy-middleware": "0.15.0"
   },
   "keywords:": [
     "react",
