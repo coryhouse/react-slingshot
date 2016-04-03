@@ -17,8 +17,8 @@ import proxy from 'proxy-middleware';
 const webpackConfig = webpackConfigBuilder('development');
 const bundler = webpack(webpackConfig);
 
-// Proxy Poptions
-var proxyOptions = url.parse('http://evcadmin.test.netflix.net/REST');
+// Proxy options. Update the proxy url.
+var proxyOptions = url.parse('http://proxyserver.net/REST');
     proxyOptions.route = '/REST';
 
 // Run Browsersync and use middleware for Hot Module Replacement
