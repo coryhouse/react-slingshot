@@ -1,7 +1,5 @@
 /* Variables */
 $vin-blue: #5bb7db;
-$vin-green: #60b044;
-$vin-red: #ff0000;
 
 /* Styles */
 body {
@@ -24,8 +22,3 @@ td {
 h2 {
 	color: $vin-blue;
 }
-
-.savings { color: $vin-green; }
-.loss { color: $vin-red; }
-input.small { width: 46px; }
-td.fuel-savings-label { width: 175px; }

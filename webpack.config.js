@@ -54,9 +54,19 @@ const getLoaders = function (env) {
 
   if (env === productionEnvironment ) {
     // generate separate physical stylesheet for production build using ExtractTextPlugin. This provides separate caching and avoids a flash of unstyled content on load.
-    loaders.push({test: /(\.css|\.scss)$/, loader: ExtractTextPlugin.extract("css?sourceMap!sass?sourceMap")});
+    loaders.push({
+      test: /(\.css|\.scss)$/,
+      loader: ExtractTextPlugin.extract('css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass?sourceMap')
+    });
   } else {
-    loaders.push({test: /(\.css|\.scss)$/, loaders: ['style', 'css?sourceMap', 'sass?sourceMap']});
+    loaders.push({
+      test: /(\.css|\.scss)$/,
+      loaders: [
+        'style',
+        'css?sourceMap&modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+        'sass?sourceMap'
+      ]
+    });
   }
 
   return loaders;
