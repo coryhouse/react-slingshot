@@ -9,11 +9,11 @@ describe('Reducers::FuelSavings', function() {
 
   const getInitialSate = () => {
     return {
-      newMpg: null,
-      tradeMpg: null,
-      newPpg: null,
-      tradePpg: null,
-      milesDriven: null,
+      newMpg: "",
+      tradeMpg: "",
+      newPpg: "",
+      tradePpg: "",
+      milesDriven: "",
       milesDrivenTimeframe: 'week',
       displayResults: false,
       dateModified: null,
