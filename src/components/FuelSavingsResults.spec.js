@@ -1,61 +1,66 @@
-import chai, {should} from 'chai';
-import cheerio from 'cheerio';
-import FuelSavingsResults from './FuelSavingsResults';
 import React from 'react';
-import ReactDOMServer from 'react/lib/ReactDOMServer';
+import { shallow } from 'enzyme';
+import { expect } from 'chai';
+import FuelSavingsResults from './FuelSavingsResults';
 
-/*This test file displays how to test a React component's HTML
-  outside of the browser. It uses Cheerio, which is a handy
-  server-side library that mimics jQuery. So to test a React
-  components HTML for a given state we do the following:
-  1. Instantiate the component and pass the desired prop values
-  2. Use ReactDOMServer to generate the resulting HTML
-  3. Use Cheerio to load the HTML into a fake DOM
-  4. Use Cheerio to query the DOM using jQuery style selectors
-  5. Assert that certain DOM elements exist with expected values.
- */
-describe('Fuel Savings Calculator Results Component', () => {
-	describe('Savings label', () => {
-		it('displays as savings when savings exist', () => {
-			//arrange
-			var props = {
-				savings: {
-					monthly: '10',
-					annual: '120',
-					threeYear: '360'
-				}
-			};
+describe('<FuelSavingsResults />', () => {
 
-			var sut = React.createElement(FuelSavingsResults, props);
+    it('should display savings when savings exist', () => {
+      const savings = {
+                        monthly: '10',
+                        annual: '120',
+                        threeYear: '360'
+                      };
 
-			//act
-			var html = ReactDOMServer.renderToStaticMarkup(sut);
-			let $ = cheerio.load(html);
-			var fuelSavingsLabel = $('.fuel-savings-label').html();
+      const wrapper = shallow(<FuelSavingsResults savings={savings}/>);
+      // console.log(wrapper.debug()); // View shallowly rendered component
+      const actual = wrapper.find('.fuel-savings-label').text();
+      const expected = 'Savings';
 
-			//assert
-			fuelSavingsLabel.should.equal('Savings');
-		});
+      expect(actual).to.equal(expected);
+    });
 
-		it('display as loss when savings don\'t exist', () => {
-			//arrange
-			var props = {
-				savings: {
-					monthly: '-10',
-					annual: '-120',
-					threeYear: '-360'
-				}
-			};
+    it('should give values a \'savings\' class when savings exist', () => {
+      const savings = {
+                        monthly: '10',
+                        annual: '120',
+                        threeYear: '360'
+                      };
 
-			var sut = React.createElement(FuelSavingsResults, props);
+      const wrapper = shallow(<FuelSavingsResults savings={savings}/>);
+      
+      const actual = wrapper.find('.savings').length;
+      const expected = 3;
 
-			//act
-			var html = ReactDOMServer.renderToStaticMarkup(sut);
-			let $ = cheerio.load(html);
-			var fuelSavingsLabel = $('.fuel-savings-label').html();
+      expect(actual).to.equal(expected);  
+    });
 
-			//assert
-			fuelSavingsLabel.should.equal('Loss');
-		});
-	});
+    it('should display loss when savings don\'t exist', () => {
+      const savings = {
+                        monthly: '-10',
+                        annual: '-120',
+                        threeYear: '-360'
+                      };
+
+      const wrapper = shallow(<FuelSavingsResults savings={savings}/>);
+
+      const actual = wrapper.find('.fuel-savings-label').text();
+      const expected = 'Loss';
+
+      expect(actual).to.equal(expected);
+    });
+  
+    it('should give values a \'loss\' class when savings don\'t exist', () => {
+      const savings = {
+                        monthly: '-10',
+                        annual: '-120',
+                        threeYear: '-360'
+                      };
+
+      const wrapper = shallow(<FuelSavingsResults savings={savings}/>);
+      const actual = wrapper.find('.loss').length;
+      const expected = 3;
+
+      expect(actual).to.equal(expected);
+    });
 });

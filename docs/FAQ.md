@@ -73,6 +73,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |colors|Adds color support to terminal |
 |cross-env|Cross-environment friendly way to handle environment variables|
 |css-loader|Add CSS support to Webpack|
+|enzyme|Simplified JavaScript Testing utilities for React|
 |eslint|Lints JavaScript |
 |eslint-loader|Adds ESLint support to Webpack |
 |eslint-plugin-react|Adds additional React-related rules to ESLint|
@@ -82,11 +83,14 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |mocha| JavaScript testing library |
 |node-sass| Adds SASS support to Webpack |
 |parallelshell| Display results of multiple commands on single command line |
+|react-addons-test-utils| Adds React TestUtils |
 |react-transform-catch-errors| Catches React errors. Necessary for use with redbox-react |
 |react-transform-hmr| Transform React components to support hot module reloading |
 |redbox-react| Display nicely formatted React errors in browser |
 |rimraf|Delete files |
 |sass-loader| Adds Sass support to Webpack|
+|sinon| Standalone test spies, stubs and mocks for JavaScript |
+|sinon-chai| Extends Chai with assertions for the Sinon.JS mocking framework|
 |style-loader| Add Style support to Webpack |
 |webpack| Bundler with plugin system and integrated development server |
 |webpack-dev-middleware| Used to integrate Webpack with Browser-sync |
