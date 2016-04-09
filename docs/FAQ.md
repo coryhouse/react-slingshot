@@ -65,6 +65,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |babel-plugin-react-display-name| Add displayName to React.createClass calls |
 |babel-plugin-react-transform| Add support for transforming React code to Babel |
 |babel-preset-es2015|Babel preset for ES2015|
+|babel-preset-react-hmre|Hot reloading preset for Babel|
 |babel-preset-react| Add JSX support to Babel |
 |babel-preset-stage-1| Include stage 1 feature support in Babel |
 |browser-sync| Supports synchronized testing on multiple devices and serves local app on public URL |
@@ -84,9 +85,6 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |node-sass| Adds SASS support to Webpack |
 |parallelshell| Display results of multiple commands on single command line |
 |react-addons-test-utils| Adds React TestUtils |
-|react-transform-catch-errors| Catches React errors. Necessary for use with redbox-react |
-|react-transform-hmr| Transform React components to support hot module reloading |
-|redbox-react| Display nicely formatted React errors in browser |
 |rimraf|Delete files |
 |sass-loader| Adds Sass support to Webpack|
 |sinon| Standalone test spies, stubs and mocks for JavaScript |
