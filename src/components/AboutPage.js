@@ -13,7 +13,6 @@ const AboutPage = () => {
         </p>
         <p>
           <Link to="/badlink">Click this bad link</Link> to see the 404 page.
-           <Link to="/otherlink">Click this bad link</Link> to see the 404 page.
         </p>
       </div>
     );
