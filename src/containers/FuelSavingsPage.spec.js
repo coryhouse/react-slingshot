@@ -1,6 +1,18 @@
-import chai, {should} from 'chai';
-import FuelSavingsPage from './FuelSavingsPage';
+import React from 'react';
+import { shallow } from 'enzyme';
+import { expect } from 'chai';
+import { FuelSavingsPage } from './FuelSavingsPage';
+import FuelSavingsForm from '../components/FuelSavingsForm';
 
-describe('Fuel Savings Page', () => {
-
+describe('<FuelSavingsPage />', () => {
+  it('should contain <FuelSavingsForm />', () => {
+    const actions = {
+      saveFuelSavings: () => { },
+      calculateFuelSavings: () => { }
+    };
+    const appState = { };
+    const wrapper = shallow(<FuelSavingsPage actions={ actions } appState={ appState } />);
+    
+    expect(wrapper.find(FuelSavingsForm)).to.be.length(1);
+  });
 });

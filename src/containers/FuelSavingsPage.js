@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions/fuelSavingsActions';
 import FuelSavingsForm from '../components/FuelSavingsForm';
 
-class FuelSavingsPage extends Component {
+export class FuelSavingsPage extends Component {
   render() {
     return (
       <FuelSavingsForm

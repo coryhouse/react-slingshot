@@ -55,6 +55,7 @@ const fuelSavingsCalculator = function() {
 
         calculateSavings: function(settings) {
             const monthlySavings = this.calculateSavingsPerMonth(settings);
+
             return {
                 monthly: NumberFormatter.getCurrencyFormattedNumber(monthlySavings),
                 annual: NumberFormatter.getCurrencyFormattedNumber(monthlySavings * 12),
