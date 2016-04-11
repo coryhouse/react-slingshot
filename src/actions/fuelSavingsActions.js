@@ -1,4 +1,4 @@
-import * as types from '../constants/ActionTypes';
+import * as types from '../constants/actionTypes';
 
 export function saveFuelSavings(settings) {
 	return { type: types.SAVE_FUEL_SAVINGS, settings };

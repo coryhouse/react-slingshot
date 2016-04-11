@@ -1,4 +1,4 @@
-import * as ActionTypes from '../constants/ActionTypes';
+import * as ActionTypes from '../constants/actionTypes';
 import configureStore from './configureStore.prod';
 import { createStore } from 'redux';
 import { expect } from 'chai';

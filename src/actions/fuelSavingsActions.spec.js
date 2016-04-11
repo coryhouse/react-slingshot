@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import * as ActionCreators from './fuelSavingsActions';
-import * as ActionTypes from '../constants/ActionTypes';
+import * as ActionTypes from '../constants/actionTypes';
 
 describe('Actions', function() {
   const appState = {
