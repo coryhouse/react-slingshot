@@ -56,7 +56,7 @@ const getLoaders = function (env) {
     // generate separate physical stylesheet for production build using ExtractTextPlugin. This provides separate caching and avoids a flash of unstyled content on load.
     loaders.push({test: /(\.css|\.scss)$/, loader: ExtractTextPlugin.extract("css?sourceMap!sass?sourceMap")});
   } else {
-    loaders.push({test: /(\.css|\.scss)$/, loaders: ['style', 'css?sourceMap', 'sass?sourceMap']});
+    loaders.push({test: /(\.css|\.scss)$/, loaders: ['style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'sass?sourceMap']});
   }
 
   return loaders;
@@ -73,6 +73,9 @@ function getConfig(env) {
       path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
       publicPath: '/',
       filename: 'bundle.js'
+    },
+    resolve: {
+      extensions: ['', '.jsx', '.scss', '.js', '.json']
     },
     plugins: getPlugins(env),
     module: {
