@@ -1,5 +1,4 @@
 import * as ActionTypes from '../constants/actionTypes';
-import configureStore from './configureStore.prod';
 import { createStore } from 'redux';
 import { expect } from 'chai';
 import rootReducer from '../reducers';
@@ -27,7 +26,7 @@ const initialState = {
 
 
 describe('Store', function() {
-  it('should display results when necessary data is provided', function() {   
+  it('should display results when necessary data is provided', function () {
     const store = createStore(rootReducer, initialState);
 
     const actions = [
@@ -86,12 +85,12 @@ describe('Store', function() {
       savings: { annual: 0, monthly: 0, threeYear: 0 }
     };
 
-    
+
     expect(actual.fuelSavingsAppState).to.deep.equal(expected);
   });
 
 
-  it('should handle a flurry of actions', function() {   
+  it('should handle a flurry of actions', function () {
     const store = createStore(rootReducer, initialState);
 
     const actions = [
