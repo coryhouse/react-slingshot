@@ -12,7 +12,6 @@
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "node_modules/.bin/rimraf ./dist",
     "build:html": "babel-node tools/buildHtml.js",
-    "build:js": "babel-node tools/build.js",
     "prebuild": "npm run clean-dist && npm run build:html",
     "build": "babel-node tools/build.js && npm run open:dist",
     "test": "mocha tools/testSetup.js src/**/*.spec.js --reporter progress",
