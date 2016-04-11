@@ -9,10 +9,9 @@ import historyApiFallback from 'connect-history-api-fallback';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackConfigBuilder from '../webpack.config';
+import config from '../webpack.config.dev';
 
-const webpackConfig = webpackConfigBuilder('development');
-const bundler = webpack(webpackConfig);
+const bundler = webpack(config);
 
 // Run Browsersync and use middleware for Hot Module Replacement
 browserSync({
@@ -22,7 +21,7 @@ browserSync({
     middleware: [
       webpackDevMiddleware(bundler, {
         // Dev middleware can't access config, so we provide publicPath
-        publicPath: webpackConfig.output.publicPath,
+        publicPath: config.output.publicPath,
 
         // pretty colored output
         stats: { colors: true },
