@@ -25,6 +25,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 ├── .editorconfig             # Configures editor rules
 ├── .eslintrc                 # Configures ESLint
 ├── .gitignore                # Tells git which files to ignore
+├── .npmrc                    # Configures npm to save exact by default
 ├── README.md                 # This file.
 ├── dist                      # Folder where the build script places the built app. Use this in prod.
 ├── package.json              # Package configuration. The list of 3rd party libraries and utilities
@@ -80,7 +81,6 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |eslint-plugin-react|Adds additional React-related rules to ESLint|
 |extract-text-webpack-plugin| Extracts CSS into separate file for production build | 
 |file-loader| Adds file loading support to Webpack |
-|ignore-styles| Ignore imported style files when running in Node |
 |mocha| JavaScript testing library |
 |node-sass| Adds SASS support to Webpack |
 |parallelshell| Display results of multiple commands on single command line |
@@ -166,11 +166,17 @@ Since browsers don't currently support ES6, we're using Babel to compile our ES6
 
 Also note that no actual physical files are written to the filesystem during the dev build. **For performance, all files exist in memory when served from the webpack server.**. Physical files are only written when you run `npm run build`.
 
-**Tips for debugging via sourcemaps:** 
+**Tips for debugging via sourcemaps:**
  
  1. Browsers vary in the way they allow you to view the original source. Chrome automatically shows the original source if a sourcemap is available. Safari, in contrast, will display the minified source and you'll [have to cmd+click on a given line to be taken to the original source](http://stackoverflow.com/questions/19550060/how-do-i-toggle-source-mapping-in-safari-7).  
  2. Do **not** enable serving files from your filesystem in Chrome dev tools. If you do, Chrome (and perhaps other browsers) may not show you the latest version of your code after you make a source code change. Instead **you must close the source view tab you were using and reopen it to see the updated source code**. It appears Chrome clings to the old sourcemap until you close and reopen the source view tab. To clarify, you don't have to close the actual tab that is displaying the app, just the tab in the console that's displaying the source file that you just changed.  
  3. If the latest source isn't displaying the console, force a refresh. Sometimes Chrome seems to hold onto a previous version of the sourcemap which will cause you to see stale code.
+
+### Why does the build use npm scripts instead of Gulp or Grunt?
+In short, Gulp is an unnecessary abstraction that creates more problems than it solves. [Here's why](https://medium.com/@housecor/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8#.vtaziro8n).
+
+### Why does package.json reference the exact version?
+This assures that the build won't break when some new version is released. Unfortunately, many package authors don't properly honor [Semantic Versioning](http://semver.org), so instead, as new versions are released, I'll test them and then introduce them into the starter kit. But yes, this means when you do `npm update` no new dependencies will be pulled down. You'll have to update package.json with the new version manually.
 
 ### I'm getting an error when running npm install: Failed to locate "CL.exe"
 On Windows, you need to install extra dependencies for browser-sync to build and install successfully. Follow the getting started steps above to assure you have the necessary dependencies on your machine.
@@ -179,7 +185,7 @@ On Windows, you need to install extra dependencies for browser-sync to build and
 To hit the external URL, all devices must be on the same LAN. So this may mean your dev machine needs to be on the same Wifi as the mobile devices you're testing.
 
 ### What about the Redux Devtools?
-They're not included at this time to keep the project simple. If you're interested, Barry Staes created a [branch with the devtools incorporated](https://github.com/coryhouse/react-slingshot/pull/27).
+Install the [Redux devtools extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en) in Chrome Developer Tools. If you're interested in running Redux dev tools cross-browser, Barry Staes created a [branch with the devtools incorporated](https://github.com/coryhouse/react-slingshot/pull/27).
 
 ### Hot reloading isn't working!
 Hot reloading doesn't always play nicely with stateless functional components at this time. [This is a known limitation that is currently being worked](https://github.com/gaearon/babel-plugin-react-transform/issues/57). To avoid issues with hot reloading for now, use a traditional class-based React component at the top of your component hierarchy. 
