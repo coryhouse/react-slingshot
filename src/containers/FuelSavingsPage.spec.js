@@ -11,8 +11,8 @@ describe('<FuelSavingsPage />', () => {
       calculateFuelSavings: () => { }
     };
     const appState = { };
-    const wrapper = shallow(<FuelSavingsPage actions={ actions } appState={ appState } />);
-    
+    const wrapper = shallow(<FuelSavingsPage actions={actions} appState={appState}/>);
+
     expect(wrapper.find(FuelSavingsForm)).to.be.length(1);
   });
 });

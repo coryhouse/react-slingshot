@@ -17,10 +17,10 @@ describe('<FuelSavingsTextInput />', () => {
       onChange: sinon.spy(),
       placeholder: "Type Here",
       value: 100
-    }
+    };
 
     const wrapper = shallow(<FuelSavingsTextInput {...props} />);
-  
+
     const actual = wrapper.type();
     const expected = 'input';
 
@@ -33,13 +33,13 @@ describe('<FuelSavingsTextInput />', () => {
       onChange: sinon.spy(),
       placeholder: "Type Here",
       value: 100
-    }
+    };
 
     const wrapper = shallow(<FuelSavingsTextInput {...props} />);
-  
+
     const actual = wrapper.type();
     const expected = 'input';
-   
+
     props.onChange.should.not.have.been.called;
     wrapper.simulate('change', { target: { value: 101 }});
     props.onChange.should.have.been.calledWith('newMpg', 101);

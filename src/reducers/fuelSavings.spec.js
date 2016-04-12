@@ -23,7 +23,7 @@ describe('Reducers::FuelSavings', function() {
         annual: 0,
         threeYear: 0
       }
-    }
+    };
   };
 
   const getAppState = () => {
@@ -42,7 +42,7 @@ describe('Reducers::FuelSavings', function() {
         annual: 0,
         threeYear: 0
       }
-    }
+    };
   };
 
   it('should set initial state by default', function() {
@@ -55,7 +55,7 @@ describe('Reducers::FuelSavings', function() {
 
   it('should handle SAVE_FUEL_SAVINGS', function() {
     const action = { type: ActionTypes.SAVE_FUEL_SAVINGS, settings: getAppState() };
-    const expected = Object.assign(getAppState(), {dateModified: dateHelper.getFormattedDateTime(new Date()) })
+    const expected = Object.assign(getAppState(), {dateModified: dateHelper.getFormattedDateTime(new Date())});
 
     expect(reducer(getAppState(), action)).to.deep.equal(expected);
   });
