@@ -30,7 +30,7 @@ fs.readFile('src/index.html', 'utf8', (err, markup) => {
 
       $('head').prepend(trackJsCode); // add TrackJS tracking code to the top of <head>
     } else {
-      console.log('To track JavaScript errors, sign up for a free trial at TrackJS.com and enter your token in /tools/build.html on line 10.'.yellow);
+      console.log('To track JavaScript errors, sign up for a free trial at TrackJS.com and enter your token in /tools/buildHtml.js on line 15.'.yellow);
     }
   }
 
