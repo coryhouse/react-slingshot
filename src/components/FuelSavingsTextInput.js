@@ -11,17 +11,17 @@ const FuelSavingsTextInput = (props) => {
       placeholder={props.placeholder}
       value={props.value}
       onChange={handleChange} />
-	);
+  );
 };
 
 FuelSavingsTextInput.propTypes = {
-	name: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired,
-	placeholder: PropTypes.string,
-	value: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number
-	])
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])
 };
 
 export default FuelSavingsTextInput;
