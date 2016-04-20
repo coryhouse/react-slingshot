@@ -10,7 +10,7 @@ export default function configureStore(initialState) {
   const logger = createLogger();
   let store = createStore(rootReducer, initialState, compose(
     // Add other middleware on this line...
-    applyMiddleware(logger),
+    applyMiddleware(logger), // logger needs to be the last item in applyMiddleware to prevent unnecessary logging of other middlewares
     window.devToolsExtension ? window.devToolsExtension() : f => f //add support for Redux dev tools
     )
   );
