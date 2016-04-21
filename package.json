@@ -23,7 +23,7 @@
     "object-assign": "4.0.1",
     "react": "15.0.1",
     "react-dom": "15.0.1",
-    "react-redux": "4.4.0",
+    "react-redux": "4.4.5",
     "react-router": "2.0.0",
     "redux": "3.4.0"
   },
@@ -55,6 +55,7 @@
     "node-sass": "3.4.2",
     "npm-run-all": "1.7.0",
     "react-addons-test-utils": "15.0.1",
+    "redux-logger": "2.6.1",
     "rimraf": "2.5.2",
     "sass-loader": "3.2.0",
     "sinon": "1.17.3",
