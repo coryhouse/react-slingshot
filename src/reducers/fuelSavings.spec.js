@@ -2,8 +2,8 @@ import React from 'react';
 import { expect } from 'chai';
 import * as ActionTypes from '../constants/actionTypes';
 import reducer from './fuelSavings';
-import dateHelper from '../businessLogic/dateHelper';
-import calculator from '../businessLogic/fuelSavingsCalculator';
+import dateHelper from '../utils/dateHelper';
+import calculator from '../utils/fuelSavingsCalculator';
 
 describe('Reducers::FuelSavings', function() {
 
