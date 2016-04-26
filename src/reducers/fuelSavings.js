@@ -2,23 +2,7 @@ import {SAVE_FUEL_SAVINGS, CALCULATE_FUEL_SAVINGS} from '../constants/actionType
 import calculator from '../businessLogic/fuelSavingsCalculator';
 import dateHelper from '../businessLogic/dateHelper';
 import objectAssign from 'object-assign';
-
-const initialState = {
-  newMpg: "",
-  tradeMpg: "",
-  newPpg: "",
-  tradePpg: "",
-  milesDriven: "",
-    milesDrivenTimeframe: 'week',
-    displayResults: false,
-    dateModified: null,
-    necessaryDataIsProvidedToCalculateSavings: false,
-    savings: {
-        monthly: 0,
-        annual: 0,
-        threeYear: 0
-    }
-};
+import initialState from './initialState';
 
 //IMPORTANT: Note that with Redux, state should NEVER be changed.
 //State is considered immutable. Instead,

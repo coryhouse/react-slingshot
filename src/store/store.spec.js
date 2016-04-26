@@ -4,26 +4,7 @@ import { expect } from 'chai';
 import rootReducer from '../reducers';
 import calculator from '../businessLogic/fuelSavingsCalculator';
 import dateHelper from '../businessLogic/dateHelper';
-
-const initialState = {
-  fuelSavingsAppState: {
-    newMpg: null,
-    tradeMpg: null,
-    newPpg: null,
-    tradePpg: null,
-    milesDriven: null,
-    milesDrivenTimeframe: 'week',
-    displayResults: false,
-    dateModified: null,
-    necessaryDataIsProvidedToCalculateSavings: false,
-    savings: {
-        monthly: 0,
-        annual: 0,
-        threeYear: 0
-    }
-  }
-};
-
+import initialState from '../reducers/initialState';
 
 describe('Store', function() {
   it('should display results when necessary data is provided', function () {
@@ -75,7 +56,7 @@ describe('Store', function() {
     const expected = {
       newMpg: 20,
       tradeMpg: 10,
-      newPpg: null,
+      newPpg: "",
       tradePpg: 1.5,
       milesDriven: 100,
       milesDrivenTimeframe: 'month',
