@@ -1,5 +1,4 @@
 {
-  "parser": "babel-eslint",
   "extends": [
     "eslint:recommended",
     "plugin:import/errors",
@@ -8,16 +7,20 @@
   "plugins": [
     "react"
   ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
   "env": {
     "es6": true,
     "browser": true,
     "node": true,
     "jquery": true,
     "mocha": true
-  },
-  "ecmaFeatures": {
-    "jsx": true,
-    "modules": true
   },
   "rules": {
     "quotes": 0,
