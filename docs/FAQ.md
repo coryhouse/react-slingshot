@@ -61,7 +61,6 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |redux|Library for unidirectional data flows |
 |babel-cli|Babel Command line interface |
 |babel-core|Babel Core for transpiling the new JavaScript to old |
-|babel-eslint|Connects Babel and ESLint so ES6 code can be linted |
 |babel-loader|Adds Babel support to Webpack |
 |babel-plugin-react-display-name| Add displayName to React.createClass calls |
 |babel-plugin-react-transform| Add support for transforming React code to Babel |
@@ -79,6 +78,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |eslint|Lints JavaScript |
 |eslint-loader|Adds ESLint support to Webpack |
 |eslint-plugin-react|Adds additional React-related rules to ESLint|
+|eslint-watch|Wraps ESLint to provide file watch support and enhanced command line output|
 |extract-text-webpack-plugin| Extracts CSS into separate file for production build | 
 |file-loader| Adds file loading support to Webpack |
 |mocha| JavaScript testing library |
