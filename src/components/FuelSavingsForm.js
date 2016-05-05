@@ -56,8 +56,10 @@ class FuelSavingsForm extends React.Component {
                                     value={appState.milesDriven}/>
               miles
               per
-              <select name="milesDrivenTimeframe" onChange={this.onTimeframeChange}
-                      value={appState.milesDrivenTimeframe}>
+              <select name="milesDrivenTimeframe"
+                      onChange={this.onTimeframeChange}
+                      value={appState.milesDrivenTimeframe}
+              >
                 <option value="week">Week</option>
                 <option value="month">Month</option>
                 <option value="year">Year</option>

@@ -20,7 +20,7 @@ export default function fuelSavingsAppState(state = initialState, action) {
     { // limit scope with this code block, to satisfy eslint no-case-declarations rule.
       let newState = objectAssign({}, state);
       newState[action.fieldName] = action.value;
-      let calc = calculator();
+      const calc = calculator();
       newState.necessaryDataIsProvidedToCalculateSavings = calc.necessaryDataIsProvidedToCalculateSavings(newState);
       newState.dateModified = dateHelper.getFormattedDateTime(new Date());
 
