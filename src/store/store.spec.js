@@ -6,8 +6,8 @@ import calculator from '../businessLogic/fuelSavingsCalculator';
 import dateHelper from '../businessLogic/dateHelper';
 import initialState from '../reducers/initialState';
 
-describe('Store', function() {
-  it('should display results when necessary data is provided', function () {
+describe('Store', () => {
+  it('should display results when necessary data is provided', () => {
     const store = createStore(rootReducer, initialState);
 
     const actions = [
@@ -37,7 +37,7 @@ describe('Store', function() {
     expect(actual.fuelSavingsAppState).to.deep.equal(expected);
   });
 
-  it('should not display results when necessary data is not provided', function() {
+  it('should not display results when necessary data is not provided', () => {
     const store = createStore(rootReducer, initialState);
 
     const actions = [
@@ -71,7 +71,7 @@ describe('Store', function() {
   });
 
 
-  it('should handle a flurry of actions', function () {
+  it('should handle a flurry of actions', () => {
     const store = createStore(rootReducer, initialState);
 
     const actions = [

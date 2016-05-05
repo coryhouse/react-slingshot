@@ -1,9 +1,9 @@
 // More info on Webpack's Node API here: https://webpack.github.io/docs/node.js-api.html
 // Allowing console calls below since this is a build file.
-/*eslint-disable no-console */
+/* eslint-disable no-console */
 import webpack from 'webpack';
 import config from '../webpack.config.prod';
-import colors from 'colors';
+import colors from 'colors'; // eslint-disable-line no-unused-vars
 
 process.env.NODE_ENV = 'production'; // this assures React is built in prod mode and that the Babel dev config doesn't apply.
 

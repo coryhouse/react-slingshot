@@ -1,19 +1,17 @@
-import React from 'react';
 import { expect } from 'chai';
 import * as ActionTypes from '../constants/actionTypes';
 import reducer from './fuelSavings';
 import dateHelper from '../businessLogic/dateHelper';
-import calculator from '../businessLogic/fuelSavingsCalculator';
 
-describe('Reducers::FuelSavings', function() {
+describe('Reducers::FuelSavings', () => {
 
   const getInitialSate = () => {
     return {
-      newMpg: "",
-      tradeMpg: "",
-      newPpg: "",
-      tradePpg: "",
-      milesDriven: "",
+      newMpg: '',
+      tradeMpg: '',
+      newPpg: '',
+      tradePpg: '',
+      milesDriven: '',
       milesDrivenTimeframe: 'week',
       displayResults: false,
       dateModified: null,
@@ -45,7 +43,7 @@ describe('Reducers::FuelSavings', function() {
     };
   };
 
-  it('should set initial state by default', function() {
+  it('should set initial state by default', () => {
     const action = { type: 'unknown' };
     const expected = getInitialSate();
 
@@ -53,14 +51,14 @@ describe('Reducers::FuelSavings', function() {
     // expect(reducer(undefined, action)).to.equal(expected); // Fails. Not deeply equal
   });
 
-  it('should handle SAVE_FUEL_SAVINGS', function() {
+  it('should handle SAVE_FUEL_SAVINGS', () => {
     const action = { type: ActionTypes.SAVE_FUEL_SAVINGS, settings: getAppState() };
     const expected = Object.assign(getAppState(), {dateModified: dateHelper.getFormattedDateTime(new Date())});
 
     expect(reducer(getAppState(), action)).to.deep.equal(expected);
   });
 
-  it('should handle CALCULATE_FUEL_SAVINGS', function() {
+  it('should handle CALCULATE_FUEL_SAVINGS', () => {
     const action = { type: ActionTypes.CALCULATE_FUEL_SAVINGS, settings: getAppState(), fieldName: 'newMpg', value: 30 };
 
     const expectedMpg = 30;

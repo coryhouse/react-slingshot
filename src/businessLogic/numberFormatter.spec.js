@@ -1,5 +1,5 @@
 import NumberFormatter from './numberFormatter';
-import chai, {should} from 'chai';
+import {should} from 'chai';
 
 describe('Number Formatter', () => {
   describe('getCurrencyFormattedNumber', () => {
