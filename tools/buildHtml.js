@@ -5,18 +5,18 @@
 // In this case, the transformation is useful since we only want to track errors in the built production code.
 
 // Allowing console calls below since this is a build file.
-/*eslint-disable no-console */
+/* eslint-disable no-console */
 
 import fs from 'fs';
-import colors from 'colors';
+import colors from 'colors'; // eslint-disable-line no-unused-vars
 import cheerio from 'cheerio';
 
 const useTrackJs = true; // If you choose not to use TrackJS, just set this to false and the build warning will go away.
 const trackJsToken = ''; // If you choose to use TrackJS, insert your unique token here. To get a token, go to https://trackjs.com
 
-fs.readFile('src/index.html', 'utf8', (err, markup) => {
-  if (err) {
-    return console.log(err);
+fs.readFile('src/index.html', 'utf8', (readError, markup) => {
+  if (readError) {
+    return console.log(readError);
   }
 
   const $ = cheerio.load(markup);
@@ -34,9 +34,9 @@ fs.readFile('src/index.html', 'utf8', (err, markup) => {
     }
   }
 
-  fs.writeFile('dist/index.html', $.html(), 'utf8', function (err) {
-    if (err) {
-      return console.log(err);
+  fs.writeFile('dist/index.html', $.html(), 'utf8', (writeError) => {
+    if (writeError) {
+      return console.log(writeError);
     }
     console.log('index.html written to /dist'.green);
   });
