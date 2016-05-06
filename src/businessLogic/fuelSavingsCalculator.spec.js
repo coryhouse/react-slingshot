@@ -1,5 +1,5 @@
 import chai, {should} from 'chai';
-import Calculator from './fuelSavingsCalculator';
+import calculator from './fuelSavingsCalculator';
 
 describe('Fuel Savings Calculator', () => {
   describe('necessaryDataIsProvidedToCalculateSavings', () => {
@@ -10,7 +10,7 @@ describe('Fuel Savings Calculator', () => {
       };
 
       // assert
-      Calculator().necessaryDataIsProvidedToCalculateSavings(settings).should.equal(false);
+      calculator().necessaryDataIsProvidedToCalculateSavings(settings).should.equal(false);
     });
 
     it('returns true when necessary data is provided', () => {
@@ -24,7 +24,7 @@ describe('Fuel Savings Calculator', () => {
       };
 
       // assert
-      Calculator().necessaryDataIsProvidedToCalculateSavings(settings).should.equal(true);
+      calculator().necessaryDataIsProvidedToCalculateSavings(settings).should.equal(true);
     });
   });
 
@@ -34,7 +34,7 @@ describe('Fuel Savings Calculator', () => {
       const milesPerWeek = 100;
 
       // act
-      const milesPerMonth = Calculator().calculateMilesDrivenPerMonth(milesPerWeek, 'week');
+      const milesPerMonth = calculator().calculateMilesDrivenPerMonth(milesPerWeek, 'week');
 
       // assert
       milesPerMonth.should.equal(433.3333333333333);
@@ -45,7 +45,7 @@ describe('Fuel Savings Calculator', () => {
       const milesPerMonth = 300;
 
       // act
-      const milesPerMonthCalculated = Calculator().calculateMilesDrivenPerMonth(milesPerMonth, 'month');
+      const milesPerMonthCalculated = calculator().calculateMilesDrivenPerMonth(milesPerMonth, 'month');
 
       // assert
       milesPerMonthCalculated.should.equal(milesPerMonth);
@@ -56,7 +56,7 @@ describe('Fuel Savings Calculator', () => {
       const milesPerYear = 1200;
 
       // act
-      const milesPerMonth = Calculator().calculateMilesDrivenPerMonth(milesPerYear, 'year');
+      const milesPerMonth = calculator().calculateMilesDrivenPerMonth(milesPerYear, 'year');
 
       // assert
       milesPerMonth.should.equal(100);
@@ -76,7 +76,7 @@ describe('Fuel Savings Calculator', () => {
       };
 
       // act
-      const savingsPerMonth = Calculator().calculateSavingsPerMonth(settings);
+      const savingsPerMonth = calculator().calculateSavingsPerMonth(settings);
 
       // assert
       savingsPerMonth.should.equal(29.93);
@@ -94,7 +94,7 @@ describe('Fuel Savings Calculator', () => {
       };
 
       // act
-      const savingsPerMonth = Calculator().calculateSavingsPerMonth(settings);
+      const savingsPerMonth = calculator().calculateSavingsPerMonth(settings);
 
       // assert
       savingsPerMonth.should.equal(40.83);
@@ -112,7 +112,7 @@ describe('Fuel Savings Calculator', () => {
       };
 
       // act
-      const savingsPerMonth = Calculator().calculateSavingsPerMonth(settings);
+      const savingsPerMonth = calculator().calculateSavingsPerMonth(settings);
 
       // assert
       savingsPerMonth.should.equal(-157.12);

@@ -12,12 +12,12 @@ class MathHelper {
     return Math.round(scrubbedNumber * Math.pow(10, numberOfDecimalPlaces)) / Math.pow(10, numberOfDecimalPlaces);
   }
 
-  static addArray(values) { //adds array of values passed.
+  static addArray(values) { // adds array of values passed.
     const total = values.reduce((previousValue, currentValue) => {
-      return previousValue + parseInt(this.convertToPennies(currentValue)); //do math in pennies to assure accuracy.
+      return previousValue + parseInt(this.convertToPennies(currentValue), 10); // do math in pennies to assure accuracy.
     }, 0);
 
-    return total / 100; //convert back into dollars
+    return total / 100; // convert back into dollars
   }
 
   static convertToPennies(dollarValue) {
@@ -26,9 +26,9 @@ class MathHelper {
     }
 
     dollarValue = parseFloat(dollarValue);
-    dollarValue = this.roundNumber(dollarValue, 2); //round to 2 decimal places.
-    const dollarValueContainsDecimal = (dollarValue.toString().indexOf(".") !== -1);
-    return (dollarValueContainsDecimal) ? parseInt(dollarValue.toString().replace('.', '')) : parseInt(dollarValue) * 100;
+    dollarValue = this.roundNumber(dollarValue, 2); // round to 2 decimal places.
+    const dollarValueContainsDecimal = (dollarValue.toString().indexOf('.') !== -1);
+    return (dollarValueContainsDecimal) ? parseInt(dollarValue.toString().replace('.', ''), 10) : parseInt(dollarValue, 10) * 100;
   }
 }
 

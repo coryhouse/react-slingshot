@@ -1,32 +1,32 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { expect } from 'chai';
+import {shallow} from 'enzyme';
+import {expect} from 'chai';
 import sinon from 'sinon';
 import AboutPage from './AboutPage';
-import { Link } from 'react-router';
+import {Link} from 'react-router';
 
 describe('<AboutPage />', () => {
-	it('should have a header called \'About\'', () => {
+  it('should have a header called \'About\'', () => {
     const wrapper = shallow(<AboutPage />);
     const actual = wrapper.find('h2').text();
     const expected = 'About';
-    
+
     expect(actual).to.equal(expected);
-	});
+  });
 
   it('should have a header with \'alt-header\' class', () => {
     const wrapper = shallow(<AboutPage />);
     const actual = wrapper.find('h2').prop('className');
     const expected = 'alt-header';
-    
+
     expect(actual).to.equal(expected);
   });
 
-   it('should link to an unknown route path', () => {
+  it('should link to an unknown route path', () => {
     const wrapper = shallow(<AboutPage />);
     const actual = wrapper.findWhere(n => n.prop('to') == '/badlink').length;
     const expected = 1;
-    
+
     expect(actual).to.be.equal(expected);
   });
 });

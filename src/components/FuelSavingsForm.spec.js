@@ -51,7 +51,7 @@ describe('<FuelSavingsForm />', () => {
   it('should contain options to change miles driven timeframe', () => {
     const saveFuelSavings = () => {};
     const calculateFuelSavings = () => {};
-    const appState =  {
+    const appState = {
       newMpg: 20,
       tradeMpg: 10,
       newPpg: 1.50,
@@ -85,7 +85,7 @@ describe('<FuelSavingsForm />', () => {
   it('should contain <FuelSavingsResults /> when necessary conditions are met', () => {
     const saveFuelSavings = () => {};
     const calculateFuelSavings = () => {};
-    const appState =  {
+    const appState = {
       newMpg: 20,
       tradeMpg: 10,
       newPpg: 1.50,
@@ -115,7 +115,7 @@ describe('<FuelSavingsForm />', () => {
   it('should not contain <FuelSavingsResults /> when necessary conditions are not met', () => {
     const saveFuelSavings = () => {};
     const calculateFuelSavings = () => {};
-    const appState =  {
+    const appState = {
       newMpg: 20,
       tradeMpg: 10,
       newPpg: 1.50,
@@ -145,7 +145,7 @@ describe('<FuelSavingsForm />', () => {
   it('should handle form submit', () => {
     const saveFuelSavings = sinon.spy();
     const calculateFuelSavings = () => {};
-    const appState =  {
+    const appState = {
       newMpg: 20,
       tradeMpg: 10,
       newPpg: 1.50,
@@ -176,7 +176,7 @@ describe('<FuelSavingsForm />', () => {
   it('should submit appState', () => {
     const saveFuelSavings = sinon.spy();
     const calculateFuelSavings = () => {};
-    const appState =  {
+    const appState = {
       newMpg: 20,
       tradeMpg: 10,
       newPpg: 1.50,
