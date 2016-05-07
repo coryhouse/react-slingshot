@@ -1,15 +1,15 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions/fuelSavingsActions';
 import FuelSavingsForm from '../components/FuelSavingsForm';
 
-export const FuelSavingsPage = () => {
+export const FuelSavingsPage = (props) => {
   return (
     <FuelSavingsForm
-      saveFuelSavings={this.props.actions.saveFuelSavings}
-      calculateFuelSavings={this.props.actions.calculateFuelSavings}
-      appState={this.props.appState}
+      saveFuelSavings={props.actions.saveFuelSavings}
+      calculateFuelSavings={props.actions.calculateFuelSavings}
+      appState={props.appState}
     />
   );
 };
