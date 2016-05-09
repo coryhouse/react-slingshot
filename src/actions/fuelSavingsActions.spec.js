@@ -1,9 +1,8 @@
-import React from 'react';
 import { expect } from 'chai';
 import * as ActionCreators from './fuelSavingsActions';
 import * as ActionTypes from '../constants/actionTypes';
 
-describe('Actions', function() {
+describe('Actions', () => {
   const appState = {
     newMpg: 20,
     tradeMpg: 10,
@@ -21,7 +20,7 @@ describe('Actions', function() {
     }
   };
 
-  it('should create an action to save fuel savings', function() {
+  it('should create an action to save fuel savings', () => {
     const expected = {
       type: ActionTypes.SAVE_FUEL_SAVINGS,
       settings: appState
@@ -31,15 +30,15 @@ describe('Actions', function() {
     // expect(ActionCreators.saveFuelSavings(appState)).to.equal(expected); // Fails. Not deeply equal
   });
 
-  it('should create an action to calculate fuel savings', function() {
+  it('should create an action to calculate fuel savings', () => {
     const fieldName = 'newMpg';
     const value = 100;
 
     const expected = {
       type: ActionTypes.CALCULATE_FUEL_SAVINGS,
       settings: appState,
-      fieldName: fieldName,
-      value: value
+      fieldName,
+      value
     };
 
     expect(ActionCreators.calculateFuelSavings(appState, fieldName, value)).to.deep.equal(expected);

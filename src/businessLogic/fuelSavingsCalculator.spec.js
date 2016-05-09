@@ -1,21 +1,21 @@
-import chai, {should} from 'chai';
+import {expect} from 'chai';
 import calculator from './fuelSavingsCalculator';
 
 describe('Fuel Savings Calculator', () => {
   describe('necessaryDataIsProvidedToCalculateSavings', () => {
     it('returns false when necessary data isn\'t provided', () => {
       // arrange
-      let settings = {
+      const settings = {
         newMpg: 20
       };
 
       // assert
-      calculator().necessaryDataIsProvidedToCalculateSavings(settings).should.equal(false);
+      expect(calculator().necessaryDataIsProvidedToCalculateSavings(settings)).to.equal(false);
     });
 
     it('returns true when necessary data is provided', () => {
       // arrange
-      let settings = {
+      const settings = {
         newMpg: 20,
         tradeMpg: 10,
         newPpg: 1.50,
@@ -24,12 +24,12 @@ describe('Fuel Savings Calculator', () => {
       };
 
       // assert
-      calculator().necessaryDataIsProvidedToCalculateSavings(settings).should.equal(true);
+      expect(calculator().necessaryDataIsProvidedToCalculateSavings(settings)).to.equal(true);
     });
   });
 
-  describe("milesPerMonth", () => {
-    it("converts a weekly timeframe to a monthly timeframe", () => {
+  describe('milesPerMonth', () => {
+    it('converts a weekly timeframe to a monthly timeframe', () => {
       // arrange
       const milesPerWeek = 100;
 
@@ -37,10 +37,10 @@ describe('Fuel Savings Calculator', () => {
       const milesPerMonth = calculator().calculateMilesDrivenPerMonth(milesPerWeek, 'week');
 
       // assert
-      milesPerMonth.should.equal(433.3333333333333);
+      expect(milesPerMonth).to.equal(433.3333333333333);
     });
 
-    it("returns a monthly timeframe untouched", () => {
+    it('returns a monthly timeframe untouched', () => {
       // arrange
       const milesPerMonth = 300;
 
@@ -48,10 +48,10 @@ describe('Fuel Savings Calculator', () => {
       const milesPerMonthCalculated = calculator().calculateMilesDrivenPerMonth(milesPerMonth, 'month');
 
       // assert
-      milesPerMonthCalculated.should.equal(milesPerMonth);
+      expect(milesPerMonthCalculated).to.equal(milesPerMonth);
     });
 
-    it("converts a yearly timeframe to a monthly timeframe", () => {
+    it('converts a yearly timeframe to a monthly timeframe', () => {
       // arrange
       const milesPerYear = 1200;
 
@@ -59,12 +59,12 @@ describe('Fuel Savings Calculator', () => {
       const milesPerMonth = calculator().calculateMilesDrivenPerMonth(milesPerYear, 'year');
 
       // assert
-      milesPerMonth.should.equal(100);
+      expect(milesPerMonth).to.equal(100);
     });
   });
 
-  describe("calculateSavingsPerMonth", () => {
-    it("returns 29.93 in savings per month with these settings", () => {
+  describe('calculateSavingsPerMonth', () => {
+    it('returns 29.93 in savings per month with these settings', () => {
       // arrange
       const settings = {
         tradePpg: 3.75,
@@ -79,10 +79,10 @@ describe('Fuel Savings Calculator', () => {
       const savingsPerMonth = calculator().calculateSavingsPerMonth(settings);
 
       // assert
-      savingsPerMonth.should.equal(29.93);
+      expect(savingsPerMonth).to.equal(29.93);
     });
 
-    it("returns 40.83 in savings per month with these settings", () => {
+    it('returns 40.83 in savings per month with these settings', () => {
       // arrange
       const settings = {
         tradePpg: 4.15,
@@ -97,10 +97,10 @@ describe('Fuel Savings Calculator', () => {
       const savingsPerMonth = calculator().calculateSavingsPerMonth(settings);
 
       // assert
-      savingsPerMonth.should.equal(40.83);
+      expect(savingsPerMonth).to.equal(40.83);
     });
 
-    it("returns -157.12 in loss per month with these settings", () => {
+    it('returns -157.12 in loss per month with these settings', () => {
       // arrange
       const settings = {
         tradePpg: 3.15,
@@ -115,7 +115,7 @@ describe('Fuel Savings Calculator', () => {
       const savingsPerMonth = calculator().calculateSavingsPerMonth(settings);
 
       // assert
-      savingsPerMonth.should.equal(-157.12);
+      expect(savingsPerMonth).to.equal(-157.12);
     });
   });
 });

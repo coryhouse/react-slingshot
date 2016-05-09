@@ -4,7 +4,6 @@ import {expect} from 'chai';
 import FuelSavingsResults from './FuelSavingsResults';
 
 describe('<FuelSavingsResults />', () => {
-
   it('should display savings when savings exist', () => {
     const savings = {
       monthly: '10',

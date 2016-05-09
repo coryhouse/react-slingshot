@@ -4,7 +4,6 @@ import reducer from './fuelSavings';
 import dateHelper from '../businessLogic/dateHelper';
 
 describe('Reducers::FuelSavings', () => {
-
   const getInitialSate = () => {
     return {
       newMpg: '',

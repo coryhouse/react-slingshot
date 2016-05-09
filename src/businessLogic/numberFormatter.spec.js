@@ -1,40 +1,40 @@
 import NumberFormatter from './numberFormatter';
-import {should} from 'chai';
+import {expect} from 'chai';
 
 describe('Number Formatter', () => {
   describe('getCurrencyFormattedNumber', () => {
     it('returns $5.50 when passed 5.5', () => {
-      NumberFormatter.getCurrencyFormattedNumber(5.5).should.equal("$5.50");
+      expect(NumberFormatter.getCurrencyFormattedNumber(5.5)).to.equal('$5.50');
     });
   });
 
   describe('isInt', () => {
     it('returns true when passed 0', () => {
-      NumberFormatter.isInt(0).should.equal(true);
+      expect(NumberFormatter.isInt(0)).to.equal(true);
     });
 
     it('returns false when passed an empty string', () => {
-      NumberFormatter.isInt('').should.equal(false);
+      expect(NumberFormatter.isInt('')).to.equal(false);
     });
 
     it('returns true when passed int as a string', () => {
-      NumberFormatter.isInt('5').should.equal(true);
+      expect(NumberFormatter.isInt('5')).to.equal(true);
     });
   });
 
   describe('scrubFormatting', () => {
     it('strips commas and decimals', () => {
-      NumberFormatter.scrubFormatting('1,234.56').should.equal('123456');
+      expect(NumberFormatter.scrubFormatting('1,234.56')).to.equal('123456');
     });
   });
 
   describe('getFormattedNumber', () => {
     it('returns 0 if passed 0', () => {
-      NumberFormatter.getFormattedNumber(0).should.equal(0);
+      expect(NumberFormatter.getFormattedNumber(0)).to.equal(0);
     });
 
     it('returns empty string if passed empty string', () => {
-      NumberFormatter.getFormattedNumber('').should.equal('');
+      expect(NumberFormatter.getFormattedNumber('')).to.equal('');
     });
   });
 });

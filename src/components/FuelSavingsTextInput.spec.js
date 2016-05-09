@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import chai, {should} from 'chai';
+import chai, {expect} from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import FuelSavingsTextInput from './FuelSavingsTextInput';
@@ -21,7 +21,7 @@ describe('<FuelSavingsTextInput />', () => {
     const actual = wrapper.type();
     const expected = 'input';
 
-    actual.should.be.to.equal(expected);
+    expect(actual).to.equal(expected);
   });
 
   it('should handle change', () => {
@@ -37,9 +37,9 @@ describe('<FuelSavingsTextInput />', () => {
     const actual = wrapper.type();
     const expected = 'input';
 
-    actual.should.equal(expected);
+    expect(actual).to.equal(expected);
     props.onChange.should.not.have.been.called;
     wrapper.simulate('change', {target: {value: 101}});
-    props.onChange.should.have.been.calledWith('newMpg', 101);
+    expect(props.onChange).to.have.been.calledWith('newMpg', 101);
   });
 });
