@@ -39,6 +39,10 @@ fs.readFile('src/index.html', 'utf8', (readError, markup) => {
       return console.log(writeError);
     }
     console.log('index.html written to /dist'.green);
+
+    return writeError;
   });
+
+  return readError;
 });
 
