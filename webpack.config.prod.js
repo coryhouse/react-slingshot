@@ -14,13 +14,13 @@ export default {
   entry: './src/index',
   target: 'web', // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
   output: {
-    path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
+    path: `${__dirname}/dist`, // Note: Physical files are only output by the production build task `npm run build`.
     publicPath: '/',
     filename: 'bundle.js'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.DefinePlugin(GLOBALS), //Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
+    new webpack.DefinePlugin(GLOBALS), // Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
     new ExtractTextPlugin('styles.css'),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin()
@@ -28,16 +28,16 @@ export default {
   module: {
     loaders: [
       {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
-      {test: /.eot(\?v=\d+.\d+.\d+)?$/, loader: "file"},
-      {test: /.(woff|woff2)$/, loader: "file-loader?prefix=font/&limit=5000"},
-      {test: /.ttf(\?v=\d+.\d+.\d+)?$/, loader: "file-loader?limit=10000&mimetype=application/octet-stream"},
-      {test: /.svg(\?v=\d+.\d+.\d+)?$/, loader: "file-loader?limit=10000&mimetype=image/svg+xml"},
+      {test: /.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
+      {test: /.(woff|woff2)$/, loader: 'file-loader?prefix=font/&limit=5000'},
+      {test: /.ttf(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader?limit=10000&mimetype=application/octet-stream'},
+      {test: /.svg(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader?limit=10000&mimetype=image/svg+xml'},
       {test: /\.(jpe?g|png|gif)$/i, loaders: ['file']},
       {test: /\.ico$/, loader: 'file-loader?name=[name].[ext]'},
       {
         test: /(\.css|\.scss)$/,
         include: path.join(__dirname, 'src'),
-        loader: ExtractTextPlugin.extract("css?sourceMap!sass?sourceMap")
+        loader: ExtractTextPlugin.extract('css?sourceMap!sass?sourceMap')
       }
     ]
   }

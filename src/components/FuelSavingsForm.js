@@ -52,14 +52,15 @@ class FuelSavingsForm extends React.Component {
           <tr>
             <td><label htmlFor="milesDriven">Miles Driven</label></td>
             <td>
-              <FuelSavingsTextInput onChange={this.fuelSavingsKeypress} name="milesDriven"
-                                    value={appState.milesDriven}/>
-              miles
-              per
-              <select name="milesDrivenTimeframe"
-                      onChange={this.onTimeframeChange}
-                      value={appState.milesDrivenTimeframe}
-              >
+              <FuelSavingsTextInput
+                onChange={this.fuelSavingsKeypress}
+                name="milesDriven"
+                value={appState.milesDriven}/>
+              miles per
+              <select
+                name="milesDrivenTimeframe"
+                onChange={this.onTimeframeChange}
+                value={appState.milesDrivenTimeframe}>
                 <option value="week">Week</option>
                 <option value="month">Month</option>
                 <option value="year">Year</option>

@@ -6,16 +6,16 @@ import NumberFormatter from './numberFormatter';
 // This declares a function with a private method.
 // The public function returns an object literal.
 // Could arguably be called FuelSavingCalculatorFactory.
-const fuelSavingsCalculator = function () {
+function fuelSavingsCalculator() {
   // private
-  const calculateMonthlyCost = function (milesDrivenPerMonth, ppg, mpg) {
+  const calculateMonthlyCost = (milesDrivenPerMonth, ppg, mpg) => {
     const gallonsUsedPerMonth = milesDrivenPerMonth / mpg;
     return gallonsUsedPerMonth * ppg;
   };
 
   // public
   return {
-    calculateMilesDrivenPerMonth: function (milesDriven, milesDrivenTimeframe) {
+    calculateMilesDrivenPerMonth: (milesDriven, milesDrivenTimeframe) => {
       const monthsPerYear = 12;
       const weeksPerYear = 52;
 
@@ -27,11 +27,11 @@ const fuelSavingsCalculator = function () {
         case 'year':
           return milesDriven / monthsPerYear;
         default:
-          throw 'Unknown milesDrivenTimeframe passed: ' + milesDrivenTimeframe;
+          throw new Error(`Unknown milesDrivenTimeframe passed: ${milesDrivenTimeframe}`);
       }
     },
 
-    calculateSavingsPerMonth: function (settings) {
+    calculateSavingsPerMonth: (settings) => {
       if (!settings.milesDriven) {
         return 0;
       }
@@ -45,7 +45,7 @@ const fuelSavingsCalculator = function () {
     },
 
 
-    necessaryDataIsProvidedToCalculateSavings: function (settings) {
+    necessaryDataIsProvidedToCalculateSavings: (settings) => {
       return settings.newMpg > 0
         && settings.tradeMpg > 0
         && settings.newPpg > 0
@@ -53,7 +53,7 @@ const fuelSavingsCalculator = function () {
         && settings.milesDriven > 0;
     },
 
-    calculateSavings: function (settings) {
+    calculateSavings: (settings) => {
       const monthlySavings = this.calculateSavingsPerMonth(settings);
 
       return {
@@ -63,6 +63,6 @@ const fuelSavingsCalculator = function () {
       };
     }
   };
-};
+}
 
 export default fuelSavingsCalculator;

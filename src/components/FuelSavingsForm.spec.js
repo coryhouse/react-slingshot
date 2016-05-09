@@ -7,7 +7,6 @@ import FuelSavingsTextInput from './FuelSavingsTextInput';
 import FuelSavingsResults from './FuelSavingsResults';
 
 describe('<FuelSavingsForm />', () => {
-
   it('should contain <FuelSavingsTextInput /> components', () => {
     const saveFuelSavings = () => {};
     const calculateFuelSavings = () => {};
