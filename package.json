@@ -3,6 +3,7 @@
   "version": "3.0.1",
   "description": "Starter kit for creating apps with React and Redux",
   "scripts": {
+    "remove-demo": "babel-node tools/removeDemo.js",
     "start-message": "babel-node tools/startMessage.js",
     "prestart": "npm-run-all --parallel start-message remove-dist",
     "start": "npm-run-all --parallel test:watch open:src lint:watch",
