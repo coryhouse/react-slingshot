@@ -6,16 +6,16 @@ import NumberFormatter from './numberFormatter';
 // This declares a function with a private method.
 // The public function returns an object literal.
 // Could arguably be called FuelSavingCalculatorFactory.
-const fuelSavingsCalculator = () => {
+const fuelSavingsCalculator = function () {
   // private
-  const calculateMonthlyCost = (milesDrivenPerMonth, ppg, mpg) => {
+  const calculateMonthlyCost = function (milesDrivenPerMonth, ppg, mpg) {
     const gallonsUsedPerMonth = milesDrivenPerMonth / mpg;
     return gallonsUsedPerMonth * ppg;
   };
 
   // public
   return {
-    calculateMilesDrivenPerMonth: (milesDriven, milesDrivenTimeframe) => {
+    calculateMilesDrivenPerMonth: function (milesDriven, milesDrivenTimeframe) {
       const monthsPerYear = 12;
       const weeksPerYear = 52;
 
@@ -31,7 +31,7 @@ const fuelSavingsCalculator = () => {
       }
     },
 
-    calculateSavingsPerMonth: (settings) => {
+    calculateSavingsPerMonth: function (settings) {
       if (!settings.milesDriven) {
         return 0;
       }
@@ -45,7 +45,7 @@ const fuelSavingsCalculator = () => {
     },
 
 
-    necessaryDataIsProvidedToCalculateSavings: (settings) => {
+    necessaryDataIsProvidedToCalculateSavings: function (settings) {
       return settings.newMpg > 0
         && settings.tradeMpg > 0
         && settings.newPpg > 0
@@ -53,7 +53,7 @@ const fuelSavingsCalculator = () => {
         && settings.milesDriven > 0;
     },
 
-    calculateSavings: (settings) => {
+    calculateSavings: function (settings) {
       const monthlySavings = this.calculateSavingsPerMonth(settings);
 
       return {
