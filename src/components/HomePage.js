@@ -8,8 +8,8 @@ const HomePage = () => {
 
       <h2>Get Started</h2>
       <ol>
-        <li>Review the <Link to="fuel-savings">example app</Link></li>
-        <li>Remove this demo: npm run remove-demo</li>
+        <li>Review the <Link to="fuel-savings">demo app</Link></li>
+        <li>Remove the demo and start coding: npm run remove-demo</li>
       </ol>
     </div>
   );
