@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 const HomePage = () => {
   return (
     <div>
-      <h1>Welcome to React Slingshot</h1>
+      <h1>React Slingshot</h1>
 
       <h2>Get Started</h2>
       <ol>
