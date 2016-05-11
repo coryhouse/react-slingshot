@@ -1,7 +1,7 @@
 // This script removes demo app files
 import rimraf from 'rimraf';
 import fs from 'fs';
-import colors from 'colors'; // eslint-disable-line no-unused-vars
+import {chalkSuccess} from './chalkConfig';
 
 /* eslint-disable no-console */
 
@@ -19,6 +19,21 @@ const pathsToRemove = [
   './src/index.js'
 ];
 
+const filesToCreate = [
+  {
+    path: './src/components/emptyTest.spec.js',
+    content: '// Must have at least one test file in this directory or Mocha will throw an error.'
+  },
+  {
+    path: './src/index.js',
+    content: '// Set up your application entry point here...'
+  },
+  {
+    path: './src/reducers/index.js',
+    content: '// Set up your root reducer here...\n import { combineReducers } from \'redux\';\n export default combineReducers;'
+  }
+];
+
 function removePath(path, callback) {
   rimraf(path, error => {
     if (error) throw new Error(error);
@@ -26,21 +41,8 @@ function removePath(path, callback) {
   });
 }
 
-function createSpecFile() {
-  const fileContent = '// Must have at least one test file in this directory or Mocha will throw an error.';
-  fs.writeFile('./src/components/emptyTest.spec.js', fileContent, error => {
-    if (error) throw new Error(error);
-  });
-}
-
-function createEntryPoint() {
-  fs.writeFile('./src/index.js', '// Set up your application entry point here...', error => {
-    if (error) throw new Error(error);
-  });
-}
-
-function createRootReducer() {
-  fs.writeFile('./src/reducers/index.js', '// Set up your root reducer here...\n import { combineReducers } from \'redux\';\n export default combineReducers;', error => {
+function createFile(file) {
+  fs.writeFile(file.path, file.content, error => {
     if (error) throw new Error(error);
   });
 }
@@ -51,11 +53,9 @@ pathsToRemove.map(path => {
     numPathsRemoved++;
     if (numPathsRemoved === pathsToRemove.length) { // All paths have been processed
       // Now we can create files since we're done deleting.
-      createSpecFile();
-      createEntryPoint();
-      createRootReducer();
+      filesToCreate.map(file => createFile(file));
     }
   });
 });
 
-console.log('Demo app removed.'.green);
+console.log(chalkSuccess('Demo app removed.'));
