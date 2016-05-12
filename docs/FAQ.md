@@ -175,6 +175,16 @@ In short, Gulp is an unnecessary abstraction that creates more problems than it 
 ### Why does package.json reference the exact version?
 This assures that the build won't break when some new version is released. Unfortunately, many package authors don't properly honor [Semantic Versioning](http://semver.org), so instead, as new versions are released, I'll test them and then introduce them into the starter kit. But yes, this means when you do `npm update` no new dependencies will be pulled down. You'll have to update package.json with the new version manually.
 
+### How do I handle images?
+Via <a href="https://github.com/webpack/file-loader">Webpack's file loader</a>. Example: 
+
+```
+<img src={require('./src/images/myImage.jpg')} />
+
+```
+
+Webpack will then intelligently handle your image for you. For the production build, it will copy the physical file to /dist, give it a unique filename, and insert the appropriate path in your image tag.
+
 ### I'm getting an error when running npm install: Failed to locate "CL.exe"
 On Windows, you need to install extra dependencies for browser-sync to build and install successfully. Follow the getting started steps above to assure you have the necessary dependencies on your machine.
 
