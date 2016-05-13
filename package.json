@@ -1,6 +1,6 @@
 {
   "name": "react-slingshot",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "Starter kit for creating apps with React and Redux",
   "scripts": {
     "remove-demo": "babel-node tools/removeDemo.js",
