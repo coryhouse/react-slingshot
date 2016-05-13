@@ -1,5 +1,5 @@
 export default {
-  fuelSavingsAppState: {
+  fuelSavings: {
     newMpg: '',
     tradeMpg: '',
     newPpg: '',
