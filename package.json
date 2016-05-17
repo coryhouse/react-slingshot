@@ -1,6 +1,6 @@
 {
   "name": "react-slingshot",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "Starter kit for creating apps with React and Redux",
   "scripts": {
     "remove-demo": "babel-node tools/removeDemo.js",
@@ -16,9 +16,9 @@
     "build:html": "babel-node tools/buildHtml.js",
     "prebuild": "npm run clean-dist && npm run build:html && npm run lint && npm run test",
     "build": "babel-node tools/build.js && npm run open:dist",
-    "test": "mocha tools/testSetup.js src/**/*.spec.js --reporter progress",
-    "test:cover": "babel-node $(npm bin)/isparta cover --root src --report html node_modules/mocha/bin/_mocha -- --require ./tools/testSetup.js src/**/*.spec.js --reporter progress",
-    "test:cover:travis": "babel-node ./node_modules/.bin/isparta cover --root src --report lcovonly node_modules/mocha/bin/_mocha -- --require ./tools/testSetup.js src/**/*.spec.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test": "mocha tools/testSetup.js \"src/**/*.spec.js\" --reporter progress",
+    "test:cover": "babel-node $(npm bin)/isparta cover --root src --report html node_modules/mocha/bin/_mocha -- --require ./tools/testSetup.js \"src/**/*.spec.js\" --reporter progress",
+    "test:cover:travis": "babel-node ./node_modules/.bin/isparta cover --root src --report lcovonly node_modules/mocha/bin/_mocha -- --require ./tools/testSetup.js \"src/**/*.spec.js\" && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test:watch": "npm run test -- --watch"
   },
   "author": "Cory House",

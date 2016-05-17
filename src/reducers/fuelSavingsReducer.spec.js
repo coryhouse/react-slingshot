@@ -1,10 +1,10 @@
 import { expect } from 'chai';
 import * as ActionTypes from '../constants/actionTypes';
-import reducer from './fuelSavings';
+import reducer from './fuelSavingsReducer';
 import dateHelper from '../businessLogic/dateHelper';
 
 describe('Reducers::FuelSavings', () => {
-  const getInitialSate = () => {
+  const getInitialState = () => {
     return {
       newMpg: '',
       tradeMpg: '',
@@ -44,9 +44,9 @@ describe('Reducers::FuelSavings', () => {
 
   it('should set initial state by default', () => {
     const action = { type: 'unknown' };
-    const expected = getInitialSate();
+    const expected = getInitialState();
 
-    expect(reducer(undefined, action)).to.deep.equal(expected); // Notice use of deep because it's a nested object
+    expect(reducer(getInitialState(), action)).to.deep.equal(expected); // Notice use of deep because it's a nested object
     // expect(reducer(undefined, action)).to.equal(expected); // Fails. Not deeply equal
   });
 

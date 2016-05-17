@@ -9,19 +9,19 @@ export const FuelSavingsPage = (props) => {
     <FuelSavingsForm
       saveFuelSavings={props.actions.saveFuelSavings}
       calculateFuelSavings={props.actions.calculateFuelSavings}
-      appState={props.appState}
+      fuelSavings={props.fuelSavings}
     />
   );
 };
 
 FuelSavingsPage.propTypes = {
   actions: PropTypes.object.isRequired,
-  appState: PropTypes.object.isRequired
+  fuelSavings: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    appState: state.fuelSavingsAppState
+    fuelSavings: state.fuelSavings
   };
 }
 
