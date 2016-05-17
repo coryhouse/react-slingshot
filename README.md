@@ -2,6 +2,7 @@
 
 [![build status](https://img.shields.io/travis/coryhouse/react-slingshot.svg?style=flat-square)](https://travis-ci.org/coryhouse/react-slingshot)
 [![Dependency Status](https://david-dm.org/coryhouse/react-slingshot.svg?style=flat-square)](https://david-dm.org/coryhouse/react-slingshot)
+[![Coverage Status](https://coveralls.io/repos/github/dwmkerr/react-slingshot/badge.svg?branch=master)](https://coveralls.io/github/dwmkerr/react-slingshot?branch=master)
 
 React Slingshot is a comprehensive starter kit for rapid application development using React. It offers a rich development experience including:
 
