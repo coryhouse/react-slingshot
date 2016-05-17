@@ -204,3 +204,13 @@ Using the `npm run test:cover` command to run the tests, building a code coverag
 npm run test:cover
 open ./coverage/index.html
 ```
+
+You can add code coverage metrics to your `README.md` file and pull by integrating with [Coveralls](https://coveralls.io/).
+
+1. Sign in to Coveralls with your GitHub account.
+2. Authorise Coveralls to access your repositories.
+3. Choose 'Add Repo' and select your repo.
+4. Uncomment the 'Send Coverage Data to Coveralls from Travis' line in [.travis.yml].
+
+That's it! Travis will now execute the `npm run test:cover:travis` script after a successful build, which will write the coverage report in the standard lcov format and send it directly to Coveralls. The environment variables provided for travis jobs are used to automatically target the correct Coveralls project, as long as it is set up as described above.
+
