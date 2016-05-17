@@ -17,6 +17,7 @@
     "prebuild": "npm run clean-dist && npm run build:html && npm run lint && npm run test",
     "build": "babel-node tools/build.js && npm run open:dist",
     "test": "mocha tools/testSetup.js src/**/*.spec.js --reporter progress",
+    "test:cover": "babel-node $(npm bin)/isparta cover --root src --report html node_modules/mocha/bin/_mocha -- --require ./tools/testSetup.js src/**/*.spec.js --reporter progress",
     "test:watch": "npm run test -- --watch"
   },
   "author": "Cory House",
@@ -55,6 +56,7 @@
     "eslint-watch": "2.1.11",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
+    "isparta": "4.0.0",
     "mocha": "2.4.5",
     "node-sass": "3.7.0",
     "npm-run-all": "1.8.0",
