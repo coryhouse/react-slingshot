@@ -18,6 +18,8 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 | prebuild | Runs automatically before build script (due to naming convention). Cleans dist folder, builds html, and builds sass. |
 | build | Bundles all JavaScript using webpack and writes it to /dist. |
 | test | Runs tests (files ending in .spec.js) using Mocha and outputs results to the command line. Watches all files so tests are re-run upon save. |
+| test:cover | Runs tests as described above. Generates a HTML coverage report to ./coverage/index.html |
+| test:cover:travis | Runs coverage as descibed above, however sends machine readable lcov data to Coveralls. This should only be used from the travis build! |
 
 ### Can you explain the folder structure?
 ```
