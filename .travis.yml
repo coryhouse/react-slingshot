@@ -8,5 +8,5 @@ node_js:
   - "4.1"
   - "4.0"
 after_success:
-  # Uncomment the line below if you have setup Coveralls as described in the FAQ.
+  # Send coverage data to coveralls.
   - npm run test:cover:travis
