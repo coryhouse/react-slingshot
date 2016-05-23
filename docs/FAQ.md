@@ -19,7 +19,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 | build | Bundles all JavaScript using webpack and writes it to /dist. |
 | test | Runs tests (files ending in .spec.js) using Mocha and outputs results to the command line. Watches all files so tests are re-run upon save. |
 | test:cover | Runs tests as described above. Generates a HTML coverage report to ./coverage/index.html |
-| test:cover:travis | Runs coverage as descibed above, however sends machine readable lcov data to Coveralls. This should only be used from the travis build! |
+| test:cover:travis | Runs coverage as described above, however sends machine readable lcov data to Coveralls. This should only be used from the travis build! |
 
 ### Can you explain the folder structure?
 ```
@@ -200,7 +200,7 @@ Install the [Redux devtools extension](https://chrome.google.com/webstore/detail
 Hot reloading doesn't always play nicely with stateless functional components at this time. [This is a known limitation that is currently being worked](https://github.com/gaearon/babel-plugin-react-transform/issues/57). To avoid issues with hot reloading for now, use a traditional class-based React component at the top of your component hierarchy.
 
 ### How do I setup code coverage reporting?
-Using the `npm run test:cover` command to run the tests, building a code coverage report. The report is writtent to `coverage/index.html`. A quick way to check coverage is:
+Using the `npm run test:cover` command to run the tests, building a code coverage report. The report is written to `coverage/index.html`. A quick way to check coverage is:
 
 ```bash
 npm run test:cover
