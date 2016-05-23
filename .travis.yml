@@ -7,3 +7,6 @@ node_js:
   - "4.2"
   - "4.1"
   - "4.0"
+after_success:
+  # Send coverage data to coveralls.
+  - npm run test:cover:travis
