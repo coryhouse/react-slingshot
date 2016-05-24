@@ -9,10 +9,10 @@ React Slingshot is a comprehensive starter kit for rapid application development
 Why Slingshot?
 
 1. **One command to get started** - Type `npm start` to start development in your default browser
-2. **Rapid feedback** - Each time you hit save, changes hot reload and linting and automated tests are run.
+2. **Rapid feedback** - Each time you hit save, changes hot reload and linting and automated tests run.
 3. **One command line to check** - All feedback is displayed on a single command line.
-4. **No more JavaScript Fatigue** - Slingshot uses the most popular and powerful libraries for working with React.
-5. **Working example app** - Dissect the included example app to see how this all works together.
+4. **No more JavaScript fatigue** - Slingshot uses the most popular and powerful libraries for working with React.
+5. **Working example app** - The included example app shows how this all works together.
 
 ## Get Started
 1. **Initial Machine Setup**. First time running the starter kit? Then complete the [Initial Machine Setup](https://github.com/coryhouse/react-slingshot#initial-machine-setup).
