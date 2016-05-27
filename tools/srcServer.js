@@ -2,14 +2,16 @@
 // which supports hot reloading and synchronized testing.
 
 // Require Browsersync along with webpack and middleware for it
-var browserSync = require('browser-sync');
-var webpack = require('webpack');
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
-var webpackConfigBuilder = require('../webpack.config');
-var webpackConfig = webpackConfigBuilder('development');
+import browserSync from 'browser-sync';
+// Required for react-router browserHistory
+// see https://github.com/BrowserSync/browser-sync/issues/204#issuecomment-102623643
+import historyApiFallback from 'connect-history-api-fallback';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import config from '../webpack.config.dev';
 
-var bundler = webpack(webpackConfig);
+const bundler = webpack(config);
 
 // Run Browsersync and use middleware for Hot Module Replacement
 browserSync({
@@ -19,7 +21,7 @@ browserSync({
     middleware: [
       webpackDevMiddleware(bundler, {
         // Dev middleware can't access config, so we provide publicPath
-        publicPath: webpackConfig.output.publicPath,
+        publicPath: config.output.publicPath,
 
         // pretty colored output
         stats: { colors: true },
@@ -32,7 +34,9 @@ browserSync({
       }),
 
       // bundler should be the same as above
-      webpackHotMiddleware(bundler)
+      webpackHotMiddleware(bundler),
+
+      historyApiFallback()
     ]
   },
 

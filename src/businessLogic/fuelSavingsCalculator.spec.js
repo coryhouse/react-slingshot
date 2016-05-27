@@ -1,123 +1,121 @@
-import chai from 'chai';
-import Calculator from './fuelSavingsCalculator';
-
-chai.should();
+import {expect} from 'chai';
+import calculator from './fuelSavingsCalculator';
 
 describe('Fuel Savings Calculator', () => {
-    describe('necessaryDataIsProvidedToCalculateSavings', () => {
-        it('returns false when necessary data isn\'t provided', () => {
-            //arrange
-            let settings = {
-                newMpg: 20
-            };
+  describe('necessaryDataIsProvidedToCalculateSavings', () => {
+    it('returns false when necessary data isn\'t provided', () => {
+      // arrange
+      const settings = {
+        newMpg: 20
+      };
 
-            //assert
-            Calculator().necessaryDataIsProvidedToCalculateSavings(settings).should.equal(false);
-        });
-
-        it('returns true when necessary data is provided', () => {
-            //arrange
-            let settings = { 
-                newMpg: 20,
-                tradeMpg: 10,
-                newPpg: 1.50,
-                tradePpg: 1.50,
-                milesDriven: 100
-            };
-
-            //assert
-            Calculator().necessaryDataIsProvidedToCalculateSavings(settings).should.equal(true);
-        });
+      // assert
+      expect(calculator().necessaryDataIsProvidedToCalculateSavings(settings)).to.equal(false);
     });
 
-    describe("milesPerMonth", () => {
-        it("converts a weekly timeframe to a monthly timeframe", () => {
-            //arrange
-            var milesPerWeek = 100;
+    it('returns true when necessary data is provided', () => {
+      // arrange
+      const settings = {
+        newMpg: 20,
+        tradeMpg: 10,
+        newPpg: 1.50,
+        tradePpg: 1.50,
+        milesDriven: 100
+      };
 
-            //act
-            var milesPerMonth = Calculator().calculateMilesDrivenPerMonth(milesPerWeek, 'week');
-            
-            //assert
-            milesPerMonth.should.equal(433.3333333333333);
-        });
+      // assert
+      expect(calculator().necessaryDataIsProvidedToCalculateSavings(settings)).to.equal(true);
+    });
+  });
 
-        it("returns a monthly timeframe untouched", () => {
-            //arrange
-            var milesPerMonth = 300;
+  describe('milesPerMonth', () => {
+    it('converts a weekly timeframe to a monthly timeframe', () => {
+      // arrange
+      const milesPerWeek = 100;
 
-            //act
-            var milesPerMonthCalculated = Calculator().calculateMilesDrivenPerMonth(milesPerMonth, 'month');
-            
-            //assert
-            milesPerMonthCalculated.should.equal(milesPerMonth); 
-        });
+      // act
+      const milesPerMonth = calculator().calculateMilesDrivenPerMonth(milesPerWeek, 'week');
 
-        it("converts a yearly timeframe to a monthly timeframe", () => {
-            //arrange
-            var milesPerYear = 1200;
-            
-            //act
-            var milesPerMonth = Calculator().calculateMilesDrivenPerMonth(milesPerYear, 'year');
-            
-            //assert
-            milesPerMonth.should.equal(100);
-        });
+      // assert
+      expect(milesPerMonth).to.equal(433.3333333333333);
     });
 
-    describe("calculateSavingsPerMonth", () => {
-        it("returns 29.93 in savings per month with these settings", () => {
-            //arrange
-            var settings = {
-                tradePpg: 3.75,
-                tradeMpg: 24,
-                newPpg: 3.75,
-                newMpg: 38,
-                milesDriven: 120,
-                milesDrivenTimeframe: 'week'
-            };
+    it('returns a monthly timeframe untouched', () => {
+      // arrange
+      const milesPerMonth = 300;
 
-            //act
-            var savingsPerMonth = Calculator().calculateSavingsPerMonth(settings);
-            
-            //assert
-            savingsPerMonth.should.equal(29.93);
-        });
+      // act
+      const milesPerMonthCalculated = calculator().calculateMilesDrivenPerMonth(milesPerMonth, 'month');
 
-        it("returns 40.83 in savings per month with these settings", () => {
-            //arrange
-            var settings = {
-                tradePpg: 4.15,
-                tradeMpg: 24,
-                newPpg: 3.75,
-                newMpg: 38,
-                milesDriven: 550,
-                milesDrivenTimeframe: 'month'
-            };
-
-            //act
-            var savingsPerMonth = Calculator().calculateSavingsPerMonth(settings);
-            
-            //assert
-            savingsPerMonth.should.equal(40.83);
-        });
-
-        it("returns -157.12 in loss per month with these settings", () => {
-            //arrange
-            var settings = {
-                tradePpg: 3.15,
-                tradeMpg: 40,
-                newPpg: 3.75,
-                newMpg: 18,
-                milesDriven: 14550,
-                milesDrivenTimeframe: 'year'
-            };
-
-            //act
-            var savingsPerMonth = Calculator().calculateSavingsPerMonth(settings);
-            
-            //assert
-            savingsPerMonth.should.equal(-157.12);
-        });
+      // assert
+      expect(milesPerMonthCalculated).to.equal(milesPerMonth);
     });
+
+    it('converts a yearly timeframe to a monthly timeframe', () => {
+      // arrange
+      const milesPerYear = 1200;
+
+      // act
+      const milesPerMonth = calculator().calculateMilesDrivenPerMonth(milesPerYear, 'year');
+
+      // assert
+      expect(milesPerMonth).to.equal(100);
+    });
+  });
+
+  describe('calculateSavingsPerMonth', () => {
+    it('returns 29.93 in savings per month with these settings', () => {
+      // arrange
+      const settings = {
+        tradePpg: 3.75,
+        tradeMpg: 24,
+        newPpg: 3.75,
+        newMpg: 38,
+        milesDriven: 120,
+        milesDrivenTimeframe: 'week'
+      };
+
+      // act
+      const savingsPerMonth = calculator().calculateSavingsPerMonth(settings);
+
+      // assert
+      expect(savingsPerMonth).to.equal(29.93);
+    });
+
+    it('returns 40.83 in savings per month with these settings', () => {
+      // arrange
+      const settings = {
+        tradePpg: 4.15,
+        tradeMpg: 24,
+        newPpg: 3.75,
+        newMpg: 38,
+        milesDriven: 550,
+        milesDrivenTimeframe: 'month'
+      };
+
+      // act
+      const savingsPerMonth = calculator().calculateSavingsPerMonth(settings);
+
+      // assert
+      expect(savingsPerMonth).to.equal(40.83);
+    });
+
+    it('returns -157.12 in loss per month with these settings', () => {
+      // arrange
+      const settings = {
+        tradePpg: 3.15,
+        tradeMpg: 40,
+        newPpg: 3.75,
+        newMpg: 18,
+        milesDriven: 14550,
+        milesDrivenTimeframe: 'year'
+      };
+
+      // act
+      const savingsPerMonth = calculator().calculateSavingsPerMonth(settings);
+
+      // assert
+      expect(savingsPerMonth).to.equal(-157.12);
+    });
+  });
 });
