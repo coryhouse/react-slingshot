@@ -19,7 +19,7 @@ const FuelSavingsResults = ({savings}) => {
     <table>
       <tbody>
       <tr>
-        <td className="fuel-savings-label">{resultLabel}</td>
+        <td class="fuel-savings-label">{resultLabel}</td>
         <td>
           <table>
             <tbody>
@@ -29,9 +29,9 @@ const FuelSavingsResults = ({savings}) => {
               <td>3 Year</td>
             </tr>
             <tr>
-              <td className={savingsClass}>{savings.monthly}</td>
-              <td className={savingsClass}>{savings.annual}</td>
-              <td className={savingsClass}>{savings.threeYear}</td>
+              <td class={savingsClass}>{savings.monthly}</td>
+              <td class={savingsClass}>{savings.annual}</td>
+              <td class={savingsClass}>{savings.threeYear}</td>
             </tr>
             </tbody>
           </table>
