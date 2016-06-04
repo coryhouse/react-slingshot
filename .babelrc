@@ -3,6 +3,9 @@
     "es2015",
     "react"
   ],
+  "plugins": [
+    "react-html-attrs"
+  ],
   "env": {
     "development": {
       "presets": [
