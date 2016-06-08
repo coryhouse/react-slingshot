@@ -1,8 +1,11 @@
-import rimraf from 'rimraf';
-import {chalkSuccess, chalkProcessing} from '../chalkConfig';
-import replace from 'replace';
-import prompt from 'prompt';
-import prompts from './setupPrompts';
+var rimraf = require('rimraf');
+var chalk = require('chalk');
+var replace = require("replace");
+var prompt = require("prompt");
+var prompts = require('./setupPrompts');
+
+var chalkSuccess = chalk.green;
+var chalkProcessing = chalk.blue;
 
 /* eslint-disable no-console */
 
@@ -57,6 +60,15 @@ prompt.get(prompts, function(err, result) {
       recursive: false,
       silent: true
     });
+  });
+
+  // reset package.json 'keywords' field to empty state
+  replace({
+    regex: /"keywords": \[[\s\S]+\]/,
+    replacement: `"keywords": []`,
+    paths: ['package.json'],
+    recursive: false,
+    silent: true
   });
 
   // remove all setup scripts from the 'tools' folder
