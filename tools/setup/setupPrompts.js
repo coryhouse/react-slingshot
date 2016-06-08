@@ -2,7 +2,10 @@
 module.exports = [
   {
     name: 'projectName',
-    description: 'Project name (deafult: new-project)'
+    description: 'Project name (deafult: new-project)',
+    pattern: /^[^._][a-z0-9\.\-_~]+$/,
+    message: 'Limited to: lowercase letters, numbers, period, hyphen, ' +
+    'underscore, and tilde; cannot begin with period or underscore.'
   },
   {
     name: 'version',
