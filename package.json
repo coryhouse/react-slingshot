@@ -3,7 +3,7 @@
   "version": "4.0.0",
   "description": "Starter kit for creating apps with React and Redux",
   "scripts": {
-    "setup": "node tools/setup/setupMessage.js && npm install && node tools/setup/setup.js",
+    "setup": "babel-node tools/setup/setupMessage.js && npm install && babel-node tools/setup/setup.js",
     "remove-demo": "babel-node tools/removeDemo.js",
     "start-message": "babel-node tools/startMessage.js",
     "prestart": "npm-run-all --parallel start-message remove-dist",

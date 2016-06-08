@@ -1,25 +1,26 @@
-var rimraf = require('rimraf');
-var chalk = require('chalk');
-var replace = require("replace");
-var prompt = require("prompt");
+import rimraf from 'rimraf';
+import {chalkSuccess, chalkProcessing} from '../chalkConfig';
+import replace from 'replace';
+import prompt from 'prompt';
+import prompts from './setupPrompts';
 
-var prompts = require('./setupPrompts');
+/* eslint-disable no-console */
 
-console.log(chalk.green('Dependencies installed.'));
+console.log(chalkSuccess('Dependencies installed.'));
 
 // remove the original git repository
 rimraf('.git', error => {
   if (error) throw new Error(error);
 });
-console.log(chalk.green('Original Git repository removed.\n'));
+console.log(chalkSuccess('Original Git repository removed.\n'));
 
 // prompt the user for updates to package.json
-console.log(chalk.blue('Updating package.json settings:'));
+console.log(chalkProcessing('Updating package.json settings:'));
 prompt.start();
 prompt.get(prompts, function(err, result) {
   // parse user responses
-  // (default values provided for fields that will cause npm to complain if left empty)
-  var responses = [
+  // default values provided for fields that will cause npm to complain if left empty
+  const responses = [
     {
       key: 'name',
       value: result.projectName || 'new-project'
@@ -54,12 +55,12 @@ prompt.get(prompts, function(err, result) {
       replacement: `$1: "${res.value}"`,
       paths: ['package.json'],
       recursive: false,
-      silent: true,
+      silent: true
     });
-  })
+  });
 
   // remove all setup scripts from the 'tools' folder
-  console.log(chalk.green('\nSetup complete! Cleaning up...\n'));
+  console.log(chalkSuccess('\nSetup complete! Cleaning up...\n'));
   rimraf('./tools/setup', error => {
     if (error) throw new Error(error);
   });
