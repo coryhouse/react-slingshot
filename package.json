@@ -75,7 +75,7 @@
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.10.0"
   },
-  "keywords:": [
+  "keywords": [
     "react",
     "reactjs",
     "react-router",

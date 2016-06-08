@@ -59,6 +59,15 @@ prompt.get(prompts, function(err, result) {
     });
   });
 
+  // reset package.json 'keywords' field to empty state
+  replace({
+    regex: /"keywords": \[[\s\S]+\]/,
+    replacement: `"keywords": []`,
+    paths: ['package.json'],
+    recursive: false,
+    silent: true
+  });
+
   // remove all setup scripts from the 'tools' folder
   console.log(chalkSuccess('\nSetup complete! Cleaning up...\n'));
   rimraf('./tools/setup', error => {
