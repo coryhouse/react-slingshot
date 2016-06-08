@@ -1,8 +1,8 @@
 // Define prompts for use with npm 'prompt' module in setup script
-export default [
+module.exports = [
   {
     name: 'projectName',
-    description: 'Project name (default: new-project)'
+    description: 'Project name (deafult: new-project)'
   },
   {
     name: 'version',

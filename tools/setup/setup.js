@@ -1,8 +1,11 @@
-import rimraf from 'rimraf';
-import {chalkSuccess, chalkProcessing} from '../chalkConfig';
-import replace from 'replace';
-import prompt from 'prompt';
-import prompts from './setupPrompts';
+var rimraf = require('rimraf');
+var chalk = require('chalk');
+var replace = require("replace");
+var prompt = require("prompt");
+var prompts = require('./setupPrompts');
+
+var chalkSuccess = chalk.green;
+var chalkProcessing = chalk.blue;
 
 /* eslint-disable no-console */
 
