@@ -1,3 +1,4 @@
+/* eslint-disable no-var */
 var rimraf = require('rimraf');
 var chalk = require('chalk');
 var replace = require("replace");
