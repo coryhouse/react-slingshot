@@ -15,8 +15,8 @@
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "rimraf ./dist",
     "build:html": "babel-node tools/buildHtml.js",
-    "prebuild": "npm run clean-dist && npm run build:html && npm run lint && npm run test",
-    "build": "babel-node tools/build.js && npm run open:dist",
+    "prebuild": "npm run clean-dist && npm run lint && npm run test",
+    "build": "babel-node tools/build.js && npm run build:html && npm run open:dist",
     "test": "mocha tools/testSetup.js \"src/**/*.spec.js\" --reporter progress",
     "test:cover": "babel-node node_modules/isparta/bin/isparta cover --root src --report html node_modules/mocha/bin/_mocha -- --require ./tools/testSetup.js \"src/**/*.spec.js\" --reporter progress",
     "test:cover:travis": "babel-node node_modules/isparta/bin/isparta cover --root src --report lcovonly _mocha -- --require ./tools/testSetup.js \"src/**/*.spec.js\" && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
@@ -33,6 +33,7 @@
     "redux": "3.5.2"
   },
   "devDependencies": {
+    "assets-webpack-plugin": "3.4.0",
     "babel-cli": "6.8.0",
     "babel-core": "6.8.0",
     "babel-loader": "6.2.4",

@@ -11,6 +11,8 @@ import fs from 'fs';
 import {chalkSuccess, chalkError, chalkWarning} from './chalkConfig';
 import cheerio from 'cheerio';
 
+const webpackAssets = require('../webpack-assets.json');
+
 const useTrackJs = true; // If you choose not to use TrackJS, just set this to false and the build warning will go away.
 const trackJsToken = ''; // If you choose to use TrackJS, insert your unique token here. To get a token, go to https://trackjs.com
 
@@ -22,7 +24,10 @@ fs.readFile('src/index.html', 'utf8', (readError, markup) => {
   const $ = cheerio.load(markup);
 
   // since a separate spreadsheet is only utilized for the production build, need to dynamically add this here.
-  $('head').append('<link rel="stylesheet" href="/styles.css">');
+  $('head').append(`<link rel="stylesheet" href="${webpackAssets.main.css}">`);
+
+  // on production the js bundle name includes a hash, so we replace the name with the correct one
+  $('script').attr('src', `${webpackAssets.main.js}`);
 
   if (useTrackJs) {
     if (trackJsToken) {
