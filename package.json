@@ -66,6 +66,7 @@
     "prompt": "1.0.0",
     "react-addons-test-utils": "15.1.0",
     "redux-immutable-state-invariant": "1.2.3",
+    "replace": "0.3.0",
     "rimraf": "2.5.2",
     "sass-loader": "4.0.0",
     "sinon": "1.17.4",
