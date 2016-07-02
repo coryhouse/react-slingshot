@@ -17,7 +17,7 @@ export default {
   ],
   target: 'web', // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
   output: {
-    path: `${__dirname}/dist`, // Note: Physical files are only output by the production build task `npm run build`.
+    path: `${__dirname}/src`, // Note: Physical files are only output by the production build task `npm run build`.
     publicPath: 'http://localhost:3000/', // Use absolute paths to avoid the way that URLs are resolved by Chrome when they're parsed from a dynamically loaded CSS blob. Note: Only necessary in Dev.
     filename: 'bundle.js'
   },
@@ -27,6 +27,10 @@ export default {
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({     // Create HTML file that includes references to bundled CSS and JS.
       template: 'src/index.ejs',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true
+      },
       inject: true
     })
   ],
