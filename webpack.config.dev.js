@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const GLOBALS = {
+const REACT_BUILD_ENV = {
   'process.env.NODE_ENV': JSON.stringify('development'),
   __DEV__: true
 };
@@ -22,7 +22,7 @@ export default {
     filename: 'bundle.js'
   },
   plugins: [
-    new webpack.DefinePlugin(GLOBALS), // Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
+    new webpack.DefinePlugin(REACT_BUILD_ENV), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({     // Create HTML file that includes references to bundled CSS and JS.
