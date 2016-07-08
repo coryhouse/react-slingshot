@@ -3,6 +3,11 @@
 
 import browserSync from 'browser-sync';
 import historyApiFallback from 'connect-history-api-fallback';
+import {chalkProcessing} from './chalkConfig';
+
+/* eslint-disable no-console */
+
+console.log(chalkProcessing('Opening production build...'));
 
 // Run Browsersync
 browserSync({
