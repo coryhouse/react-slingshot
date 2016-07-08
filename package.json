@@ -49,7 +49,7 @@
     "coveralls": "2.11.9",
     "cross-env": "1.0.8",
     "css-loader": "0.23.1",
-    "enzyme": "2.3.0",
+    "enzyme": "2.4.0",
     "eslint": "3.0.1",
     "eslint-plugin-import": "1.10.2",
     "eslint-plugin-jsx-a11y": "1.5.5",
