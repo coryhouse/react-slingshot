@@ -23,7 +23,8 @@
     "test": "mocha tools/testSetup.js \"src/**/*.spec.js\" --reporter progress",
     "test:cover": "babel-node node_modules/isparta/bin/isparta cover --root src --report html node_modules/mocha/bin/_mocha -- --require ./tools/testSetup.js \"src/**/*.spec.js\" --reporter progress",
     "test:cover:travis": "babel-node node_modules/isparta/bin/isparta cover --root src --report lcovonly _mocha -- --require ./tools/testSetup.js \"src/**/*.spec.js\" && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "open:cover": "npm run test:cover && open coverage/index.html"
   },
   "author": "Cory House",
   "license": "MIT",
@@ -66,6 +67,7 @@
     "mocha": "2.5.3",
     "node-sass": "3.8.0",
     "npm-run-all": "2.3.0",
+    "open": "0.0.5",
     "prompt": "1.0.0",
     "react-addons-test-utils": "15.2.0",
     "redux-immutable-state-invariant": "1.2.3",
