@@ -1,6 +1,6 @@
 {
   "name": "react-slingshot",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Starter kit for creating apps with React and Redux",
   "engines": {
     "npm": ">=3"
