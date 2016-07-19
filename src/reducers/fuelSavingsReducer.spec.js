@@ -46,7 +46,7 @@ describe('Reducers::FuelSavings', () => {
     const action = { type: 'unknown' };
     const expected = getInitialState();
 
-    expect(reducer(getInitialState(), action)).to.deep.equal(expected); // Notice use of deep because it's a nested object
+    expect(reducer(undefined, action)).to.deep.equal(expected); // Notice use of deep because it's a nested object
     // expect(reducer(undefined, action)).to.equal(expected); // Fails. Not deeply equal
   });
 
