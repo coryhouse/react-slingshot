@@ -54,6 +54,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 ### What are the dependencies in package.json used for?
 | **Dependency** | **Use** |
 |----------|-------|
+|autoprefixer | Automatically adds vendor prefixes, using data from Can I Use. |
 |connect-history-api-fallback  | Support reloading deep links |
 |object-assign | Polyfill for Object.assign |
 |react|React library |
@@ -86,6 +87,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |mocha| JavaScript testing library |
 |node-sass| Adds SASS support to Webpack |
 |parallelshell| Display results of multiple commands on single command line |
+|postcss-loader| Adds PostCSS support to Webpack |
 |react-addons-test-utils| Adds React TestUtils |
 |rimraf|Delete files |
 |sass-loader| Adds Sass support to Webpack|
