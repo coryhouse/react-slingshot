@@ -67,7 +67,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |babel-core|Babel Core for transpiling the new JavaScript to old |
 |babel-loader|Adds Babel support to Webpack |
 |babel-plugin-react-display-name| Add displayName to React.createClass calls |
-|babel-plugin-react-transform| Add support for transforming React code to Babel |
+|babel-plugin-transform-react-constant-elements | Performance optimization: Hoists the creation of elements that are fully static to the top level. reduces calls to React.createElement and the resulting memory allocations. [More info](https://medium.com/doctolib-engineering/improve-react-performance-with-babel-16f1becfaa25#.2wbkg8g4d) |
 |babel-preset-es2015|Babel preset for ES2015|
 |babel-preset-react-hmre|Hot reloading preset for Babel|
 |babel-preset-react| Add JSX support to Babel |
@@ -87,7 +87,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |html-webpack-plugin|Generates custom index.html for each environment as part of webpack build|
 |mocha| JavaScript testing library |
 |node-sass| Adds SASS support to Webpack |
-|parallelshell| Display results of multiple commands on single command line |
+|npm-run-all| Run multiple scripts at the same time |
 |postcss-loader| Adds PostCSS support to Webpack |
 |react-addons-test-utils| Adds React TestUtils |
 |rimraf|Delete files |
