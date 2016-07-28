@@ -2,21 +2,34 @@
 
 import React from 'react';
 import {render} from 'react-dom';
-import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
-import routes from './routes';
+import { browserHistory } from 'react-router';
 import configureStore from './store/configureStore';
 require('./favicon.ico'); // Tell webpack to load favicon.ico
 import './styles/styles.scss'; // Yep, that's right. You can import SASS/CSS files too! Webpack will run the associated loader and plug this into the page.
 import { syncHistoryWithStore } from 'react-router-redux';
+import { AppContainer } from 'react-hot-loader';
+import Root from './container/Root';
 
 const store = configureStore();
 
 // Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(browserHistory, store);
 
+const rootEl = document.getElementById('app');
+
 render(
-  <Provider store={store}>
-    <Router history={history} routes={routes} />
-  </Provider>, document.getElementById('app')
+  <AppContainer>
+    <Root store={store} history={history} />
+  </AppContainer>, rootEl
 );
+
+if (module.hot) {
+  module.hot.accept('./containers/Root', () => {
+    const NextRoot = require('./containers/Root').default; // eslint-disable-line global-require
+    render(
+      <AppContainer>
+        <NextRoot store={store} history={history} />
+      </AppContainer>, rootEl
+    );
+  });
+}
