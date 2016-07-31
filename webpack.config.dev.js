@@ -10,6 +10,7 @@ export default {
   entry: [
     // must be first entry to properly set public path
     './src/webpack-public-path',
+    'react-hot-loader/patch',
     'webpack-hot-middleware/client?reload=true',
     './src/index'
   ],
@@ -19,6 +20,7 @@ export default {
     filename: 'bundle.js'
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
       __DEV__: true
