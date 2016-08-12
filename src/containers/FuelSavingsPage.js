@@ -1,8 +1,9 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import * as actions from '../actions/fuelSavingsActions';
 import FuelSavingsForm from '../components/FuelSavingsForm';
+import { getFuelSavings } from '../selectors/FuelSavings';
 
 export const FuelSavingsPage = (props) => {
   return (
@@ -21,7 +22,7 @@ FuelSavingsPage.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    fuelSavings: state.fuelSavings
+    fuelSavings: getFuelSavings(state)
   };
 }
 
