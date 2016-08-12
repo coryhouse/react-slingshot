@@ -63,6 +63,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |react-redux|Redux library for connecting React components to Redux |
 |react-router|React library for routing |
 |redux|Library for unidirectional data flows |
+|redux-thunk|Middleware for redux that allows actions to be declared as functions |
 |babel-cli|Babel Command line interface |
 |babel-core|Babel Core for transpiling the new JavaScript to old |
 |babel-loader|Adds Babel support to Webpack |
