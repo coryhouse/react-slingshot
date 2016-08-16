@@ -66,6 +66,12 @@
     "react/sort-comp": 1,
     "react/wrap-multilines": 1
   },
+  "settings": {
+    "import/ignore": [
+      "node_modules",
+      "\\.(coffee|scss|css|less|hbs|svg|json)$",
+    ]
+  },
   "globals": {
   }
 }
