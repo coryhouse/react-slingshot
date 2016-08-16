@@ -1,3 +1,6 @@
+// disable let/const since file is not transpiled, may want to disable more but starting conservative.
+/* eslint-disable no-var */
+
 // Tests are placed alongside files under test.
 // This file does the following:
 // 1. Sets the environment to 'test' so that
@@ -7,13 +10,17 @@
 
 // This assures the .babelrc dev config (which includes
 // hot module reloading code) doesn't apply for tests.
-// Setting NODE_ENV to test instead of production because setting it to production will suppress error messaging
-// and propType validation warnings.
+// Setting NODE_ENV to test instead of production because setting it to production will suppress
+// error messaging and propType validation warnings.
 process.env.NODE_ENV = 'test';
+
+// mock css modules to allow us to properly tests that classNames are being set
+var mockCssModules = require("mock-css-modules");
+mockCssModules.register(['.css', '.scss']);
 
 // Disable webpack-specific features for tests since
 // Mocha doesn't know what to do with them.
-['.css', '.scss', '.png', '.jpg'].forEach(ext => {
+['.png', '.jpg'].forEach(ext => {
   require.extensions[ext] = () => null;
 });
 
