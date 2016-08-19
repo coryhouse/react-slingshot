@@ -1,12 +1,23 @@
-import chai, { expect } from 'chai';
+import * as ActionTypes from '../constants/actionTypes';
+import * as ActionCreators from './fuelSavingsActions';
+
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-import * as ActionCreators from './fuelSavingsActions';
-import * as ActionTypes from '../constants/actionTypes';
+import MockDate from 'mockdate';
+import chai, { expect } from 'chai';
+
+import dateHelper from '../utils/dateHelper';
 
 chai.use(sinonChai);
 
 describe('Actions', () => {
+  let dateModified;
+  before(() => {
+    MockDate.set(new Date());
+    dateModified = dateHelper.getFormattedDateTime();
+  });
+  after(() => MockDate.reset());
+
   const appState = {
     newMpg: 20,
     tradeMpg: 10,
@@ -28,6 +39,7 @@ describe('Actions', () => {
     const dispatch = sinon.spy();
     const expected = {
       type: ActionTypes.SAVE_FUEL_SAVINGS,
+      dateModified,
       settings: appState
     };
 
@@ -42,15 +54,16 @@ describe('Actions', () => {
   it('should create an action to calculate fuel savings', () => {
     const fieldName = 'newMpg';
     const value = 100;
-
+    const actual = ActionCreators.calculateFuelSavings(appState, fieldName, value);
     const expected = {
       type: ActionTypes.CALCULATE_FUEL_SAVINGS,
+      dateModified,
       settings: appState,
       fieldName,
       value
     };
 
-    expect(ActionCreators.calculateFuelSavings(appState, fieldName, value)).to.deep.equal(expected); // Notice use of deep because it's a nested object
-    // expect(ActionCreators.calculateFuelSavings(appState, fieldName, value)).to.equal(expected); // Fails. Not deeply equal
+    expect(actual).to.deep.equal(expected); // Notice use of deep because it's a nested object
+    // expect(actual).to.equal(expected); // Fails. Not deeply equal
   });
 });
