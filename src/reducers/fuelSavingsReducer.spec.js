@@ -41,7 +41,7 @@ describe('Reducers::FuelSavings', () => {
       }
     };
   };
-  const dateModified = dateHelper.getFormattedDateTime(new Date());
+  const dateModified = dateHelper.getFormattedDateTime();
 
   it('should set initial state by default', () => {
     const action = { type: 'unknown' };
