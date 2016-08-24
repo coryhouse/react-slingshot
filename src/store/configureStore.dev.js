@@ -3,7 +3,7 @@
 // With Redux, the actual stores are in /reducers.
 
 import {createStore, compose, applyMiddleware} from 'redux';
-import reduxImmutableStaeInvariant from 'redux-immutable-state-invariant'
+import reduxImmutableStaeInvariant from 'redux-immutable-state-invariant';
 import thunkMiddleware from 'redux-thunk';
 import rootReducer from '../reducers';
 
