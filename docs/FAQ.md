@@ -69,7 +69,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |babel-loader|Adds Babel support to Webpack |
 |babel-plugin-react-display-name| Add displayName to React.createClass calls |
 |babel-plugin-transform-react-constant-elements | Performance optimization: Hoists the creation of elements that are fully static to the top level. reduces calls to React.createElement and the resulting memory allocations. [More info](https://medium.com/doctolib-engineering/improve-react-performance-with-babel-16f1becfaa25#.2wbkg8g4d) |
-|babel-preset-es2015|Babel preset for ES2015|
+|babel-preset-latest|Babel preset for ES2015, ES2016 and ES2017|
 |babel-preset-react-hmre|Hot reloading preset for Babel|
 |babel-preset-react| Add JSX support to Babel |
 |babel-preset-stage-1| Include stage 1 feature support in Babel |
