@@ -1,7 +1,6 @@
 import * as ActionTypes from '../constants/actionTypes';
 
 import MockDate from 'mockdate';
-import { expect } from 'chai';
 import { createStore } from 'redux';
 
 import calculator from '../utils/fuelSavingsCalculator';
@@ -11,11 +10,11 @@ import rootReducer from '../reducers';
 
 describe('Store', () => {
   let dateModified;
-  before(() => {
+  beforeAll(() => {
     MockDate.set(new Date());
     dateModified = getFormattedDateTime();
   });
-  after(() => MockDate.reset());
+  afterAll(() => MockDate.reset());
 
   it('should display results when necessary data is provided', () => {
     const store = createStore(rootReducer, initialState);
@@ -44,7 +43,7 @@ describe('Store', () => {
       savings: calculator().calculateSavings(store.getState().fuelSavings)
     };
 
-    expect(actual.fuelSavings).to.deep.equal(expected);
+    expect(actual.fuelSavings).toEqual(expected);
   });
 
   it('should not display results when necessary data is not provided', () => {
@@ -77,7 +76,7 @@ describe('Store', () => {
     };
 
 
-    expect(actual.fuelSavings).to.deep.equal(expected);
+    expect(actual.fuelSavings).toEqual(expected);
   });
 
 
@@ -129,6 +128,6 @@ describe('Store', () => {
       savings: lastGoodSavings
     };
 
-    expect(actual.fuelSavings).to.deep.equal(expected);
+    expect(actual.fuelSavings).toEqual(expected);
   });
 });
