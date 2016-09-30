@@ -38,18 +38,27 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 │   ├── constants             # Application constants including constants for Redux
 │   ├── containers            # Top-level React components that interact with Redux
 │   ├── favicon.ico           # favicon to keep your browser from throwing a 404 during dev. Not actually used in prod build.
-│   ├── index.html            # Start page
+│   ├── index.ejs             # Template for homepage
 │   ├── index.js              # Entry point for your app
 │   ├── reducers              # Redux reducers. Your state is altered here based on actions
 │   ├── store                 # Redux store configuration
-│   └── styles                # CSS Styles, typically written in Sass
-│   ├── utils                 # Plain old JS objects (POJOs). Pure logic. No framework specific code here.
+│   ├── styles                # CSS Styles, typically written in Sass
+│   └── utils                 # Plain old JS objects (POJOs). Pure logic. No framework specific code here.
 ├── tools                     # Node scripts that run build related tools
+│   ├── setup                 # **NEEDS DOCUMENTATION**
+│   │   ├── setup.js          # **NEEDS DOCUMENTATION**
+│   │   ├── setupMessage.js   # **NEEDS DOCUMENTATION**
+│   │   └── setupPrompts.js   # **NEEDS DOCUMENTATION**
 │   ├── build.js              # Runs the production build
-│   ├── buildHtml.js          # Builds index.html
+│   ├── chalkConfig.js        # Centralized configuration for chalk (adds color to console statements)
 │   ├── distServer.js         # Starts webserver and opens final built app that's in dist in your default browser
+│   ├── nodeVersionCheck.js   # **NEEDS DOCUMENTATION**
+│   ├── removeDemo.js         # **NEEDS DOCUMENTATION**
 │   ├── srcServer.js          # Starts dev webserver with hot reloading and opens your app in your default browser
-└── webpack.config.js         # Configures webpack
+│   ├── startMessage.js       # **NEEDS DOCUMENTATION**
+│   └── testSetup.js          # Configures mocha
+├── webpack.config.dev.js     # Configures webpack for development builds
+└── webpack.config.prod.js    # Configures webpack for production builds
 ```
 
 ### What are the dependencies in package.json used for?
