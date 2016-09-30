@@ -216,7 +216,7 @@ Install the [Redux devtools extension](https://chrome.google.com/webstore/detail
 Hot reloading doesn't always play nicely with stateless functional components at this time. [This is a known limitation that is currently being worked](https://github.com/gaearon/babel-plugin-react-transform/issues/57). To avoid issues with hot reloading for now, use a traditional class-based React component at the top of your component hierarchy.
 
 ### How do I setup code coverage reporting?
-Using the `npm run test:cover` command to run the tests, building a code coverage report. The report is written to `coverage/index.html`. Slingshot simplifies provides a script for this:
+Using the `npm run test:cover` command to run the tests, building a code coverage report. The report is written to `coverage/index.html`. Slingshot provides a script for this:
 
 ```bash
 npm run open:cover
