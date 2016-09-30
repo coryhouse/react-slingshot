@@ -46,8 +46,7 @@ describe('Reducers::FuelSavings', () => {
     const action = { type: 'unknown' };
     const expected = getInitialState();
 
-    expect(reducer(undefined, action)).toEqual(expected); // Notice use of deep because it's a nested object
-    // expect(reducer(undefined, action)).to.equal(expected); // Fails. Not deeply equal
+    expect(reducer(undefined, action)).toEqual(expected);
   });
 
   it('should handle SAVE_FUEL_SAVINGS', () => {
