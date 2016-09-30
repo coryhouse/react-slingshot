@@ -38,18 +38,27 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 │   ├── constants             # Application constants including constants for Redux
 │   ├── containers            # Top-level React components that interact with Redux
 │   ├── favicon.ico           # favicon to keep your browser from throwing a 404 during dev. Not actually used in prod build.
-│   ├── index.html            # Start page
+│   ├── index.ejs             # Template for homepage
 │   ├── index.js              # Entry point for your app
 │   ├── reducers              # Redux reducers. Your state is altered here based on actions
 │   ├── store                 # Redux store configuration
-│   └── styles                # CSS Styles, typically written in Sass
-│   ├── utils                 # Plain old JS objects (POJOs). Pure logic. No framework specific code here.
+│   ├── styles                # CSS Styles, typically written in Sass
+│   └── utils                 # Plain old JS objects (POJOs). Pure logic. No framework specific code here.
 ├── tools                     # Node scripts that run build related tools
+│   ├── setup                 # **NEEDS DOCUMENTATION**
+│   │   ├── setup.js          # **NEEDS DOCUMENTATION**
+│   │   ├── setupMessage.js   # **NEEDS DOCUMENTATION**
+│   │   └── setupPrompts.js   # **NEEDS DOCUMENTATION**
 │   ├── build.js              # Runs the production build
-│   ├── buildHtml.js          # Builds index.html
+│   ├── chalkConfig.js        # Centralized configuration for chalk (adds color to console statements)
 │   ├── distServer.js         # Starts webserver and opens final built app that's in dist in your default browser
+│   ├── nodeVersionCheck.js   # **NEEDS DOCUMENTATION**
+│   ├── removeDemo.js         # **NEEDS DOCUMENTATION**
 │   ├── srcServer.js          # Starts dev webserver with hot reloading and opens your app in your default browser
-└── webpack.config.js         # Configures webpack
+│   ├── startMessage.js       # **NEEDS DOCUMENTATION**
+│   └── testSetup.js          # Configures mocha
+├── webpack.config.dev.js     # Configures webpack for development builds
+└── webpack.config.prod.js    # Configures webpack for production builds
 ```
 
 ### What are the dependencies in package.json used for?
@@ -207,11 +216,10 @@ Install the [Redux devtools extension](https://chrome.google.com/webstore/detail
 Hot reloading doesn't always play nicely with stateless functional components at this time. [This is a known limitation that is currently being worked](https://github.com/gaearon/babel-plugin-react-transform/issues/57). To avoid issues with hot reloading for now, use a traditional class-based React component at the top of your component hierarchy.
 
 ### How do I setup code coverage reporting?
-Using the `npm run test:cover` command to run the tests, building a code coverage report. The report is written to `coverage/index.html`. A quick way to check coverage is:
+Using the `npm run test:cover` command to run the tests, building a code coverage report. The report is written to `coverage/index.html`. Slingshot provides a script for this:
 
 ```bash
-npm run test:cover
-open ./coverage/index.html
+npm run open:cover
 ```
 
 You can add code coverage metrics to your `README.md` file and pull by integrating with [Coveralls](https://coveralls.io/).
