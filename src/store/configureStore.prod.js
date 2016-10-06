@@ -3,7 +3,7 @@ import thunkMiddleware from 'redux-thunk';
 import rootReducer from '../reducers';
 
 export default function configureStore(initialState) {
-  const middewares = [
+  const middlewares = [
     // Add other middleware on this line...
 
     // thunk middleware can also accept an extra argument to be passed to each thunk action
@@ -12,7 +12,7 @@ export default function configureStore(initialState) {
   ];
 
   return createStore(rootReducer, initialState, compose(
-    applyMiddleware(...middewares)
+    applyMiddleware(...middlewares)
     )
   );
 }
