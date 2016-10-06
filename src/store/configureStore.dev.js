@@ -8,7 +8,7 @@ import thunkMiddleware from 'redux-thunk';
 import rootReducer from '../reducers';
 
 export default function configureStore(initialState) {
-  const middewares = [
+  const middlewares = [
     // Add other middleware on this line...
 
     // Redux middleware that spits an error on you when you try to mutate your state either inside a dispatch or between dispatches.
@@ -20,7 +20,7 @@ export default function configureStore(initialState) {
   ];
 
   const store = createStore(rootReducer, initialState, compose(
-    applyMiddleware(...middewares),
+    applyMiddleware(...middlewares),
     window.devToolsExtension ? window.devToolsExtension() : f => f // add support for Redux dev tools
     )
   );
