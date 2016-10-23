@@ -1,6 +1,6 @@
 # Why is this fork here?
 
-This is a fork of Cory House's [React Slingshot](https://github.com/coryhouse/react-slingshot) project.  The original README that accompanied that project is [here](doc/README.md).  
+This is a fork of Cory House's [React Slingshot](https://github.com/coryhouse/react-slingshot) project.  The original README that accompanied that project is [here](docs/README.md).  
 I am working on a proof of concept for my current employer, and my plan is that the latter project in turn will be a private fork of this project.  I thought that by way of contributing something back, meantime, that it might be a good idea to do this intermediate step, consisting of the still-MIT-licensed, non-proprietary "gist" of our application.
 
 ## What We'll Be Working On
