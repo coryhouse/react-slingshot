@@ -21,3 +21,5 @@ argue that given the small size of the team, it might be overkill, but we might 
 For our particular project needs, one thing we need are a set of moderately complex business rules around a single core object (which may of course be composed of sub-objects).  One of the benefits of a full stack JavaScript "Write Once - Run Anywhere" deployment (yeah, I went there, sorry) is that we can run validations and business rules on the client side and the server.  So we'll make a decision about how best to do that, which may boil down to either nools rules or VanillaJS (perhaps plus ajv) -- though there are other alternatives out there we might explore.
 
 Our goal is that -- for applications that resemble ours in some respects -- this fork will be an approriate starting point.
+
+
