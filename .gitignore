@@ -38,3 +38,6 @@ dist
 
 # Mac files
 .DS_Store
+
+# Private docs
+docs/private
