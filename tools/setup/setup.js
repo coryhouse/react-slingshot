@@ -12,12 +12,6 @@ var chalkProcessing = chalk.blue;
 
 console.log(chalkSuccess('Dependencies installed.'));
 
-// remove the original git repository
-rimraf('.git', error => {
-  if (error) throw new Error(error);
-});
-console.log(chalkSuccess('Original Git repository removed.\n'));
-
 // prompt the user for updates to package.json
 console.log(chalkProcessing('Updating package.json settings:'));
 prompt.start();
@@ -72,9 +66,9 @@ prompt.get(prompts, function(err, result) {
     silent: true
   });
 
-  // remove all setup scripts from the 'tools' folder
-  console.log(chalkSuccess('\nSetup complete! Cleaning up...\n'));
-  rimraf('./tools/setup', error => {
-    if (error) throw new Error(error);
-  });
+  
+  console.log(chalkSuccess('\nSetup complete!\n'));
+  console.log(chalkSuccess('\nNote:  Check the git repository remove it as needed or reconfigure git for this project.\n'));
+  console.log(chalkSuccess("You'll also need to change the repository \"url\": setting in package.json.\n"));
+  
 });
