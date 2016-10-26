@@ -232,3 +232,6 @@ That's it! Travis will now execute the `npm run test:cover:travis` script after 
 
 You can get the badge from the Coveralls website.
 
+###What about TypeScript?
+Here's a [fork with TS support](https://github.com/typescriptcrew/ts-react-slingshot): 
+
