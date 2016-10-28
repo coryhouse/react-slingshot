@@ -69,6 +69,7 @@
     "file-loader": "0.9.0",
     "html-webpack-plugin": "2.24.0",
     "isparta": "4.0.0",
+    "json-loader": "0.5.4",
     "mocha": "3.1.2",
     "mockdate": "1.0.4",
     "node-sass": "3.10.1",
