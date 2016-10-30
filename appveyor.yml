@@ -11,7 +11,12 @@ install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   # install modules
-  - npm install
+  - choco install yarn
+  - refreshenv
+  - yarn install
+
+cache:
+  - "%LOCALAPPDATA%/Yarn"
 
 # Post-install test scripts.
 test_script:
