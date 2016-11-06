@@ -187,6 +187,12 @@ Also note that no actual physical files are written to the filesystem during the
  2. Do **not** enable serving files from your filesystem in Chrome dev tools. If you do, Chrome (and perhaps other browsers) may not show you the latest version of your code after you make a source code change. Instead **you must close the source view tab you were using and reopen it to see the updated source code**. It appears Chrome clings to the old sourcemap until you close and reopen the source view tab. To clarify, you don't have to close the actual tab that is displaying the app, just the tab in the console that's displaying the source file that you just changed.  
  3. If the latest source isn't displaying the console, force a refresh. Sometimes Chrome seems to hold onto a previous version of the sourcemap which will cause you to see stale code.
 
+#### Debugging in Visual Studio Code:
+  * Install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
+  * Follow the instructions on how to [configure debugging in Visual Studio code](https://github.com/Microsoft/vscode-chrome-debug/blob/master/README.md#using-the-debugger).
+
+Don't see your favorite code editor debugging configuration here? Submit a PR and we'll be glad to add it to the FAQ.md.
+
 ### Why does the build use npm scripts instead of Gulp or Grunt?
 In short, Gulp is an unnecessary abstraction that creates more problems than it solves. [Here's why](https://medium.com/@housecor/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8#.vtaziro8n).
 
