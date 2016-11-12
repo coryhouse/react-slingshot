@@ -1,5 +1,8 @@
 import webpack from 'webpack';
-import config from '../webpack.config.analyzer';
+import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
+import config from '../webpack.config.prod';
+
+config.plugins.push(new BundleAnalyzerPlugin());
 
 const compiler = webpack(config);
 
