@@ -45,10 +45,10 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 │   ├── styles                # CSS Styles, typically written in Sass
 │   └── utils                 # Plain old JS objects (POJOs). Pure logic. No framework specific code here.
 ├── tools                     # Node scripts that run build related tools
-│   ├── setup                 # These scripts are for setting up a new project
+│   ├── setup                 # Scripts for setting up a new project using React Slingshot
 │   │   ├── setup.js          # Configure project set up
-│   │   ├── setupMessage.js   # Display message when beginning set up.
-│   │   └── setupPrompts.js   # Configure prompts for set up.
+│   │   ├── setupMessage.js   # Display message when beginning set up
+│   │   └── setupPrompts.js   # Configure prompts for set up
 │   ├── build.js              # Runs the production build
 │   ├── chalkConfig.js        # Centralized configuration for chalk (adds color to console statements)
 │   ├── distServer.js         # Starts webserver and opens final built app that's in dist in your default browser
