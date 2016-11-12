@@ -3,7 +3,7 @@
 This starter kit implements best practices like testing, minification, bundling, and so on. It codifies a long list of decisions that you no longer have to make to get rolling. It saves you from the long, painful process of wiring it all together into an automated dev environment and build process. It's also useful as inspiration for ideas you might want to integrate into your current development environment or build process.
 
 ###What do the scripts in package.json do?
-Unfortunately, scripts in package.json can't be commented inline because the JSON spec doesn't support comments, so I'm providing info on what each script in package.json does here.  
+Unfortunately, scripts in package.json can't be commented inline because the JSON spec doesn't support comments, so I'm providing info on what each script in package.json does here.
 
 | **Script** | **Description** |
 |----------|-------|
@@ -19,6 +19,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 | test | Runs tests (files ending in .spec.js) using Mocha and outputs results to the command line. Watches all files so tests are re-run upon save. |
 | test:cover | Runs tests as described above. Generates a HTML coverage report to ./coverage/index.html |
 | test:cover:travis | Runs coverage as described above, however sends machine readable lcov data to Coveralls. This should only be used from the travis build! |
+| analyze-bundle | Analyzes webpack bundles for production and gives you a breakdown of where modules are used and their sizes via a convenient interactive zoomable treemap. |
 
 ### Can you explain the folder structure?
 ```
@@ -33,7 +34,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 ├── dist                      # Folder where the build script places the built app. Use this in prod.
 ├── package.json              # Package configuration. The list of 3rd party libraries and utilities
 ├── src                       # Source code
-│   ├── actions               # Flux/Redux actions. List of distinct actions that can occur in the app.  
+│   ├── actions               # Flux/Redux actions. List of distinct actions that can occur in the app.
 │   ├── components            # React components
 │   ├── constants             # Application constants including constants for Redux
 │   ├── containers            # Top-level React components that interact with Redux
@@ -56,7 +57,8 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 │   ├── removeDemo.js         # Remove demo app
 │   ├── srcServer.js          # Starts dev webserver with hot reloading and opens your app in your default browser
 │   ├── startMessage.js       # Display message when development build starts
-│   └── testSetup.js          # Configures mocha
+│   ├── testSetup.js          # Configures mocha
+│   └── analyzeBundle.js      # Analyzes the webpack bundle
 ├── webpack.config.dev.js     # Configures webpack for development builds
 └── webpack.config.prod.js    # Configures webpack for production builds
 ```
@@ -106,6 +108,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |sinon-chai| Extends Chai with assertions for the Sinon.JS mocking framework|
 |style-loader| Add Style support to Webpack |
 |webpack| Bundler with plugin system and integrated development server |
+|webpack-bundle-analyzer| Webpack plugin and CLI utility that represents bundle content as convenient interactive zoomable treemap |
 |webpack-dev-middleware| Used to integrate Webpack with Browser-sync |
 |webpack-hot-middleware| Use to integrate Webpack's hot reloading support with Browser-sync |
 |webpack-md5-hash| Hash bundles, and use the hash for the filename so that the filename only changes when contents change|
@@ -142,7 +145,7 @@ No problem. Reference your CSS file in index.html, and add a step to the build p
 ### I just want an empty starter kit.
 This starter kit includes an example app so you can see how everything hangs together on a real app. When you're done reviewing it, run this to remove the demo app:
 
-  `npm run remove-demo`  
+  `npm run remove-demo`
 
 Don't want to use Redux? See the next question for some steps on removing Redux.
 
@@ -183,8 +186,8 @@ Also note that no actual physical files are written to the filesystem during the
 
 **Tips for debugging via sourcemaps:**
 
- 1. Browsers vary in the way they allow you to view the original source. Chrome automatically shows the original source if a sourcemap is available. Safari, in contrast, will display the minified source and you'll [have to cmd+click on a given line to be taken to the original source](http://stackoverflow.com/questions/19550060/how-do-i-toggle-source-mapping-in-safari-7).  
- 2. Do **not** enable serving files from your filesystem in Chrome dev tools. If you do, Chrome (and perhaps other browsers) may not show you the latest version of your code after you make a source code change. Instead **you must close the source view tab you were using and reopen it to see the updated source code**. It appears Chrome clings to the old sourcemap until you close and reopen the source view tab. To clarify, you don't have to close the actual tab that is displaying the app, just the tab in the console that's displaying the source file that you just changed.  
+ 1. Browsers vary in the way they allow you to view the original source. Chrome automatically shows the original source if a sourcemap is available. Safari, in contrast, will display the minified source and you'll [have to cmd+click on a given line to be taken to the original source](http://stackoverflow.com/questions/19550060/how-do-i-toggle-source-mapping-in-safari-7).
+ 2. Do **not** enable serving files from your filesystem in Chrome dev tools. If you do, Chrome (and perhaps other browsers) may not show you the latest version of your code after you make a source code change. Instead **you must close the source view tab you were using and reopen it to see the updated source code**. It appears Chrome clings to the old sourcemap until you close and reopen the source view tab. To clarify, you don't have to close the actual tab that is displaying the app, just the tab in the console that's displaying the source file that you just changed.
  3. If the latest source isn't displaying the console, force a refresh. Sometimes Chrome seems to hold onto a previous version of the sourcemap which will cause you to see stale code.
 
 #### Debugging in Visual Studio Code:
@@ -200,7 +203,7 @@ In short, Gulp is an unnecessary abstraction that creates more problems than it 
 This assures that the build won't break when some new version is released. Unfortunately, many package authors don't properly honor [Semantic Versioning](http://semver.org), so instead, as new versions are released, I'll test them and then introduce them into the starter kit. But yes, this means when you do `npm update` no new dependencies will be pulled down. You'll have to update package.json with the new version manually.
 
 ### How do I handle images?
-Via <a href="https://github.com/webpack/file-loader">Webpack's file loader</a>. Example: 
+Via <a href="https://github.com/webpack/file-loader">Webpack's file loader</a>. Example:
 
 ```
 <img src={require('./src/images/myImage.jpg')} />
@@ -239,5 +242,5 @@ That's it! Travis will now execute the `npm run test:cover:travis` script after 
 You can get the badge from the Coveralls website.
 
 ###What about TypeScript?
-Here's a [fork with TS support](https://github.com/typescriptcrew/ts-react-slingshot): 
+Here's a [fork with TS support](https://github.com/typescriptcrew/ts-react-slingshot):
 
