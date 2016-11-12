@@ -46,17 +46,17 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 │   ├── styles                # CSS Styles, typically written in Sass
 │   └── utils                 # Plain old JS objects (POJOs). Pure logic. No framework specific code here.
 ├── tools                     # Node scripts that run build related tools
-│   ├── setup                 # **NEEDS DOCUMENTATION**
-│   │   ├── setup.js          # **NEEDS DOCUMENTATION**
-│   │   ├── setupMessage.js   # **NEEDS DOCUMENTATION**
-│   │   └── setupPrompts.js   # **NEEDS DOCUMENTATION**
+│   ├── setup                 # Scripts for setting up a new project using React Slingshot
+│   │   ├── setup.js          # Configure project set up
+│   │   ├── setupMessage.js   # Display message when beginning set up
+│   │   └── setupPrompts.js   # Configure prompts for set up
 │   ├── build.js              # Runs the production build
 │   ├── chalkConfig.js        # Centralized configuration for chalk (adds color to console statements)
 │   ├── distServer.js         # Starts webserver and opens final built app that's in dist in your default browser
-│   ├── nodeVersionCheck.js   # **NEEDS DOCUMENTATION**
-│   ├── removeDemo.js         # **NEEDS DOCUMENTATION**
+│   ├── nodeVersionCheck.js   # Confirm supported Node version is installed
+│   ├── removeDemo.js         # Remove demo app
 │   ├── srcServer.js          # Starts dev webserver with hot reloading and opens your app in your default browser
-│   ├── startMessage.js       # **NEEDS DOCUMENTATION**
+│   ├── startMessage.js       # Display message when development build starts
 │   ├── testSetup.js          # Configures mocha
 │   └── analyzeBundle.js      # Analyzes the webpack bundle
 ├── webpack.config.dev.js     # Configures webpack for development builds
