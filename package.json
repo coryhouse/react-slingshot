@@ -24,7 +24,8 @@
     "test:cover": "babel-node node_modules/isparta/bin/isparta cover --root src --report html node_modules/mocha/bin/_mocha -- --require ./tools/testSetup.js \"./{,!(node_modules)/**/}*.spec.js\" --reporter progress",
     "test:cover:travis": "babel-node node_modules/isparta/bin/isparta cover --root src --report lcovonly _mocha -- --require ./tools/testSetup.js \"./{,!(node_modules)/**/}*.spec.js\" && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "npm run test -- --watch",
-    "open:cover": "npm run test:cover && open coverage/index.html"
+    "open:cover": "npm run test:cover && open coverage/index.html",
+    "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
   },
   "author": "Cory House",
   "license": "MIT",
@@ -88,7 +89,7 @@
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "1.13.2",
-    "webpack-bundle-analyzer": "1.4.1",
+    "webpack-bundle-analyzer": "^1.5.3",
     "webpack-dev-middleware": "1.8.4",
     "webpack-hot-middleware": "2.13.0",
     "webpack-md5-hash": "0.0.5"
