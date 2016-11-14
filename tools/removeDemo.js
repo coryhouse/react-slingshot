@@ -16,7 +16,8 @@ const pathsToRemove = [
   './src/store/store.spec.js',
   './src/styles',
   './src/routes.js',
-  './src/index.js'
+  './src/index.js',
+  './tools/removeDemo.js'
 ];
 
 const filesToCreate = [
@@ -47,6 +48,15 @@ function createFile(file) {
   });
 }
 
+function removePackageJsonScriptEntry(scriptName) {
+  const packageJsonPath = './package.json';
+  var fileData = fs.readFileSync(packageJsonPath);
+  var content = JSON.parse(fileData);
+  delete content.scripts[scriptName];
+  fs.writeFileSync(packageJsonPath,
+    JSON.stringify(content, null, 2) + '\n');
+}
+
 let numPathsRemoved = 0;
 pathsToRemove.map(path => {
   removePath(path, () => {
@@ -57,5 +67,7 @@ pathsToRemove.map(path => {
     }
   });
 });
+
+removePackageJsonScriptEntry('remove-demo');
 
 console.log(chalkSuccess('Demo app removed.'));
