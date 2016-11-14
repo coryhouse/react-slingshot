@@ -50,8 +50,8 @@ function createFile(file) {
 
 function removePackageJsonScriptEntry(scriptName) {
   const packageJsonPath = './package.json';
-  var fileData = fs.readFileSync(packageJsonPath);
-  var content = JSON.parse(fileData);
+  let fileData = fs.readFileSync(packageJsonPath);
+  let content = JSON.parse(fileData);
   delete content.scripts[scriptName];
   fs.writeFileSync(packageJsonPath,
     JSON.stringify(content, null, 2) + '\n');
