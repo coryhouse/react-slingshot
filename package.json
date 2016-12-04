@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Starter kit",
   "scripts": {
-    "start": "npm-run-all --parallel open:src test lint:watch",
-    "open:src": "babel-node tools/srcServer.js",
+    "start": "npm-run-all --parallel open test lint",
+    "open": "babel-node tools/srcServer.js",
     "lint": "esw webpack.config.* src tools --color --watch",
     "test": "jest --watch"
   },
@@ -18,7 +18,7 @@
     "eslint": "3.8.1",
     "eslint-watch": "2.1.14",
     "express": "4.14.0",
-    "jest": "^17.0.3",
+    "jest": "17.0.3",
     "npm-run-all": "3.1.1",
     "open": "0.0.5",
     "webpack": "1.13.2",
