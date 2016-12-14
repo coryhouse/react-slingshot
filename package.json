@@ -30,13 +30,18 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "immutability-helper": "2.0.0",
+    "material-design-icons": "3.0.1",
     "object-assign": "4.1.0",
     "react": "15.3.2",
+    "react-addons-css-transition-group": "15.3.2",
     "react-dom": "15.3.2",
     "react-redux": "4.4.5",
     "react-router": "2.8.1",
     "react-router-redux": "4.0.6",
+    "react-toolbox": "1.2.5",
     "redux": "3.6.0",
+    "redux-auth-wrapper": "0.9.0",
     "redux-thunk": "2.1.0"
   },
   "devDependencies": {
