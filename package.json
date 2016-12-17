@@ -13,7 +13,6 @@
     "babel-core": "6.21.0",
     "babel-loader": "6.2.10",
     "babel-preset-latest": "6.16.0",
-    "eslint": "3.12.2",
     "eslint-loader": "1.6.1",
     "express": "4.14.0",
     "jest": "18.0.0",
@@ -22,5 +21,8 @@
     "webpack": "1.14.0",
     "webpack-dev-middleware": "1.9.0",
     "webpack-hot-middleware": "2.13.2"
+  },
+  "babel": {
+    "presets": ["latest"]
   }
 }

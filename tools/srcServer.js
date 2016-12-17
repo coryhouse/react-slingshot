@@ -8,11 +8,7 @@ var port = 3000;
 var app = express();
 var compiler = webpack(config);
 
-app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true,
-  publicPath: config.output.publicPath
-}));
-
+app.use(require('webpack-dev-middleware')(compiler));
 app.use(require('webpack-hot-middleware')(compiler));
 
 app.get('*', function(req, res) {
