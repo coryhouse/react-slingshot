@@ -1,8 +1,7 @@
-import webpack from 'webpack';
-import path from 'path';
+var webpack = require('webpack');
+var path = require('path');
 
-export default {
-  debug: true,
+module.exports = {
   devtool: 'eval-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
   target: 'web', // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
   entry: [
@@ -19,7 +18,7 @@ export default {
   ],
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']}
+      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel', 'eslint']}
     ]
   }
 };

@@ -3,26 +3,24 @@
   "version": "1.0.0",
   "description": "Starter kit",
   "scripts": {
-    "start": "npm-run-all --parallel open test lint",
-    "open": "babel-node tools/srcServer.js",
-    "lint": "esw webpack.config.* src tools --color --watch",
+    "start": "npm-run-all --parallel open test",
+    "open": "node tools/srcServer.js",
     "test": "jest --watch"
   },
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
-    "babel-cli": "6.16.0",
-    "babel-core": "6.17.0",
-    "babel-loader": "6.2.5",
+    "babel-core": "6.21.0",
+    "babel-loader": "6.2.10",
     "babel-preset-latest": "6.16.0",
-    "eslint": "3.8.1",
-    "eslint-watch": "2.1.14",
+    "eslint": "3.12.2",
+    "eslint-loader": "1.6.1",
     "express": "4.14.0",
-    "jest": "17.0.3",
-    "npm-run-all": "3.1.1",
+    "jest": "18.0.0",
+    "npm-run-all": "3.1.2",
     "open": "0.0.5",
-    "webpack": "1.13.2",
-    "webpack-dev-middleware": "1.8.4",
-    "webpack-hot-middleware": "2.13.0"
+    "webpack": "1.14.0",
+    "webpack-dev-middleware": "1.9.0",
+    "webpack-hot-middleware": "2.13.2"
   }
 }
