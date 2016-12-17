@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm-run-all --parallel open test",
     "open": "node tools/srcServer.js",
-    "test": "jest --watch"
+    "test": "jest --watch --coverage"
   },
   "author": "Cory House",
   "license": "MIT",

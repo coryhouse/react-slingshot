@@ -10,7 +10,7 @@ module.exports = {
     path.resolve(__dirname, 'src/index.js')
   ],
   output: {
-    path: path.resolve(__dirname, 'src'), // Note: Physical files are only output by the production build task `npm run build`.
+    path: path.resolve(__dirname, 'src'),
     filename: 'bundle.js'
   },
   plugins: [
