@@ -11,7 +11,7 @@
     "remove-demo": "babel-node tools/removeDemo.js",
     "start-message": "babel-node tools/startMessage.js",
     "prestart": "npm-run-all --parallel start-message remove-dist",
-    "start": "npm-run-all --parallel test:watch open:src lint:watch",
+    "start": "webpack-dashboard -- npm-run-all --parallel test:watch open:src lint:watch",
     "open:src": "babel-node tools/srcServer.js",
     "open:dist": "babel-node tools/distServer.js",
     "lint": "esw webpack.config.* src tools --color",
@@ -91,6 +91,7 @@
     "url-loader": "0.5.7",
     "webpack": "1.14.0",
     "webpack-bundle-analyzer": "2.1.1",
+    "webpack-dashboard": "0.2.0",
     "webpack-dev-middleware": "1.9.0",
     "webpack-hot-middleware": "2.13.2",
     "webpack-md5-hash": "0.0.5"

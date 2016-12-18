@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import DashboardPlugin from 'webpack-dashboard/plugin';
 import autoprefixer from 'autoprefixer';
 import path from 'path';
 
@@ -23,6 +24,7 @@ export default {
     filename: 'bundle.js'
   },
   plugins: [
+    new DashboardPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
       __DEV__: true
