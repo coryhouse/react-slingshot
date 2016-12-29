@@ -6,7 +6,7 @@ import sinonChai from 'sinon-chai';
 import MockDate from 'mockdate';
 import chai, { expect } from 'chai';
 
-import dateHelper from '../utils/dateHelper';
+import {getFormattedDateTime} from '../utils/dateHelper';
 
 chai.use(sinonChai);
 
@@ -14,7 +14,7 @@ describe('Actions', () => {
   let dateModified;
   before(() => {
     MockDate.set(new Date());
-    dateModified = dateHelper.getFormattedDateTime();
+    dateModified = getFormattedDateTime();
   });
   after(() => MockDate.reset());
 
