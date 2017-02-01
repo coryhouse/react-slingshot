@@ -11,7 +11,8 @@ import rootReducer from '../reducers';
 describe('Store', () => {
   let dateModified;
   beforeAll(() => {
-    MockDate.set(new Date());
+    // hardcoded date for consistency in tests and snapshots on all machines
+    MockDate.set(new Date("1/31 23:14:01"));
     dateModified = getFormattedDateTime();
   });
   afterAll(() => MockDate.reset());
