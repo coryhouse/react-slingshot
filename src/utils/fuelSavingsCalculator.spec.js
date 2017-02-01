@@ -60,6 +60,19 @@ describe('Fuel Savings Calculator', () => {
       // assert
       expect(milesPerMonth).toEqual(100);
     });
+
+    it('throws an error on invalid timeFrame', () => {
+      // arrange
+      const milesPerYear = 1200;
+
+      try {
+        // act
+        const milesPerMonth = calculator().calculateMilesDrivenPerMonth(milesPerYear, 'minute');
+      } catch (err) {
+        // assert
+        expect(err).toMatchSnapshot();
+      }
+    });
   });
 
   describe('calculateSavingsPerMonth', () => {
@@ -115,6 +128,24 @@ describe('Fuel Savings Calculator', () => {
 
       // assert
       expect(savingsPerMonth).toEqual(-157.12);
+    });
+
+    it('returns 0 per month with these settings', () => {
+      // arrange
+      const settings = {
+        tradePpg: 3.15,
+        tradeMpg: 40,
+        newPpg: 3.75,
+        newMpg: 18,
+        milesDriven: 0,
+        milesDrivenTimeframe: 'year'
+      };
+
+      // act
+      const savingsPerMonth = calculator().calculateSavingsPerMonth(settings);
+
+      // assert
+      expect(savingsPerMonth).toEqual(0);
     });
   });
 });

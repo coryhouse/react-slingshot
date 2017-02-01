@@ -1,0 +1,1 @@
+exports[`Fuel Savings Calculator milesPerMonth throws an error on invalid timeFrame 1`] = `[Error: Unknown milesDrivenTimeframe passed: minute]`;

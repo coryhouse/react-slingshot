@@ -111,23 +111,28 @@ describe('Store', () => {
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'milesDrivenTimeframe', value: 'year' }
     ];
 
-    // actions.push(...moreActions);
     moreActions.forEach(action => store.dispatch(action));
 
     const actual = store.getState();
-    const expected = {
-      newMpg: 20,
-      tradeMpg: 10,
-      newPpg: 1.50,
-      tradePpg: 0,
-      milesDriven: 100,
-      milesDrivenTimeframe: 'year',
-      displayResults: false,
-      dateModified,
-      necessaryDataIsProvidedToCalculateSavings: false,
-      savings: lastGoodSavings
-    };
+    //const expected = {
+    //  newMpg: 20,
+    //  tradeMpg: 10,
+    //  newPpg: 1.50,
+    //  tradePpg: 0,
+    //  milesDriven: 100,
+    //  milesDrivenTimeframe: 'year',
+    //  displayResults: false,
+    //  dateModified,
+    //  necessaryDataIsProvidedToCalculateSavings: false,
+    //  savings: lastGoodSavings
+    //};
+    //
+    //expect(actual.fuelSavings).toEqual(expected);
 
-    expect(actual.fuelSavings).toEqual(expected);
+    // with jest snapshots the above assertion can be replaced with this one line
+    // jest will store the value in a file within ./__snapshots__
+    // snapshots can/should be committed and reviewed
+    // jest will also update snapshot or delete unused ones using the command `npm run test -- -u`
+    expect(actual.fuelSavings).toMatchSnapshot();
   });
 });
