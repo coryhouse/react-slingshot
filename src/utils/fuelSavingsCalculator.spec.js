@@ -67,7 +67,7 @@ describe('Fuel Savings Calculator', () => {
 
       try {
         // act
-        const milesPerMonth = calculator().calculateMilesDrivenPerMonth(milesPerYear, 'minute');
+        calculator().calculateMilesDrivenPerMonth(milesPerYear, 'minute');
       } catch (err) {
         // assert
         expect(err).toMatchSnapshot();

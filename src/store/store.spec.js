@@ -104,7 +104,7 @@ describe('Store', () => {
     ];
     actions.forEach(action => store.dispatch(action));
 
-    const lastGoodSavings = calculator().calculateSavings(store.getState().fuelSavings);
+    calculator().calculateSavings(store.getState().fuelSavings);
 
     const moreActions = [
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'tradePpg', value: 0 },
