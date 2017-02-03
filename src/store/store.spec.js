@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import { createStore } from 'redux';
 
 import calculator from '../utils/fuelSavingsCalculator';
-import dateHelper from '../utils/dateHelper';
+import {getFormattedDateTime} from '../utils/dateHelper';
 import initialState from '../reducers/initialState';
 import rootReducer from '../reducers';
 
@@ -13,7 +13,7 @@ describe('Store', () => {
   let dateModified;
   before(() => {
     MockDate.set(new Date());
-    dateModified = dateHelper.getFormattedDateTime();
+    dateModified = getFormattedDateTime();
   });
   after(() => MockDate.reset());
 
