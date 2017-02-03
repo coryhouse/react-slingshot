@@ -35,7 +35,8 @@ export default {
         removeComments: true,
         collapseWhitespace: true
       },
-      inject: true
+      // injection is now handled in the template to allow for absolute paths, fixes issue with nested routes
+      inject: false
     })
   ],
   module: {
