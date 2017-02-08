@@ -22,7 +22,7 @@
     "browser": true,
     "node": true,
     "jquery": true,
-    "mocha": true
+    "jest": true
   },
   "rules": {
     "quotes": 0,

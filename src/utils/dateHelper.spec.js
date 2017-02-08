@@ -1,4 +1,3 @@
-import {expect} from 'chai';
 import {getFormattedDateTime} from './dateHelper';
 
 describe('Date Helper', () => {
@@ -9,7 +8,7 @@ describe('Date Helper', () => {
       const date = new Date(99, 0, 24, 11, 33, 30, 0);
 
       // assert
-      expect(getFormattedDateTime(date)).to.equal('1/24 11:33:30');
+      expect(getFormattedDateTime(date)).toEqual('1/24 11:33:30');
     });
 
     it('pads single digit minute and second values with leading zeros', () => {
@@ -18,7 +17,7 @@ describe('Date Helper', () => {
       const date = new Date(99, 0, 4, 11, 3, 2, 0);
 
       // assert
-      expect(getFormattedDateTime(date)).to.equal('1/4 11:03:02');
+      expect(getFormattedDateTime(date)).toEqual('1/4 11:03:02');
     });
   });
 });

@@ -16,7 +16,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 | create-dist | Creates the dist folder and the necessary subfolders. |
 | prebuild | Runs automatically before build script (due to naming convention). Cleans dist folder, builds html, and builds sass. |
 | build | Bundles all JavaScript using webpack and writes it to /dist. |
-| test | Runs tests (files ending in .spec.js) using Mocha and outputs results to the command line. Watches all files so tests are re-run upon save. |
+| test | Runs tests (files ending in .spec.js or .test.js) using Jest and outputs results to the command line. Watches all files so tests are re-run upon save. |
 | test:cover | Runs tests as described above. Generates a HTML coverage report to ./coverage/index.html |
 | test:cover:travis | Runs coverage as described above, however sends machine readable lcov data to Coveralls. This should only be used from the travis build! |
 | analyze-bundle | Analyzes webpack bundles for production and gives you a breakdown of where modules are used and their sizes via a convenient interactive zoomable treemap. |
@@ -57,7 +57,6 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 │   ├── removeDemo.js         # Remove demo app
 │   ├── srcServer.js          # Starts dev webserver with hot reloading and opens your app in your default browser
 │   ├── startMessage.js       # Display message when development build starts
-│   ├── testSetup.js          # Configures mocha
 │   └── analyzeBundle.js      # Analyzes the webpack bundle
 ├── webpack.config.dev.js     # Configures webpack for development builds
 └── webpack.config.prod.js    # Configures webpack for production builds
@@ -67,17 +66,13 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 | **Dependency** | **Use** |
 |----------|-------|
 |autoprefixer | Automatically adds vendor prefixes, using data from Can I Use. |
-|connect-history-api-fallback  | Support reloading deep links |
 |object-assign | Polyfill for Object.assign |
-|react|React library |
-|react-dom|React library for DOM rendering |
-|react-redux|Redux library for connecting React components to Redux |
-|react-router|React library for routing |
-|redux|Library for unidirectional data flows |
-|redux-thunk|Middleware for redux that allows actions to be declared as functions |
 |babel-cli|Babel Command line interface |
 |babel-core|Babel Core for transpiling the new JavaScript to old |
+|babel-eslint|Integrates Babel with ESLint so experimental JS features ESLint doesn't support yet can be linted.
+|babel-jest|Integrates Babel with Jest so tests are transpiled|
 |babel-loader|Adds Babel support to Webpack |
+|babel-polyfill|Polyfills features that cannot be transpiled|
 |babel-plugin-react-display-name| Add displayName to React.createClass calls |
 |babel-plugin-transform-react-constant-elements | Performance optimization: Hoists the creation of elements that are fully static to the top level. reduces calls to React.createElement and the resulting memory allocations. [More info](https://medium.com/doctolib-engineering/improve-react-performance-with-babel-16f1becfaa25#.2wbkg8g4d) |
 |babel-preset-latest|Babel preset for ES2015, ES2016 and ES2017|
@@ -85,34 +80,46 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |babel-preset-react| Add JSX support to Babel |
 |babel-preset-stage-1| Include stage 1 feature support in Babel |
 |browser-sync| Supports synchronized testing on multiple devices and serves local app on public URL |
-|chai|Assertion library for use with Mocha|
 |chalk|Adds color support to terminal |
+|connect-history-api-fallback  | Support reloading deep links |
+|coveralls|For tracking and displaying code coverage information via Coveralls.io|
 |cross-env|Cross-environment friendly way to handle environment variables|
 |css-loader|Add CSS support to Webpack|
 |enzyme|Simplified JavaScript Testing utilities for React|
 |eslint|Lints JavaScript |
 |eslint-loader|Adds ESLint support to Webpack |
+|eslint-plugin-import|Adds ES6 import related linting rules|
 |eslint-plugin-react|Adds additional React-related rules to ESLint|
 |eslint-watch|Wraps ESLint to provide file watch support and enhanced command line output|
 |extract-text-webpack-plugin| Extracts CSS into separate file for production build |
 |file-loader| Adds file loading support to Webpack |
 |html-webpack-plugin|Generates custom index.html for each environment as part of webpack build|
-|mocha| JavaScript testing library |
+|identity-obj-proxy|Mocks webpack imports that Jest doesn't understand such as image and CSS imports.|
+|jest|Testing framework|
+|json-loader|Enhance Webpack to support importing .json files|
+|mockdate|Mock dates in testing|
 |node-sass| Adds SASS support to Webpack |
 |npm-run-all| Run multiple scripts at the same time |
+|open|Open the app in your default browser|
 |postcss-loader| Adds PostCSS support to Webpack |
-|react-addons-test-utils| Adds React TestUtils |
-|rimraf|Delete files |
+|react|React library |
+|react-addons-test-utils| React Testing Utilities |
+|redux-immutable-state-invariant|Alert if Redux state is mutated (helps catch bugs, since Redux state is immutable)|
+|react-dom|React library for DOM rendering |
+|react-redux|Redux library for connecting React components to Redux |
+|react-router|React library for routing |
+|redux|Library for unidirectional data flows |
+|redux-thunk|Middleware for redux that allows actions to be declared as functions |
+|replace|Renaming files, cross-platform|
+|rimraf|Delete files, cross-platform |
 |sass-loader| Adds Sass support to Webpack|
-|sinon| Standalone test spies, stubs and mocks for JavaScript |
-|sinon-chai| Extends Chai with assertions for the Sinon.JS mocking framework|
 |style-loader| Add Style support to Webpack |
+|url-loader|Add Webpack support for loading files via url with querystring |
 |webpack| Bundler with plugin system and integrated development server |
 |webpack-bundle-analyzer| Webpack plugin and CLI utility that represents bundle content as convenient interactive zoomable treemap |
 |webpack-dev-middleware| Used to integrate Webpack with Browser-sync |
 |webpack-hot-middleware| Use to integrate Webpack's hot reloading support with Browser-sync |
 |webpack-md5-hash| Hash bundles, and use the hash for the filename so that the filename only changes when contents change|
-|yargs| Easily parse command-line arguments |
 
 ### Where are the files being served from when I run `npm start`?
 Webpack serves your app in memory when you run `npm start`. No physical files are written. However, the web root is /src, so you can reference files under /src in index.html. When the app is built using `npm run build`, physical files are written to /dist and the app is served from /dist.
@@ -176,7 +183,7 @@ Streamlined automated testing is a core feature of this starter kit. All tests a
 + Short import paths are easy to type and less brittle.
 + As files are moved, it's easy to move tests alongside.
 
-That said, you can of course place your tests under /test instead, which is the Mocha default. If you do, you can simplify the test script to no longer specify the path. Then Mocha will simply look in /test to find your spec files.
+That said, you can of course place your tests under __test__ instead. Then Jest will simply look in /test to find your spec files.
 
 ### How do I debug?
 Since browsers don't currently support ES6, we're using Babel to compile our ES6 down to ES5. This means the code that runs in the browser looks different than what we wrote. But good news, a [sourcemap](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/) is generated to enable easy debugging. This means your original JS source will be displayed in your browser's dev console.
@@ -200,7 +207,7 @@ Don't see your favorite code editor debugging configuration here? Submit a PR an
 In short, Gulp is an unnecessary abstraction that creates more problems than it solves. [Here's why](https://medium.com/@housecor/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8#.vtaziro8n).
 
 ### Why does package.json reference the exact version?
-This assures that the build won't break when some new version is released. Unfortunately, many package authors don't properly honor [Semantic Versioning](http://semver.org), so instead, as new versions are released, I'll test them and then introduce them into the starter kit. But yes, this means when you do `npm update` no new dependencies will be pulled down. You'll have to update package.json with the new version manually.
+This assures that the build won't break when some new version is released. Unfortunately, many package authors don't properly honor [Semantic Versioning](http://semver.org), so instead, as new versions are released, we'll test them and then introduce them into React Slingshot. But yes, this means when you do `npm update` no new dependencies will be pulled down. You'll have to update package.json with the new version manually.
 
 ### How do I handle images?
 Via <a href="https://github.com/webpack/file-loader">Webpack's file loader</a>. Example:
@@ -216,7 +223,7 @@ Webpack will then intelligently handle your image for you. For the production bu
 On Windows, you need to install extra dependencies for browser-sync to build and install successfully. Follow the getting started steps above to assure you have the necessary dependencies on your machine.
 
 ### I can't access the external URL for Browsersync
-To hit the external URL, all devices must be on the same LAN. So this may mean your dev machine needs to be on the same Wifi as the mobile devices you're testing.
+To hit the external URL, all devices must be on the same LAN. So this may mean your dev machine needs to be on the same Wifi as the mobile devices you're testing. Alternatively, you can use a tool like [localtunnel](https://localtunnel.github.io/www/) or [ngrok](https://ngrok.com) to expose your app via a public URL. This way, you can interact with the Browsersync hosted app on any device.
 
 ### What about the Redux Devtools?
 Install the [Redux devtools extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en) in Chrome Developer Tools. If you're interested in running Redux dev tools cross-browser, Barry Staes created a [branch with the devtools incorporated](https://github.com/coryhouse/react-slingshot/pull/27).
@@ -225,7 +232,7 @@ Install the [Redux devtools extension](https://chrome.google.com/webstore/detail
 Hot reloading doesn't always play nicely with stateless functional components at this time. [This is a known limitation that is currently being worked](https://github.com/gaearon/babel-plugin-react-transform/issues/57). To avoid issues with hot reloading for now, use a traditional class-based React component at the top of your component hierarchy.
 
 ### How do I setup code coverage reporting?
-Using the `npm run test:cover` command to run the tests, building a code coverage report. The report is written to `coverage/index.html`. Slingshot provides a script for this:
+Use the `npm run test:cover` command to run the tests, building a code coverage report. The report is written to `/coverage/lcov-report/index.html`. Slingshot provides a script for this:
 
 ```bash
 npm run open:cover
