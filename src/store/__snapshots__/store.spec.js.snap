@@ -1,0 +1,18 @@
+exports[`Store should handle a flurry of actions 1`] = `
+Object {
+  "dateModified": "1/31 23:14:01",
+  "displayResults": false,
+  "milesDriven": 100,
+  "milesDrivenTimeframe": "year",
+  "necessaryDataIsProvidedToCalculateSavings": false,
+  "newMpg": 20,
+  "newPpg": 1.5,
+  "savings": Object {
+    "annual": "$390",
+    "monthly": "$32.50",
+    "threeYear": "$1,170",
+  },
+  "tradeMpg": 10,
+  "tradePpg": 0,
+}
+`;
