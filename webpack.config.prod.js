@@ -56,7 +56,7 @@ export default {
     }),
 
     // Minify JS
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
 
     new webpack.LoaderOptionsPlugin({
       minimize: true,
@@ -72,7 +72,7 @@ export default {
     })
   ],
   module: {
-    loaders: [
+    rules: [
       {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader'},
       {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'url-loader?name=[name].[ext]'},
       {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff&name=[name].[ext]'},
