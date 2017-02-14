@@ -23,7 +23,7 @@ test_script:
   - node --version
   - npm --version
   # run tests
-  - npm test:CI
+  - npm run test:CI
 
 # Don't actually build.
 build: off
