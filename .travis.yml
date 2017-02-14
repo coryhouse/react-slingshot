@@ -1,9 +1,9 @@
 language: node_js
 cache: yarn
 node_js:
+  - "7"
   - "6"
   - "5"
   - "4"
-after_success:
-  # Send coverage data to coveralls.
-  - yarn run test:cover:travis
+# Run tests and send coverage data to coveralls.
+script: yarn run test:cover:travis
