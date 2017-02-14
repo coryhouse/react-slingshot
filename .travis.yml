@@ -5,7 +5,7 @@ node_js:
   - "6"
   - "5"
   - "4"
-script: test:travis
+script: yarn run test:travis
 after_success:
   # Send coverage data to coveralls.
   - yarn run test:cover:travis
