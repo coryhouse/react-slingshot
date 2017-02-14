@@ -22,7 +22,7 @@
     "build": "babel-node tools/build.js && npm run open:dist",
     "test": "jest",
     "test:cover": "npm run test -- --coverage ",
-    "test:cover:travis": "npm run jest --harmony_proxies --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
+    "test:cover:travis": "jest --harmony_proxies --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "npm run test -- --watch",
     "open:cover": "npm run test:cover && open coverage/lcov-report/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
