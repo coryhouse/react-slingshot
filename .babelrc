@@ -15,8 +15,8 @@
         ["latest", {
           "es2015": {
             "modules": false
-          }  
-        }],
+          }
+        }]
       ],
       "plugins": [
         "transform-react-constant-elements",
