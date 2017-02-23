@@ -27,9 +27,9 @@
 
 [How do I debug?](#how-do-i-debug)
 
-[Debugging in Visual Studio Code:](#debugging-in-visual-studio-code)
+[Debugging in Visual Studio Code](#debugging-in-visual-studio-code)
 
-[Why does the build use npm scripts instead of Gulp or Grunt](#why-does-the-build-use-npm-scripts-instead-of-gulp-or-grunt)
+[Why does the build use npm scripts instead of Gulp or Grunt?](#why-does-the-build-use-npm-scripts-instead-of-gulp-or-grunt)
 
 [Why does package.json reference the exact version?](#why-does-packagejson-reference-the-exact-version)
 
