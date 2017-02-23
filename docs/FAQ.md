@@ -1,8 +1,56 @@
 ##FAQ
-###Why does this exist?
+[Why does this exist?](#why-does-this-exist)
+
+[What do the scripts in package.json do?](#what-do-the-scripts-in-package.json-do)
+
+[Can you explain the folder structure?](#can-you-explain-the-folder-structure)
+
+[What are the dependencies in package.json used for?](#what-are-the-dependencies-in-package.json-used-for)
+
+[Where are the files being served from when I run `npm start`?](#where-are-the-files-being-served-from-when-i-run-npm-start)
+
+[Where is index.html?](#where-is-index.html)
+
+[How is Sass being converted into CSS and landing in the browser?](#how-is-sass-being-converted-into-css-and-landing-in-the-browser)
+
+[I don't like the magic you just described above. I simply want to use a CSS file.](#i-dont-like-the-magic-you-just-described-above-i-simply-want-to-use-a-css-file)
+
+[I just want an empty starter kit.](#i-just-want-an-empty-starter-kit)
+
+[Do I have to use Redux?](#do-i-have-to-use-redux)
+
+[How do I remove React Router?](#how-do-i-remove-react-router)
+
+[How do I deploy this?](#how-do-i-deploy-this)
+
+[Why are test files placed alongside the file under test (instead of centralized)?](#why-are-test-files-placed-alongside-the-file-under-test-instead-of-centralized)
+
+[How do I debug?](#how-do-i-debug)
+
+[Debugging in Visual Studio Code:](#debugging-in-visual-studio-code)
+
+[Why does the build use npm scripts instead of Gulp or Grunt](#why-does-the-build-use-npm-scripts-instead-of-gulp-or-grunt)
+
+[Why does package.json reference the exact version?](#why-does-packagejson-reference-the-exact-version)
+
+[How do I handle images?](#how-do-i-handle-images)
+
+[I'm getting an error when running npm install: Failed to locate "CL.exe"](#im-getting-an-error-when-running-npm-install-failed-to-locate-clexe)
+
+[I can't access the external URL for Browsersync](#i-cant-access-the-external-url-for-browsersync)
+
+[What about the Redux Devtools?](#what-about-the-redux-devtools)
+
+[Hot reloading isn't working!](#hot-reloading-isnt-working)
+
+[How do I setup code coverage reporting?](#how-do-i-setup-code-coverage-reporting)
+
+---
+
+###Why does this exist? <a name="why-does-this-exist"></a>
 This starter kit implements best practices like testing, minification, bundling, and so on. It codifies a long list of decisions that you no longer have to make to get rolling. It saves you from the long, painful process of wiring it all together into an automated dev environment and build process. It's also useful as inspiration for ideas you might want to integrate into your current development environment or build process.
 
-###What do the scripts in package.json do?
+###What do the scripts in package.json do? <a name="what-do-the-scripts-in-package.json-do"></a>
 Unfortunately, scripts in package.json can't be commented inline because the JSON spec doesn't support comments, so I'm providing info on what each script in package.json does here.
 
 | **Script** | **Description** |
@@ -21,7 +69,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 | test:cover:travis | Runs coverage as described above, however sends machine readable lcov data to Coveralls. This should only be used from the travis build! |
 | analyze-bundle | Analyzes webpack bundles for production and gives you a breakdown of where modules are used and their sizes via a convenient interactive zoomable treemap. |
 
-### Can you explain the folder structure?
+### Can you explain the folder structure? <a name="can-you-explain-the-folder-structure"></a>
 ```
 .
 ├── .babelrc                  # Configures Babel
@@ -62,7 +110,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 └── webpack.config.prod.js    # Configures webpack for production builds
 ```
 
-### What are the dependencies in package.json used for?
+### What are the dependencies in package.json used for? <a name="what-are-the-dependencies-in-package.json-used-for"></a>
 | **Dependency** | **Use** |
 |----------|-------|
 |autoprefixer | Automatically adds vendor prefixes, using data from Can I Use. |
@@ -121,13 +169,13 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |webpack-hot-middleware| Use to integrate Webpack's hot reloading support with Browser-sync |
 |webpack-md5-hash| Hash bundles, and use the hash for the filename so that the filename only changes when contents change|
 
-### Where are the files being served from when I run `npm start`?
+### Where are the files being served from when I run `npm start`? <a name="where-are-the-files-being-served-from-when-i-run-npm-start"></a>
 Webpack serves your app in memory when you run `npm start`. No physical files are written. However, the web root is /src, so you can reference files under /src in index.html. When the app is built using `npm run build`, physical files are written to /dist and the app is served from /dist.
 
-### Where is index.html?
+### Where is index.html? <a name="where-is-index.html"></a>
 It's generated by webpack using htmlWebpackPlugin. This plugin dynamically generates index.html based on the configuration in webpack.config. It also adds references to the JS and CSS bundles using hash-based filenames to bust cache. Separate bundles for vendor and application code are created and referencing within the generated index.html file so that vendor libraries and app code can be cached separately by the browser. The bundle filenames are based on the file's hash, so the filenames only change when the file contents change. For more information on this, read [Long-term caching of static assets with Webpack](https://medium.com/@okonetchnikov/long-term-caching-of-static-assets-with-webpack-1ecb139adb95#.4aeatmtfz) and [html-webpack-plugin](https://github.com/ampedandwired/html-webpack-plugin)
 
-### How is Sass being converted into CSS and landing in the browser?
+### How is Sass being converted into CSS and landing in the browser? <a name="how-is-sass-being-converted-into-css-and-landing-in-the-browser"></a>
 Magic! Okay, more specifically, we're handling it differently in dev (`npm start`) vs prod (`npm run build`)
 
 When you run `npm start`:
@@ -146,17 +194,17 @@ When you run `npm run build`:
 
 For both of the above methods, a separate sourcemap is generated for debugging Sass in [compatible browsers](http://thesassway.com/intermediate/using-source-maps-with-sass).
 
-### I don't like the magic you just described above. I simply want to use a CSS file.
+### I don't like the magic you just described above. I simply want to use a CSS file. <a name="i-dont-like-the-magic-you-just-described-above-i-simply-want-to-use-a-css-file"></a>
 No problem. Reference your CSS file in index.html, and add a step to the build process to copy your CSS file over to the same relative location /dist as part of the build step. But be forwarned, you lose style hot reloading with this approach.
 
-### I just want an empty starter kit.
+### I just want an empty starter kit. <a name="i-just-want-an-empty-starter-kit"></a>
 This starter kit includes an example app so you can see how everything hangs together on a real app. When you're done reviewing it, run this to remove the demo app:
 
   `npm run remove-demo`
 
 Don't want to use Redux? See the next question for some steps on removing Redux.
 
-### Do I have to use Redux?
+### Do I have to use Redux? <a name="do-i-have-to-use-redux"></a>
 Nope. Redux is useful for applications with more complex data flows. If your app is simple, Redux is overkill. Remove Redux like this:
 
  1. Run `npm run remove-demo`
@@ -164,18 +212,18 @@ Nope. Redux is useful for applications with more complex data flows. If your app
  3. Create a new empty component in /components.
  4. Call render on the new top level component you created in step 3 in src/index.js.
 
-### How do I remove React Router?
+### How do I remove React Router? <a name="how-do-i-remove-react-router"></a>
  1. Uninstall React Router and routing related packages: `npm uninstall --save react-router`
  2. Delete the following files: `src/routes.js`
  3. Remove `import { Link, IndexLink } from 'react-router';` from top of `src/components/App.js`, add a reference to `src/components/FuelSavingsForm.js`, and replace body of (implicit) render with this: `<FuelSavingsPage />`.
 
-### How do I deploy this?
+### How do I deploy this? <a name="how-do-i-deploy-this"></a>
 `npm run build`. This will build the project for production. It does the following:
 * Minifies all JS
 * Sets NODE_ENV to prod so that React is built in production mode
 * Places the resulting built project files into /dist. (This is the folder you'll expose to the world).
 
-### Why are test files placed alongside the file under test (instead of centralized)?
+### Why are test files placed alongside the file under test (instead of centralized)? <a name="why-are-test-files-placed-alongside-the-file-under-test-instead-of-centralized"></a>
 Streamlined automated testing is a core feature of this starter kit. All tests are placed in files that end in .spec.js. Spec files are placed in the same directory as the file under test. Why?
 + The existence of tests is highly visible. If a corresponding .spec file hasn't been created, it's obvious.
 + Easy to open since they're in the same folder as the file being tested.
@@ -185,7 +233,7 @@ Streamlined automated testing is a core feature of this starter kit. All tests a
 
 That said, you can of course place your tests under __test__ instead. Then Jest will simply look in /test to find your spec files.
 
-### How do I debug?
+### How do I debug? <a name="how-do-i-debug"></a>
 Since browsers don't currently support ES6, we're using Babel to compile our ES6 down to ES5. This means the code that runs in the browser looks different than what we wrote. But good news, a [sourcemap](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/) is generated to enable easy debugging. This means your original JS source will be displayed in your browser's dev console.
 *Note:* When you run `npm start`, no JS is minified. Why? Because minifying slows the build. So JS is only minified when you run the `npm run build` script. See [more on building for production above](https://github.com/coryhouse/react-slingshot/blob/master/docs/FAQ.md#how-do-i-deploy-this).
 
@@ -197,19 +245,19 @@ Also note that no actual physical files are written to the filesystem during the
  2. Do **not** enable serving files from your filesystem in Chrome dev tools. If you do, Chrome (and perhaps other browsers) may not show you the latest version of your code after you make a source code change. Instead **you must close the source view tab you were using and reopen it to see the updated source code**. It appears Chrome clings to the old sourcemap until you close and reopen the source view tab. To clarify, you don't have to close the actual tab that is displaying the app, just the tab in the console that's displaying the source file that you just changed.
  3. If the latest source isn't displaying the console, force a refresh. Sometimes Chrome seems to hold onto a previous version of the sourcemap which will cause you to see stale code.
 
-#### Debugging in Visual Studio Code:
+#### Debugging in Visual Studio Code: <a name="debugging-in-visual-studio-code"></a>
   * Install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
   * Follow the instructions on how to [configure debugging in Visual Studio code](https://github.com/Microsoft/vscode-chrome-debug/blob/master/README.md#using-the-debugger).
 
 Don't see your favorite code editor debugging configuration here? Submit a PR and we'll be glad to add it to the FAQ.md.
 
-### Why does the build use npm scripts instead of Gulp or Grunt?
+### Why does the build use npm scripts instead of Gulp or Grunt? <a name="why-does-the-build-use-npm-scripts-instead-of-gulp-or-grunt"></a>
 In short, Gulp is an unnecessary abstraction that creates more problems than it solves. [Here's why](https://medium.com/@housecor/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8#.vtaziro8n).
 
-### Why does package.json reference the exact version?
+### Why does package.json reference the exact version? <a name="why-does-packagejson-reference-the-exact-version"></a>
 This assures that the build won't break when some new version is released. Unfortunately, many package authors don't properly honor [Semantic Versioning](http://semver.org), so instead, as new versions are released, we'll test them and then introduce them into React Slingshot. But yes, this means when you do `npm update` no new dependencies will be pulled down. You'll have to update package.json with the new version manually.
 
-### How do I handle images?
+### How do I handle images? <a name="how-do-i-handle-images"></a>
 Via <a href="https://github.com/webpack/file-loader">Webpack's file loader</a>. Example:
 
 ```
@@ -219,19 +267,19 @@ Via <a href="https://github.com/webpack/file-loader">Webpack's file loader</a>. 
 
 Webpack will then intelligently handle your image for you. For the production build, it will copy the physical file to /dist, give it a unique filename, and insert the appropriate path in your image tag.
 
-### I'm getting an error when running npm install: Failed to locate "CL.exe"
+### I'm getting an error when running npm install: Failed to locate "CL.exe" <a name="im-getting-an-error-when-running-npm-install-failed-to-locate-clexe"></a>
 On Windows, you need to install extra dependencies for browser-sync to build and install successfully. Follow the getting started steps above to assure you have the necessary dependencies on your machine.
 
-### I can't access the external URL for Browsersync
+### I can't access the external URL for Browsersync <a name="i-cant-access-the-external-url-for-browsersync"></a>
 To hit the external URL, all devices must be on the same LAN. So this may mean your dev machine needs to be on the same Wifi as the mobile devices you're testing. Alternatively, you can use a tool like [localtunnel](https://localtunnel.github.io/www/) or [ngrok](https://ngrok.com) to expose your app via a public URL. This way, you can interact with the Browsersync hosted app on any device.
 
-### What about the Redux Devtools?
+### What about the Redux Devtools? <a name="what-about-the-redux-devtools"></a>
 Install the [Redux devtools extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en) in Chrome Developer Tools. If you're interested in running Redux dev tools cross-browser, Barry Staes created a [branch with the devtools incorporated](https://github.com/coryhouse/react-slingshot/pull/27).
 
-### Hot reloading isn't working!
+### Hot reloading isn't working! <a name="hot-reloading-isnt-working"></a>
 Hot reloading doesn't always play nicely with stateless functional components at this time. [This is a known limitation that is currently being worked](https://github.com/gaearon/babel-plugin-react-transform/issues/57). To avoid issues with hot reloading for now, use a traditional class-based React component at the top of your component hierarchy.
 
-### How do I setup code coverage reporting?
+### How do I setup code coverage reporting? <a name="how-do-i-setup-code-coverage-reporting"></a>
 Use the `npm run test:cover` command to run the tests, building a code coverage report. The report is written to `/coverage/lcov-report/index.html`. Slingshot provides a script for this:
 
 ```bash
@@ -250,4 +298,6 @@ You can get the badge from the Coveralls website.
 
 ###What about TypeScript?
 Here's a [fork with TS support](https://github.com/typescriptcrew/ts-react-slingshot):
+
+
 
