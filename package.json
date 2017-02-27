@@ -81,7 +81,7 @@
     "redux-immutable-state-invariant": "1.2.4",
     "replace": "0.3.0",
     "rimraf": "2.5.4",
-    "sass-loader": "4.0.2",
+    "sass-loader": "6.0.2",
     "sinon": "1.17.6",
     "sinon-chai": "2.8.0",
     "style-loader": "0.13.1",
