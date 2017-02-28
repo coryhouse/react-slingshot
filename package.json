@@ -80,7 +80,7 @@
     "redux-immutable-state-invariant": "1.2.4",
     "replace": "0.3.0",
     "rimraf": "2.5.4",
-    "sass-loader": "4.1.0",
+    "sass-loader": "6.0.2",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "2.2.1",
