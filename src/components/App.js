@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
-
+console.log('IndexLink: ', IndexLink)
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
