@@ -1,18 +1,18 @@
 import React, { PropTypes } from 'react';
-import { Link, IndexLink } from 'react-router';
-console.log('IndexLink: ', IndexLink)
+import { NavLink } from 'react-router-dom';
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
 class App extends React.Component {
   render() {
+    const activeStyle = { color: 'blue' };
     return (
       <div>
-        <IndexLink to="/">Home</IndexLink>
+        <NavLink to="/" activeStyle={activeStyle}>Home</NavLink>
         {' | '}
-        <Link to="/fuel-savings">Demo App</Link>
+        <NavLink to="/fuel-savings" activeStyle={activeStyle}>Demo App</NavLink>
         {' | '}
-        <Link to="/about">About</Link>
+        <NavLink to="/about" activeStyle={activeStyle}>About</NavLink>
         <br/>
         {this.props.children}
       </div>
