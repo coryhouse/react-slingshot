@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Link is no longer a part of the 'react-router v4 API'
 import { Link } from 'react-router-dom';
 import '../styles/about-page.css';
 
