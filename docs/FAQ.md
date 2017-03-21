@@ -1,4 +1,4 @@
-##FAQ
+## FAQ
 [Why does this exist?](#why-does-this-exist)
 
 [What do the scripts in package.json do?](#what-do-the-scripts-in-package.json-do)
