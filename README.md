@@ -51,6 +51,7 @@ This will run the automated build process, start up a webserver, and open the ap
 4. Make sure files with names that begin with a dot (.babelrc, .editorconfig, .eslintrc) are copied to the project directory root. This is easy to overlook if you copy this repository manually.
 5. Don't run the project from a symbolic link. It may cause issues with file watches.
 6. Delete any .eslintrc that you're storing in your user directory. Also, disable any ESLint plugin / custom rules that you've enabled within your editor. These will conflict with the ESLint rules defined in this project.
+7. Make sure you don't have NODE_ENV set to production on your machine. If you do then the [development dependencies won't be installed](https://github.com/coryhouse/react-slingshot/issues/400#issuecomment-290497767). Here's [how to check](http://stackoverflow.com/a/27939821/26180). 
 
 ## Technologies
 Slingshot offers a rich development experience using the following technologies:
