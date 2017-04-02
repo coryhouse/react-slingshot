@@ -88,9 +88,9 @@ ansi-escapes@^1.1.0, ansi-escapes@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-1.4.0.tgz#d3a8a83b319aa67793662b13e761c7911422306e"
 
-ansi-html@0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/ansi-html/-/ansi-html-0.0.6.tgz#bda8e33dd2ee1c20f54c08eb405713cbfc0ed80e"
+ansi-html@0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/ansi-html/-/ansi-html-0.0.7.tgz#813584021962a9e9e6fd039f940d12f56ca7859e"
 
 ansi-regex@^2.0.0:
   version "2.1.1"
@@ -3763,14 +3763,14 @@ js-tokens@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
 
-js-yaml@3.6.1:
+js-yaml@3.6.1, js-yaml@^3.5.1:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.6.1.tgz#6e5fe67d8b205ce4d22fad05b7781e8dadcc4b30"
   dependencies:
     argparse "^1.0.7"
     esprima "^2.6.0"
 
-js-yaml@^3.4.3, js-yaml@^3.5.1, js-yaml@^3.7.0:
+js-yaml@^3.4.3, js-yaml@^3.7.0:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.8.2.tgz#02d3e2c0f6beab20248d412c352203827d786721"
   dependencies:
@@ -5312,10 +5312,6 @@ qs@6.4.0, "qs@>= 0.4.0", qs@~6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
 
-qs@~6.3.0:
-  version "6.3.2"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.2.tgz#e75bd5f6e268122a2a0e0bda630b2550c166502c"
-
 query-string@^4.1.0:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-4.3.2.tgz#ec0fd765f58a50031a3968c2431386f8947a5cdd"
@@ -5370,6 +5366,17 @@ react-dom@15.4.1:
     fbjs "^0.8.1"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+
+react-hot-api@^0.4.5:
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/react-hot-api/-/react-hot-api-0.4.7.tgz#a7e22a56d252e11abd9366b61264cf4492c58171"
+
+react-hot-loader@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-1.3.1.tgz#c95647ae78b73dfceff6ec71ffcb04182ff6daf9"
+  dependencies:
+    react-hot-api "^0.4.5"
+    source-map "^0.4.4"
 
 react-proxy@^1.1.7:
   version "1.1.8"
@@ -5650,34 +5657,32 @@ replace@0.3.0:
     minimatch "~0.2.9"
     nomnom "1.6.x"
 
-request@2, request@^2.61.0, request@^2.79.0, request@^2.81.0:
-  version "2.81.0"
-  resolved "https://registry.yarnpkg.com/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
+request@2, request@2.78.0:
+  version "2.78.0"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.78.0.tgz#e1c8dec346e1c81923b24acdb337f11decabe9cc"
   dependencies:
     aws-sign2 "~0.6.0"
     aws4 "^1.2.1"
-    caseless "~0.12.0"
+    caseless "~0.11.0"
     combined-stream "~1.0.5"
     extend "~3.0.0"
     forever-agent "~0.6.1"
     form-data "~2.1.1"
-    har-validator "~4.2.1"
+    har-validator "~2.0.6"
     hawk "~3.1.3"
     http-signature "~1.1.0"
     is-typedarray "~1.0.0"
     isstream "~0.1.2"
     json-stringify-safe "~5.0.1"
     mime-types "~2.1.7"
+    node-uuid "~1.4.7"
     oauth-sign "~0.8.1"
-    performance-now "^0.2.0"
-    qs "~6.4.0"
-    safe-buffer "^5.0.1"
+    qs "~6.3.0"
     stringstream "~0.0.4"
     tough-cookie "~2.3.0"
-    tunnel-agent "^0.6.0"
-    uuid "^3.0.0"
+    tunnel-agent "~0.4.1"
 
-request@2.75.0:
+request@2.75.0, request@^2.61.0:
   version "2.75.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.75.0.tgz#d2b8268a286da13eaa5d01adf5d18cc90f657d93"
   dependencies:
@@ -5703,30 +5708,32 @@ request@2.75.0:
     tough-cookie "~2.3.0"
     tunnel-agent "~0.4.1"
 
-request@2.78.0:
-  version "2.78.0"
-  resolved "https://registry.yarnpkg.com/request/-/request-2.78.0.tgz#e1c8dec346e1c81923b24acdb337f11decabe9cc"
+request@^2.79.0, request@^2.81.0:
+  version "2.81.0"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
   dependencies:
     aws-sign2 "~0.6.0"
     aws4 "^1.2.1"
-    caseless "~0.11.0"
+    caseless "~0.12.0"
     combined-stream "~1.0.5"
     extend "~3.0.0"
     forever-agent "~0.6.1"
     form-data "~2.1.1"
-    har-validator "~2.0.6"
+    har-validator "~4.2.1"
     hawk "~3.1.3"
     http-signature "~1.1.0"
     is-typedarray "~1.0.0"
     isstream "~0.1.2"
     json-stringify-safe "~5.0.1"
     mime-types "~2.1.7"
-    node-uuid "~1.4.7"
     oauth-sign "~0.8.1"
-    qs "~6.3.0"
+    performance-now "^0.2.0"
+    qs "~6.4.0"
+    safe-buffer "^5.0.1"
     stringstream "~0.0.4"
     tough-cookie "~2.3.0"
-    tunnel-agent "~0.4.1"
+    tunnel-agent "^0.6.0"
+    uuid "^3.0.0"
 
 require-directory@^2.1.1:
   version "2.1.1"
@@ -6639,11 +6646,11 @@ webpack-dev-middleware@1.9.0:
     path-is-absolute "^1.0.0"
     range-parser "^1.0.3"
 
-webpack-hot-middleware@2.13.2:
-  version "2.13.2"
-  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.13.2.tgz#6500b15e6d4f1a9590f8df708183f4d2ac2c3e9e"
+webpack-hot-middleware@2.17.1:
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.17.1.tgz#0c8fbf6f93ff29c095d684b07ab6d6c0f2f951d7"
   dependencies:
-    ansi-html "0.0.6"
+    ansi-html "0.0.7"
     html-entities "^1.2.0"
     querystring "^0.2.0"
     strip-ansi "^3.0.0"
