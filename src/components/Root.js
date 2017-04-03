@@ -11,12 +11,13 @@ export default class Root extends Component {
         <ConnectedRouter history={history}>
           <App />
         </ConnectedRouter>
-      </Provider>, document.getElementById('app')
+      </Provider>
     );
   }
 }
 
 Root.propTypes = {
   store: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  // children: PropTypes.objectOf(PropTypes.object),
 };
