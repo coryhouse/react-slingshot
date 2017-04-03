@@ -1,12 +1,11 @@
-import React, { PropTypes } from 'react';
+/* eslint-disable import/no-named-as-default */
+
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Route } from 'react-router';
 import { Switch, NavLink } from 'react-router-dom';
-// 'Switch' & 'NavLink' imports have moved from the 'react-router' API to 'react-router-dom' since rrV4;
-// Also, IndexLink is replaced by NavLink with the activeStyle attr.
-// Switch is required for NotFoundPage to be the last case scenario.
-
 import HomePage from './HomePage';
-import FuelSavingsPage from '../containers/FuelSavingsPage'; // eslint-disable-line import/no-named-as-default
+import FuelSavingsPage from '../containers/FuelSavingsPage'; //
 import AboutPage from './AboutPage';
 import NotFoundPage from './NotFoundPage';
 

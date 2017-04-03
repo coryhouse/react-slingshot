@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import NumberFormatter from '../utils/numberFormatter';
 
 // This is a stateless functional component. (Also known as pure or dumb component)
@@ -18,9 +19,9 @@ const FuelSavingsResults = ({savings}) => {
   return (
     <table>
       <tbody>
-      <tr>
-        <td className="fuel-savings-label">{resultLabel}</td>
-        <td>
+        <tr>
+          <td className="fuel-savings-label">{resultLabel}</td>
+          <td>
           <table>
             <tbody>
             <tr>
