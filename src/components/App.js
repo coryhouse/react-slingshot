@@ -6,7 +6,7 @@ import { Switch, NavLink } from 'react-router-dom';
 // Switch is required for NotFoundPage to be the last case scenario.
 
 import HomePage from './HomePage';
-import FuelSavingsPage from '../containers/FuelSavingsPage'; // eslint-disable-line import/no-named-as-default
+import FuelSavingsPage from '../containers/FuelSavingsPage';
 import AboutPage from './AboutPage';
 import NotFoundPage from './NotFoundPage';
 
