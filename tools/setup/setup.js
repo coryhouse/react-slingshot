@@ -76,7 +76,7 @@ prompt.get([{name: 'deleteGit', description: "Delete the git repository?  YES to
 
         // reset package.json 'keywords' field to empty state
         replace({
-          regex: /"keywords": \[[\s\S]+\]/,
+          regex: /"keywords": \[[\s\S]+?\]/,
           replacement: `"keywords": []`,
           paths: ['package.json'],
           recursive: false,
