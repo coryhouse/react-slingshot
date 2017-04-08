@@ -235,6 +235,8 @@ Nope. Redux is useful for applications with more complex data flows. If your app
 * Sets NODE_ENV to prod so that React is built in production mode
 * Places the resulting built project files into /dist. (This is the folder you'll expose to the world).
 
+If the app destination is different from the server root (`/`) you need to reconfigure `output.publicPath` in `webpack.config.prod.js` before building the app. See [webpack docs](https://webpack.js.org/configuration/output/#output-publicpath) for more information.
+
 <a name="why-are-test-files-placed-alongside-the-file-under-test-instead-of-centralized"></a>
 ### Why are test files placed alongside the file under test (instead of centralized)?
 Streamlined automated testing is a core feature of this starter kit. All tests are placed in files that end in .spec.js. Spec files are placed in the same directory as the file under test. Why?
