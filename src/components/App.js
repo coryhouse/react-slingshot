@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, IndexLink } from 'react-router';
 
 // This is a class-based component because the current

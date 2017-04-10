@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import NumberFormatter from '../utils/numberFormatter';
 
 // This is a stateless functional component. (Also known as pure or dumb component)
