@@ -25,7 +25,7 @@
     "test:cover": "npm run test -- --coverage ",
     "test:cover:CI": "npm run test:CI -- --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "npm run test -- --watch",
-    "open:cover": "npm run test:cover && open coverage/lcov-report/index.html",
+    "open:cover": "npm run test:cover && babel-node tools/openCover.js",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
   },
   "author": "Cory House",
