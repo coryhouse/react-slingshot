@@ -25,7 +25,7 @@
     "test:cover": "npm run test -- --coverage ",
     "test:cover:CI": "npm run test:CI -- --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "npm run test -- --watch",
-    "open:cover": "npm run test:cover && open coverage/lcov-report/index.html",
+    "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
   },
   "author": "Cory House",
@@ -73,7 +73,7 @@
     "mockdate": "2.0.1",
     "node-sass": "^4.5.2",
     "npm-run-all": "3.1.2",
-    "open": "0.0.5",
+    "opn-cli": "^3.1.0",
     "postcss-loader": "1.2.1",
     "prompt": "1.0.0",
     "prop-types": "^15.5.6",
