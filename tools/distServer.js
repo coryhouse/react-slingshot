@@ -1,27 +1,20 @@
-// This file configures a web server for testing the production build
-// on your local machine.
+import compression from "compression";
+import express from "express";
+import path from "path";
 
-import browserSync from 'browser-sync';
-import historyApiFallback from 'connect-history-api-fallback';
-import {chalkProcessing} from './chalkConfig';
+let app = express();
 
-/* eslint-disable no-console */
+app.set("port", 3000);
 
-console.log(chalkProcessing('Opening production build...'));
+app.use(compression());
 
-// Run Browsersync
-browserSync({
-  port: 4000,
-  ui: {
-    port: 4001
-  },
-  server: {
-    baseDir: 'dist'
-  },
+app.use(express.static(path.join(__dirname, "../dist")));
 
-  files: [
-    'src/*.html'
-  ],
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "../dist/index.html"));
+});
 
-  middleware: [historyApiFallback()]
+app.listen(app.get("port"), function() {
+  /* eslint-disable no-console */
+  console.log("Running production build...");
 });

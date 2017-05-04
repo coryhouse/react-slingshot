@@ -31,14 +31,16 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "compression": "1.6.2",
+    "express": "4.15.2",
     "object-assign": "4.1.0",
-    "react": "15.4.1",
     "react-dom": "15.4.1",
     "react-redux": "5.0.1",
-    "react-router": "3.0.0",
     "react-router-redux": "4.0.7",
-    "redux": "3.6.0",
-    "redux-thunk": "2.1.0"
+    "react-router": "3.0.0",
+    "react": "15.4.1",
+    "redux-thunk": "2.1.0",
+    "redux": "3.6.0"
   },
   "devDependencies": {
     "autoprefixer": "6.5.4",
