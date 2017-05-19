@@ -155,11 +155,11 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |open|Open the app in your default browser|
 |postcss-loader| Adds PostCSS support to Webpack |
 |react|React library |
-|react-addons-test-utils| React Testing Utilities |
 |redux-immutable-state-invariant|Alert if Redux state is mutated (helps catch bugs, since Redux state is immutable)|
 |react-dom|React library for DOM rendering |
 |react-redux|Redux library for connecting React components to Redux |
 |react-router|React library for routing |
+|react-test-renderer|Renders React components to pure JavaScript objects without depending on the DOM or a native mobile environment|
 |redux|Library for unidirectional data flows |
 |redux-thunk|Middleware for redux that allows actions to be declared as functions |
 |replace|Renaming files, cross-platform|
