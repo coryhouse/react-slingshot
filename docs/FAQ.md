@@ -170,6 +170,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |webpack| Bundler with plugin system and integrated development server |
 |webpack-bundle-analyzer| Webpack plugin and CLI utility that represents bundle content as convenient interactive zoomable treemap |
 |webpack-dev-middleware| Used to integrate Webpack with Browser-sync |
+|webpack-dashboard| Can be used as a variant of CLI for development server. Just run `npm run dashboard` to see it. |
 |webpack-hot-middleware| Use to integrate Webpack's hot reloading support with Browser-sync |
 |webpack-md5-hash| Hash bundles, and use the hash for the filename so that the filename only changes when contents change|
 

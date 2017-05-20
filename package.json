@@ -12,6 +12,7 @@
     "start-message": "babel-node tools/startMessage.js",
     "prestart": "npm-run-all --parallel start-message",
     "start": "npm-run-all --parallel test:watch open:src lint:watch",
+    "dashboard": "webpack-dashboard -- npm start",
     "open:src": "babel-node tools/srcServer.js",
     "open:dist": "babel-node tools/distServer.js",
     "lint": "esw webpack.config.* src tools --color",
@@ -87,6 +88,7 @@
     "url-loader": "0.5.7",
     "webpack": "2.2.1",
     "webpack-bundle-analyzer": "2.1.1",
+    "webpack-dashboard": "0.2.0",
     "webpack-dev-middleware": "1.9.0",
     "webpack-hot-middleware": "2.17.1",
     "webpack-md5-hash": "0.0.5"
