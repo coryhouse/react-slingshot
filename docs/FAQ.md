@@ -155,11 +155,11 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |open|Open the app in your default browser|
 |postcss-loader| Adds PostCSS support to Webpack |
 |react|React library |
-|react-addons-test-utils| React Testing Utilities |
 |redux-immutable-state-invariant|Alert if Redux state is mutated (helps catch bugs, since Redux state is immutable)|
 |react-dom|React library for DOM rendering |
 |react-redux|Redux library for connecting React components to Redux |
 |react-router|React library for routing |
+|react-test-renderer|Renders React components to pure JavaScript objects without depending on the DOM or a native mobile environment|
 |redux|Library for unidirectional data flows |
 |redux-thunk|Middleware for redux that allows actions to be declared as functions |
 |replace|Renaming files, cross-platform|
@@ -191,7 +191,7 @@ When you run `npm start`:
  2. Webpack bundles the compiled CSS into bundle.js. Sounds odd, but it works!
  3. bundle.js contains code that loads styles into the &lt;head&gt; of index.html via JavaScript. This is why you don't see a stylesheet reference in index.html. In fact, if you disable JavaScript in your browser, you'll see the styles don't load either.
 
-The approach above supports hot reloading, which is great for development. However, it also create a flash of unstyled content on load because you have to wait for the JavaScript to parse and load styles before they're applied. So for the production build, we use a different approach:
+The approach above supports hot reloading, which is great for development. However, it also creates a flash of unstyled content on load because you have to wait for the JavaScript to parse and load styles before they're applied. So for the production build, we use a different approach:
 
 When you run `npm run build`:
 
@@ -234,6 +234,8 @@ Nope. Redux is useful for applications with more complex data flows. If your app
 * Minifies all JS
 * Sets NODE_ENV to prod so that React is built in production mode
 * Places the resulting built project files into /dist. (This is the folder you'll expose to the world).
+
+If the app destination is different from the server root (`/`) you need to reconfigure `output.publicPath` in `webpack.config.prod.js` before building the app. See [webpack docs](https://webpack.js.org/configuration/output/#output-publicpath) for more information.
 
 <a name="why-are-test-files-placed-alongside-the-file-under-test-instead-of-centralized"></a>
 ### Why are test files placed alongside the file under test (instead of centralized)?
