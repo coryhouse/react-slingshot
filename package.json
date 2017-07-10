@@ -80,6 +80,7 @@
     "react-hot-loader": "3.0.0-beta.6",
     "react-test-renderer": "15.5.4",
     "redux-immutable-state-invariant": "1.2.4",
+    "redux-logger": "3.0.6",
     "replace": "0.3.0",
     "rimraf": "2.5.4",
     "sass-loader": "6.0.2",
