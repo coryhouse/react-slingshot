@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Store should handle a flurry of actions 1`] = `
 Object {
   "dateModified": "1/31 23:14:01",
