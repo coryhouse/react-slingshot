@@ -15,16 +15,16 @@
     "open:src": "babel-node tools/srcServer.js",
     "open:dist": "babel-node tools/distServer.js",
     "lint": "esw webpack.config.* src tools --color",
-    "lint:watch": "npm run lint -- --watch",
+    "lint:watch": "npm run lint --watch",
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "rimraf ./dist",
     "prebuild": "npm run clean-dist && npm run lint && npm run test",
     "build": "babel-node tools/build.js && npm run open:dist",
     "test": "jest",
     "test:CI": "babel-node tools/testCi.js",
-    "test:cover": "npm run test -- --coverage ",
-    "test:cover:CI": "npm run test:CI -- --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
-    "test:watch": "npm run test -- --watch",
+    "test:cover": "npm run test --coverage ",
+    "test:cover:CI": "npm run test:CI --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
+    "test:watch": "npm run test --watch",
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
   },
@@ -117,10 +117,16 @@
     }
   },
   "babel": {
-    "presets": ["react", "stage-1"],
+    "presets": [
+      "react",
+      "stage-1"
+    ],
     "env": {
       "development": {
-        "presets": ["env", "react-hmre"]
+        "presets": [
+          "env",
+          "react-hmre"
+        ]
       },
       "production": {
         "presets": [
@@ -139,7 +145,9 @@
         ]
       },
       "test": {
-        "presets": ["env"]
+        "presets": [
+          "env"
+        ]
       }
     }
   },
@@ -150,7 +158,9 @@
       "plugin:import/errors",
       "plugin:import/warnings"
     ],
-    "plugins": ["react"],
+    "plugins": [
+      "react"
+    ],
     "parser": "babel-eslint",
     "parserOptions": {
       "ecmaVersion": 6,
@@ -172,7 +182,10 @@
       "no-console": 1,
       "no-debugger": 1,
       "no-var": 1,
-      "semi": [1, "always"],
+      "semi": [
+        1,
+        "always"
+      ],
       "no-trailing-spaces": 0,
       "eol-last": 0,
       "no-underscore-dangle": 0,
@@ -188,7 +201,9 @@
       "react/forbid-prop-types": [
         1,
         {
-          "forbid": ["any"]
+          "forbid": [
+            "any"
+          ]
         }
       ],
       "react/jsx-boolean-value": 0,
