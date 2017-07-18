@@ -69,6 +69,7 @@
     "html-webpack-plugin": "2.29.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "20.0.4",
+    "jest-cli": "20.0.4",
     "json-loader": "0.5.4",
     "mockdate": "2.0.1",
     "node-sass": "4.5.3",
