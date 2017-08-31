@@ -56,14 +56,14 @@ class FuelSavingsForm extends React.Component {
               <td><label htmlFor="milesDriven">Miles Driven</label></td>
               <td>
                 <FuelSavingsTextInput
-                onChange={this.fuelSavingsKeypress}
-                name="milesDriven"
-                value={fuelSavings.milesDriven}/>
+                  onChange={this.fuelSavingsKeypress}
+                  name="milesDriven"
+                  value={fuelSavings.milesDriven}/>
                 miles per
                 <select
-                name="milesDrivenTimeframe"
-                onChange={this.onTimeframeChange}
-                value={fuelSavings.milesDrivenTimeframe}>
+                  name="milesDrivenTimeframe"
+                  onChange={this.onTimeframeChange}
+                  value={fuelSavings.milesDrivenTimeframe}>
                   <option value="week">Week</option>
                   <option value="month">Month</option>
                   <option value="year">Year</option>
@@ -85,12 +85,27 @@ class FuelSavingsForm extends React.Component {
     );
   }
 }
-const { func, object } = PropTypes;
+const { func, shape, number, bool, string } = PropTypes;
 
 FuelSavingsForm.propTypes = {
   saveFuelSavings: func.isRequired,
   calculateFuelSavings: func.isRequired,
-  fuelSavings: object.isRequired
+  fuelSavings: shape({
+    newMpg: number,
+    tradeMpg: number,
+    newPpg: number,
+    tradePpg: number,
+    milesDriven: number,
+    milesDrivenTimeframe: string,
+    displayResult: bool,
+    dateModified: string,
+    necessaryDataIsProvidedToCalculateSavings: bool,
+    savings: shape({
+      monthly: number,
+      annual: number,
+      threeYear: number,
+    }),
+  }).isRequired
 };
 
 export default FuelSavingsForm;

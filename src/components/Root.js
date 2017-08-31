@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ConnectedRouter } from 'react-router-redux';
-console.log('%cConnectedRouter', 'background:red;', ConnectedRouter);
 import { Provider } from 'react-redux';
 import App from './App';
 
