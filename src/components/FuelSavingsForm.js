@@ -32,48 +32,48 @@ class FuelSavingsForm extends React.Component {
         <h2>Fuel Savings Analysis</h2>
         <table>
           <tbody>
-          <tr>
-            <td><label htmlFor="newMpg">New Vehicle MPG</label></td>
-            <td><FuelSavingsTextInput onChange={this.fuelSavingsKeypress} name="newMpg" value={fuelSavings.newMpg}/>
-            </td>
-          </tr>
-          <tr>
-            <td><label htmlFor="tradeMpg">Trade-in MPG</label></td>
-            <td><FuelSavingsTextInput onChange={this.fuelSavingsKeypress} name="tradeMpg" value={fuelSavings.tradeMpg}/>
-            </td>
-          </tr>
-          <tr>
-            <td><label htmlFor="newPpg">New Vehicle price per gallon</label></td>
-            <td><FuelSavingsTextInput onChange={this.fuelSavingsKeypress} name="newPpg" value={fuelSavings.newPpg}/>
-            </td>
-          </tr>
-          <tr>
-            <td><label htmlFor="tradePpg">Trade-in price per gallon</label></td>
-            <td><FuelSavingsTextInput onChange={this.fuelSavingsKeypress} name="tradePpg" value={fuelSavings.tradePpg}/>
-            </td>
-          </tr>
-          <tr>
-            <td><label htmlFor="milesDriven">Miles Driven</label></td>
-            <td>
-              <FuelSavingsTextInput
-                onChange={this.fuelSavingsKeypress}
-                name="milesDriven"
-                value={fuelSavings.milesDriven}/>
-              miles per
-              <select
-                name="milesDrivenTimeframe"
-                onChange={this.onTimeframeChange}
-                value={fuelSavings.milesDrivenTimeframe}>
-                <option value="week">Week</option>
-                <option value="month">Month</option>
-                <option value="year">Year</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td><label>Date Modified</label></td>
-            <td>{fuelSavings.dateModified}</td>
-          </tr>
+            <tr>
+              <td><label htmlFor="newMpg">New Vehicle MPG</label></td>
+              <td><FuelSavingsTextInput onChange={this.fuelSavingsKeypress} name="newMpg" value={fuelSavings.newMpg}/>
+              </td>
+            </tr>
+            <tr>
+              <td><label htmlFor="tradeMpg">Trade-in MPG</label></td>
+              <td><FuelSavingsTextInput onChange={this.fuelSavingsKeypress} name="tradeMpg" value={fuelSavings.tradeMpg}/>
+              </td>
+            </tr>
+            <tr>
+              <td><label htmlFor="newPpg">New Vehicle price per gallon</label></td>
+              <td><FuelSavingsTextInput onChange={this.fuelSavingsKeypress} name="newPpg" value={fuelSavings.newPpg}/>
+              </td>
+            </tr>
+            <tr>
+              <td><label htmlFor="tradePpg">Trade-in price per gallon</label></td>
+              <td><FuelSavingsTextInput onChange={this.fuelSavingsKeypress} name="tradePpg" value={fuelSavings.tradePpg}/>
+              </td>
+            </tr>
+            <tr>
+              <td><label htmlFor="milesDriven">Miles Driven</label></td>
+              <td>
+                <FuelSavingsTextInput
+                  onChange={this.fuelSavingsKeypress}
+                  name="milesDriven"
+                  value={fuelSavings.milesDriven}/>
+                miles per
+                <select
+                  name="milesDrivenTimeframe"
+                  onChange={this.onTimeframeChange}
+                  value={fuelSavings.milesDrivenTimeframe}>
+                  <option value="week">Week</option>
+                  <option value="month">Month</option>
+                  <option value="year">Year</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label>Date Modified</label></td>
+              <td>{fuelSavings.dateModified}</td>
+            </tr>
           </tbody>
         </table>
 
@@ -85,11 +85,27 @@ class FuelSavingsForm extends React.Component {
     );
   }
 }
+const { func, shape, number, bool, string } = PropTypes;
 
 FuelSavingsForm.propTypes = {
-  saveFuelSavings: PropTypes.func.isRequired,
-  calculateFuelSavings: PropTypes.func.isRequired,
-  fuelSavings: PropTypes.object.isRequired
+  saveFuelSavings: func.isRequired,
+  calculateFuelSavings: func.isRequired,
+  fuelSavings: shape({
+    newMpg: number,
+    tradeMpg: number,
+    newPpg: number,
+    tradePpg: number,
+    milesDriven: number,
+    milesDrivenTimeframe: string,
+    displayResult: bool,
+    dateModified: string,
+    necessaryDataIsProvidedToCalculateSavings: bool,
+    savings: shape({
+      monthly: number,
+      annual: number,
+      threeYear: number,
+    }),
+  }).isRequired
 };
 
 export default FuelSavingsForm;
