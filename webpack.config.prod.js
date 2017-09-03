@@ -7,6 +7,11 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import path from 'path';
 
+const configuredTarget = process.env.npm_package_config_targetPath ? 
+    path.resolve(process.env.npm_package_config_targetPath) :
+    path.resolve(__dirname, 'dist');
+const publicPath = process.env.npm_package_config_publicPath || '/';
+
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
   __DEV__: false
@@ -20,8 +25,8 @@ export default {
   entry: path.resolve(__dirname, 'src/index'),
   target: 'web', // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    path: configuredTarget,
+    publicPath,
     filename: '[name].[chunkhash].js'
   },
   plugins: [
