@@ -43,7 +43,7 @@ browserSync({
         },
 
         // for other settings see
-        // http://webpack.github.io/docs/webpack-dev-middleware.html
+        // https://webpack.js.org/guides/development/#using-webpack-dev-middleware
       }),
 
       // bundler should be the same as above
