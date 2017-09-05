@@ -30,7 +30,7 @@ browserSync({
         publicPath: config.output.publicPath,
 
         // These settings suppress noisy webpack output so only errors are displayed to the console.
-        noInfo: false,
+        noInfo: true,
         quiet: false,
         stats: {
           assets: false,
