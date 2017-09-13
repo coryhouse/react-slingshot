@@ -1,8 +1,7 @@
 /* eslint-disable import/no-named-as-default */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router';
-import { Switch, NavLink } from 'react-router-dom';
+import { Switch, NavLink, Route } from 'react-router-dom';
 import HomePage from './HomePage';
 import FuelSavingsPage from '../containers/FuelSavingsPage';
 import AboutPage from './AboutPage';
