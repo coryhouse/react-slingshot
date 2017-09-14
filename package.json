@@ -35,7 +35,6 @@
     "react": "15.5.4",
     "react-dom": "15.5.4",
     "react-redux": "5.0.5",
-    "react-router": "4.2.0",
     "react-router-dom": "4.0.0",
     "react-router-redux": "5.0.0-alpha.6",
     "redux": "3.6.0",
