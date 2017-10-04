@@ -4,7 +4,6 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import autoprefixer from 'autoprefixer';
 import path from 'path';
 
 const GLOBALS = {
@@ -58,19 +57,6 @@ export default {
 
     // Minify JS
     new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
-
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: false,
-      noInfo: true, // set to false to see a list of every file being bundled.
-      options: {
-        sassLoader: {
-          includePaths: [path.resolve(__dirname, 'src', 'scss')]
-        },
-        context: '/',
-        postcss: () => [autoprefixer],
-      }
-    })
   ],
   module: {
     rules: [
@@ -81,7 +67,35 @@ export default {
       {test: /\.svg(\?v=\d+.\d+.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml&name=[name].[ext]'},
       {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
       {test: /\.ico$/, loader: 'file-loader?name=[name].[ext]'},
-      {test: /(\.css|\.scss|\.sass)$/, loader: ExtractTextPlugin.extract('css-loader?sourceMap!postcss-loader!sass-loader?sourceMap')}
+      {test: /(\.css|\.scss|\.sass)$/,
+        exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true,
+                sourceMap: true
+              }
+            }, {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [
+                  require('postcss-smart-import'),
+                  require('autoprefixer'),
+                ],
+                sourceMap: true
+              }
+            }, {
+              loader: 'sass-loader',
+              options: {
+                includePaths: [path.resolve(__dirname, 'src', 'scss')],
+                sourceMap: true
+              }
+            }
+          ]
+        })
+      }
     ]
   }
 };

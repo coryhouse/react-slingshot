@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import autoprefixer from 'autoprefixer';
 import path from 'path';
 
 export default {
@@ -35,18 +34,6 @@ export default {
         collapseWhitespace: true
       },
       inject: true
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: false,
-      debug: true,
-      noInfo: true, // set to false to see a list of every file being bundled.
-      options: {
-        sassLoader: {
-          includePaths: [path.resolve(__dirname, 'src', 'scss')]
-        },
-        context: '/',
-        postcss: () => [autoprefixer],
-      }
     })
   ],
   module: {
@@ -58,7 +45,33 @@ export default {
       {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml'},
       {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
       {test: /\.ico$/, loader: 'file-loader?name=[name].[ext]'},
-      {test: /(\.css|\.scss|\.sass)$/, loaders: ['style-loader', 'css-loader?sourceMap', 'postcss-loader', 'sass-loader?sourceMap']}
+      {test: /(\.css|\.scss|\.sass)$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          }, {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [
+                require('postcss-smart-import'),
+                require('autoprefixer'),
+              ],
+              sourceMap: true
+            }
+          }, {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [path.resolve(__dirname, 'src', 'scss')],
+              sourceMap: true
+            }
+          }
+        ]
+      }
     ]
   }
 };
