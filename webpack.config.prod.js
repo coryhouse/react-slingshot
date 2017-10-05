@@ -67,7 +67,14 @@ export default {
       },
       {
         test: /\.eot(\?v=\d+.\d+.\d+)?$/,
-        use: ['url-loader']
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+          }
+        ]
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -76,7 +83,8 @@ export default {
             loader: 'url-loader',
             options: {
               limit: 10000,
-              mimetype: 'application/font-woff'
+              mimetype: 'application/font-woff',
+              name: '[name].[ext]'
             }
           }
         ]
@@ -88,7 +96,8 @@ export default {
             loader: 'url-loader',
             options: {
               limit: 10000,
-              mimetype: 'application/octet-stream'
+              mimetype: 'application/octet-stream',
+              name: '[name].[ext]'
             }
           }
         ]
@@ -100,14 +109,22 @@ export default {
             loader: 'url-loader',
             options: {
               limit: 10000,
-              mimetype: 'image/svg+xml'
+              mimetype: 'image/svg+xml',
+              name: '[name].[ext]'
             }
           }
         ]
       },
       {
         test: /\.(jpe?g|png|gif|ico)$/i,
-        use: ['file-loader']
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+          }
+        ]
       },
       {
         test: /(\.css|\.scss|\.sass)$/,
