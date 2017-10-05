@@ -58,8 +58,7 @@ export default {
             loader: 'postcss-loader',
             options: {
               plugins: () => [
-                require('postcss-smart-import'),
-                require('autoprefixer'),
+                require('autoprefixer')
               ],
               sourceMap: true
             }
