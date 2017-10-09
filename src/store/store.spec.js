@@ -66,7 +66,7 @@ describe('Store', () => {
     const expected = {
       newMpg: 20,
       tradeMpg: 10,
-      newPpg: '',
+      newPpg: 0,
       tradePpg: 1.5,
       milesDriven: 100,
       milesDrivenTimeframe: 'month',
