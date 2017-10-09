@@ -1,10 +1,10 @@
 export default {
   fuelSavings: {
-    newMpg: 0,
-    tradeMpg: 0,
-    newPpg: 0,
-    tradePpg: 0,
-    milesDriven: 0,
+    newMpg: '',
+    tradeMpg: '',
+    newPpg: '',
+    tradePpg: '',
+    milesDriven: '',
     milesDrivenTimeframe: 'week',
     displayResults: false,
     dateModified: null,

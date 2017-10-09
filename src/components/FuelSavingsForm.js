@@ -91,19 +91,19 @@ FuelSavingsForm.propTypes = {
   saveFuelSavings: func.isRequired,
   calculateFuelSavings: func.isRequired,
   fuelSavings: shape({
-    newMpg: number,
-    tradeMpg: number,
-    newPpg: number,
-    tradePpg: number,
-    milesDriven: number,
+    newMpg: PropTypes.oneOf[number,string],
+    tradeMpg: PropTypes.oneOf[number,string],
+    newPpg: PropTypes.oneOf[number,string],
+    tradePpg: PropTypes.oneOf[number,string],
+    milesDriven: PropTypes.oneOf[number,string],
     milesDrivenTimeframe: string,
     displayResult: bool,
     dateModified: string,
     necessaryDataIsProvidedToCalculateSavings: bool,
     savings: shape({
-      monthly: number,
-      annual: number,
-      threeYear: number,
+      monthly: PropTypes.oneOf[number,string],
+      annual: PropTypes.oneOf[number,string],
+      threeYear: PropTypes.oneOf[number,string],
     }),
   }).isRequired
 };
