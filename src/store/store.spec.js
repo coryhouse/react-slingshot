@@ -1,12 +1,10 @@
 import * as ActionTypes from '../constants/actionTypes';
 
 import MockDate from 'mockdate';
-import { createStore } from 'redux';
+import configureStore from './configureStore';
 
 import calculator from '../utils/fuelSavingsCalculator';
 import {getFormattedDateTime} from '../utils/dateHelper';
-import initialState from '../reducers/initialState';
-import rootReducer from '../reducers';
 
 describe('Store', () => {
   let dateModified;
@@ -18,7 +16,7 @@ describe('Store', () => {
   afterAll(() => MockDate.reset());
 
   it('should display results when necessary data is provided', () => {
-    const store = createStore(rootReducer, initialState);
+    const store = configureStore();
 
     const actions = [
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'newMpg', value: 20 },
@@ -48,7 +46,7 @@ describe('Store', () => {
   });
 
   it('should not display results when necessary data is not provided', () => {
-    const store = createStore(rootReducer, initialState);
+    const store = configureStore();
 
     const actions = [
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'newMpg', value: 20 },
@@ -82,7 +80,7 @@ describe('Store', () => {
 
 
   it('should handle a flurry of actions', () => {
-    const store = createStore(rootReducer, initialState);
+    const store = configureStore();
 
     const actions = [
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'newMpg', value: 20 },
