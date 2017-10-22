@@ -125,15 +125,13 @@
     ]
   },
   "babel": {
-    "presets": [
-      "react",
-      "stage-1"
-    ],
     "env": {
       "development": {
         "presets": [
           "env",
-          "react-hmre"
+          "react",
+          "react-hmre",
+          "stage-1"
         ]
       },
       "production": {
@@ -149,7 +147,9 @@
                 "uglify": true
               }
             }
-          ]
+          ],
+          "react",
+          "stage-1"
         ],
         "plugins": [
           "transform-react-constant-elements",
@@ -158,7 +158,9 @@
       },
       "test": {
         "presets": [
-          "env"
+          "env",
+          "react",
+          "stage-1"
         ]
       }
     }
