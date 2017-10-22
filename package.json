@@ -146,10 +146,10 @@
                 "ie": 9,
                 "uglify": true
               }
-            },
-            "react",
-            "stage-1"
-          ]
+            }
+          ],
+          "react",
+          "stage-1"
         ],
         "plugins": [
           "transform-react-constant-elements",
