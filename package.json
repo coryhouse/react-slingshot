@@ -132,6 +132,9 @@
           "react",
           "react-hmre",
           "stage-1"
+        ],
+        "plugins": [
+          "transform-class-properties"
         ]
       },
       "production": {
@@ -152,6 +155,7 @@
           "stage-1"
         ],
         "plugins": [
+          "transform-class-properties",
           "transform-react-constant-elements",
           "transform-react-remove-prop-types"
         ]
