@@ -19,9 +19,9 @@ const FuelSavingsResults = ({savings}) => {
   return (
     <table>
       <tbody>
-      <tr>
-        <td className="fuel-savings-label">{resultLabel}</td>
-        <td>
+        <tr>
+          <td className="fuel-savings-label">{resultLabel}</td>
+          <td>
           <table>
             <tbody>
             <tr>

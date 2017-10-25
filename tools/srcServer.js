@@ -30,7 +30,7 @@ browserSync({
         publicPath: config.output.publicPath,
 
         // These settings suppress noisy webpack output so only errors are displayed to the console.
-        noInfo: false,
+        noInfo: true,
         quiet: false,
         stats: {
           assets: false,
@@ -43,7 +43,7 @@ browserSync({
         },
 
         // for other settings see
-        // http://webpack.github.io/docs/webpack-dev-middleware.html
+        // https://webpack.js.org/guides/development/#using-webpack-dev-middleware
       }),
 
       // bundler should be the same as above
