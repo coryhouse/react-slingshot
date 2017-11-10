@@ -12,11 +12,8 @@ describe('<FuelSavingsTextInput />', () => {
     };
 
     const wrapper = shallow(<FuelSavingsTextInput {...props} />);
-
-    const actual = wrapper.type();
-    const expected = 'input';
-
-    expect(actual).toEqual(expected);
+    const inputType = wrapper.type();
+    expect(inputType).toEqual('input');
   });
 
   it('should handle change', () => {
@@ -29,10 +26,6 @@ describe('<FuelSavingsTextInput />', () => {
 
     const wrapper = shallow(<FuelSavingsTextInput {...props} />);
 
-    const actual = wrapper.type();
-    const expected = 'input';
-
-    expect(actual).toEqual(expected);
     expect(props.onChange).not.toBeCalled();
     wrapper.simulate('change', {target: {value: 101}});
     expect(props.onChange).toBeCalledWith('newMpg', 101);
