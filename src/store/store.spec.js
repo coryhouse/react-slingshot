@@ -3,7 +3,7 @@ import * as ActionTypes from '../constants/actionTypes';
 import MockDate from 'mockdate';
 import configureStore from './configureStore';
 
-import calculator from '../utils/fuelSavingsCalculator';
+import {calculateSavings} from '../utils/fuelSavingsCalculator';
 import {getFormattedDateTime} from '../utils/dateHelper';
 
 describe('Store', () => {
@@ -39,7 +39,7 @@ describe('Store', () => {
       displayResults: false,
       dateModified,
       necessaryDataIsProvidedToCalculateSavings: true,
-      savings: calculator().calculateSavings(store.getState().fuelSavings)
+      savings: calculateSavings(store.getState().fuelSavings)
     };
 
     expect(actual.fuelSavings).toEqual(expected);
@@ -102,7 +102,7 @@ describe('Store', () => {
     ];
     actions.forEach(action => store.dispatch(action));
 
-    calculator().calculateSavings(store.getState().fuelSavings);
+    calculateSavings(store.getState().fuelSavings);
 
     const moreActions = [
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'tradePpg', value: 0 },
