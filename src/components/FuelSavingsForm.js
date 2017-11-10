@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FuelSavingsResults from './FuelSavingsResults';
 import FuelSavingsTextInput from './FuelSavingsTextInput';
+import {fuelSavings} from '../types';
 
 class FuelSavingsForm extends React.Component {
   onTimeframeChange = e => {
@@ -77,27 +78,12 @@ class FuelSavingsForm extends React.Component {
     );
   }
 }
-const { func, shape, number, bool, string } = PropTypes;
+const { func } = PropTypes;
 
 FuelSavingsForm.propTypes = {
   saveFuelSavings: func.isRequired,
   calculateFuelSavings: func.isRequired,
-  fuelSavings: shape({
-    newMpg: PropTypes.oneOf[number,string],
-    tradeMpg: PropTypes.oneOf[number,string],
-    newPpg: PropTypes.oneOf[number,string],
-    tradePpg: PropTypes.oneOf[number,string],
-    milesDriven: PropTypes.oneOf[number,string],
-    milesDrivenTimeframe: string,
-    displayResult: bool,
-    dateModified: string,
-    necessaryDataIsProvidedToCalculateSavings: bool,
-    savings: shape({
-      monthly: PropTypes.oneOf[number,string],
-      annual: PropTypes.oneOf[number,string],
-      threeYear: PropTypes.oneOf[number,string],
-    }),
-  }).isRequired
+  fuelSavings: fuelSavings.isRequired
 };
 
 export default FuelSavingsForm;
