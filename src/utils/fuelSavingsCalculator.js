@@ -1,5 +1,5 @@
 import mathHelper from './mathHelper';
-import NumberFormatter from './numberFormatter';
+import {getCurrencyFormattedNumber} from './numberFormat';
 
 // Private
 function calculateMonthlyCost(milesDrivenPerMonth, ppg, mpg) {
@@ -49,8 +49,8 @@ export function calculateSavings(settings) {
   const monthlySavings = calculateSavingsPerMonth(settings);
 
   return {
-    monthly: NumberFormatter.getCurrencyFormattedNumber(monthlySavings),
-    annual: NumberFormatter.getCurrencyFormattedNumber(monthlySavings * 12),
-    threeYear: NumberFormatter.getCurrencyFormattedNumber(monthlySavings * 12 * 3)
+    monthly: getCurrencyFormattedNumber(monthlySavings),
+    annual: getCurrencyFormattedNumber(monthlySavings * 12),
+    threeYear: getCurrencyFormattedNumber(monthlySavings * 12 * 3)
   };
 }
