@@ -4,6 +4,23 @@ import FuelSavingsForm from './FuelSavingsForm';
 import FuelSavingsTextInput from './FuelSavingsTextInput';
 import FuelSavingsResults from './FuelSavingsResults';
 
+const defaultFuelSavings = {
+  newMpg: 20,
+  tradeMpg: 10,
+  newPpg: 1.50,
+  tradePpg: 1.50,
+  milesDriven: 100,
+  milesDrivenTimeframe: 'week',
+  displayResults: false,
+  dateModified: null,
+  necessaryDataIsProvidedToCalculateSavings: false,
+  savings: {
+    monthly: 0,
+    annual: 0,
+    threeYear: 0
+  }
+};
+
 /* Object builder. Could use test data builder pattern too.
    More info: http://blog.codeleak.pl/2014/06/test-data-builders-and-object-mother.html
    Returns fuel savings object. Overrides default values
@@ -12,26 +29,11 @@ import FuelSavingsResults from './FuelSavingsResults';
    default below, but with newMpg set to 10, call with
    getFuelSavings({ newMpg: 10});
 */
-function getFuelSavings(args = {}) {
- let defaultFuelSavings = {
-    newMpg: 20,
-    tradeMpg: 10,
-    newPpg: 1.50,
-    tradePpg: 1.50,
-    milesDriven: 100,
-    milesDrivenTimeframe: 'week',
-    displayResults: false,
-    dateModified: null,
-    necessaryDataIsProvidedToCalculateSavings: false,
-    savings: {
-      monthly: 0,
-      annual: 0,
-      threeYear: 0
-    }
-  };
-
-  // weave any properties on object passed in to override defaults
-  return Object.assign({}, defaultFuelSavings, {...args});
+function getFuelSavings(args) {
+  return {
+    ...defaultFuelSavings,
+    ...args
+  }
 }
 
 describe('<FuelSavingsForm />', () => {
