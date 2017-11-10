@@ -20,7 +20,7 @@ describe('<FuelSavingsTextInput />', () => {
     const props = {
       name: 'newMpg',
       onChange: jest.fn(),
-      placeholder: 'Type Here',
+      placeholder: null,
       value: 100
     };
 
@@ -29,5 +29,18 @@ describe('<FuelSavingsTextInput />', () => {
     expect(props.onChange).not.toBeCalled();
     wrapper.simulate('change', {target: {value: 101}});
     expect(props.onChange).toBeCalledWith('newMpg', 101);
+  });
+
+  it('should apply placeholder', () => {
+    const props = {
+      name: 'newMpg',
+      onChange: jest.fn(),
+      placeholder: 'Type Here',
+      value: 100
+    };
+
+    const wrapper = shallow(<FuelSavingsTextInput {...props} />);
+    const placeholder = wrapper.find('input').prop('placeholder');
+    expect(placeholder).toEqual('Type Here');
   });
 });
