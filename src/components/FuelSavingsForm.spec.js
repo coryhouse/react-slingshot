@@ -4,32 +4,39 @@ import FuelSavingsForm from './FuelSavingsForm';
 import FuelSavingsTextInput from './FuelSavingsTextInput';
 import FuelSavingsResults from './FuelSavingsResults';
 
+// Returns fuel savings object. Overrides default values
+// for any properties sent in on args object.
+// Example: To get a fuel savings object like the
+// default below, but with newMpg set to 10, call with
+// getFuelSavings({ newMpg: 10});
+function getFuelSavings(args = {}) {
+ let defaultFuelSavings = {
+    newMpg: 20,
+    tradeMpg: 10,
+    newPpg: 1.50,
+    tradePpg: 1.50,
+    milesDriven: 100,
+    milesDrivenTimeframe: 'week',
+    displayResults: false,
+    dateModified: null,
+    necessaryDataIsProvidedToCalculateSavings: false,
+    savings: {
+      monthly: 0,
+      annual: 0,
+      threeYear: 0
+    }
+  };
+
+  // weave any properties on object passed in to override defaults
+  return Object.assign({}, defaultFuelSavings, {...args});
+}
+
 describe('<FuelSavingsForm />', () => {
   it('should contain <FuelSavingsTextInput /> components', () => {
-    const saveFuelSavings = () => {
-    };
-    const calculateFuelSavings = () => {
-    };
-    const fuelSavings = {
-      newMpg: 20,
-      tradeMpg: 10,
-      newPpg: 1.50,
-      tradePpg: 1.50,
-      milesDriven: 100,
-      milesDrivenTimeframe: 'week',
-      displayResults: false,
-      dateModified: null,
-      necessaryDataIsProvidedToCalculateSavings: false,
-      savings: {
-        monthly: 0,
-        annual: 0,
-        threeYear: 0
-      }
-    };
-
+    const fuelSavings = getFuelSavings();
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={saveFuelSavings}
-      calculateFuelSavings={calculateFuelSavings}
+      saveFuelSavings={jest.fn()}
+      calculateFuelSavings={jest.fn()}
       fuelSavings={fuelSavings}
     />);
     const allInputs = wrapper.find(FuelSavingsTextInput);
@@ -48,31 +55,10 @@ describe('<FuelSavingsForm />', () => {
   });
 
   it('should contain options to change miles driven timeframe', () => {
-    const saveFuelSavings = () => {
-    };
-    const calculateFuelSavings = () => {
-    };
-    const fuelSavings = {
-      newMpg: 20,
-      tradeMpg: 10,
-      newPpg: 1.50,
-      tradePpg: 1.50,
-      milesDriven: 100,
-      milesDrivenTimeframe: 'week',
-      displayResults: false,
-      dateModified: null,
-      necessaryDataIsProvidedToCalculateSavings: false,
-      savings: {
-        monthly: 0,
-        annual: 0,
-        threeYear: 0
-      }
-    };
-
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={saveFuelSavings}
-      calculateFuelSavings={calculateFuelSavings}
-      fuelSavings={fuelSavings}
+      saveFuelSavings={jest.fn()}
+      calculateFuelSavings={jest.fn()}
+      fuelSavings={getFuelSavings()}
     />);
     const expectedOption1 = '<option value="week">Week</option>';
     const expectedOption2 = '<option value="month">Month</option>';
@@ -84,30 +70,18 @@ describe('<FuelSavingsForm />', () => {
   });
 
   it('should contain <FuelSavingsResults /> when necessary conditions are met', () => {
-    const saveFuelSavings = () => {
-    };
-    const calculateFuelSavings = () => {
-    };
-    const fuelSavings = {
-      newMpg: 20,
-      tradeMpg: 10,
-      newPpg: 1.50,
-      tradePpg: 1.50,
-      milesDriven: 100,
-      milesDrivenTimeframe: 'week',
-      displayResults: false,
-      dateModified: null,
+    const fuelSavings = getFuelSavings({
       necessaryDataIsProvidedToCalculateSavings: true,
       savings: {
         monthly: 10,
         annual: 120,
         threeYear: 360
       }
-    };
+    });
 
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={saveFuelSavings}
-      calculateFuelSavings={calculateFuelSavings}
+      saveFuelSavings={jest.fn()}
+      calculateFuelSavings={jest.fn()}
       fuelSavings={fuelSavings}
     />);
     const expected = <FuelSavingsResults savings={fuelSavings.savings} />;
@@ -116,30 +90,10 @@ describe('<FuelSavingsForm />', () => {
   });
 
   it('should not contain <FuelSavingsResults /> when necessary conditions are not met', () => {
-    const saveFuelSavings = () => {
-    };
-    const calculateFuelSavings = () => {
-    };
-    const fuelSavings = {
-      newMpg: 20,
-      tradeMpg: 10,
-      newPpg: 1.50,
-      tradePpg: 1.50,
-      milesDriven: 100,
-      milesDrivenTimeframe: 'week',
-      displayResults: false,
-      dateModified: null,
-      necessaryDataIsProvidedToCalculateSavings: false,
-      savings: {
-        monthly: 0,
-        annual: 0,
-        threeYear: 0
-      }
-    };
-
+    const fuelSavings = getFuelSavings();
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={saveFuelSavings}
-      calculateFuelSavings={calculateFuelSavings}
+      saveFuelSavings={jest.fn()}
+      calculateFuelSavings={jest.fn()}
       fuelSavings={fuelSavings}
     />);
     const expected = <FuelSavingsResults savings={fuelSavings.savings} />;
@@ -147,31 +101,12 @@ describe('<FuelSavingsForm />', () => {
     expect(wrapper.contains(expected)).toBeFalsy();
   });
 
-  it('should handle form submit', () => {
+  it('should handle form submit button click', () => {
     const saveFuelSavings = jest.fn();
-    const calculateFuelSavings = () => {
-    };
-    const fuelSavings = {
-      newMpg: 20,
-      tradeMpg: 10,
-      newPpg: 1.50,
-      tradePpg: 1.50,
-      milesDriven: 100,
-      milesDrivenTimeframe: 'week',
-      displayResults: false,
-      dateModified: null,
-      necessaryDataIsProvidedToCalculateSavings: false,
-      savings: {
-        monthly: 0,
-        annual: 0,
-        threeYear: 0
-      }
-    };
-
     const wrapper = shallow(<FuelSavingsForm
       saveFuelSavings={saveFuelSavings}
-      calculateFuelSavings={calculateFuelSavings}
-      fuelSavings={fuelSavings}
+      calculateFuelSavings={jest.fn()}
+      fuelSavings={getFuelSavings()}
     />);
 
     expect(saveFuelSavings).not.toBeCalled();
@@ -180,29 +115,11 @@ describe('<FuelSavingsForm />', () => {
   });
 
   it('should submit appState', () => {
+    const fuelSavings = getFuelSavings();
     const saveFuelSavings = jest.fn();
-    const calculateFuelSavings = () => {
-    };
-    const fuelSavings = {
-      newMpg: 20,
-      tradeMpg: 10,
-      newPpg: 1.50,
-      tradePpg: 1.50,
-      milesDriven: 100,
-      milesDrivenTimeframe: 'week',
-      displayResults: false,
-      dateModified: null,
-      necessaryDataIsProvidedToCalculateSavings: false,
-      savings: {
-        monthly: 0,
-        annual: 0,
-        threeYear: 0
-      }
-    };
-
     const wrapper = shallow(<FuelSavingsForm
       saveFuelSavings={saveFuelSavings}
-      calculateFuelSavings={calculateFuelSavings}
+      calculateFuelSavings={jest.fn()}
       fuelSavings={fuelSavings}
     />);
 
@@ -212,30 +129,12 @@ describe('<FuelSavingsForm />', () => {
 
 
   it('should calculate fuel savings on text input change', () => {
-    const saveFuelSavings = () => {
-    };
     const calculateFuelSavings = jest.fn();
-    const fuelSavings = {
-      newMpg: 20,
-      tradeMpg: 10,
-      newPpg: 1.50,
-      tradePpg: 1.50,
-      milesDriven: 100,
-      milesDrivenTimeframe: 'week',
-      displayResults: false,
-      dateModified: null,
-      necessaryDataIsProvidedToCalculateSavings: false,
-      savings: {
-        monthly: 0,
-        annual: 0,
-        threeYear: 0
-      }
-    };
 
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={saveFuelSavings}
+      saveFuelSavings={jest.fn()}
       calculateFuelSavings={calculateFuelSavings}
-      fuelSavings={fuelSavings}
+      fuelSavings={getFuelSavings()}
     />);
 
     expect(calculateFuelSavings).not.toBeCalled();
@@ -244,28 +143,11 @@ describe('<FuelSavingsForm />', () => {
   });
 
   it('should calculate fuel savings on miles driven timeframe change', () => {
-    const saveFuelSavings = () => {
-    };
     const calculateFuelSavings = jest.fn();
-    const fuelSavings = {
-      newMpg: 20,
-      tradeMpg: 10,
-      newPpg: 1.50,
-      tradePpg: 1.50,
-      milesDriven: 100,
-      milesDrivenTimeframe: 'week',
-      displayResults: false,
-      dateModified: null,
-      necessaryDataIsProvidedToCalculateSavings: false,
-      savings: {
-        monthly: 0,
-        annual: 0,
-        threeYear: 0
-      }
-    };
+    const fuelSavings = getFuelSavings();
 
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={saveFuelSavings}
+      saveFuelSavings={jest.fn()}
       calculateFuelSavings={calculateFuelSavings}
       fuelSavings={fuelSavings}
     />);
