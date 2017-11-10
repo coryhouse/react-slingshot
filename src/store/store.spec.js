@@ -74,7 +74,6 @@ describe('Store', () => {
       savings: { annual: 0, monthly: 0, threeYear: 0 }
     };
 
-
     expect(actual.fuelSavings).toEqual(expected);
   });
 
