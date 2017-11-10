@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FuelSavingsTextInput = (props) => {
-  const handleChange = (e) => {
-    props.onChange(props.name, e.target.value);
-  };
-
+const FuelSavingsTextInput = ({name, value, placeholder, onChange}) => {
   return (
     <input
       className="small"
+      name={name}
       type="text"
-      placeholder={props.placeholder}
-      value={props.value}
-      onChange={handleChange}/>
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}/>
   );
 };
 

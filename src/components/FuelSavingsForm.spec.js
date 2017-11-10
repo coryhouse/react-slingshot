@@ -40,8 +40,8 @@ describe('<FuelSavingsForm />', () => {
   it('should contain <FuelSavingsTextInput /> components', () => {
     const fuelSavings = getFuelSavings();
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={jest.fn()}
-      calculateFuelSavings={jest.fn()}
+      onSaveClick={jest.fn()}
+      onChange={jest.fn()}
       fuelSavings={fuelSavings}
     />);
     const allInputs = wrapper.find(FuelSavingsTextInput);
@@ -61,8 +61,8 @@ describe('<FuelSavingsForm />', () => {
 
   it('should contain options to change miles driven timeframe', () => {
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={jest.fn()}
-      calculateFuelSavings={jest.fn()}
+      onSaveClick={jest.fn()}
+      onChange={jest.fn()}
       fuelSavings={getFuelSavings()}
     />);
     const expectedOption1 = '<option value="week">Week</option>';
@@ -85,8 +85,8 @@ describe('<FuelSavingsForm />', () => {
     });
 
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={jest.fn()}
-      calculateFuelSavings={jest.fn()}
+      onSaveClick={jest.fn()}
+      onChange={jest.fn()}
       fuelSavings={fuelSavings}
     />);
     const expected = <FuelSavingsResults savings={fuelSavings.savings} />;
@@ -97,8 +97,8 @@ describe('<FuelSavingsForm />', () => {
   it('should not contain <FuelSavingsResults /> when necessary conditions are not met', () => {
     const fuelSavings = getFuelSavings();
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={jest.fn()}
-      calculateFuelSavings={jest.fn()}
+      onSaveClick={jest.fn()}
+      onChange={jest.fn()}
       fuelSavings={fuelSavings}
     />);
     const expected = <FuelSavingsResults savings={fuelSavings.savings} />;
@@ -106,59 +106,64 @@ describe('<FuelSavingsForm />', () => {
     expect(wrapper.contains(expected)).toBeFalsy();
   });
 
-  it('should handle form submit button click', () => {
-    const saveFuelSavings = jest.fn();
+  it('should handle save button click', () => {
+    const onSaveClick = jest.fn();
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={saveFuelSavings}
-      calculateFuelSavings={jest.fn()}
+      onSaveClick={onSaveClick}
+      onChange={jest.fn()}
       fuelSavings={getFuelSavings()}
     />);
 
-    expect(saveFuelSavings).not.toBeCalled();
+    expect(onSaveClick).not.toBeCalled();
     wrapper.find('input[type="submit"]').simulate('click');
-    expect(saveFuelSavings).toBeCalled();
+    expect(onSaveClick).toBeCalled();
   });
 
   it('should submit appState', () => {
     const fuelSavings = getFuelSavings();
-    const saveFuelSavings = jest.fn();
+    const onSaveClick = jest.fn();
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={saveFuelSavings}
-      calculateFuelSavings={jest.fn()}
+      onSaveClick={onSaveClick}
+      onChange={jest.fn()}
       fuelSavings={fuelSavings}
     />);
 
+    expect(onSaveClick).not.toBeCalled();
     wrapper.find('input[type="submit"]').simulate('click');
-    expect(saveFuelSavings).toBeCalledWith(fuelSavings);
+    expect(onSaveClick).toBeCalled();
   });
 
 
-  it('should calculate fuel savings on text input change', () => {
-    const calculateFuelSavings = jest.fn();
+  it('should call onChange when text input changes', () => {
+    const onChange = jest.fn();
 
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={jest.fn()}
-      calculateFuelSavings={calculateFuelSavings}
+      onSaveClick={jest.fn()}
+      onChange={onChange}
       fuelSavings={getFuelSavings()}
     />);
 
-    expect(calculateFuelSavings).not.toBeCalled();
-    wrapper.find(FuelSavingsTextInput).first().simulate('change');
-    expect(calculateFuelSavings).toBeCalled();
+    const changeEvent = { target: { name: 'newMpg', value: '20' } };
+
+    expect(onChange).not.toBeCalled();
+    wrapper.find(FuelSavingsTextInput).first().simulate('change', changeEvent);
+    expect(onChange).toBeCalledWith(changeEvent);
   });
 
-  it('should calculate fuel savings on miles driven timeframe change', () => {
-    const calculateFuelSavings = jest.fn();
+  it('should call onChange when timeframe changes', () => {
+    const onChange = jest.fn();
     const fuelSavings = getFuelSavings();
 
     const wrapper = shallow(<FuelSavingsForm
-      saveFuelSavings={jest.fn()}
-      calculateFuelSavings={calculateFuelSavings}
+      onSaveClick={jest.fn()}
+      onChange={onChange}
       fuelSavings={fuelSavings}
     />);
 
-    expect(calculateFuelSavings).not.toBeCalled();
-    wrapper.find('select').simulate('change', { target: { value: 'year' } });
-    expect(calculateFuelSavings).toBeCalledWith(fuelSavings, 'milesDrivenTimeframe', 'year');
+    const changeEvent = { target: { name: 'timeframe', value: 'year' } };
+
+    expect(onChange).not.toBeCalled();
+    wrapper.find('select').simulate('change', changeEvent);
+    expect(onChange).toBeCalledWith(changeEvent);
   });
 });
