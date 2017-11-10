@@ -1,4 +1,4 @@
-import mathHelper from './mathHelper';
+import {roundNumber} from './math';
 import {getCurrencyFormattedNumber} from './numberFormat';
 
 // Private
@@ -34,7 +34,7 @@ export function calculateSavingsPerMonth(settings) {
   const newFuelCostPerMonth = calculateMonthlyCost(milesDrivenPerMonth, settings.newPpg, settings.newMpg);
   const savingsPerMonth = tradeFuelCostPerMonth - newFuelCostPerMonth;
 
-  return mathHelper.roundNumber(savingsPerMonth, 2);
+  return roundNumber(savingsPerMonth, 2);
 }
 
 export function necessaryDataIsProvidedToCalculateSavings(settings) {

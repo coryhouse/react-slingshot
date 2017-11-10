@@ -1,4 +1,4 @@
-import MathHelper from './mathHelper';
+import {roundNumber} from './math';
 
 export function getCurrencyFormattedNumber(value) {
   if (value === null) {
@@ -21,7 +21,7 @@ export function getFormattedNumber(value) {
     return ''; // if it's not a number after scrubbing formatting, just return empty.
   }
 
-  let roundedValue = MathHelper.roundNumber(value, 2); // round if more than 2 decimal points
+  let roundedValue = roundNumber(value, 2); // round if more than 2 decimal points
   roundedValue = roundedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); // add commas for 1,000's. RegEx from http://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
   const roundedValueContainsDecimalPlace = (roundedValue.indexOf('.') !== -1);
 
