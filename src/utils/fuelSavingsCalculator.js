@@ -5,7 +5,7 @@ import {getCurrencyFormattedNumber} from './numberFormat';
 function calculateMonthlyCost(milesDrivenPerMonth, ppg, mpg) {
   const gallonsUsedPerMonth = milesDrivenPerMonth / mpg;
   return gallonsUsedPerMonth * ppg;
-};
+}
 
 // Public
 export function calculateMilesDrivenPerMonth(milesDriven, milesDrivenTimeframe) {

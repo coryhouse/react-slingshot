@@ -33,7 +33,7 @@ function getFuelSavings(args) {
   return {
     ...defaultFuelSavings,
     ...args
-  }
+  };
 }
 
 describe('<FuelSavingsForm />', () => {
