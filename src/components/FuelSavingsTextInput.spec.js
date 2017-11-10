@@ -26,6 +26,7 @@ describe('<FuelSavingsTextInput />', () => {
 
     const wrapper = shallow(<FuelSavingsTextInput {...props} />);
     const changeEvent = {target: {value: 101}};
+
     expect(props.onChange).not.toBeCalled();
     wrapper.simulate('change', changeEvent);
     expect(props.onChange).toBeCalledWith(changeEvent);
