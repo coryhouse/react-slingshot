@@ -4,11 +4,14 @@ import FuelSavingsForm from './FuelSavingsForm';
 import FuelSavingsTextInput from './FuelSavingsTextInput';
 import FuelSavingsResults from './FuelSavingsResults';
 
-// Returns fuel savings object. Overrides default values
-// for any properties sent in on args object.
-// Example: To get a fuel savings object like the
-// default below, but with newMpg set to 10, call with
-// getFuelSavings({ newMpg: 10});
+/* Object builder. Could use test data builder pattern too.
+   More info: http://blog.codeleak.pl/2014/06/test-data-builders-and-object-mother.html
+   Returns fuel savings object. Overrides default values
+   for any properties sent in on args object.
+   Example: To get a fuel savings object like the
+   default below, but with newMpg set to 10, call with
+   getFuelSavings({ newMpg: 10});
+*/
 function getFuelSavings(args = {}) {
  let defaultFuelSavings = {
     newMpg: 20,
