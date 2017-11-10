@@ -31,6 +31,7 @@ describe('<FuelSavingsTextInput />', () => {
     expect(props.onChange).toBeCalledWith('newMpg', 101);
   });
 
+  // Example of testing the value of a prop
   it('should apply placeholder', () => {
     const props = {
       name: 'newMpg',
