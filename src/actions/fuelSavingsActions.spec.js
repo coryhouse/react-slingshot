@@ -58,7 +58,6 @@ describe('Actions', () => {
       value
     };
 
-    expect(actual).toEqual(expected); // Notice use of deep because it's a nested object
-    // expect(actual).to.equal(expected); // Fails. Not deeply equal
+    expect(actual).toEqual(expected);
   });
 });
