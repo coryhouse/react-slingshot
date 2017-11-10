@@ -1,6 +1,6 @@
 import * as types from '../constants/actionTypes';
 
-import {getFormattedDateTime} from '../utils/dateHelper';
+import {getFormattedDateTime} from '../utils/dates';
 
 // example of a thunk using the redux-thunk middleware
 export function saveFuelSavings(settings) {

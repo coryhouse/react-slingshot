@@ -1,6 +1,6 @@
 import * as ActionTypes from '../constants/actionTypes';
 import reducer from './fuelSavingsReducer';
-import {getFormattedDateTime} from '../utils/dateHelper';
+import {getFormattedDateTime} from '../utils/dates';
 
 describe('Reducers::FuelSavings', () => {
   const getInitialState = () => {

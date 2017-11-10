@@ -3,7 +3,7 @@ import * as ActionCreators from './fuelSavingsActions';
 
 import MockDate from 'mockdate';
 
-import {getFormattedDateTime} from '../utils/dateHelper';
+import {getFormattedDateTime} from '../utils/dates';
 
 describe('Actions', () => {
   let dateModified;

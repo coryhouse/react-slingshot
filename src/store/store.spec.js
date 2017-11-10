@@ -4,7 +4,7 @@ import MockDate from 'mockdate';
 import configureStore from './configureStore';
 
 import {calculateSavings} from '../utils/fuelSavingsCalculator';
-import {getFormattedDateTime} from '../utils/dateHelper';
+import {getFormattedDateTime} from '../utils/dates';
 
 describe('Store', () => {
   let dateModified;
