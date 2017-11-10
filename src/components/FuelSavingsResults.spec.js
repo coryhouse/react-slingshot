@@ -56,9 +56,7 @@ describe('<FuelSavingsResults />', () => {
     };
 
     const wrapper = shallow(<FuelSavingsResults savings={savings}/>);
-    const actual = wrapper.find('.loss').length;
-    const expected = 3;
-
-    expect(actual).toEqual(expected);
+    const numObjectsWithLossClass = wrapper.find('.loss').length;
+    expect(numObjectsWithLossClass).toEqual(3);
   });
 });
