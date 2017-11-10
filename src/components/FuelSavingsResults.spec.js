@@ -12,10 +12,8 @@ describe('<FuelSavingsResults />', () => {
 
     const wrapper = shallow(<FuelSavingsResults savings={savings}/>);
     // console.log(wrapper.debug()); // View shallowly rendered component
-    const actual = wrapper.find('.fuel-savings-label').text();
-    const expected = 'Savings';
-
-    expect(actual).toEqual(expected);
+    const savingsLabelText = wrapper.find('.fuel-savings-label').text();
+    expect(savingsLabelText).toEqual('Savings');
   });
 
   it('should give values a \'savings\' class when savings exist', () => {
@@ -26,11 +24,8 @@ describe('<FuelSavingsResults />', () => {
     };
 
     const wrapper = shallow(<FuelSavingsResults savings={savings}/>);
-
-    const actual = wrapper.find('.savings').length;
-    const expected = 3;
-
-    expect(actual).toEqual(expected);
+    const numObjectsWithSavingsClass = wrapper.find('.savings').length;
+    expect(numObjectsWithSavingsClass).toEqual(3);
   });
 
   it('should display loss when savings don\'t exist', () => {
@@ -41,11 +36,8 @@ describe('<FuelSavingsResults />', () => {
     };
 
     const wrapper = shallow(<FuelSavingsResults savings={savings}/>);
-
-    const actual = wrapper.find('.fuel-savings-label').text();
-    const expected = 'Loss';
-
-    expect(actual).toEqual(expected);
+    const labelText = wrapper.find('.fuel-savings-label').text();
+    expect(labelText).toEqual('Loss');
   });
 
   it('should give values a \'loss\' class when savings don\'t exist', () => {
