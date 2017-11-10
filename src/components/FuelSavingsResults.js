@@ -7,8 +7,6 @@ import NumberFormatter from '../utils/numberFormatter';
 // And https://medium.com/@joshblack/stateless-components-in-react-0-14-f9798f8b992d
 // Props are being destructured below to extract the savings object to shorten calls within component.
 const FuelSavingsResults = ({savings}) => {
-  // console.log(savings);
-  // console.log("typeof", typeof(savings.monthly));
   const savingsExist = NumberFormatter.scrubFormatting(savings.monthly) > 0;
   const savingsClass = savingsExist ? 'savings' : 'loss';
   const resultLabel = savingsExist ? 'Savings' : 'Loss';
@@ -43,8 +41,6 @@ const FuelSavingsResults = ({savings}) => {
   );
 };
 
-// Note that this odd style is utilized for propType validation for now. Must be defined *after*
-// the component is defined, which is why it's separate and down here.
 FuelSavingsResults.propTypes = {
   savings: PropTypes.object.isRequired
 };
