@@ -121,7 +121,8 @@
     },
     "setupFiles": [
       "raf/polyfill",
-      "./tools/enzymeTestAdapterSetup.js"
+      "./tools/enzymeTestAdapterSetup.js",
+      "./setup-jest.js"
     ]
   },
   "babel": {
