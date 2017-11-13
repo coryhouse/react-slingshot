@@ -24,7 +24,7 @@ export default function fuelSavingsReducer(state = initialState.fuelSavings, act
       newState.dateModified = action.dateModified;
 
       if (newState.necessaryDataIsProvidedToCalculateSavings) {
-        newState.savings = calculateSavings(newState);
+          newState.savings = calculateSavings(newState);
       }
 
       return newState;
