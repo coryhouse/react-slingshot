@@ -1,0 +1,1 @@
+export const GENDER_SELECTED = 'GENDER_SELECTED';
