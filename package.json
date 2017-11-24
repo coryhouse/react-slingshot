@@ -18,8 +18,9 @@
     "lint:watch": "npm run lint -- --watch",
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "rimraf ./dist",
-    "prebuild": "npm run clean-dist && npm run lint && npm run test",
-    "build": "babel-node tools/build.js && npm run open:dist",
+    "prebuild": "npm run clean && npm run lint && npm run test",
+    "build": "babel-node tools/build.js",
+    "clean": "babel-node tools/clean.js",
     "test": "jest",
     "test:CI": "babel-node tools/testCi.js",
     "test:cover": "npm run test -- --coverage ",
@@ -28,6 +29,11 @@
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
   },
+  "config": {
+    "targetPath": "./dist",
+    "publicPath": "/",
+    "publicPathDev": "/"
+  },  
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {

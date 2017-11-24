@@ -28,6 +28,30 @@ This will run the automated build process, start up a webserver, and open the ap
 6. **Delete the example app files.** Once you're comfortable with how the example app works, you can [delete those files and begin creating your own app](https://github.com/coryhouse/react-slingshot/blob/master/docs/FAQ.md#i-just-want-an-empty-starter-kit). 
 7. **Having issues?** See "Having Issues?" below.
 
+## Production Build
+To build a production distribution run:
+
+```
+npm run build
+```
+By default this will produce the build output in ```./dist```. You can change the output directory path and the Webpack public path (or public dev path) by editing the ```config``` section of package.json and specifying an absolute or relative output path.
+
+To remove the directory created by the build:
+
+```
+npm run clean
+```
+
+**NOTE**: By default the clean script will issue a warning and not remove the target path if it is "too close" to the root. The default is at least three levels below root (e.g. ```/projects/project1/dist```). You can change this by specifying a ```minCleanDepth``` property in the config section of package.json:
+
+```
+"config": {
+  "targetPath": "/projects/app1",
+  "publicPath": "/app1",
+  "minCleanDepth": 2
+}
+``` 
+
 ## Initial Machine Setup
 1. **Install [Node 4.0.0 or greater](https://nodejs.org)** - (5.0 or greater is recommended for optimal build performance). Need to run multiple versions of Node? Use [nvm](https://github.com/creationix/nvm).
 2. **Install [Git](https://git-scm.com/downloads)**. 

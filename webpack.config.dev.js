@@ -2,6 +2,11 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 
+const configuredTarget = process.env.npm_package_config_targetPath ? 
+    path.resolve(process.env.npm_package_config_targetPath) :
+    path.resolve(__dirname, 'dist');
+const publicPath = process.env.npm_package_config_publicPathDev || '/';
+
 export default {
   resolve: {
     extensions: ['*', '.js', '.jsx', '.json']
@@ -16,8 +21,8 @@ export default {
   ],
   target: 'web',
   output: {
-    path: path.resolve(__dirname, 'dist'), // Note: Physical files are only output by the production build task `npm run build`.
-    publicPath: '/',
+    path: configuredTarget, // Note: Physical files are only output by the production build task `npm run build`.
+    publicPath,
     filename: 'bundle.js'
   },
   plugins: [
