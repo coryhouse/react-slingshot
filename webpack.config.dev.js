@@ -96,7 +96,6 @@ export default {
       },
       {
         test: /(\.css|\.scss|\.sass)$/,
-        exclude: /node_modules/,
         use: [
           'style-loader',
           {
