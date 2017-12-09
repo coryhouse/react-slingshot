@@ -1,6 +1,6 @@
 {
   "name": "react-slingshot",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "Starter kit for creating apps with React and Redux",
   "engines": {
     "npm": ">=3"
@@ -18,7 +18,7 @@
     "lint:watch": "npm run lint -- --watch",
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "rimraf ./dist",
-    "prebuild": "npm run clean-dist && npm run lint && npm run test",
+    "prebuild": "npm run lint && npm run test && npm run clean-dist",
     "build": "babel-node tools/build.js && npm run open:dist",
     "test": "jest",
     "test:CI": "babel-node tools/testCi.js",
