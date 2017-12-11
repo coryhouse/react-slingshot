@@ -144,16 +144,16 @@ export default {
                 ],
                 sourceMap: true
               }
-            }, {
-              loader: 'sass-loader',
-              options: {
-                includePaths: [path.resolve(__dirname, 'src', 'scss')],
-                sourceMap: true
-              }
             },{
               loader: 'less-loader',
               options: {
                 includePaths: [path.resolve(__dirname, 'src', 'less')],
+                sourceMap: true
+              }
+            }, {
+              loader: 'sass-loader',
+              options: {
+                includePaths: [path.resolve(__dirname, 'src', 'scss')],
                 sourceMap: true
               }
             }
