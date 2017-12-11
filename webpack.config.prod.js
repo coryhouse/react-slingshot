@@ -127,7 +127,7 @@ export default {
         ]
       },
       {
-        test: /(\.css|\.scss|\.sass)$/,
+        test: /(\.css|\.scss|\.sass|\.less)$/,
         use: ExtractTextPlugin.extract({
           use: [
             {
@@ -148,6 +148,12 @@ export default {
               loader: 'sass-loader',
               options: {
                 includePaths: [path.resolve(__dirname, 'src', 'scss')],
+                sourceMap: true
+              }
+            },{
+              loader: 'less-loader',
+              options: {
+                includePaths: [path.resolve(__dirname, 'src', 'less')],
                 sourceMap: true
               }
             }
