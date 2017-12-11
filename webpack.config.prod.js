@@ -127,7 +127,7 @@ export default {
         ]
       },
       {
-        test: /(\.css|\.scss|\.sass)$/,
+        test: /(\.css|\.scss|\.sass|\.less)$/,
         use: ExtractTextPlugin.extract({
           use: [
             {
@@ -142,6 +142,12 @@ export default {
                 plugins: () => [
                   require('autoprefixer')
                 ],
+                sourceMap: true
+              }
+            },{
+              loader: 'less-loader',
+              options: {
+                includePaths: [path.resolve(__dirname, 'src', 'less')],
                 sourceMap: true
               }
             }, {
