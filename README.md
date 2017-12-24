@@ -46,6 +46,7 @@ This will run the automated build process, start up a webserver, and open the ap
 
 **Try It Out With Docker:**
 * `docker run -p 4000:4000 -p 4001:4001 -d docker.io/allthethings/react-slingshot`
+* Then navigate to [http://localhost:4000](http://localhost:4000) (or e.g. [http://192.168.99.100:4000](http://192.168.99.100:4000) if using [docker-machine](https://docs.docker.com/toolbox/))
 
 ## Having Issues? Try these things first.
 1. Make sure you ran all steps in [Get started](https://github.com/coryhouse/react-slingshot/blob/master/README.md#get-started) including the [initial machine setup](https://github.com/coryhouse/react-slingshot#initial-machine-setup).
