@@ -44,7 +44,7 @@ This will run the automated build process, start up a webserver, and open the ap
 * **Install [Python 2.7](https://www.python.org/downloads/)**. Some node modules may rely on node-gyp, which requires Python on Windows.
 * **Install C++ Compiler**. Browser-sync requires a C++ compiler on Windows. [Visual Studio Express](https://www.visualstudio.com/en-US/products/visual-studio-express-vs) comes bundled with a free C++ compiler. Or, if you already have Visual Studio installed: Open Visual Studio and go to File -> New -> Project -> Visual C++ -> Install Visual C++ Tools for Windows Desktop. The C++ compiler is used to compile browser-sync (and perhaps other Node modules).
 
-**Try It Out With Docker:**
+**Try It Out With [Docker](https://www.docker.com/):**
 * `docker run -p 4000:4000 -p 4001:4001 -d docker.io/allthethings/react-slingshot`
 * Then navigate to [http://localhost:4000](http://localhost:4000) (or e.g. [http://192.168.99.100:4000](http://192.168.99.100:4000) if using [docker-machine](https://docs.docker.com/toolbox/))
 
