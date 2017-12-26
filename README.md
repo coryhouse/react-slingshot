@@ -45,8 +45,18 @@ This will run the automated build process, start up a webserver, and open the ap
 * **Install C++ Compiler**. Browser-sync requires a C++ compiler on Windows. [Visual Studio Express](https://www.visualstudio.com/en-US/products/visual-studio-express-vs) comes bundled with a free C++ compiler. Or, if you already have Visual Studio installed: Open Visual Studio and go to File -> New -> Project -> Visual C++ -> Install Visual C++ Tools for Windows Desktop. The C++ compiler is used to compile browser-sync (and perhaps other Node modules).
 
 **Try It Out With [Docker](https://www.docker.com/):**
-* `docker run -p 4000:4000 -p 4001:4001 -d docker.io/allthethings/react-slingshot`
-* Then navigate to [http://localhost:4000](http://localhost:4000) (or e.g. [http://192.168.99.100:4000](http://192.168.99.100:4000) if using [docker-machine](https://docs.docker.com/toolbox/))
+
+* **Run the image.** `docker run -p 4000:4000 -p 4001:4001 -d docker.io/allthethings/react-slingshot`
+
+**Develop With Docker (including hot reloading on `src` directory)**
+
+* **Build the image.** `docker build -t react-slingshot .`
+* **Run the image with an interactive shell and automatic removal.**
+  - `docker run -v "$(pwd)"/src:/code/src -p 3000:3000 -p 3001:3001 --name react-slingshot -it --rm react-slingshot`
+* **Or run the image in daemon mode.**
+  - `docker run -v "$(pwd)"/src:/code/src -p 3000:3000 -p 3001:3001 --name react-slingshot -d react-slingshot`
+  - remove with `docker rm -f react-slingshot`
+  - print and follow the container's logs with `docker logs --follow react-slingshot`
 
 ## Having Issues? Try these things first.
 1. Make sure you ran all steps in [Get started](https://github.com/coryhouse/react-slingshot/blob/master/README.md#get-started) including the [initial machine setup](https://github.com/coryhouse/react-slingshot#initial-machine-setup).
