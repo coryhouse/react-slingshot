@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FuelSavingsPage /> to match snapshot 1`] = `
+exports[`<FuelSavingsPage /> should match snapshot 1`] = `
 <div>
   <h2>
     Fuel Savings Analysis

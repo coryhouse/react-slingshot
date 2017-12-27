@@ -24,7 +24,7 @@ describe("<FuelSavingsPage />", () => {
     expect(wrapper.find(FuelSavingsForm).length).toEqual(1);
   });
 
-  it("upon clicking save, saveFuelSavings is called", () => {
+  it("calls saveFuelSavings upon clicking save", () => {
     const wrapper = mount(
       <FuelSavingsPage
         actions={actions}
@@ -40,7 +40,7 @@ describe("<FuelSavingsPage />", () => {
     );
   });
 
-  it("upon changing a field, calculateFuelSavings is called", () => {
+  it("calls calculateFuelSavings upon changing a field", () => {
     const wrapper = mount(
       <FuelSavingsPage
         actions={actions}
@@ -60,7 +60,7 @@ describe("<FuelSavingsPage />", () => {
     );
   });
 
-  it("to match snapshot", () => {
+  it("should match snapshot", () => {
     const store = configureMockStore()(initialState);
     const component = create(
       <Provider store={store}>
