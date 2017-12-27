@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FuelSavingsPage /> should match snapshot 1`] = `
+<div>
+  <h2>
+    Fuel Savings Analysis
+  </h2>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <label
+            htmlFor="newMpg"
+          >
+            New Vehicle MPG
+          </label>
+        </td>
+        <td>
+          <input
+            className="small"
+            name="newMpg"
+            onChange={[Function]}
+            placeholder={undefined}
+            type="text"
+            value=""
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label
+            htmlFor="tradeMpg"
+          >
+            Trade-in MPG
+          </label>
+        </td>
+        <td>
+          <input
+            className="small"
+            name="tradeMpg"
+            onChange={[Function]}
+            placeholder={undefined}
+            type="text"
+            value=""
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label
+            htmlFor="newPpg"
+          >
+            New Vehicle price per gallon
+          </label>
+        </td>
+        <td>
+          <input
+            className="small"
+            name="newPpg"
+            onChange={[Function]}
+            placeholder={undefined}
+            type="text"
+            value=""
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label
+            htmlFor="tradePpg"
+          >
+            Trade-in price per gallon
+          </label>
+        </td>
+        <td>
+          <input
+            className="small"
+            name="tradePpg"
+            onChange={[Function]}
+            placeholder={undefined}
+            type="text"
+            value=""
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label
+            htmlFor="milesDriven"
+          >
+            Miles Driven
+          </label>
+        </td>
+        <td>
+          <input
+            className="small"
+            name="milesDriven"
+            onChange={[Function]}
+            placeholder={undefined}
+            type="text"
+            value=""
+          />
+          miles per
+          <select
+            name="milesDrivenTimeframe"
+            onChange={[Function]}
+            value="week"
+          >
+            <option
+              value="week"
+            >
+              Week
+            </option>
+            <option
+              value="month"
+            >
+              Month
+            </option>
+            <option
+              value="year"
+            >
+              Year
+            </option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>
+            Date Modified
+          </label>
+        </td>
+        <td />
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+  <input
+    onClick={[Function]}
+    type="submit"
+    value="Save"
+  />
+</div>
+`;
