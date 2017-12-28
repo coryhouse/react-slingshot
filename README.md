@@ -66,6 +66,7 @@ This will run the automated build process, start up a webserver, and open the ap
     * Ensure the `eslint`/`esw` globally installed version matches the version used in the project. This will ensure the `esw` keyword is resolved.
 
 <a id="technologies"/>
+
 ## Technologies
 
 Slingshot offers a rich development experience using the following technologies:
