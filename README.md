@@ -5,20 +5,21 @@
 [![Dependency Status](https://david-dm.org/coryhouse/react-slingshot.svg?style=flat-square)](https://david-dm.org/coryhouse/react-slingshot)
 [![Coverage Status](https://img.shields.io/coveralls/coryhouse/react-slingshot/master.svg?style=flat-square)](https://coveralls.io/github/coryhouse/react-slingshot?branch=master)
 
-React Slingshot is a comprehensive starter kit for rapid application development using React. 
+A comprehensive starter kit for rapid application development using React. 
 
 Why Slingshot?
 
 1. **One command to get started** - Type `npm start` to start development in your default browser.
 2. **Rapid feedback** - Each time you hit save, changes hot reload and linting and automated tests run.
 3. **One command line to check** - All feedback is displayed on a single command line.
-4. **No more JavaScript fatigue** - Slingshot uses the most popular and powerful libraries for working with React.
+4. **No more JavaScript fatigue** - Slingshot uses [the most popular and powerful libraries](#technologies) for working with React.
 5. **Working example app** - The included example app shows how this all works together.
 6. **Automated production build** - Type `npm run build` to do all this:
 
 [![React Slingshot Production Build](https://img.youtube.com/vi/qlfDLsX-J0U/0.jpg)](https://www.youtube.com/watch?v=qlfDLsX-J0U)
 
 ## Get Started
+
 1. **Initial Machine Setup**. First time running the starter kit? Then complete the [Initial Machine Setup](https://github.com/coryhouse/react-slingshot#initial-machine-setup).
 2. **Clone the project**. `git clone https://github.com/coryhouse/react-slingshot.git`.
 3. **Run the setup script**. `npm run setup`
@@ -29,6 +30,7 @@ This will run the automated build process, start up a webserver, and open the ap
 7. **Having issues?** See "Having Issues?" below.
 
 ## Initial Machine Setup
+
 1. **Install [Node 4.0.0 or greater](https://nodejs.org)** - (5.0 or greater is recommended for optimal build performance). Need to run multiple versions of Node? Use [nvm](https://github.com/creationix/nvm).
 2. **Install [Git](https://git-scm.com/downloads)**. 
 3. **[Disable safe write in your editor](https://webpack.js.org/guides/development/#adjusting-your-text-editor)** to assure hot reloading works properly.
@@ -63,7 +65,9 @@ This will run the automated build process, start up a webserver, and open the ap
   
     * Ensure the `eslint`/`esw` globally installed version matches the version used in the project. This will ensure the `esw` keyword is resolved.
 
+<a id="technologies"/>
 ## Technologies
+
 Slingshot offers a rich development experience using the following technologies:
 
 | **Tech** | **Description** |**Learn More**|
