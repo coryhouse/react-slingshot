@@ -75,9 +75,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 ### Can you explain the folder structure?
 ```
 .
-├── .babelrc                  # Configures Babel
 ├── .editorconfig             # Configures editor rules
-├── .eslintrc                 # Configures ESLint
 ├── .gitignore                # Tells git which files to ignore
 ├── .istanbul.yml             # Configure istanbul code coverage
 ├── .npmrc                    # Configures npm to save exact by default
