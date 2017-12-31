@@ -25,6 +25,7 @@
     "test:cover": "npm run test -- --coverage ",
     "test:cover:CI": "npm run test:CI -- --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "jest --watch",
+    "cypress": "cypress open",
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
   },
@@ -60,6 +61,7 @@
     "connect-history-api-fallback": "1.3.0",
     "coveralls": "2.13.1",
     "css-loader": "0.28.7",
+    "cypress": "1.4.1",
     "enzyme": "3.0.0",
     "enzyme-adapter-react-16": "1.0.0",
     "eslint": "4.2.0",
