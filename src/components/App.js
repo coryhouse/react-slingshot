@@ -15,13 +15,13 @@ class App extends React.Component {
   render() {
     const activeStyle = { color: 'blue' };
     return (
-      <div>
+      <div id="nav">
         <div>
-          <NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink>
+          <NavLink id="navLinkHome" exact to="/" activeStyle={activeStyle}>Home</NavLink>
           {' | '}
-          <NavLink to="/fuel-savings" activeStyle={activeStyle}>Demo App</NavLink>
+          <NavLink id="navLinkFuelSavings" to="/fuel-savings" activeStyle={activeStyle}>Demo App</NavLink>
           {' | '}
-          <NavLink to="/about" activeStyle={activeStyle}>About</NavLink>
+          <NavLink id="navLinkAbout" to="/about" activeStyle={activeStyle}>About</NavLink>
         </div>
         <Switch>
           <Route exact path="/" component={HomePage} />
