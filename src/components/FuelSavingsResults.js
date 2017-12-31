@@ -8,7 +8,7 @@ const FuelSavingsResults = ({savings}) => {
   const resultLabel = savingsExist ? 'Savings' : 'Loss';
 
   return (
-    <table>
+    <table id="fuelSavingsResults">
       <tbody>
         <tr>
           <td className="fuel-savings-label">{resultLabel}</td>
