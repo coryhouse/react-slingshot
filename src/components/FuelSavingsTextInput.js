@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FuelSavingsTextInput = ({name, value, placeholder, onChange}) => {
+const FuelSavingsTextInput = ({name, id, value, placeholder, onChange}) => {
   return (
     <input
       className="small"
+      id={id}
       name={name}
       type="text"
       placeholder={placeholder}
@@ -17,6 +18,7 @@ const { string, func, number, oneOfType } = PropTypes;
 
 FuelSavingsTextInput.propTypes = {
   name: string.isRequired,
+  id: string,
   onChange: func.isRequired,
   placeholder: string,
   value: oneOfType([
