@@ -74,8 +74,6 @@
     "jest": "20.0.4",
     "jest-cli": "20.0.4",
     "json-loader": "0.5.4",
-    "less": "2.7.3",
-    "less-loader": "4.0.5",
     "mockdate": "2.0.1",
     "node-sass": "4.5.3",
     "opn-cli": "3.1.0",
@@ -120,7 +118,7 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/assetsTransformer.js",
-      "\\.(css|less)$": "<rootDir>/tools/assetsTransformer.js"
+      "\\.(css)$": "<rootDir>/tools/assetsTransformer.js"
     },
     "setupFiles": [
       "raf/polyfill",
