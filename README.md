@@ -54,7 +54,19 @@ This will run the automated build process, start up a webserver, and open the ap
 5. Don't run the project from a symbolic link. It may cause issues with file watches.
 6. Delete any .eslintrc that you're storing in your user directory. Also, disable any ESLint plugin / custom rules that you've enabled within your editor. These will conflict with the ESLint rules defined in this project.
 7. Make sure you don't have NODE_ENV set to production on your machine. If you do then the [development dependencies won't be installed](https://github.com/coryhouse/react-slingshot/issues/400#issuecomment-290497767). Here's [how to check](http://stackoverflow.com/a/27939821/26180).
-8. Tip: Things to check if you get an `npm run lint` error or build error:
+8. Install watchman with `brew install watchman` if you are having the following error after an initial `npm start -s`:
+```sh
+2017-09-05 00:44 node[68587] (FSEvents.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-22)
+2017-09-05 00:44 node[68587] (FSEvents.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-22)
+events.js:160
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: Error watching file for changes: EMFILE
+    at exports._errnoException (util.js:1022:11)
+    at FSEvent.FSWatcher._handle.onchange (fs.js:1406:11)
+```
+9. Tip: Things to check if you get an `npm run lint` error or build error:
 
     * If ESW found an error or warning in your project (e.g. console statement or a missing semi-colon), the lint thread will exit with `Exit status 1`. To fix: 
 
