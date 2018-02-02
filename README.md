@@ -76,9 +76,9 @@ Error: Error watching file for changes: EMFILE
       > Note: Adding `exit 0` will allow the npm scripts to ignore the status 1 and allow ESW to print all warnings and errors.
   
     * Ensure the `eslint`/`esw` globally installed version matches the version used in the project. This will ensure the `esw` keyword is resolved.
+10. Rebuild node-sass with `npm rebuild node-sass` if you are having and error like `Node Sass does not yet support your current environment on macOS XXX` after an initial `npm start -s`.
 
 <a id="technologies"/>
-
 ## Technologies
 
 Slingshot offers a rich development experience using the following technologies:
