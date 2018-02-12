@@ -15,8 +15,9 @@ install:
   # install modules
   - yarn
 
-cache:
-  - "%LOCALAPPDATA%\\Yarn"
+#cache:
+# Commenting out temporarily per suggestion from Appveyor team
+# - "%LOCALAPPDATA%\\Yarn"
 
 # Post-install test scripts.
 test_script:
