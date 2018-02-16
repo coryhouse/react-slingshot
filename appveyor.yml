@@ -14,8 +14,8 @@ install:
   # install modules
   - yarn
 
-#cache:
-- "%LOCALAPPDATA%\\Yarn"
+cache:
+  - "%LOCALAPPDATA%\\Yarn"
 
 # Post-install test scripts.
 test_script:
