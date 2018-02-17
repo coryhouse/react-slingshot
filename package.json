@@ -75,6 +75,7 @@
     "jest-cli": "20.0.4",
     "json-loader": "0.5.4",
     "mockdate": "2.0.1",
+    "node": "8.9.4",
     "node-sass": "4.5.3",
     "opn-cli": "3.1.0",
     "postcss-loader": "2.0.6",
