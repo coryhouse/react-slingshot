@@ -9,7 +9,7 @@
 [![Dependency Status](https://david-dm.org/coryhouse/react-slingshot.svg?style=flat-square)](https://david-dm.org/coryhouse/react-slingshot)
 [![Coverage Status](https://img.shields.io/coveralls/coryhouse/react-slingshot/master.svg?style=flat-square)](https://coveralls.io/github/coryhouse/react-slingshot?branch=master)
 
-A comprehensive starter kit for rapid application development using React. 
+A comprehensive starter kit for rapid application development using React.
 
 Why Slingshot?
 
@@ -26,7 +26,7 @@ Why Slingshot?
 
 1. **Initial Machine Setup**
 
-    First time running the starter kit? Then complete the [Initial Machine Setup](https://github.com/coryhouse/react-slingshot#initial-machine-setup).
+    First time running the starter kit? Then complete the [Initial Machine Setup](#initial-machine-setup).
 
 2. **Clone the project**
 
@@ -48,7 +48,7 @@ Why Slingshot?
 
 6. **Delete the example app files.**
 
-    Once you're comfortable with how the example app works, you can [delete those files and begin creating your own app](https://github.com/coryhouse/react-slingshot/blob/master/docs/FAQ.md#i-just-want-an-empty-starter-kit).
+    Once you're comfortable with how the example app works, you can [delete those files and begin creating your own app](./docs/FAQ.md#i-just-want-an-empty-starter-kit).
 
 7. **Having issues?** See [Having Issues?](#having-issues-try-these-things-first).
 
@@ -86,7 +86,7 @@ Why Slingshot?
 
 ## Having Issues? Try these things first
 
-1. Make sure you ran all steps in [Get started](https://github.com/coryhouse/react-slingshot/blob/master/README.md#get-started) including the [initial machine setup](https://github.com/coryhouse/react-slingshot#initial-machine-setup).
+1. Make sure you ran all steps in [Get started](#get-started) including the [initial machine setup](#initial-machine-setup).
 2. Run `npm install` - If you forget to do this, you'll see this: `babel-node: command not found`.
 3. Install the latest version of Node. Or install [Node 5.12.0](https://nodejs.org/download/release/v5.12.0/) if you're having issues on Windows. Node 6 has issues on some Windows machines.
 4. Make sure files with names that begin with a dot (.editorconfig, .gitignore, .npmrc) are copied to the project directory root. This is easy to overlook if you copy this repository manually.
@@ -147,4 +147,4 @@ The starter kit includes a working example app that puts all of the above to use
 
 ## Questions?
 
-Check out the [FAQ](/docs/FAQ.md)
+Check out the [FAQ](./docs/FAQ.md)
