@@ -1,5 +1,9 @@
-react-slingshot contributors (sorted alphabetically)
-====================================================
+# contributors
+
+## react-slingshot
+
+---
+
 * Atif Afzal ([atfzl](https://github.com/atfzl))
 * Andrew Murray ([radarhere](https://github.com/radarhere))
 * Barry Staes ([barrystaes](https://github.com/barrystaes))
