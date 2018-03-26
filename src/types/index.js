@@ -1,14 +1,12 @@
 // Centralized propType definitions
-import PropTypes from 'prop-types';
-
-const { shape, number, bool, string } = PropTypes;
+import { shape, number, bool, string, oneOfType } from 'prop-types';
 
 export const fuelSavings = shape({
-  newMpg: PropTypes.oneOf[number,string],
-  tradeMpg: PropTypes.oneOf[number,string],
-  newPpg: PropTypes.oneOf[number,string],
-  tradePpg: PropTypes.oneOf[number,string],
-  milesDriven: PropTypes.oneOf[number,string],
+  newMpg: oneOfType([number,string]),
+  tradeMpg: oneOfType([number,string]),
+  newPpg: oneOfType([number,string]),
+  tradePpg: oneOfType([number,string]),
+  milesDriven: oneOfType([number,string]),
   milesDrivenTimeframe: string,
   displayResult: bool,
   dateModified: string,
@@ -17,7 +15,7 @@ export const fuelSavings = shape({
 });
 
 export const savings = shape({
-  monthly: PropTypes.oneOf[number,string],
-  annual: PropTypes.oneOf[number,string],
-  threeYear: PropTypes.oneOf[number,string],
+  monthly: oneOfType([number,string]),
+  annual: oneOfType([number,string]),
+  threeYear: oneOfType([number,string]),
 });
