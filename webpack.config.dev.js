@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
-var HardSourceWebpackPlugin = require('hard-source-webpack-plugin'); 
+import HardSourceWebpackPlugin from 'hard-source-webpack-plugin'; 
 
 export default {
   resolve: {
