@@ -16,6 +16,7 @@ const pathsToRemove = [
   './src/store/store.spec.js',
   './src/styles/*',
   './src/index.js',
+  './src/types/*',
   './tools/removeDemo.js'
 ];
 
