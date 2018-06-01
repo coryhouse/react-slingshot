@@ -63,15 +63,19 @@ Why Slingshot?
 
 3. **[Disable safe write in your editor](https://webpack.js.org/guides/development/#adjusting-your-text-editor)** to assure hot reloading works properly.
 
-4. On a Mac? You're all set. If you're on Linux or Windows, complete the steps for your OS below.
+4. Complete the steps below for your operating system:
 
-    ### On Linux
+    ### macOS
+
+    * Install [watchman](https://facebook.github.io/watchman/) via `brew install watchman` or fswatch via `brew install fswatch` to avoid [this issue](https://github.com/facebook/create-react-app/issues/871) which occurs if your macOS has no appropriate file watching service installed.
+
+    ### Linux
 
     * Run this to [increase the limit](http://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc) on the number of files Linux will watch. [Here's why](https://github.com/coryhouse/react-slingshot/issues/6).
 
         `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`.
 
-    ### On Windows
+    ### Windows
     
     * **Install [Python 2.7](https://www.python.org/downloads/)**. Some node modules may rely on node-gyp, which requires Python on Windows.
     * **Install C++ Compiler**. Browser-sync requires a C++ compiler on Windows.
