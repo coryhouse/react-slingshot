@@ -63,11 +63,11 @@ Why Slingshot?
 
 3. **[Disable safe write in your editor](https://webpack.js.org/guides/development/#adjusting-your-text-editor)** to assure hot reloading works properly.
 
-4. Prepare the environment by completing the steps below for the particular OS you work on.
+4. Complete the steps below for your operating system:
 
     ### macOS
 
-    * To resolve `(FSEvents.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-22)` on **macOS Sierra** or higher, the [Watchman](https://facebook.github.io/watchman/) is what have to be installed additionally (see https://github.com/facebook/create-react-app/issues/871 for more). This issue might be faced after running `npm start -s` if your macOS setup has no appropriate file watching service. The Watchman is one of them, but there are also alternatives like [fswatch](https://github.com/emcrisostomo/fswatch) (both available via `brew install`).
+    * Install [watchman](https://facebook.github.io/watchman/) via `brew install watchman` or fswatch via `brew install fswatch` to avoid [this issue](https://github.com/facebook/create-react-app/issues/871) which occurs if your macOS has no appropriate file watching service installed.
 
     ### Linux
 
