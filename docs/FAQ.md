@@ -269,6 +269,27 @@ Also note that no actual physical files are written to the filesystem during the
 
 * Install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
 * Follow the instructions on how to [configure debugging in Visual Studio code](https://github.com/Microsoft/vscode-chrome-debug/blob/master/README.md#using-the-debugger).
+* You can also add the following to `.vscode/launch.json` file to open the Chrome browser automatically and apply sourcemaps.
+* Start the application, then click the green play icon in Visual Studio Code to start debugging.
+
+**example launch.json**
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome against localhost",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceRoot}/src",
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/*"
+      }
+    }
+  ]
+}
+```
 
 Don't see your favorite code editor debugging configuration here? Submit a PR and we'll be glad to add it to the FAQ.md.
 
