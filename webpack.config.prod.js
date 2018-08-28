@@ -1,9 +1,9 @@
 // For info about this file refer to webpack and webpack-hot-middleware documentation
 // For info on how we're generating bundles with hashed filenames for cache busting: https://medium.com/@okonetchnikov/long-term-caching-of-static-assets-with-webpack-1ecb139adb95#.w99i89nsz
 import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
 
 const GLOBALS = {
@@ -32,7 +32,9 @@ export default {
     new webpack.DefinePlugin(GLOBALS),
 
     // Generate an external css file with a hash in the filename
-    new ExtractTextPlugin('[name].[md5:contenthash:hex:20].css'),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css'
+    }),
 
     // Generate HTML file that contains references to generated bundles. See here for how this works: https://github.com/ampedandwired/html-webpack-plugin#basic-usage
     new HtmlWebpackPlugin({
@@ -127,31 +129,30 @@ export default {
       },
       {
         test: /(\.css|\.scss|\.sass)$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                minimize: true,
-                sourceMap: true
-              }
-            }, {
-              loader: 'postcss-loader',
-              options: {
-                plugins: () => [
-                  require('autoprefixer')
-                ],
-                sourceMap: true
-              }
-            }, {
-              loader: 'sass-loader',
-              options: {
-                includePaths: [path.resolve(__dirname, 'src', 'scss')],
-                sourceMap: true
-              }
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              sourceMap: true
             }
-          ]
-        })
+          }, {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [
+                require('autoprefixer')
+              ],
+              sourceMap: true
+            }
+          }, {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [path.resolve(__dirname, 'src', 'scss')],
+              sourceMap: true
+            }
+          }
+        ]
       }
     ]
   }
