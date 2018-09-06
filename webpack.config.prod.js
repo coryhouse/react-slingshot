@@ -136,8 +136,8 @@ export default {
             loader: 'postcss-loader',
             options: {
               plugins: () => [
-                require('autoprefixer'),
                 require('cssnano'),
+                require('autoprefixer'),
               ],
               sourceMap: true
             }
