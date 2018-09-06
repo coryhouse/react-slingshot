@@ -53,7 +53,7 @@ export default {
       // To track JavaScript errors via TrackJS, sign up for a free trial at TrackJS.com and enter your token below.
       trackJSToken: ''
     }),
-  
+
   ],
   module: {
     rules: [
@@ -130,14 +130,14 @@ export default {
           {
             loader: 'css-loader',
             options: {
-              minimize: true,
               sourceMap: true
             }
           }, {
             loader: 'postcss-loader',
             options: {
               plugins: () => [
-                require('autoprefixer')
+                require('cssnano'),
+                require('autoprefixer'),
               ],
               sourceMap: true
             }
