@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import config from  '../config/configureApp';
 
 const HomePage = () => {
   return (
     <div>
-      <h1>React Slingshot</h1>
+      <h1>{config.site.name}</h1>
 
       <h2>Get Started</h2>
       <ol>

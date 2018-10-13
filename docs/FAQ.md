@@ -59,8 +59,9 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 | **Script**        | **Description**                                                                                                                                            |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | remove-demo       | Removes the demo application so you can begin development.                                                                                                 |
-| prestart          | Runs automatically before start to display a message.                                                                                                      |
-| start             | Runs tests, lints, starts dev webserver, and opens the app in your default browser.                                                                        |
+| start             | Runs start:dev or start:prod depending on the NODE_ENV configuration.                                                                                      |
+| start:dev         | Runs tests, lints, starts dev webserver, and opens the app in your default browser.                                                                        |
+| start:prod        | Runs build, starts production webserver, and opens the app in your default browser.                                                                        |
 | lint:tools        | Runs ESLint on build related JS files. (eslint-loader lints src files via webpack when `npm start` is run)                                                 |
 | clean-dist        | Removes everything from the dist folder.                                                                                                                   |
 | remove-dist       | Deletes the dist folder.                                                                                                                                   |
@@ -102,13 +103,13 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 │   │   ├── setup.js          # Configure project set up
 │   │   ├── setupMessage.js   # Display message when beginning set up
 │   │   └── setupPrompts.js   # Configure prompts for set up
-│   ├── build.js              # Runs the production build
+│   ├── build.js              # Builds the production build
 │   ├── chalkConfig.js        # Centralized configuration for chalk (adds color to console statements)
 │   ├── distServer.js         # Starts webserver and opens final built app that's in dist in your default browser
 │   ├── nodeVersionCheck.js   # Confirm supported Node version is installed
 │   ├── removeDemo.js         # Remove demo app
 │   ├── srcServer.js          # Starts dev webserver with hot reloading and opens your app in your default browser
-│   ├── startMessage.js       # Display message when development build starts
+│   ├── start.js              # Runs srcServer.js or distServer.js depending on the NODE_ENV environment variable.
 │   ├── testCi.js             # Configure Jest to run on a CI server
 ├── webpack.config.dev.js     # Configures webpack for development builds
 └── webpack.config.prod.js    # Configures webpack for production builds

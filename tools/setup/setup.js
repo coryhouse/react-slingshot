@@ -1,4 +1,5 @@
 /* eslint-disable no-var */
+var fs = require('fs');
 var rimraf = require('rimraf');
 var chalk = require('chalk');
 var replace = require("replace");
@@ -56,6 +57,31 @@ prompt.get([{name: 'deleteGit', description: "Delete the git repository?  [Y/n]"
           value: ''
         }
       ];
+
+      const envConfigurations = [
+        {
+          key: 'NODE_ENV',
+          value: 'development'
+        },
+        {
+          key: 'APP_NAME',
+          value: 'React Slingshot'
+        }
+      ];
+
+      // create .env file with default values.
+      fs.copyFile('.env.template', '.env', (err) => {
+        if (err) throw err;
+        envConfigurations.forEach(config => {
+          replace({
+            regex: new RegExp(`${config.key}=`, "g"),
+            replacement: `${config.key}=${config.value}`,
+            paths: ['.env'],
+            recursive: false,
+            silent: true
+          });
+        });
+      });
 
       // update package.json with the user's values
       responses.forEach(res => {

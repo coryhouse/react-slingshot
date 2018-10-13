@@ -2,6 +2,7 @@
 import rimraf from 'rimraf';
 import fs from 'fs';
 import {chalkSuccess} from './chalkConfig';
+import replace from 'replace';
 
 /* eslint-disable no-console */
 
@@ -69,5 +70,13 @@ pathsToRemove.map(path => {
 });
 
 removePackageJsonScriptEntry('remove-demo');
+
+replace({
+  regex: /APP_NAME=.*/,
+  replacement: `APP_NAME=`,
+  paths: ['.env'],
+  recursive: false,
+  silent: true
+});
 
 console.log(chalkSuccess('Demo app removed.'));

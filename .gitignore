@@ -38,3 +38,6 @@ dist
 
 # Mac files
 .DS_Store
+
+# Environment files
+.env
