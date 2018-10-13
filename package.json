@@ -26,7 +26,9 @@
     "test:cover:CI": "npm run test:CI -- --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "jest --watchAll",
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
-    "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
+    "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
+    "docker:up": "npm run build && npm run docker:down && docker build -t react-slingshot-image . && docker run --name react-slingshot-app -p 80:80 react-slingshot-image",
+    "docker:down": "docker stop react-slingshot-app || true && docker rm react-slingshot-app || true && docker rmi react-slingshot-image || true"
   },
   "author": "Cory House",
   "license": "MIT",
