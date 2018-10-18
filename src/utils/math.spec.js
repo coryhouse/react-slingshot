@@ -50,6 +50,14 @@ describe('Math Helper', () => {
       expect(convertToPennies(1.42)).toEqual(142);
     });
 
+    it('returns 1 when passed 0.01', () => {
+      expect(convertToPennies(0.01)).toEqual(1);
+    });
+
+    it('returns -1 when passed -0.01', () => {
+      expect(convertToPennies(-0.01)).toEqual(-1);
+    });
+
     it('returns 0 when passed 0', () => {
       expect(convertToPennies(0)).toEqual(0);
     });
