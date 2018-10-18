@@ -2,6 +2,14 @@ import {roundNumber, addArray, convertToPennies} from './math';
 
 describe('Math Helper', () => {
   describe('roundNumber', () => {
+    it('returns 0 when passed NaN', () => {
+      expect(roundNumber(NaN)).toEqual('');
+    });
+
+    it('returns 0 when passed undefined', () => {
+      expect(roundNumber(undefined)).toEqual('');
+    });
+
     it('returns 0 when passed null', () => {
       expect(roundNumber(null)).toEqual('');
     });
@@ -25,7 +33,7 @@ describe('Math Helper', () => {
     });
 
     // it('returns null when passed null', () => {
-    // 	should.not.exist(MathHelper.addArray(null));
+    //  should.not.exist(MathHelper.addArray(null));
     // });
 
     it('returns 6 when passed [2,4]', () => {
