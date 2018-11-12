@@ -238,7 +238,7 @@ Nope. Redux is useful for applications with more complex data flows. If your app
 
 If the app destination is different from the server root (`/`) you need to reconfigure `output.publicPath` in `webpack.config.prod.js` before building the app. See [webpack docs](https://webpack.js.org/configuration/output/#output-publicpath) for more information.
 
-Check out this [blog post](www.latrovacommits.com/en/2017/12/14/how-publish-dist-folder-heroku/) showing two ways of deploying to Heroku.
+Check out this [blog post](http://www.latrovacommits.com/en/2017/12/14/how-publish-dist-folder-heroku/) showing two ways of deploying to Heroku.
 
 ## Why are test files placed alongside the file under test (instead of centralized)?
 
