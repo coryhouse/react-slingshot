@@ -54,9 +54,8 @@ Why Slingshot?
 
 ## Initial Machine Setup
 
-1. **Install [Node 4.0.0 or greater](https://nodejs.org)**
+1. **Install [Node 8.0.0 or greater](https://nodejs.org)**
 
-    (5.0 or greater is recommended for optimal build performance)
     Need to run multiple versions of Node? Use [nvm](https://github.com/creationix/nvm).
 
 2. **Install [Git](https://git-scm.com/downloads)**.
