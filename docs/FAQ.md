@@ -109,7 +109,6 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 │   ├── removeDemo.js         # Remove demo app
 │   ├── srcServer.js          # Starts dev webserver with hot reloading and opens your app in your default browser
 │   ├── startMessage.js       # Display message when development build starts
-│   ├── testCi.js             # Configure Jest to run on a CI server
 ├── webpack.config.dev.js     # Configures webpack for development builds
 └── webpack.config.prod.js    # Configures webpack for production builds
 ```
