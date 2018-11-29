@@ -1,14 +1,9 @@
 // For info about this file refer to webpack and webpack-hot-middleware documentation
 // For info on how we're generating bundles with hashed filenames for cache busting: https://medium.com/@okonetchnikov/long-term-caching-of-static-assets-with-webpack-1ecb139adb95#.w99i89nsz
-import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
-
-const GLOBALS = {
-  'process.env.NODE_ENV': JSON.stringify('production'),
-  __DEV__: false
-};
+import Dotenv from 'dotenv-webpack';
 
 export default {
   resolve: {
@@ -24,8 +19,9 @@ export default {
     filename: '[name].[contenthash].js'
   },
   plugins: [
-    // Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
-    new webpack.DefinePlugin(GLOBALS),
+    new Dotenv({
+      systemvars: true
+    }),
 
     // Generate an external css file with a hash in the filename
     new MiniCssExtractPlugin({

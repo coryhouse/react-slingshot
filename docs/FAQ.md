@@ -46,6 +46,10 @@
 
 [How do I setup code coverage reporting?](#how-do-i-setup-code-coverage-reporting)
 
+[How do I use with Docker?](#how-do-i-use-with-docker)
+
+[Using Docker during development?](#using-docker-during-development)
+
 ---
 
 ## Why does this exist?
@@ -59,8 +63,9 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 | **Script**        | **Description**                                                                                                                                            |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | remove-demo       | Removes the demo application so you can begin development.                                                                                                 |
-| prestart          | Runs automatically before start to display a message.                                                                                                      |
-| start             | Runs tests, lints, starts dev webserver, and opens the app in your default browser.                                                                        |
+| start             | Runs start:dev or start:prod depending on the NODE_ENV configuration.                                                                                      |
+| start:dev         | Runs tests, lints, starts dev webserver, and opens the app in your default browser.                                                                        |
+| start:prod        | Runs build, starts production webserver, and opens the app in your default browser.                                                                        |
 | lint:tools        | Runs ESLint on build related JS files. (eslint-loader lints src files via webpack when `npm start` is run)                                                 |
 | clean-dist        | Removes everything from the dist folder.                                                                                                                   |
 | remove-dist       | Deletes the dist folder.                                                                                                                                   |
@@ -71,6 +76,8 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 | test:cover        | Runs tests as described above. Generates a HTML coverage report to ./coverage/index.html                                                                   |
 | test:cover:travis | Runs coverage as described above, however sends machine readable lcov data to Coveralls. This should only be used from the travis build!                   |
 | analyze-bundle    | Analyzes webpack bundles for production and gives you a breakdown of where modules are used and their sizes via a convenient interactive zoomable treemap. |
+| docker:up         | Build the dist folder, build the docker image, and start the docker container                                                                              |
+| docker:down       | Stop the docker container, delete the docker container, delete the docker image                                                                            |
 
 ## Can you explain the folder structure?
 
@@ -102,16 +109,18 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 │   │   ├── setup.js          # Configure project set up
 │   │   ├── setupMessage.js   # Display message when beginning set up
 │   │   └── setupPrompts.js   # Configure prompts for set up
-│   ├── build.js              # Runs the production build
+│   ├── build.js              # Builds the production build
 │   ├── chalkConfig.js        # Centralized configuration for chalk (adds color to console statements)
 │   ├── distServer.js         # Starts webserver and opens final built app that's in dist in your default browser
 │   ├── nodeVersionCheck.js   # Confirm supported Node version is installed
 │   ├── removeDemo.js         # Remove demo app
 │   ├── srcServer.js          # Starts dev webserver with hot reloading and opens your app in your default browser
-│   ├── startMessage.js       # Display message when development build starts
+│   ├── start.js              # Runs srcServer.js or distServer.js depending on the NODE_ENV environment variable.
 │   ├── testCi.js             # Configure Jest to run on a CI server
 ├── webpack.config.dev.js     # Configures webpack for development builds
-└── webpack.config.prod.js    # Configures webpack for production builds
+├── webpack.config.prod.js    # Configures webpack for production builds
+├── Dockerfile                # Configures Docker container
+└── nginx.template            # Nginx configuration used within the Docker container
 ```
 
 ## What are the dependencies in package.json used for?
@@ -344,6 +353,84 @@ You can add code coverage metrics to your `README.md` file and pull by integrati
 That's it! Travis will now execute the `npm run test:cover:travis` script after a successful build, which will write the coverage report in the standard lcov format and send it directly to Coveralls. The environment variables provided for travis jobs are used to automatically target the correct Coveralls project, as long as it is set up as described above.
 
 You can get the badge from the Coveralls website.
+
+## How do I use with Docker?
+
+The provided Dockerfile is meant to be used to mimic a production-LIKE environment. Therefore, to run the app within a Docker container the `dist` folder must first be built. Keep in mind, environment variables are set from the `.env` file at build time. The Dockerfile simply hosts the dist folder.
+
+The provided NPM commands should help get up and running with Docker.
+ 
+```
+# Build the dist folder, build the docker image, and start the docker container
+npm run docker:up
+
+# Stop the docker container, delete the docker container, delete the docker image.
+npm run docker:down
+```
+
+#### The Hosts File
+By default, the Docker image points to `http://react-slingshot.test`.  To use this or custom "domains", you must add the "domains" for your Nginx sites to the hosts file on your machine. On Mac and Linux, this file is located at `/etc/hosts`. On Windows, it is located at  `C:\Windows\System32\drivers\etc\hosts`. The lines you add to this file will look like the following:
+
+```
+127.0.0.1  react-slingshot.test
+```
+
+#### The Nginx template configuration
+
+A Nginx configuration file `nginx.template` is copied over when the docker image is built. Make sure any custom "domains" are set on the `server_name` directive, edit as needed.
+
+
+## Using Docker during development?
+
+If you want to use Docker during development, we recommend creating a new Dockerfile and using `docker-compose` for overriding the `.env` file as needed. 
+
+```docker
+# Dockerfile.dev
+
+FROM node:8.12-alpine
+
+EXPOSE 3000 3001
+
+COPY . /opt/app
+
+WORKDIR /opt/app
+
+RUN ["npm", "install", "--unsafe-perm"]
+
+ENTRYPOINT ["npm", "start"]
+```
+
+```yml
+# docker-compose.yml
+
+version: '2'
+services:
+  web:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./my-app/src:/opt/app/src
+    environment:
+      - NODE_ENV=development
+      - APP_NAME=My App name
+    ports:
+      - 3000:3000
+      - 3001:3001
+```
+
+```javascript
+// tools/srcServer.js
+
+// Use polling to watch for file changes since
+// Docker vfs doesn't support file system events
+watchOptions: {
+  aggregateTimeout: 300,
+  poll: true,
+  ignored: /node_modules/
+}
+```
 
 ## What about TypeScript?
 

@@ -1,0 +1,11 @@
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name react-slingshot.test;
+
+    location / {
+        root /opt/app;
+        try_files $uri /index /index.html /index.htm;
+    }
+}
