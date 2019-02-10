@@ -2,9 +2,26 @@
   "name": "react-slingshot",
   "version": "7.0.1",
   "description": "Starter kit for creating apps with React and Redux",
-  "engines": {
-    "node": ">=8",
-    "npm": ">=3"
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-router",
+    "hot",
+    "reload",
+    "hmr",
+    "live",
+    "edit",
+    "webpack",
+    "redux",
+    "flux",
+    "boilerplate",
+    "starter"
+  ],
+  "license": "MIT",
+  "author": "Cory House",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coryhouse/react-slingshot"
   },
   "scripts": {
     "preinstall": "node tools/nodeVersionCheck.js",
@@ -27,10 +44,9 @@
     "test:cover:CI": "npm run test:CI -- --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "jest --watchAll",
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
-    "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
+    "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
+    "rebuildNodeSass": "npm rebuild node-sass"
   },
-  "author": "Cory House",
-  "license": "MIT",
   "dependencies": {
     "connected-react-router": "4.4.1",
     "object-assign": "4.1.1",
@@ -99,24 +115,10 @@
     "webpack-dev-middleware": "3.2.0",
     "webpack-hot-middleware": "2.22.3"
   },
-  "keywords": [
-    "react",
-    "reactjs",
-    "react-router",
-    "hot",
-    "reload",
-    "hmr",
-    "live",
-    "edit",
-    "webpack",
-    "redux",
-    "flux",
-    "boilerplate",
-    "starter"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/coryhouse/react-slingshot"
+  "engines": {
+    "node": ">=8",
+    "npm": ">=3",
+    "yarn": ">=1.13.0"
   },
   "jest": {
     "moduleNameMapper": {
