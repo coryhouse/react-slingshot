@@ -23,7 +23,6 @@ _A comprehensive starter kit for rapid application development using React._
   Regardless which NodeJS package manager you prefer, React Slingshot ships ready to go with full support for both __NPM__ and __YARN__ out of the box. Tackling a new project and wanna skip the headaches we all inevitably face when setting up a fresh development environment? If you'd prefer to jump straight into development and getting down to doing what you do best; With React Slingshot, all you need to do is run one, simple command:
 
   - __NPM:__ `npm start`
-  - __YARN:__ `yarn start`
 
   Then you're good to go!
 
@@ -57,7 +56,6 @@ _A comprehensive starter kit for rapid application development using React._
   Ready to show off your finished app to the world? Running a single command:
 
   - __NPM:__ `npm run build`
-  - __YARN:__ `yarn build`
 
   _Gets you all of this:_
 
@@ -80,10 +78,6 @@ __NPM__ \
 
   * ![](https://img.shields.io/badge/dynamic/json.svg?style=flat-square&label=npm+version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcoryhouse%2Freact-slingshot%2Fmaster%2Fpackage.json&query=%24.engines.npm&colorB=orange)
 
-__YARN__ \
-  _To check your current active version of `yarn`, run `yarn -v`_
-
-  * ![](https://img.shields.io/badge/dynamic/json.svg?style=flat-square&label=yarn+version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcoryhouse%2Freact-slingshot%2Fmaster%2Fpackage.json&query=%24.engines.yarn&colorB=orange)
 
 ---
 
@@ -101,20 +95,20 @@ __YARN__ \
 3. **Run the setup script**
 
     - __NPM:__ `npm run setup`
-    - __YARN:__ `yarn setup`
 
 4. **Run the example app**
 
     - __NPM:__ `npm start -s`
-    - __YARN:__ `yarn start --silent`
 
-    This will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, this command will continue watching all your files. Every time you hit save the code is rebuilt, linting runs, and tests run automatically. Note: The `-s` and `--silent` flags are optional. It enables silent mode which suppresses unnecessary messages during the build.
+    This will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, this command will continue watching all your files. Every time you hit save the code is rebuilt, linting runs, and tests run automatically. Note: The `-s` flag is optional. It enables silent mode which suppresses unnecessary messages during the build.
 
-5. **Review the example app.**
+    _For **YARN** users, `yarn start --silent`_
+
+5. **Review the example app**
 
     This starter kit includes a working example app that calculates fuel savings. Note how all source code is placed under /src. Tests are placed alongside the file under test. The final built app is placed under /dist. These are the files you run in production.
 
-6. **Delete the example app files.**
+6. **Delete the example app files**
 
     Once you're comfortable with how the example app works, you can [delete those files and begin creating your own app](./docs/FAQ.md#i-just-want-an-empty-starter-kit).
 
@@ -162,10 +156,9 @@ __YARN__ \
 2. From within the project directory, run:
 
     - __NPM:__ `npm install`
-    - __YARN:__ `yarn`
-
 
     If you forget to do this, you'll see this: `babel-node: command not found`.
+
 3. Install the latest version of Node.
 
 4. Make sure files with names that begin with a dot (.editorconfig, .gitignore, .npmrc) are copied to the project directory root. This is easy to overlook if you copy this repository manually.
@@ -176,7 +169,7 @@ __YARN__ \
 
 7. Make sure you don't have NODE_ENV set to production on your machine. If you do then the [development dependencies won't be installed](https://github.com/coryhouse/react-slingshot/issues/400#issuecomment-290497767). Here's [how to check](http://stackoverflow.com/a/27939821/26180).
 
-8. Install watchman with `brew install watchman` if you are having the following error after an initial run of `npm start -s` or `yarn start --silent`:
+8. Install watchman with `brew install watchman` if you are having the following error after an initial run of `npm start -s`:
 
     ```bash
     2017-09-05 00:44 node[68587] (FSEvents.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-22)
@@ -190,7 +183,7 @@ __YARN__ \
         at FSEvent.FSWatcher._handle.onchange (fs.js:1406:11)
     ```
 
-9. __Tip:__ Things to check if you get an error on build or an error when running `npm run lint` or `yarn lint`:
+9. __Tip:__ Things to check if you get an error on build or an error when running `npm run lint`:
 
     * If ESW found an error or warning in your project (e.g. console statement or a missing semi-colon), the lint thread will exit with `Exit status 1`. To fix:
 
@@ -202,10 +195,9 @@ __YARN__ \
 
     * Make sure any global install you have of `eslint`/`esw` has a version that matches the version used in the project. This will ensure the `esw` keyword is resolved.
 
-10. If you are running into errors that resemble something like `Node Sass does not yet support your current environment on macOS XXX` after the initial run of `npm start -s` or `yarn start --silent`. You may need to rebuild `node-sass` before you can continue. To do so, run:
+10. If you are running into errors that resemble something like `Node Sass does not yet support your current environment on macOS XXX` after the initial run of `npm start -s`. You may need to rebuild `node-sass` before you can continue. To do so, run:
 
   - __NPM:__ `npm run rebuildNodeSass`
-  - __YARN:__ `yarn rebuildNodeSass`
 
 ---
 
