@@ -2,6 +2,7 @@
 environment:
   matrix:
   # node.js
+  - nodejs_version: "11"
   - nodejs_version: "10"
   - nodejs_version: "9"
   - nodejs_version: "8"
