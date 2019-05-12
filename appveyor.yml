@@ -1,11 +1,10 @@
 # Test against this version of Node.js
 environment:
   matrix:
-  # node.js
-  - nodejs_version: "11"
-  - nodejs_version: "10"
-  - nodejs_version: "9"
-  - nodejs_version: "8"
+    # node.js
+    - nodejs_version: "11"
+    - nodejs_version: "10"
+    - nodejs_version: "8"
 
 # Install scripts. (runs after repo cloning)
 install:
@@ -30,11 +29,11 @@ test_script:
 build: off
 
 notifications:
-- provider: Email
-  to:
-  - housecor@gmail.com
-  subject: 'Build failed: react-slingshot'
-  message: The continuous integration build failed. See https://ci.appveyor.com/project/CoryHouse/react-slingshot/ for details.
-  on_build_success: false
-  on_build_failure: true
-  on_build_status_changed: false
+  - provider: Email
+    to:
+      - housecor@gmail.com
+    subject: "Build failed: react-slingshot"
+    message: The continuous integration build failed. See https://ci.appveyor.com/project/CoryHouse/react-slingshot/ for details.
+    on_build_success: false
+    on_build_failure: true
+    on_build_status_changed: false

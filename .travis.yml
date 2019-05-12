@@ -3,7 +3,6 @@ cache: yarn
 node_js:
   - "11"
   - "10"
-  - "9"
   - "8"
 script: yarn run test:CI
 after_success:
