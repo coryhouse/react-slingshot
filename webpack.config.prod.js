@@ -12,7 +12,11 @@ const GLOBALS = {
 
 export default {
   resolve: {
-    extensions: ['*', '.js', '.jsx', '.json']
+    extensions: ['*', '.js', '.jsx', '.json'],
+    // To support react-hot-loader
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
   },
   devtool: 'source-map', // more info:https://webpack.js.org/guides/production/#source-mapping and https://webpack.js.org/configuration/devtool/
   entry: path.resolve(__dirname, 'src/index'),
