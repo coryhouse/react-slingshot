@@ -28,9 +28,9 @@ Why Slingshot?
 
     First time running the starter kit? Then complete the [Initial Machine Setup](#initial-machine-setup).
 
-2. **Clone the project**
+2. **Click "Use this template"**
 
-    `git clone https://github.com/coryhouse/react-slingshot.git`.
+    Click the green "Use this template" button at the top of this page and enter a name and description for your repo.
 
 3. **Run the setup script**
 
