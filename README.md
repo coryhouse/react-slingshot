@@ -28,7 +28,7 @@ Why Slingshot?
 
     First time running the starter kit? Then complete the [Initial Machine Setup](#initial-machine-setup).
 
-2. **CClick "Use this template"**
+2. **Click "Use this template"**
 
     Click the green "Use this template" button at the top of this page and enter a name and description for your repo.
 
