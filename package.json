@@ -147,16 +147,8 @@
       },
       "production": {
         "presets": [
-          [
             "@babel/preset-env",
-            {
-              "targets": {
-                "ie": 9
-              },
-              "forceAllTransforms": true
-            }
-          ],
-          "@babel/preset-react"
+            "@babel/preset-react"
         ],
         "plugins": [
           "@babel/plugin-transform-runtime",
