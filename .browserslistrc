@@ -1,0 +1,6 @@
+﻿# For use by Babel.
+# Run "npx browserslist" to see the list of browsers returned
+last 2 versions
+> 1%
+not dead
+maintained node versions
