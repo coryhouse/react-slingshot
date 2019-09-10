@@ -17,3 +17,4 @@
 * Matt Wigdahl ([mlwigdahl](https://github.com/mlwigdahl))
 * Nick Taylor ([nickytonline](https://github.com/nickytonline))
 * ReadmeCritic ([readmecritic](https://github.com/readmecritic))
+* Samuel Neff ([samuelneff](https://github.com/samuelneff))
