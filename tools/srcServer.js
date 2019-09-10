@@ -23,7 +23,12 @@ browserSync({
     baseDir: 'src',
 
     middleware: [
-      historyApiFallback(),
+      historyApiFallback(
+        {
+          disableDotRule: true,
+          htmlAcceptHeaders: ['text/html', 'application/xhtml+xml']
+        }
+      ),
 
       webpackDevMiddleware(bundler, {
         // Dev middleware can't access config, so we provide publicPath
