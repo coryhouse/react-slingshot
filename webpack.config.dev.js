@@ -117,7 +117,9 @@ export default {
           }, {
             loader: 'sass-loader',
             options: {
-              includePaths: [path.resolve(__dirname, 'src')],
+              sassOptions: {
+                includePaths: [path.resolve(__dirname, 'src')]
+              },
               sourceMap: true
             }
           }
