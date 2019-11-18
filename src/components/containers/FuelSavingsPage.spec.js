@@ -16,7 +16,7 @@ describe("<FuelSavingsPage />", () => {
   it("should contain <FuelSavingsForm />", () => {
     const wrapper = shallow(
       <FuelSavingsPage
-        actions={actions}
+        {...actions}
         fuelSavings={initialState.fuelSavings}
       />
     );
@@ -27,7 +27,7 @@ describe("<FuelSavingsPage />", () => {
   it("calls saveFuelSavings upon clicking save", () => {
     const wrapper = mount(
       <FuelSavingsPage
-        actions={actions}
+        {...actions}
         fuelSavings={initialState.fuelSavings}
       />
     );
@@ -43,7 +43,7 @@ describe("<FuelSavingsPage />", () => {
   it("calls calculateFuelSavings upon changing a field", () => {
     const wrapper = mount(
       <FuelSavingsPage
-        actions={actions}
+        {...actions}
         fuelSavings={initialState.fuelSavings}
       />
     );
