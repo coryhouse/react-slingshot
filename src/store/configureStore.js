@@ -14,7 +14,7 @@ function configureAppStore(initialState) {
 
   const store = configureStore({
     reducer: createRootReducer(history), // root reducer with router state,
-    initialState,
+    preloadedState: initialState,
     // customize the default middleware via options if desired
     middleware: [...getDefaultMiddleware(), reactRouterMiddleware],
     devTools: !isProduction,
