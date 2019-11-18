@@ -40,8 +40,7 @@
     "react-dom": "16.11.0",
     "react-redux": "7.1.1",
     "react-router-dom": "5.1.2",
-    "redux": "4.0.4",
-    "redux-thunk": "2.3.0"
+    "redux": "4.0.4"
   },
   "devDependencies": {
     "@babel/cli": "7.6.4",
@@ -92,7 +91,6 @@
     "raf": "3.4.1",
     "react-hot-loader": "4.12.15",
     "react-test-renderer": "16.11.0",
-    "redux-immutable-state-invariant": "2.1.0",
     "redux-mock-store": "1.5.3",
     "replace": "1.1.1",
     "rimraf": "3.0.0",
