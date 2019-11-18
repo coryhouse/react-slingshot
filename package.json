@@ -33,6 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@hot-loader/react-dom": "16.10.2",
+    "@reduxjs/toolkit": "1.0.4",
     "connected-react-router": "6.5.2",
     "object-assign": "4.1.1",
     "react": "16.11.0",
