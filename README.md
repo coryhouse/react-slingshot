@@ -8,6 +8,7 @@
 [![Build status: Windows](https://img.shields.io/appveyor/ci/coryhouse/react-slingshot/master.svg?style=flat-square)](https://ci.appveyor.com/project/coryhouse/react-slingshot/branch/master)
 [![Dependency Status](https://david-dm.org/coryhouse/react-slingshot.svg?style=flat-square)](https://david-dm.org/coryhouse/react-slingshot)
 [![Coverage Status](https://img.shields.io/coveralls/coryhouse/react-slingshot/master.svg?style=flat-square)](https://coveralls.io/github/coryhouse/react-slingshot?branch=master)
+[![run on repl.it](http://repl.it/badge/github/coryhouse/react-slingshot)](https://repl.it/github/coryhouse/react-slingshot)
 
 A comprehensive starter kit for rapid application development using React.
 
