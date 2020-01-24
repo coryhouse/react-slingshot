@@ -18,3 +18,4 @@
 * Nick Taylor ([nickytonline](https://github.com/nickytonline))
 * ReadmeCritic ([readmecritic](https://github.com/readmecritic))
 * Samuel Neff ([samuelneff](https://github.com/samuelneff))
+* Muhammad Awais ([muhammadawaisshaikh](https://github.com/muhammadawaisshaikh))
