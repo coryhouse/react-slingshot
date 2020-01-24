@@ -1,16 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
+
+import CardBox from '../shared/card-box/CardBox'
+
+const elements = [1, 2, 3, 4, 5, 6, 7, 8];
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>React Slingshot</h1>
-
-      <h2>Get Started</h2>
-      <ol>
-        <li>Review the <Link to="/fuel-savings">demo app</Link></li>
-        <li>Remove the demo and start coding: npm run remove-demo</li>
-      </ol>
+    <div> 
+      <Grid container spacing={3}>
+        {elements.map((value, index) => {
+          return (
+            <Grid item xs={3}>
+              <CardBox /> 
+            </Grid>
+          ) 
+        })}
+      </Grid>
     </div>
   );
 };
