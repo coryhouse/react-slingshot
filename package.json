@@ -52,7 +52,7 @@
     "@babel/polyfill": "7.6.0",
     "@babel/preset-env": "7.6.3",
     "@babel/preset-react": "7.6.3",
-    "acorn": "7.1.0",
+    "acorn": "7.1.1",
     "ajv": "6.10.2",
     "autoprefixer": "9.7.0",
     "babel-core": "7.0.0-bridge.0",
