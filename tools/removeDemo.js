@@ -1,38 +1,38 @@
 // This script removes demo app files
-import rimraf from "rimraf";
-import fs from "fs";
-import { chalkSuccess } from "./chalkConfig";
+import rimraf from 'rimraf';
+import fs from 'fs';
+import { chalkSuccess } from './chalkConfig';
 
 /* eslint-disable no-console */
 
 const pathsToRemove = [
-  "./src/actions/*",
-  "./src/utils",
-  "./src/components/*",
-  "./src/constants/*",
-  "./src/containers/*",
-  "./src/images",
-  "./src/reducers/*",
-  "./src/store/store.spec.js",
-  "./src/styles/*",
-  "./src/index.js",
-  "./src/types/*",
-  "./tools/removeDemo.js",
-  "./src/**/__snapshots__"
+  './src/actions/*',
+  './src/utils',
+  './src/components/*',
+  './src/constants/*',
+  './src/containers/*',
+  './src/images',
+  './src/reducers/*',
+  './src/store/store.spec.js',
+  './src/styles/*',
+  './src/index.js',
+  './src/types/*',
+  './tools/removeDemo.js',
+  './src/**/__snapshots__'
 ];
 
 const filesToCreate = [
   {
-    path: "./src/components/emptyTest.spec.js",
+    path: './src/components/emptyTest.spec.js',
     content:
-      "// Must have at least one test file in this directory or Mocha will throw an error."
+      '// Must have at least one test file in this directory or Mocha will throw an error.'
   },
   {
-    path: "./src/index.js",
-    content: "// Set up your application entry point here..."
+    path: './src/index.js',
+    content: '// Set up your application entry point here...'
   },
   {
-    path: "./src/reducers/index.js",
+    path: './src/reducers/index.js',
     content:
       "// Set up your root reducer here...\n import { combineReducers } from 'redux';\n export default combineReducers;"
   }
@@ -52,11 +52,11 @@ function createFile(file) {
 }
 
 function removePackageJsonScriptEntry(scriptName) {
-  const packageJsonPath = "./package.json";
+  const packageJsonPath = './package.json';
   let fileData = fs.readFileSync(packageJsonPath);
   let content = JSON.parse(fileData);
   delete content.scripts[scriptName];
-  fs.writeFileSync(packageJsonPath, JSON.stringify(content, null, 2) + "\n");
+  fs.writeFileSync(packageJsonPath, JSON.stringify(content, null, 2) + '\n');
 }
 
 let numPathsRemoved = 0;
@@ -71,6 +71,6 @@ pathsToRemove.map(path => {
   });
 });
 
-removePackageJsonScriptEntry("remove-demo");
+removePackageJsonScriptEntry('remove-demo');
 
-console.log(chalkSuccess("Demo app removed."));
+console.log(chalkSuccess('Demo app removed.'));
