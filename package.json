@@ -83,7 +83,7 @@
     "json-loader": "0.5.7",
     "mini-css-extract-plugin": "0.8.0",
     "mockdate": "2.0.5",
-    "node-sass": "4.13.0",
+    "node-sass": "4.13.1",
     "open-cli": "5.0.0",
     "postcss-loader": "3.0.0",
     "prompt": "1.0.0",
