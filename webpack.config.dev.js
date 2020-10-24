@@ -29,7 +29,6 @@ export default {
   plugins: [
     new HardSourceWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({     // Create HTML file that includes references to bundled CSS and JS.
       template: 'src/index.ejs',
       minify: {
@@ -109,10 +108,12 @@ export default {
           }, {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [
-                require('autoprefixer')
-              ],
-              sourceMap: true
+              postcssOptions: {
+                plugins: [
+                  require.resolve('autoprefixer')
+                ],
+                sourceMap: true
+              }
             }
           }, {
             loader: 'sass-loader',
