@@ -6,8 +6,6 @@ const {
   installSuccessMessage,
 } = require('./setupHelper');
 
-/* eslint-disable no-console */
-
 installSuccessMessage();
 
 (async () => {
