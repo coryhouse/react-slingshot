@@ -7,6 +7,8 @@ jobs:
   build:
     <<: *shareimage
     steps:
+      - checkout
+      - run: npm i
       - run: npm run lint
   test:
     <<: *shareimage
