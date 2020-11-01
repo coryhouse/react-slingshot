@@ -22,15 +22,14 @@ job:
     steps:
       - run: npm audit
 workflows:
-
   # Name the workflow "welcome"
-  #welcome:
+  welcome:
     # Run the welcome/run job in its own container
-  jobs:
-    - build
-    - test:
-        requires:
-          - build
-    - analyze:
-        requires:
-          - test
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - analyze:
+          requires:
+            - test
