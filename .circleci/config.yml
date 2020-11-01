@@ -13,10 +13,15 @@ jobs:
   test:
     <<: *shareimage
     steps:
+      - checkout
+      - run: npm i
       - run: npm run test
+
   analyze:
     <<: *shareimage
     steps:
+      - checkout
+      - run: npm i
       - run: npm audit
 workflows:
   welcome:
