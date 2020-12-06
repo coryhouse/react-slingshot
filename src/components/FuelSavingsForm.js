@@ -1,4 +1,3 @@
-import React from 'react';
 import {func} from 'prop-types';
 import FuelSavingsResults from './FuelSavingsResults';
 import FuelSavingsTextInput from './FuelSavingsTextInput';

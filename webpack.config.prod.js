@@ -3,6 +3,7 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import svgToMiniDataURI from 'mini-svg-data-uri';
 import path from 'path';
 
 const GLOBALS = {
@@ -13,10 +14,6 @@ const GLOBALS = {
 export default {
   resolve: {
     extensions: ['*', '.js', '.jsx', '.json'],
-    // To support react-hot-loader
-    alias: {
-      'react-dom': '@hot-loader/react-dom'
-    }
   },
   devtool: 'source-map', // more info:https://webpack.js.org/guides/production/#source-mapping and https://webpack.js.org/configuration/devtool/
   entry: path.resolve(__dirname, 'src/index'),
@@ -68,64 +65,57 @@ export default {
       },
       {
         test: /\.eot(\?v=\d+.\d+.\d+)?$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              name: '[name].[ext]'
-            }
-          }
-        ]
+        type: 'asset/inline',
+        generator: {
+          filename: '[name].[ext]',
+        },
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-              mimetype: 'application/font-woff',
-              name: '[name].[ext]'
-            }
-          }
-        ]
+        type: 'asset/inline',
+        generator: {
+          filename: '[name].[ext]',
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024,
+          },
+        },
       },
       {
         test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-              mimetype: 'application/octet-stream',
-              name: '[name].[ext]'
-            }
-          }
-        ]
+        type: 'asset/inline',
+        generator: {
+          filename: '[name].[ext]',
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024,
+          },
+        },
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-              mimetype: 'image/svg+xml',
-              name: '[name].[ext]'
-            }
+        type: 'asset/inline',
+        generator: {
+          filename: '[name].[ext]',
+          dataUrl: content => {
+            content = content.toString();
+            return svgToMiniDataURI(content);
           }
-        ]
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024,
+          },
+        },
       },
       {
         test: /\.(jpe?g|png|gif|ico)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]'
-            }
-          }
-        ]
+        type: 'asset/resource',
+        generator: {
+          filename: '[name].[ext]',
+        },
       },
       {
         test: /(\.css|\.scss|\.sass)$/,
@@ -139,11 +129,13 @@ export default {
           }, {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [
-                require('cssnano'),
-                require('autoprefixer'),
-              ],
-              sourceMap: true
+              postcssOptions: {
+                plugins: [
+                  require.resolve('cssnano'),
+                  require.resolve('autoprefixer'),
+                ],
+                sourceMap: true
+              }
             }
           }, {
             loader: 'sass-loader',
