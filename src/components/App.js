@@ -7,7 +7,6 @@ import HomePage from "./HomePage";
 import NotFoundPage from "./NotFoundPage";
 import PropTypes from "prop-types";
 import { Component } from "react";
-import { hot } from "react-hot-loader";
 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
@@ -40,4 +39,4 @@ App.propTypes = {
   children: PropTypes.element
 };
 
-export default hot(module)(App);
+export default App;
