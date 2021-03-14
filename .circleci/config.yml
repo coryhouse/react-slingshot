@@ -4,6 +4,6 @@ orbs:
   maven: circleci/maven@1.1
 
 workflows:
-  maven_test:
+  maven_test-01:
     jobs:
-      - maven/test
+      - maven/test-01
