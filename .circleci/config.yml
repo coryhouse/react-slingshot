@@ -22,6 +22,17 @@ jobs:
       - checkout
       - run: npm i
       - run: npm run test
+  create_infrastructure:
+    docker:
+      - image: amazon/aws-cli
+    steps:
+      - checkout
+      - run:
+          name: Ensure backend infrastructure exist
+          command: |
+            aws cloudformation deploy \
+              --template-file template.yml \
+            --stack-name my-stack
 workflows:
   deploy_jobs:
     jobs:
@@ -32,4 +43,5 @@ workflows:
       - analyze:
           requires:
             - test
+      - create_infrastructure
 
