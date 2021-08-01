@@ -22,17 +22,34 @@ jobs:
       - checkout
       - run: npm i
       - run: npm run test
-  create_infrastructure:
+  # create_infrastructure:
+  #   docker:
+  #     - image: amazon/aws-cli
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Ensure backend infrastructure exist
+  #         command: |
+  #           aws cloudformation deploy \
+  #             --template-file template.yml \
+  #           --stack-name my-stack
+
+  configure_infrastructure:
     docker:
-      - image: amazon/aws-cli
+      - image: python:3.7-alpine3.11
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints: ["64:0b:68:e0:7f:2e:93:ac:6e:8f:75:74:9a:8d:81:0a"] # You can get this ID in the section where you registered the SSH Key
       - run:
-          name: Ensure backend infrastructure exist
+          name: Install dependencies
           command: |
-            aws cloudformation deploy \
-              --template-file template.yml \
-            --stack-name my-stack
+            apk add --update ansible # install the dependencies needed for your playbook
+      - run:
+          name: Configure server
+          command: |
+            ansible-playbook -i inventory.txt playbook.yml
+
 workflows:
   deploy_jobs:
     jobs:
@@ -43,5 +60,5 @@ workflows:
       - analyze:
           requires:
             - test
-      - create_infrastructure
-
+      # - create_infrastructure
+      - configure_infrastructure
