@@ -48,7 +48,7 @@ jobs:
       - run:
           name: Configure server
           command: |
-            ansible-playbook -i inventory.txt main-remote.yml
+            ansible-playbook -i inventory.txt ./main-remote.yml
 
 workflows:
   deploy_jobs:
