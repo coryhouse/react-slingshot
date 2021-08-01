@@ -5,7 +5,7 @@ Resources:
       SecurityGroups:
         - !Ref InstanceSecurityGroup
       KeyName: udacity
-      ImageId: "ami-0de53d8956e8dcf80" # you may need to find out what instance types are available in your region - use https://cloud-images.ubuntu.com/locator/ec2/
+      ImageId: "ami-000faddeabadd52c0" # you may need to find out what instance types are available in your region - use https://cloud-images.ubuntu.com/locator/ec2/
   InstanceSecurityGroup:
     Type: "AWS::EC2::SecurityGroup"
     Properties:
