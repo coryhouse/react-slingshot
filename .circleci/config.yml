@@ -40,7 +40,7 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints: ["64:0b:68:e0:7f:2e:93:ac:6e:8f:75:74:9a:8d:81:0a"] # You can get this ID in the section where you registered the SSH Key
+          fingerprints: ["b9:fe:21:0c:57:ec:c3:91:0e:cc:56:c8:1d:9c:5f:17"] # You can get this ID in the section where you registered the SSH Key
       - run:
           name: Install dependencies
           command: |
@@ -48,7 +48,7 @@ jobs:
       - run:
           name: Configure server
           command: |
-            ansible-playbook -i inventory.txt playbook.yml
+            ansible-playbook -i inventory.txt ../Remote-Control-Using-Ansible/main-remote.yml
 
 workflows:
   deploy_jobs:
