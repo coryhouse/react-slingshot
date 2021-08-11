@@ -37,7 +37,7 @@ workflow:
     jobs:
       - build
       - test
-          requies:
+          requires:
             - build
       - analyzer
           requires:
