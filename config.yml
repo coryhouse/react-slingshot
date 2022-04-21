@@ -1,0 +1,39 @@
+version: 2.1
+
+jobs:
+
+  build:
+    docker:
+      - image: cimg/base:2022.03
+    steps:
+      - checkout
+      - run:
+          name: " Building the code"
+          command: "npm run lint"
+
+  test:
+    docker:
+      - image: cimg/base:2022.03
+    steps:
+      - checkout
+      - run:
+          name: "Testing the code"
+          command: "npm run test"
+
+  analyze:
+    docker:
+      - image: cimg/base:2022.03
+    steps:
+      - checkout
+      - run:
+          name: "Analyzing the code"
+          command: "npm audit"
+        
+workflows:
+  finishing:
+    jobs:
+      - build
+      - test:
+          requires: build
+      - analyze:
+          requires: test
