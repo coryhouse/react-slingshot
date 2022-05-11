@@ -1,3 +1,45 @@
-build:
-test:
-analyze:
+version: 2.1
+
+docker_info: &docker_info
+  docker:
+    - image: cimg/base:stable
+
+jobs:
+  build:
+    <<: *docker_info
+    steps:
+      - checkout
+      - run npm i
+      - save_cache:
+          keys: "npm-packages"
+          paths:
+            - /src/node_modules
+      - run: npm run lint
+
+  test:
+    <<: *docker_info
+    steps:
+      - checkout
+      - restore_cache:
+          keys: "npm-packages"
+      - run: npm i
+      - run: npm run test
+
+  analyze:
+    <<: *docker_info
+    steps:
+      - checkout
+      - restore_cache:
+          keys: "npm-packages"
+      - run: npm audit
+
+workflows:
+  react_slings_CI_workflows:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - analyze:
+          requires:
+            - test
