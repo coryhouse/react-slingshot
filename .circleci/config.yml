@@ -10,21 +10,21 @@ jobs:
       - image: circleci/node
     steps:
       - checkout
-      - run: npm install
+      - run: npm i
       - run: npm run lint
   test:
     docker:
       - image: circleci/node
     steps:
       - checkout
-      - run: npm install
+      - run: npm i
       - run: npm run test
   analyze:
     docker:
       - image:  circleci/node
     steps:
       - checkout
-      - run: npm install
+      - run: npm i
       - run: npm audit
 
 # Invoke jobs via workflows
