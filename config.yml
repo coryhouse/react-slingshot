@@ -32,4 +32,4 @@ workflows:
       - analyze:
           requires:
             - test
-;
+
