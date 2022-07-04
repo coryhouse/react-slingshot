@@ -44,7 +44,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      restore_cache: 
+      - restore_cache: 
           key: 
             - 'npm-packages'
       - npm_install
