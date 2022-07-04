@@ -20,7 +20,7 @@ jobs:
     steps:
       - checkout
       - npm_install
-      save_cache: 
+      - save_cache: 
           key: 'npm-packages'
           paths: 
             - /src/tools
@@ -32,7 +32,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      restore_cache: 
+      - restore_cache: 
           key: 
             - 'npm-packages'
       - npm_install
