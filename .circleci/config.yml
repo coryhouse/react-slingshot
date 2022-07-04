@@ -50,7 +50,11 @@ jobs:
       - npm_install
       - run: 
           name: analyze
-          command: npm run audit
+          command: npm audit
+      - run:
+          name: Failed Tests
+          command: echo you failed bro
+          when: on_fail
       
 
 
