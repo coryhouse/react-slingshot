@@ -3,35 +3,64 @@ version: 2.1
 
 defaults: &defaults
   docker:
-    - image: cimg/base:stable
+    - image: cimg/node:13.8.0
   working_directory: ~/project
 
 commands:
-  print_pipeline_id:
-    description: "Print pipeline ID"
-    parameters:
-      id:
-        type: string
-        default: "ID should br here bro"
+  npm_install:
+    description: "installs npm on a job"
     steps:
       - run: 
-          name: print pipeline id now
-          command: echo <<parameters.id>>
+          name: install npm
+          command: npm i
 
 jobs:
-  say-hello:
-    
-    docker:
-      - image: cimg/base:stable
-    
+  build:
+    <<: *defaults
     steps:
       - checkout
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+      - npm_install
+      save_cache: 
+          key: 'npm-packages'
+          paths: 
+            - /src/tools
+      - run: 
+          name: install npm lint
+          command: npm run lint
+  
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      restore_cache: 
+          key: 
+            - 'npm-packages'
+      - npm_install
+      - run: 
+          name: test
+          command: npm run test
+
+  analyze:
+    <<: *defaults
+    steps:
+      - checkout
+      restore_cache: 
+          key: 
+            - 'npm-packages'
+      - npm_install
+      - run: 
+          name: analyze
+          command: npm run audit
+      
 
 
 workflows:
-  say-hello-workflow:
+  react-slingshot-workflow:
     jobs:
-      - say-hello
+      - build
+      - test:
+          requires: 
+            - build
+      - analyze:
+          requires: 
+            - test
