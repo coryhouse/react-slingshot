@@ -31,3 +31,4 @@ workflows:
       - analyze:
           requires:
             - test
+            
