@@ -9,16 +9,19 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - run: npm install
       - run: npm run lint
   test:
     <<: *defaults
     steps:
       - checkout
+      - run: npm install
       - run: npm run test
   analyze:
     <<: *defaults
     steps:
       - checkout
+      - run: npm install
       - run: npm audit
 
 workflows:
@@ -31,4 +34,3 @@ workflows:
       - analyze:
           requires:
             - test
-            
