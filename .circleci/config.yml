@@ -1,0 +1,70 @@
+
+version: 2.1
+
+defaults: &defaults
+  docker:
+    - image: cimg/node:13.8.0
+  working_directory: ~/project
+
+commands:
+  npm_install:
+    description: "installs npm on a job"
+    steps:
+      - run: 
+          name: install npm
+          command: npm i
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - npm_install
+      - save_cache: 
+          key: 'npm-packages'
+          paths: 
+            - /src/tools
+      - run: 
+          name: install npm lint
+          command: npm run lint
+  
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache: 
+          keys: 
+            - 'npm-packages'
+      - npm_install
+      - run: 
+          name: test
+          command: npm run test
+
+  analyze:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache: 
+          keys: 
+            - 'npm-packages'
+      - npm_install
+      - run: 
+          name: analyze
+          command: npm audit
+      - run:
+          name: Failed Tests
+          command: echo you failed bro
+          when: on_fail
+      
+
+
+workflows:
+  react-slingshot-workflow:
+    jobs:
+      - build
+      - test:
+          requires: 
+            - build
+      - analyze:
+          requires: 
+            - test
