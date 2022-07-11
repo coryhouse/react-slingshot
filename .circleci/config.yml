@@ -20,7 +20,6 @@ jobs:
       - restore_cache:
           keys:
             - "npm-packages"
-      - run: npm i
       - run: npm run test
   analyse:
     docker:
@@ -30,7 +29,6 @@ jobs:
       - restore_cache:
           keys:
             - "npm-packages"
-      - run: npm i
       - run: npm audit
 
 workflows:
