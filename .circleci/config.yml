@@ -4,7 +4,6 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - checkout
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
