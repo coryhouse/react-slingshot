@@ -3,14 +3,14 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/node:stable
+      - image: cimg/node:18.7.0
     steps:
       - checkout
       - run: npm run lint
 
   test:
     docker:
-      - image: cimg/node:stable
+      - image: cimg/node:18.7
     steps:
       - checkout
       - run: npm run test
