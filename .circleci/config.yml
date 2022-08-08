@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circle/node:13.8.0
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - run: npm install
@@ -15,7 +15,7 @@ jobs:
 
   test:
     docker:
-      - image: circle/node:13.8.0
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
@@ -26,7 +26,7 @@ jobs:
 
   analyze:
     docker:
-      - image: circle/node:13.8.0
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - run: npm audit
