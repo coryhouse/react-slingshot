@@ -7,6 +7,10 @@ jobs:
     steps:
       - checkout
       - run: npm install
+      - save_cache:
+          key: "npm-packages"
+          paths:
+            - /src/node_modules
       - run: npm run lint
 
   test:
@@ -14,6 +18,10 @@ jobs:
       - image: cimg/node:18.7
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - "npm-packages"
+      - run: npm install
       - run: npm run test
 
   analyze:
@@ -22,6 +30,7 @@ jobs:
     steps:
       - checkout
       - run: npm audit
+
 
 workflows:
   build_stage:
