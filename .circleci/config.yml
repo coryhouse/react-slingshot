@@ -6,6 +6,7 @@ jobs:
       - image: cimg/node:18.7.0
     steps:
       - checkout
+      - run: npm install
       - run: npm run lint
 
   test:
