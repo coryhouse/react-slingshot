@@ -76,7 +76,7 @@
     "file-loader": "4.2.0",
     "hard-source-webpack-plugin": "0.13.1",
     "history": "4.10.1",
-    "html-webpack-plugin": "3.2.0",
+    "html-webpack-plugin": "5.5.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "24.9.0",
     "jest-cli": "24.9.0",
