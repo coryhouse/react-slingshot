@@ -6,7 +6,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "run build commands"
           command: "npm i"
           command: "npm run lint"
   test:
@@ -15,7 +14,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "run test commands"
           command: "npm i"
           command: "npm run test"
   analyze:
@@ -24,7 +22,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "run analyze commands"
           command: "npm audit"
 workflows:
   build-workflow:
