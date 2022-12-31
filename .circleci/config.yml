@@ -20,6 +20,7 @@ jobs:
     steps:
       - checkout 
       - run: "npm audit"
+      - run: "npm audit fix"
 workflows:
   build-workflow:
     jobs:
