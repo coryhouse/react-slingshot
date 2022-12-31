@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node
     steps:
       - checkout
       - run:
@@ -12,7 +12,7 @@ jobs:
           "npm run lint"
   test:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node
     steps:
       - checkout
       - run:
@@ -20,7 +20,7 @@ jobs:
           command: "npm run test"
   analyze:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node
     steps:
       - checkout
       - run:
