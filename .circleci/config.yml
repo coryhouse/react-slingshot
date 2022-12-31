@@ -7,9 +7,8 @@ jobs:
       - checkout
       - run:
           name: "run build commands"
-          command: |
-          "npm i"
-          "npm run lint"
+          command: "npm i"
+          command: "npm run lint"
   test:
     docker:
       - image: node:13.8.0
@@ -17,9 +16,8 @@ jobs:
       - checkout
       - run:
           name: "run test commands"
-          command: |
-          "npm i"
-          "npm run test"
+          command: "npm i"
+          command: "npm run test"
   analyze:
     docker:
       - image: node:13.8.0
