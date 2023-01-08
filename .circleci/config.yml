@@ -1,0 +1,54 @@
+version: 2.1
+
+docker_image: &docker_image
+  - image: circleci/node:13.8.0
+
+jobs:
+  build:
+    docker:
+      - <<: *docker_image
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          key: "npm-packages"
+          paths:
+            - /src/node_modules
+      - run:
+          name: Run tests
+          command: npm run lint
+  test:
+    docker:
+      - <<: *docker_image
+    steps:
+      - checkout
+      - restore_cache:
+          key: "npm-packages"
+      - run: npm install --save-dev jest
+      - run:
+          name: Run tests
+          command: npm run test
+      
+  analyze:
+    docker:
+      - <<: *docker_image
+    steps:
+      - checkout
+      - restore_cache:
+          key: "npm-packages"
+      - run:
+          name: Run tests
+          command: npm audit
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - analyze:
+          requires:
+            - test
