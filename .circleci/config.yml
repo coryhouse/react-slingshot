@@ -1,7 +1,7 @@
 version: 2.1
 
 docker_image: &docker_image
-  - image: circleci/node:latest
+  - image: circleci/node:13
 
 jobs:
   build:
