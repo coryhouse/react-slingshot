@@ -26,9 +26,11 @@ jobs:
       - checkout
       - restore_cache:
           key: "npm-packages"
+      - run: npm install --save-dev jest
       - run:
           name: Run tests
           command: npm run test
+      
   analyze:
     docker:
       - <<: *docker_image
