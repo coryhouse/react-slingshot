@@ -11,14 +11,14 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: yarn add
       - save_cache:
           key: "npm packages"
           paths:
             - /src/node_modules
       - run:
           name: Run tests
-          command: npm run lint
+          command: yarn run lint
   test:
     docker:
       - <<: *docker_image
@@ -38,7 +38,7 @@ jobs:
           key: "npm packages"
       - run:
           name: Run tests
-          command: npm audit
+          command: yarn audit
 
 workflows:
   build_and_test:
