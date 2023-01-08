@@ -13,7 +13,7 @@ jobs:
           name: Install dependencies
           command: npm install
       - save_cache:
-          key: "npm packages"
+          key: "npm-packages"
           paths:
             - /src/node_modules
       - run:
@@ -25,7 +25,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: "npm packages"
+          key: "npm-packages"
       - run:
           name: Run tests
           command: npm run test
@@ -35,7 +35,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: "npm packages"
+          key: "npm-packages"
       - run:
           name: Run tests
           command: npm audit
