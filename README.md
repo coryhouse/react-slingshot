@@ -151,4 +151,4 @@ The starter kit includes a working example app that puts all of the above to use
 ## Questions?
 
 Check out the [FAQ](./docs/FAQ.md)
-Mohamed Farh
+Mohamed Farh from ci branch
