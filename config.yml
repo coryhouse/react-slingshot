@@ -8,17 +8,17 @@ jobs:
     build:
         <<: *dockerImage
         steps:
-            - checkout
+            # - checkout
             - command: echo "build ..."
     test:
         <<: *dockerImage
         steps:
-            - checkout
+            # - checkout
             - command: echo "test ..."
     analyze:
         <<: *dockerImage
         steps:
-            - checkout
+            # - checkout
             - command: echo "analyze"
 workflows:
     appWorkFlow:
