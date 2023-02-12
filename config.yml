@@ -1,0 +1,31 @@
+version: 2.1
+
+defaults: &dockerImage
+    docker:
+        - image: cimg/base:stable
+
+jobs:
+    build:
+        <<: *dockerImage
+        steps:
+            - checkout
+            - command: echo "build ..."
+    test:
+        <<: *dockerImage
+        steps:
+            - checkout
+            - command: echo "test ..."
+    analyze:
+        <<: *dockerImage
+        steps:
+            - checkout
+            - command: echo "analyze"
+workflows:
+    appWorkFlow:
+        jobs:
+            - build
+            - test:
+                - requires:
+                    - build
+            - analyze:
+                - requires: test
