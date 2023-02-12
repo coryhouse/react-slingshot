@@ -2,7 +2,7 @@ version: 2.1
 
 defaults: &dockerImage
     docker:
-        - image: circleci/node:13.8.0
+        - image: cimg/node:19.6.0
 
 jobs:
     build:
