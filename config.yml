@@ -8,18 +8,22 @@ jobs:
     build:
         <<: *dockerImage
         steps:
-            # - checkout
-            - command: echo "build ..."
+            - checkout
+            - run: npm i
+            - run: npm run lint
+            - run: echo "build ..."
     test:
         <<: *dockerImage
         steps:
-            # - checkout
+            - checkout
+            - run: npm i
+            - run: npm run lint
             - command: echo "test ..."
     analyze:
         <<: *dockerImage
         steps:
-            # - checkout
-            - command: echo "analyze"
+            - checkout
+            - run: npm audit
 workflows:
     appWorkFlow:
         jobs:
